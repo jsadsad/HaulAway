@@ -5,11 +5,13 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 import SplashPage from './splash/splash_page';
+import SignupForm from './session/signup_form';
 
 const App = () => (
-    // <Switch>
-        <Route path="/" component={SplashPage} />
-    // </Switch>
+    <Switch>
+        <Route exact path="/" component={SplashPage} />
+        <Route exact path="/signup" component={SignupForm} />
+    </Switch>
 );
 
 export default App;
