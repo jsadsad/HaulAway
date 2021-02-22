@@ -3,32 +3,20 @@ const app = express()
 const db = require('./config/keys').mongoURI
 const mongoose = require('mongoose')
 const users = require('./routes/api/users')
-const bodyParser = require('body-parser');
-const passport = require('passport');
-const User = require('./models/User');
+const bodyParser = require('body-parser')
+const passport = require('passport')
+const User = require('./models/User')
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
-app.use(passport.initialize());
-require('./config/passport')(passport);
+app.use(passport.initialize())
+require('./config/passport')(passport)
 
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log('Connected to MongoDB successfully'))
   .catch((err) => console.log(err))
-
-// app.get("/", (req, res) => {
-//   const user = new User({
-//     firstName: "jim",
-//     lastName: "jim",
-//     email: "jim@jim.jim", 
-//     password: "jimisgreat123",
-//     phoneNumber: '123123'
-//   })
-//   user.save()
-//   res.send("Hello, World!")
-// });
 
 app.get('/', (req, res) => res.send('Hello World'))
 
