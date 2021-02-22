@@ -3,7 +3,10 @@ const app = express()
 const db = require('./config/keys').mongoURI
 const mongoose = require('mongoose')
 const users = require('./routes/api/users')
+const bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 mongoose
   .connect(db, { useNewUrlParser: true })
