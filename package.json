@@ -4,7 +4,8 @@
   "description": "user-to-user service to help with HAULING",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "server": "nodemon app.js"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "mongoose": "^5.11.17",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0",
+    "prettier": "^2.2.1",
     "validator": "^13.5.2"
   },
   "devDependencies": {
