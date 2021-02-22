@@ -4,10 +4,14 @@ const db = require('./config/keys').mongoURI
 const mongoose = require('mongoose')
 const users = require('./routes/api/users')
 const bodyParser = require('body-parser');
+const passport = require('passport');
 const User = require('./models/User');
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.use(passport.initialize());
+require('./config/passport')(passport);
 
 mongoose
   .connect(db, { useNewUrlParser: true })
