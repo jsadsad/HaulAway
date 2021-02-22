@@ -7,9 +7,9 @@ import { Switch, Route } from 'react-router-dom';
 import SplashPage from './splash/splash_page';
 
 const App = () => (
-    // <Switch>
+    <Switch>
         <Route path="/" component={SplashPage} />
-    // </Switch>
+    </Switch>
 );
 
 export default App;
