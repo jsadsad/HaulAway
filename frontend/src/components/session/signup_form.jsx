@@ -17,7 +17,6 @@ class SignupForm extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
     this.errorsOccured = this.errorsOccured.bind(this)
   }
 
@@ -35,25 +34,7 @@ class SignupForm extends React.Component {
     return e => this.setState({[field]: e.target.value})
   }
 
-  renderErrors() {
-    if (this.errorsOccured) {
-      return (
-        <ul>
-          {this.props.errors.map((error, idx) => (
-            <li key={`error-${idx}`}>
-              {' '}
-              {error}
-              <span
-                onClick={() => this.props.clearErrors()}
-              >
-                &times;
-              </span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
-  }
+
 
   errorsOccured() {
     return this.props.errors.length !== 0
@@ -66,12 +47,6 @@ class SignupForm extends React.Component {
 
         <Navbar />
 
-        {/* <header className="signup-header">
-          <div className="signup-header-wrapper">
-            <h4>I'll be a link to login form</h4>
-          </div>
-        </header> */}
-        {this.renderErrors()}
         <div className="signup-sections">
           <div className="signup-body">
             <div className="signup-form-container">
@@ -86,6 +61,9 @@ class SignupForm extends React.Component {
                     placeholder="First Name"
                     value={this.state.firstName}
                   />
+                  <div className="errors">
+                    {this.props.errors.firstName}
+                  </div>
                 </div>
                 <br />
                 <div className="signup-input-box">
@@ -95,6 +73,9 @@ class SignupForm extends React.Component {
                     placeholder="Last Name"
                     value={this.state.lastName}
                   />
+                  <div className="errors">
+                    {this.props.errors.lastName}
+                  </div>
                 </div>
                 <br />
                 <div className="signup-input-box">
@@ -104,6 +85,9 @@ class SignupForm extends React.Component {
                     placeholder="Email"
                     value={this.state.email}
                   />
+                  <div className="errors">
+                    {this.props.errors.email}
+                  </div>
                 </div>
                 <br />
                 <div className="signup-input-box">
@@ -113,6 +97,9 @@ class SignupForm extends React.Component {
                     placeholder="Password"
                     value={this.state.password}
                   />
+                  <div className="errors">
+                    {this.props.errors.password}
+                  </div>
                 </div>
                 <br/>
                 <div className="signup-input-box">
@@ -122,6 +109,9 @@ class SignupForm extends React.Component {
                     placeholder="Confirm password"
                     value={this.state.password2}
                   />
+                  <div className="errors">
+                    {this.props.errors.password2}
+                  </div>
                 </div>
                 <br />
                 <div className="signup-input-box">
@@ -130,6 +120,9 @@ class SignupForm extends React.Component {
                     type="tel"
                     placeholder="Phone number"
                   />
+                  <div className="errors">
+                    {this.props.errors.phoneNumber}
+                  </div>
                 </div>
                 <br />
                 {/* <div className="signup-input-box">

@@ -15,7 +15,6 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.loginDemo = this.loginDemo.bind(this)
-    this.renderErrors = this.renderErrors.bind(this)
     this.errorsOccured = this.errorsOccured.bind(this)
   }
 
@@ -39,26 +38,6 @@ class LoginForm extends React.Component {
     })
   }
 
-  renderErrors() {
-    if (this.errorsOccured) {
-      return (
-        <ul>
-          {this.props.errors.map((error, idx) => (
-            <li key={`error-${idx}`}>
-              {' '}
-              {error}
-              <span
-                onClick={() => this.props.clearErrors()}
-              >
-                &times;
-              </span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
-  }
-
   errorsOccured() {
     return this.props.errors.length !== 0
   }
@@ -76,7 +55,6 @@ class LoginForm extends React.Component {
         <Navbar />
 
         <div className="login-header-wrap">
-          {this.renderErrors()}
           <div className="login-sections">
             <div className="login-body">
               <div className="login-background">
@@ -95,6 +73,9 @@ class LoginForm extends React.Component {
                       placeholder="Email"
                       value={this.state.email}
                     />
+                    <div className="errors">
+                      {this.props.errors.email}
+                    </div>
                   </div>
 
                   <br />
@@ -105,16 +86,16 @@ class LoginForm extends React.Component {
                       placeholder="Password"
                       value={this.state.password}
                     />
+                    <div className="errors">
+                      {this.props.errors.password}
+                    </div>
                   </div>
                   <br />
                   <button className="login-button">Sign In</button>
+                  <button className="demo-button">Demo</button>
+                  <div className="signup-new"> <Link to="/signup" className="login-link-to-signup">Create a new account</Link></div>
                 </form>
                 <br />
-                <div className="singup-link-login-form">
-                  <button 
-                      className="demo-button">Demo</button>
-                  <div className="signup-new"> <Link to="/signup" className="login-link-to-signup">Create a new account</Link></div>
-                </div>
               </div>
             </div>
 

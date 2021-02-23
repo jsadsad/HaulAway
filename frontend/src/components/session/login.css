@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+.errors {
+    color: #c22a08;
+    font-size: 14px;
+}
+
 .login-letter {
     color: #607781;
     font-family: 'Sofia', cursive;
@@ -31,6 +36,10 @@
     text-align: center;
 }
 
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+}
 
 
 .login-body {
@@ -93,19 +102,23 @@
     text-transform: uppercase;
     border-radius: 12px 12px 12px 12px;
     position: absolute;
-    top: 60%;
-    left: 60%;
+    margin-left: 22%;
+    /* margin-top:  10%; */
 }
 
 .signup-new {
     font-size: 14px;
     color: #1FCE6D;
     position: absolute;
-    top: 60%;
-    left: 440px;
+    margin-top: 5%;
 }
 
 .login-link-to-signup {
     text-decoration: none;
     color: #1FCE6D;
+}
+
+.singup-link-login-form {
+    display: flex;
+    justify-content: space-between;
 }

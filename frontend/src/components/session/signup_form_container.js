@@ -4,7 +4,8 @@ import SignupForm from './signup_form'
 
 const mapStateToProps = ({ errors }) => {
   return {
-    errors: Object.values(errors.session),
+    // errors: Object.values(errors.session),
+    errors: errors.session
   }
 }
 
