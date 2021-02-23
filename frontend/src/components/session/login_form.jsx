@@ -1,5 +1,7 @@
 import React from 'react';
+import Navbar from '../navbar/navbar';
 import './login.css';
+import '../splash/splash.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -69,13 +71,14 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-outer-wrap">
+
+        <Navbar />
+
         <div className="login-header-wrap">
-          {/* <h2>I'm header</h2> */}
           {this.renderErrors()}
           <div className="login-sections">
             <div className="login-body">
               <div className="login-background">
-                <h3>background image</h3>
               </div>
               <div className="login-form-container">
                 <div className="login-box-letter">

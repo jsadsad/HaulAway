@@ -1,153 +1,114 @@
-body {
+* {
     margin: 0;
+    padding: 0;
 }
 
-.login-outer-wrap {
+.signup-text {
+    color: #607781;
+    font-family: 'Sofia', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    font-size: 3.6em;
+    text-align: center;
+    /* margin-bottom: 20px; */
+}
+
+/* body {
+    background: #2E3740;
+    color: #435160;
+    font-family: 'Open Sans', sans-serif;
+} */
+
+.signup-outer-wrap {
+    margin: 0 auto;
     min-width: 100%;
     overflow: hidden;
-    margin: 0;
 
     object-fit: contain;
     height: 100vh;
-    
+    color: white;
+    background: #2E3740;
 }
 
-.login-header-wrap {
-    position: relative;
-    height: 3rem;
+
+
+.signup-body {
+    height: 100%;
+    background: #2E3740;
+    color: #435160;
+    font-family: 'Open Sans', sans-serif;
 }
 
-.login-sections {
+
+.signup-sections {
     margin: 0 auto;
 }
 
-.login-form-container {
-    background-color: white;
-    max-width: 340px;
-    margin: 0 auto;
-    position: relative;
-    top: 250px;
-    padding-bottom: 30px;
-    border-radius: 5px;
-    box-shadow: 0 5px 50px rgba(0,0,0,0,4);
-    z-index: 1;
-    text-align: center;
-}
-
-.login-body {
-    padding: 0 35%;
-    position: relative;
-    border-bottom: 1px solid rgba(0, 0, 0, 0);
-    margin-bottom: 0;
-    background: 0 0;
-    columns: #fff;
-}
-
-.login-background {
-    width: 100%;
+.signup-form-box {
+    width: 350px;
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: hidden;
+    top: 20%;
+    left: 50%;
+    margin-left: -175px;
 }
 
-.login-letter {
-    font-size: 32px;
-    font-weight: 700;
-    color: white;;
-}
-.login-box-letter {
-    background-color: #665851;
-    margin-top: 0;
-    border-radius: 5px 5px 0 0;
-}
-
-.login-form-box {
-    display: block;
-    margin-top: 0em;
-    margin-bottom: 0;
-    max-width: 350px;
-    text-align: center;
-    /* background-color: rgb(216, 189, 139); */
-}
-
-.login-input-box {
-    padding-bottom: 16px;
-    max-width: 100%;
-}
-
-.login-input-email {
-    /* background: #212121; */
-    color: #fff;
-    border-radius: 3px;
-    height: 30px;
-    line-height: 30px;
-    width: 100%;
-    box-shadow: none;
-    box-sizing: border-box;
-    font-size: 18px;
-    border: 1px solid #212121;
-}
-
-.login-input-password {
-    /* background: #212121; */
-    color: #fff;
-    border-radius: 3px;
-    height: 30px;
-    line-height: 30px;
-    width: 100%;
-    box-shadow: none;
-    box-sizing: border-box;
-    font-size: 18px;
-    border: 1px solid #212121;
-}
-
-/* Need to add errors in login form with the same class name */
-.login-errors {
-    color: #e87c03;
-    font-size: 12px;
-}
-
-.login-button {
-    margin-top: 0px;
-    padding: 10px;
-    cursor: pointer;
-    text-transform: uppercase;
-    font-size: .7em;
+.signup-input-box {
+    width: 350px;
+    padding: 10px 0px;
+    background: transparent;
     border: 0;
-    background-color: #665851;
-}
+    border-bottom: 1px solid #435160;
+} 
 
-.demo-user-button {
-    display: inline-block;
-    position: relative;
-    overflow: hidden;
-    background-color: #665851;
-
-}
-
-.signup-new {
-    color: #737373;
+.signup-input-firstname  {
+    width: 350px;
+    padding: 10px 0px;
+    background: transparent;
+    border: 0;
+    color: #fff;
     font-size: 16px;
-    font-weight: 600;
-    margin-top: 16px;
+    /* border-bottom: 1px solid #435160; */
 }
 
-.signup-new:hover {
-    color:#1a73e8
+.signup-input-lastname {
+    width: 350px;
+    padding: 10px 0px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
 }
 
-.login-footer-wrap {
-    min-width: 100px;
-    font-size: 1em;
-    height: 50px;
-
-    position: relative;
+.signup-input-email {
+    width: 350px;
+    padding: 10px 0px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
 }
 
-.login-footer {
-    padding-top: 0;
-    margin: 0 auto;
-    width: 90%;
+.signup-input-password {
+    width: 350px;
+    padding: 10px 0px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.signup-input-phone {
+    width: 350px;
+    padding: 10px 0px;
+    background: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
+}
+
+.signup-button {
+    background: #1FCE6D;
+    font-size: 14.4px;
+    text-transform: uppercase;
+    border-radius: 12px 12px 12px 12px;
 }
