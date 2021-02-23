@@ -27,9 +27,9 @@ router.get(
 )
 
 router.get(
-    '/user/:user_id',
+    '/user/:poster_id',
     (req, res) => {
-        Jobs.find({user: req.params.user_id})
+        Jobs.find({jobPoster: req.params.poster_id})
         .then((jobs) => {
             res.json(jobs)
         })
@@ -81,6 +81,46 @@ router.post(
         newJob.save()
         .then((job) => {
             res.json(job)
+        })
+    }
+)
+
+router.patch(
+    '/:id',
+    (req, res) => {
+        const { errors, isValid } = validateJob(req.body)
+
+        if (!isValid) {
+            return res.status(400)
+            .json(errors)
+        }
+
+        const filter = {
+            id: req.params.id
+        }
+        const update = req.body
+
+        Job.findOneAndUpdate(filter, update, {
+            new: true
+        })
+        .then((job) => {
+            const udpatedJob = { 
+                id: job.id,
+                description: job.description,
+                pickup: job.pickup,
+                destination: job.destination,
+                jobDifficulty: job.jobDifficulty,
+                jobType: job.jobType,
+                jobStartDate: job.jobStartDate,
+                jobEndDate: job.jobEndDate,
+                jobPoster: req.user.id,
+                jobTaker: req.user.id,
+            }
+            res.json(udpatedJob)
+        })
+        .catch((error) => {
+            res.status(400)
+            .json(error)
         })
     }
 )
