@@ -1,5 +1,7 @@
 import React from 'react';
+import Navbar from '../navbar/navbar';
 import './signup.css';
+import '../splash/splash.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -61,12 +63,15 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-outer-wrap">
-        <header className="signup-header">
+
+        <Navbar />
+
+        {/* <header className="signup-header">
           <div className="signup-header-wrapper">
             <h4>I'll be a link to login form</h4>
           </div>
-        </header>
-        {/* {this.renderErrors()} */}
+        </header> */}
+        {this.renderErrors()}
         <div className="signup-sections">
           <div className="signup-body">
             <div className="signup-form-container">
@@ -135,15 +140,28 @@ class SignupForm extends React.Component {
                   />
                 </div> */}
                 <br />
-                <button className="signupt-button">Create an account</button>
+                <button className="signup-button">Cofirm</button>
               </form>
               <br />
             </div>
           </div>
 
-          {/* <div className="signupt-footer-wrap">
-            <footer className="signup-footer">I am a footer</footer>
-          </div> */}
+          <div className="splash-footer">
+            <div className="splash-footer-wrapper">
+              {/* <div className="thank you-wrap"> */}
+              <div className="thank-you">Thank you for your visit</div>
+              {/* </div> */}
+              <div className="splash-footer-info">
+                <div className="engineerd-by">Engineerd with love by:</div>
+                <div className="info-us">
+                  <a className="contact" href="https://github.com/shinara03" target="_blank">Lena</a>
+                  <a className="contact" href="https://github.com/andmitriy93" target="_blank">Dmitrii</a>
+                  <a className="contact" href="https://github.com/jsadsad" target="_blank">Josh</a>
+                  <a className="contact" href="https://github.com/kinda-dev" target="_blank">Fabio</a>
+                  </div>
+                  </div>
+                  </div>
+          </div>
         </div>
       </div>
     )

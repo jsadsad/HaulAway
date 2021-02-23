@@ -108,5 +108,7 @@
 
 .signup-button {
     background: #1FCE6D;
-    font-size: 13px;
+    font-size: 14.4px;
+    text-transform: uppercase;
+    border-radius: 12px 12px 12px 12px;
 }
