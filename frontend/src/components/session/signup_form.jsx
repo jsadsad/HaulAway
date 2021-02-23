@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+import Navbar from '../navbar/navbar';
+import './signup.css';
+import '../splash/splash.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -14,7 +17,6 @@ class SignupForm extends React.Component {
     }
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.renderErrors = this.renderErrors.bind(this);
     this.errorsOccured = this.errorsOccured.bind(this)
   }
 
@@ -32,25 +34,7 @@ class SignupForm extends React.Component {
     return e => this.setState({[field]: e.target.value})
   }
 
-  renderErrors() {
-    if (this.errorsOccured) {
-      return (
-        <ul>
-          {this.props.errors.map((error, idx) => (
-            <li key={`error-${idx}`}>
-              {' '}
-              {error}
-              <span
-                onClick={() => this.props.clearErrors()}
-              >
-                &times;
-              </span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
-  }
+
 
   errorsOccured() {
     return this.props.errors.length !== 0
@@ -60,16 +44,13 @@ class SignupForm extends React.Component {
   render() {
     return (
       <div className="signup-outer-wrap">
-        <header className="signup-header">
-          <h2>I am a header</h2>
-          <div className="signup-header-wrapper">
-            <h4>I'll be a link to signup form</h4>
-          </div>
-        </header>
-        {this.renderErrors()}
+
+        <Navbar />
+
         <div className="signup-sections">
           <div className="signup-body">
             <div className="signup-form-container">
+              <h2 className="signup-text">Register</h2>
               <form onSubmit={this.handleSubmit}
                     className="signup-form-box">
                 <br />
@@ -80,6 +61,9 @@ class SignupForm extends React.Component {
                     placeholder="First Name"
                     value={this.state.firstName}
                   />
+                  <div className="errors">
+                    {this.props.errors.firstName}
+                  </div>
                 </div>
                 <br />
                 <div className="signup-input-box">
@@ -89,6 +73,9 @@ class SignupForm extends React.Component {
                     placeholder="Last Name"
                     value={this.state.lastName}
                   />
+                  <div className="errors">
+                    {this.props.errors.lastName}
+                  </div>
                 </div>
                 <br />
                 <div className="signup-input-box">
@@ -98,6 +85,9 @@ class SignupForm extends React.Component {
                     placeholder="Email"
                     value={this.state.email}
                   />
+                  <div className="errors">
+                    {this.props.errors.email}
+                  </div>
                 </div>
                 <br />
                 <div className="signup-input-box">
@@ -107,7 +97,11 @@ class SignupForm extends React.Component {
                     placeholder="Password"
                     value={this.state.password}
                   />
+                  <div className="errors">
+                    {this.props.errors.password}
+                  </div>
                 </div>
+                <br/>
                 <div className="signup-input-box">
                   <input onChange={this.update('password2')}
                     className="signup-input-password"
@@ -115,6 +109,9 @@ class SignupForm extends React.Component {
                     placeholder="Confirm password"
                     value={this.state.password2}
                   />
+                  <div className="errors">
+                    {this.props.errors.password2}
+                  </div>
                 </div>
                 <br />
                 <div className="signup-input-box">
@@ -123,6 +120,9 @@ class SignupForm extends React.Component {
                     type="tel"
                     placeholder="Phone number"
                   />
+                  <div className="errors">
+                    {this.props.errors.phoneNumber}
+                  </div>
                 </div>
                 <br />
                 {/* <div className="signup-input-box">
@@ -133,14 +133,28 @@ class SignupForm extends React.Component {
                   />
                 </div> */}
                 <br />
-                <button className="signupt-button">Create an account</button>
+                {/* {this.renderErrors()} */}
+                <button className="signup-button">Cofirm</button>
               </form>
               <br />
             </div>
           </div>
 
-          <div className="signupt-footer-wrap">
-            <footer className="signup-footer">I am a footer</footer>
+          <div className="splash-footer">
+            <div className="splash-footer-wrapper">
+              {/* <div className="thank you-wrap"> */}
+              <div className="thank-you">Thank you for your visit</div>
+              {/* </div> */}
+              <div className="splash-footer-info">
+                <div className="engineerd-by">Engineerd with love by:</div>
+                <div className="info-us">
+                  <a className="contact" href="https://github.com/shinara03" target="_blank">Lena</a>
+                  <a className="contact" href="https://github.com/andmitriy93" target="_blank">Dmitrii</a>
+                  <a className="contact" href="https://github.com/jsadsad" target="_blank">Josh</a>
+                  <a className="contact" href="https://github.com/kinda-dev" target="_blank">Fabio</a>
+                  </div>
+                  </div>
+                  </div>
           </div>
         </div>
       </div>
