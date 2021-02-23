@@ -15,9 +15,9 @@ class LoginForm extends React.Component {
     this.errorsOccured = this.errorsOccured.bind(this)
   }
 
-  // componentWillUnmount() {
-  //   this.props.clearErrors()
-  // }
+  componentWillUnmount() {
+    this.props.clearErrors()
+  }
 
   handleField(field) {
     return (e) =>
@@ -26,6 +26,7 @@ class LoginForm extends React.Component {
       })
   }
 
+  //need to work on this again
   loginDemo(e) {
     e.preventDefault()
     this.props.loginDemo({
@@ -101,7 +102,8 @@ class LoginForm extends React.Component {
                 </form>
                 <br />
                 <div className="singup-link-login-form">
-                  <button className="demo-user-button">Demo</button>
+                  <button 
+                      className="demo-user-button">Demo</button>
                   <div className="signup-new">Create a new account</div>
                 </div>
               </div>
