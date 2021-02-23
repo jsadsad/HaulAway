@@ -3,7 +3,7 @@
     padding: 0;
 }
 
-.signup-text {
+.login-letter {
     color: #607781;
     font-family: 'Sofia', cursive;
     font-size: 30px;
@@ -19,7 +19,7 @@
     font-family: 'Open Sans', sans-serif;
 } */
 
-.signup-outer-wrap {
+.login-outer-wrap {
     margin: 0 auto;
     min-width: 100%;
     overflow: hidden;
@@ -28,31 +28,33 @@
     height: 100vh;
     color: white;
     background: #2E3740;
+    text-align: center;
 }
 
 
 
-.signup-body {
+.login-body {
     height: 100%;
     background: #2E3740;
     color: #435160;
     font-family: 'Open Sans', sans-serif;
+    margin-top: 100px;
 }
 
 
-.signup-sections {
+.login-sections {
     margin: 0 auto;
 }
 
-.signup-form-box {
+.login-form-box {
     width: 350px;
     position: absolute;
-    top: 20%;
+    top: 30%;
     left: 50%;
     margin-left: -175px;
 }
 
-.signup-input-box {
+.login-input-box {
     width: 350px;
     padding: 10px 0px;
     background: transparent;
@@ -60,17 +62,7 @@
     border-bottom: 1px solid #435160;
 } 
 
-.signup-input-firstname  {
-    width: 350px;
-    padding: 10px 0px;
-    background: transparent;
-    border: 0;
-    color: #fff;
-    font-size: 16px;
-    /* border-bottom: 1px solid #435160; */
-}
-
-.signup-input-lastname {
+.login-input-email {
     width: 350px;
     padding: 10px 0px;
     background: transparent;
@@ -79,7 +71,7 @@
     font-size: 16px;
 }
 
-.signup-input-email {
+.login-input-password {
     width: 350px;
     padding: 10px 0px;
     background: transparent;
@@ -88,27 +80,32 @@
     font-size: 16px;
 }
 
-.signup-input-password {
-    width: 350px;
-    padding: 10px 0px;
-    background: transparent;
-    border: 0;
-    color: #fff;
-    font-size: 16px;
-}
-
-.signup-input-phone {
-    width: 350px;
-    padding: 10px 0px;
-    background: transparent;
-    border: 0;
-    color: #fff;
-    font-size: 16px;
-}
-
-.signup-button {
+.login-button {
     background: #1FCE6D;
     font-size: 14.4px;
     text-transform: uppercase;
     border-radius: 12px 12px 12px 12px;
+}
+
+.demo-button {
+    background: #1FCE6D;
+    font-size: 14.4px;
+    text-transform: uppercase;
+    border-radius: 12px 12px 12px 12px;
+    position: absolute;
+    top: 60%;
+    left: 60%;
+}
+
+.signup-new {
+    font-size: 14px;
+    color: #1FCE6D;
+    position: absolute;
+    top: 60%;
+    left: 440px;
+}
+
+.login-link-to-signup {
+    text-decoration: none;
+    color: #1FCE6D;
 }
