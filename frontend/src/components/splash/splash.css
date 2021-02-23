@@ -2,27 +2,6 @@ body {
   margin: 0;
 }
 
-button {
-  color: white;
-  background-color: rgb(17, 185, 17);
-  font-weight: bold;
-  border-radius: 12px 12px 12px 12px;
-  font-size: 14.4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 4px;
-  cursor: pointer;
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  text-decoration-line: none;
-  text-decoration-color: white;
-  text-decoration-style: solid;
-  text-decoration-thickness: auto;
-  border: 0;
-  box-shadow: none;
-}
-
 .splash-page {
   min-width: 100%;
   overflow: hidden;
@@ -30,69 +9,9 @@ button {
 
   object-fit: contain;
   height: 100vh;
-}
-
-.splash-header {
-  position: relative;
-}
-
-.splash-header-wrapper {
-  background-color: transparent;
-  position: relative;
-  /* max-width: 1920px; */
-  /* margin: 0 auto; */
-  padding-top: 20px;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 5rem;
-
-  z-index: 10;
-  display: flex;
-  justify-content: space-between;
-}
-
-.splash-signup-wrap {
-  display: flex;
-  margin-left: 30px;
-  max-height: 40px;
-}
-
-.splash-signup-wrap:hover .splash-signup-button {
-  background-color: white;
-  color: rgb(17, 185, 17);
-}
-
-.splash-login-buttons-wrap {
-  display: flex;
-  margin-right: 30px;
-  height: 100%;
-}
-
-.splash-demo-login-wrap .splash-login-wrap {
-  display: flex;
-  min-height: 40px;
-}
-
-.splash-demo-login-wrap:hover .splash-demo-login {
-  background-color: white;
-  color: rgb(17, 185, 17);
-}
-
-.splash-login-wrap:hover .splash-login-button {
-  background-color: white;
-  color: rgb(17, 185, 17);
-}
-
-.splash-login-button {
-  margin-left: 10px;
-  height: 40px;
-}
-
-.splash-demo-login {
-  height: 40px;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
 }
 
 .splash-body {
@@ -142,20 +61,79 @@ button {
 
 .splash-haulaway-text-logo {
   font-family: 'Pacifico', cursive;
-  font-size: 100px;
+  font-size: 9vh;
   margin: 0;
 }
 
 .splash-slogan {
   font-family: 'Montserrat', sans-serif;
+  font-size: 2.5vh;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .splash-little-motivation {
   font-family: 'Montserrat', sans-serif;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .center-pixel {
   top: 50%;
   left: 50%;
   position: absolute;
+}
+
+.splash-footer {
+  position: absolute;
+  display: flex;
+  padding-right: 30px;
+  padding-left: 30px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding-bottom: 20px;
+  justify-content: center;
+}
+
+.splash-footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  position: relative;
+  /* max-width: 1920px; */
+  /* margin: 0 auto; */
+  top: 0;
+  /* left: 0; */
+  /* right: 0; */
+  width: 100%;
+
+  z-index: 10;
+  /* display: flex;
+  justify-content: space-between; */
+}
+
+.thank-you {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.splash-footer-info {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.engineerd-by {
+  padding-right: 10px;
+}
+
+.info-us {
+  display: flex;
+  flex-direction: column;
+}
+.contact {
+  /* text-decoration: none; */
+  color: white;
 }

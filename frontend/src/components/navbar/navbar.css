@@ -1,0 +1,83 @@
+button {
+  color: white;
+  background-color: rgb(17, 185, 17);
+  font-weight: bold;
+  border-radius: 12px 12px 12px 12px;
+  font-size: 14.4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  cursor: pointer;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-decoration-line: none;
+  text-decoration-color: white;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+  border: 0;
+  box-shadow: none;
+}
+
+.navbar {
+  position: relative;
+}
+
+.navbar-wrapper {
+  background-color: transparent;
+  position: relative;
+  /* max-width: 1920px; */
+  /* margin: 0 auto; */
+  padding-top: 20px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5rem;
+
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-signup-wrap {
+  display: flex;
+  margin-left: 30px;
+  max-height: 40px;
+}
+
+.navbar-signup-wrap:hover .navbar-signup-button {
+  background-color: white;
+  color: rgb(17, 185, 17);
+}
+
+.navbar-login-buttons-wrap {
+  display: flex;
+  margin-right: 30px;
+  height: 100%;
+}
+
+.navbar-demo-login-wrap .navbar-login-wrap {
+  display: flex;
+  min-height: 40px;
+}
+
+.navbar-demo-login-wrap:hover .navbar-demo-login {
+  background-color: white;
+  color: rgb(17, 185, 17);
+}
+
+.navbar-login-wrap:hover .navbar-login-button {
+  background-color: white;
+  color: rgb(17, 185, 17);
+}
+
+.navbar-login-button {
+  margin-left: 10px;
+  height: 40px;
+}
+
+.navbar-demo-login {
+  height: 40px;
+}
