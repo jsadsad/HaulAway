@@ -1,0 +1,161 @@
+body {
+  margin: 0;
+}
+
+button {
+  color: white;
+  background-color: rgb(17, 185, 17);
+  font-weight: bold;
+  border-radius: 12px 12px 12px 12px;
+  font-size: 14.4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  cursor: pointer;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-decoration-line: none;
+  text-decoration-color: white;
+  text-decoration-style: solid;
+  text-decoration-thickness: auto;
+  border: 0;
+  box-shadow: none;
+}
+
+.splash-page {
+  min-width: 100%;
+  overflow: hidden;
+  margin: 0;
+
+  object-fit: contain;
+  height: 100vh;
+}
+
+.splash-header {
+  position: relative;
+}
+
+.splash-header-wrapper {
+  background-color: transparent;
+  position: relative;
+  /* max-width: 1920px; */
+  /* margin: 0 auto; */
+  padding-top: 20px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 5rem;
+
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+}
+
+.splash-signup-wrap {
+  display: flex;
+  margin-left: 30px;
+  max-height: 40px;
+}
+
+.splash-signup-wrap:hover .splash-signup-button {
+  background-color: white;
+  color: rgb(17, 185, 17);
+}
+
+.splash-login-buttons-wrap {
+  display: flex;
+  margin-right: 30px;
+  height: 100%;
+}
+
+.splash-demo-login-wrap .splash-login-wrap {
+  display: flex;
+  min-height: 40px;
+}
+
+.splash-demo-login-wrap:hover .splash-demo-login {
+  background-color: white;
+  color: rgb(17, 185, 17);
+}
+
+.splash-login-wrap:hover .splash-login-button {
+  background-color: white;
+  color: rgb(17, 185, 17);
+}
+
+.splash-login-button {
+  margin-left: 10px;
+  height: 40px;
+}
+
+.splash-demo-login {
+  height: 40px;
+}
+
+.splash-body {
+  position: relative;
+
+  margin-bottom: 0;
+  /* background: 0 0; */
+  color: #fff;
+  display: flex;
+}
+
+.splash-background {
+  top: -100px;
+  width: 1920px;
+  /* height: 1080px; */
+  /* min-width: 100vh; */
+  /* min-width: 100%; */
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  background-size: cover;
+  filter: brightness(0.6);
+}
+
+.splash-text-wrap {
+  min-height: 660px;
+  padding: 60px 68px 40px;
+  margin-bottom: 90px;
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 380px;
+  justify-content: center;
+  z-index: 1;
+
+  position: relative;
+  text-align: center;
+  align-items: center;
+  /* font-weight: bolder; */
+}
+
+.splash-haulaway-text-logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 100px;
+  margin: 0;
+}
+
+.splash-slogan {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.splash-little-motivation {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.center-pixel {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+}
