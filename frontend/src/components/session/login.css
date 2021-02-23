@@ -1,0 +1,153 @@
+body {
+    margin: 0;
+}
+
+.login-outer-wrap {
+    min-width: 100%;
+    overflow: hidden;
+    margin: 0;
+
+    object-fit: contain;
+    height: 100vh;
+    
+}
+
+.login-header-wrap {
+    position: relative;
+    height: 3rem;
+}
+
+.login-sections {
+    margin: 0 auto;
+}
+
+.login-form-container {
+    background-color: white;
+    max-width: 340px;
+    margin: 0 auto;
+    position: relative;
+    top: 250px;
+    padding-bottom: 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 50px rgba(0,0,0,0,4);
+    z-index: 1;
+    text-align: center;
+}
+
+.login-body {
+    padding: 0 35%;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0);
+    margin-bottom: 0;
+    background: 0 0;
+    columns: #fff;
+}
+
+.login-background {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+}
+
+.login-letter {
+    font-size: 32px;
+    font-weight: 700;
+    color: white;;
+}
+.login-box-letter {
+    background-color: #665851;
+    margin-top: 0;
+    border-radius: 5px 5px 0 0;
+}
+
+.login-form-box {
+    display: block;
+    margin-top: 0em;
+    margin-bottom: 0;
+    max-width: 350px;
+    text-align: center;
+    /* background-color: rgb(216, 189, 139); */
+}
+
+.login-input-box {
+    padding-bottom: 16px;
+    max-width: 100%;
+}
+
+.login-input-email {
+    /* background: #212121; */
+    color: #fff;
+    border-radius: 3px;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-size: 18px;
+    border: 1px solid #212121;
+}
+
+.login-input-password {
+    /* background: #212121; */
+    color: #fff;
+    border-radius: 3px;
+    height: 30px;
+    line-height: 30px;
+    width: 100%;
+    box-shadow: none;
+    box-sizing: border-box;
+    font-size: 18px;
+    border: 1px solid #212121;
+}
+
+/* Need to add errors in login form with the same class name */
+.login-errors {
+    color: #e87c03;
+    font-size: 12px;
+}
+
+.login-button {
+    margin-top: 0px;
+    padding: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: .7em;
+    border: 0;
+    background-color: #665851;
+}
+
+.demo-user-button {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background-color: #665851;
+
+}
+
+.signup-new {
+    color: #737373;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 16px;
+}
+
+.signup-new:hover {
+    color:#1a73e8
+}
+
+.login-footer-wrap {
+    min-width: 100px;
+    font-size: 1em;
+    height: 50px;
+
+    position: relative;
+}
+
+.login-footer {
+    padding-top: 0;
+    margin: 0 auto;
+    width: 90%;
+}

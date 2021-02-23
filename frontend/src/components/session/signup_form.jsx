@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './signup.css';
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -61,15 +62,15 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-outer-wrap">
         <header className="signup-header">
-          <h2>I am a header</h2>
           <div className="signup-header-wrapper">
-            <h4>I'll be a link to signup form</h4>
+            <h4>I'll be a link to login form</h4>
           </div>
         </header>
-        {this.renderErrors()}
+        {/* {this.renderErrors()} */}
         <div className="signup-sections">
           <div className="signup-body">
             <div className="signup-form-container">
+              <h2 className="signup-text">Register</h2>
               <form onSubmit={this.handleSubmit}
                     className="signup-form-box">
                 <br />
@@ -108,6 +109,7 @@ class SignupForm extends React.Component {
                     value={this.state.password}
                   />
                 </div>
+                <br/>
                 <div className="signup-input-box">
                   <input onChange={this.update('password2')}
                     className="signup-input-password"
@@ -139,9 +141,9 @@ class SignupForm extends React.Component {
             </div>
           </div>
 
-          <div className="signupt-footer-wrap">
+          {/* <div className="signupt-footer-wrap">
             <footer className="signup-footer">I am a footer</footer>
-          </div>
+          </div> */}
         </div>
       </div>
     )

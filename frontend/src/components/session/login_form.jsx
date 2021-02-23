@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './login.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -69,13 +70,17 @@ class LoginForm extends React.Component {
     return (
       <div className="login-outer-wrap">
         <div className="login-header-wrap">
-          <h2>I'm header</h2>
+          {/* <h2>I'm header</h2> */}
           {this.renderErrors()}
           <div className="login-sections">
             <div className="login-body">
-              <div className="login-background">I'm a background</div>
+              <div className="login-background">
+                <h3>background image</h3>
+              </div>
               <div className="login-form-container">
-                <h2 className="login-letter">Log In</h2>
+                <div className="login-box-letter">
+                  <h2 className="login-letter">Log In</h2>
+                </div>
                 <form onSubmit={this.handleSubmit}
                    className="login-form-box">
                   <br />
@@ -109,9 +114,9 @@ class LoginForm extends React.Component {
               </div>
             </div>
 
-            <div className="login-footer-wrap">
+            {/* <div className="login-footer-wrap">
               <footer className="login-footer">I'm a footer</footer>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
