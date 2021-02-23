@@ -1,0 +1,76 @@
+.job-post-outer {
+    /* align-items: center; */
+    text-align: center;
+    /* margin: 0 auto; */
+    height: 100vh;
+}
+
+.job-post-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.job-post-form {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    /* width: 100%; */
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 15%;
+    border: 1px solid;
+
+}
+
+.job-post-text {
+    margin-bottom: 15px;
+    font-family: 'Sofia', cursive;
+    font-size: 30px;
+    font-weight: bold;
+    font-size: 3.6em;
+    text-align: center;
+    /* border: 1px solid; */
+}
+
+.job-post-box {
+    width: 350px;
+    padding: 10px 0px;
+    /* background: transparent; */
+    border: 1px;
+}
+
+.job-post-input-desc {
+    width: 350px;
+    padding: 5px 0px;
+    background: transparent;
+    /* border: 0; */
+    color: #212121;
+    font-size: 16px;
+    text-align: center;
+}
+
+.job-post-input-count {
+    width: 100px;
+    padding: 5px 0px;
+    background: transparent;
+    /* border: 0; */
+    color: #212121;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+
+.job-post-upload-btn {
+
+}
+
+.job-post-lvl-btn {
+    width: 396px;
+    display: flex;
+    margin-left: 32%;
+    justify-content: space-between;
+}
