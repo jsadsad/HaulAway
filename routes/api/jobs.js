@@ -60,7 +60,7 @@ router.post(
     passport.authenticate('jwt', { session: false }),
     (req, res) => {
         const { errors, isValid } = validateJob(req.body)
-        
+
         if (!isValid) {
             return res.status(400)
             .json(errors)

@@ -18,7 +18,7 @@ module.exports = function validateJob(data) {
     }
 
     if (!Validator.isLength(data.description, { min: 30 })) {
-        errors.description = 'Description must be at least 10 characters';
+        errors.description = 'Description must be at least 30 characters';
     }
 
     if (Validator.isEmpty(data.pickup)) {
@@ -33,6 +33,10 @@ module.exports = function validateJob(data) {
         errors.jobType = 'Job type is required';
     }
 
+    if (Validator.isEmpty(data.jobDifficulty)) {
+        errors.jobDifficulty = 'Job difficulty is required';
+    }
+
     if (Validator.isEmpty(data.jobStartDate)) {
         errors.jobStartDate = 'Start date is required';
     }
@@ -40,6 +44,8 @@ module.exports = function validateJob(data) {
     if (Validator.isEmpty(data.jobEndDate)) {
         errors.jobEndDate = 'End is required';
     }
+
+    return { errors, isValid: Object.keys(errors).length === 0 }
 
 }
 
