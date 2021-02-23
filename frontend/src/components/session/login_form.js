@@ -3,19 +3,21 @@ import React from 'react'
 class LoginForm extends React.Component {
   constructor(props) {
     super(props)
+
     this.state = {
       email: '',
       password: '',
     }
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.loginDemo = this.loginDemo.bind(this)
     this.renderErrors = this.renderErrors.bind(this)
     this.errorsOccured = this.errorsOccured.bind(this)
   }
 
-  componentWillUnmount() {
-    this.props.clearErrors()
-  }
+  // componentWillUnmount() {
+  //   this.props.clearErrors()
+  // }
 
   handleField(field) {
     return (e) =>
@@ -36,12 +38,11 @@ class LoginForm extends React.Component {
     if (this.errorsOccured) {
       return (
         <ul>
-          {this.props.errors.session.map((error, idx) => (
-            <li className="session-error alert-error" key={`error-${idx}`}>
+          {this.props.errors.map((error, idx) => (
+            <li key={`error-${idx}`}>
               {' '}
               {error}
               <span
-                className="close-btn"
                 onClick={() => this.props.clearErrors()}
               >
                 &times;
@@ -54,7 +55,7 @@ class LoginForm extends React.Component {
   }
 
   errorsOccured() {
-    this.props.errors.session.length !== 0
+    return this.props.errors.length !== 0
   }
 
   handleSubmit(e) {
@@ -68,27 +69,31 @@ class LoginForm extends React.Component {
       <div className="login-outer-wrap">
         <div className="login-header-wrap">
           <h2>I'm header</h2>
+          {this.renderErrors()}
           <div className="login-sections">
             <div className="login-body">
               <div className="login-background">I'm a background</div>
               <div className="login-form-container">
                 <h2 className="login-letter">Log In</h2>
-                <form className="login-form-box">
+                <form onSubmit={this.handleSubmit}
+                   className="login-form-box">
                   <br />
                   <div className="login-input-box">
-                    <input
+                    <input onChange={this.handleField('email')}
                       className="login-input-email"
                       type="text"
                       placeholder="Email"
+                      value={this.state.email}
                     />
                   </div>
 
                   <br />
                   <div className="login-input-box">
-                    <input
+                    <input onChange={this.handleField('password')}
                       className="login-input-password"
                       type="password"
                       placeholder="Password"
+                      value={this.state.password}
                     />
                   </div>
                   <br />

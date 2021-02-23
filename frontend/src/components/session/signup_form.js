@@ -3,6 +3,35 @@ import React from 'react'
 class SignupForm extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      firstName: '', 
+      lastName: '', 
+      phoneNumber: '',
+      email: '',
+      password: '',
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderError = this.renderError.bind(this);
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    const user = Object.assign({}, this.state);
+    this.props.processForm(user);
+  }
+
+  update(field) {
+    return e => this.setState({[field]: e.target.value})
+  }
+
+  renderError() {
+    let errors = this.props.errors.map((error,idx) => {
+      return <p key={idx}>{error}</p> 
+    })
+
+    return errors;
   }
 
   render() {
