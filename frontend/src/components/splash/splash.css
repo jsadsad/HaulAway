@@ -131,7 +131,7 @@ button {
   box-sizing: border-box;
   width: 100%;
   min-width: 380px;
-
+  justify-content: center;
   z-index: 1;
 
   position: relative;
@@ -141,17 +141,17 @@ button {
 }
 
 .splash-haulaway-text-logo {
-  font-family: "Pacifico", cursive;
+  font-family: 'Pacifico', cursive;
   font-size: 100px;
   margin: 0;
 }
 
 .splash-slogan {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .splash-little-motivation {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .center-pixel {
