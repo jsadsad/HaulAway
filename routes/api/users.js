@@ -1,98 +1,112 @@
 const express = require('express')
 const router = express.Router()
-const bcrypt = require('bcryptjs');
-const User = require('../../models/User');
-const jwt = require('jsonwebtoken');
-const keys = require('../../config/keys');
-const passport = require('passport');
-const validateRegisterInput = require('../../validation/register');
-const validateLoginInput = require('../../validation/login');
+const bcrypt = require('bcryptjs')
+const User = require('../../models/User')
+const jwt = require('jsonwebtoken')
+const keys = require('../../config/keys')
+const passport = require('passport')
+
+const validateRegisterInput = require('../../validation/register')
+const validateLoginInput = require('../../validation/login')
 
 router.get('/test', (req, res) => res.json({ msg: 'This is the users route' }))
 
-router.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
-  res.json({
-    id: req.user.id,
-    email: req.user.email
-  });
-})
+router.get(
+  '/current',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    res.json({
+      id: req.user.id,
+      email: req.user.email,
+    })
+  }
+)
 
-//register
 router.post('/register', (req, res) => {
-  const { errors, isValid } = validateRegisterInput(req.body);
+  const { errors, isValid } = validateRegisterInput(req.body)
 
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.status(400).json(errors)
   }
 
-  User.findOne({ email: req.body.email }).then(user => {
+  User.findOne({ email: req.body.email }).then((user) => {
     if (user) {
-      errors.email = "Email already exists";
-      return res.status(400).json(errors);
+      errors.email = 'Email already exists'
+      return res.status(400).json(errors)
     } else {
       const newUser = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
         phoneNumber: req.body.phoneNumber,
-        password: req.body.password
-      });
+        password: req.body.password,
+      })
 
       bcrypt.genSalt(10, (err, salt) => {
         bcrypt.hash(newUser.password, salt, (err, hash) => {
-          if (err) throw err;
-          newUser.password = hash;
+          if (err) throw err
+          newUser.password = hash
           newUser
             .save()
-            .then(user => {
-              const payload = { id: user.id, email: user.email };
+            .then((user) => {
+              const payload = { id: user.id, email: user.email }
 
-              jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-                res.json({
-                  success: true,
-                  token: "Bearer " + token
-                });
-              });
+              jwt.sign(
+                payload,
+                keys.secretOrKey,
+                { expiresIn: 3600 },
+                (err, token) => {
+                  res.json({
+                    success: true,
+                    token: 'Bearer ' + token,
+                  })
+                }
+              )
             })
-            .catch(err => console.log(err));
-        });
-      });
+            .catch((err) => console.log(err))
+        })
+      })
     }
-  });
-});
+  })
+})
 
 router.post('/login', (req, res) => {
-  const { errors, isValid } = validateLoginInput(req.body);
+  const { errors, isValid } = validateLoginInput(req.body)
 
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.status(400).json(errors)
   }
 
-  const email = req.body.email;
-  const password = req.body.password;
+  const email = req.body.email
+  const password = req.body.password
 
-  User.findOne({ email }).then(user => {
+  User.findOne({ email }).then((user) => {
     if (!user) {
-      errors.email = "This email does not exist";
-      return res.status(400).json(errors);
+      errors.email = 'This email does not exist'
+      return res.status(400).json(errors)
     }
 
-    bcrypt.compare(password, user.password).then(isMatch => {
+    bcrypt.compare(password, user.password).then((isMatch) => {
       if (isMatch) {
-        const payload = { id: user.id, email: user.email };
+        const payload = { id: user.id, email: user.email }
 
-        jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
-          res.json({
-            success: true,
-            token: "Bearer " + token
-          });
-        });
+        jwt.sign(
+          payload,
+          keys.secretOrKey,
+          { expiresIn: 3600 },
+          (err, token) => {
+            res.json({
+              success: true,
+              token: 'Bearer ' + token,
+            })
+          }
+        )
       } else {
-        errors.password = "Incorrect password";
-        return res.status(400).json(errors);
+        errors.password = 'Incorrect password'
+        return res.status(400).json(errors)
       }
-    });
-  });
-});
+    })
+  })
+})
 
 module.exports = router
