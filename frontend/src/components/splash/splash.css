@@ -29,6 +29,7 @@ button {
   margin: 0;
 
   object-fit: contain;
+  height: 100vh;
 }
 
 .splash-header {
@@ -135,6 +136,7 @@ button {
 
   position: relative;
   text-align: center;
+  align-items: center;
   /* font-weight: bolder; */
 }
 

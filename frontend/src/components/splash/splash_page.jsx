@@ -21,11 +21,13 @@ const SplashPage = () => {
 
                 <div className="splash-body">
                     <img className="splash-background" src="https://haul-seeds.s3-us-west-1.amazonaws.com/ha-1.jpg" alt="background"/>
+                    {/* <div className="splah-body-inner-wrap"> */}
                     <div className="splash-text-wrap">
                         <h1 className="splash-haulaway-text-logo">HaulAway</h1>
                         <h2 className="splash-slogan">Hauling Reinvented</h2>
-                        <h4 className="splash-little-motivation">Technology for Humans, by Humans</h4>
+                        <h4 className="splash-little-motivation">[ Technology for Humans, by Humans ]</h4>
                     </div>
+                    {/* </div> */}
                     <div className="center-pixel"></div>
                 </div>
         </div>
