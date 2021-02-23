@@ -4,6 +4,7 @@ import usershow from './usershow.css';
 
 class UserShow extends React.Component {
   render() {
+
     return(
        <div className='user-show-page'>
         <NavBar/>

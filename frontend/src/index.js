@@ -7,6 +7,7 @@ import { setAuthToken } from './util/session_api_util'
 import { createStore } from 'redux'
 
 import { signup, login, logout } from './actions/session_actions'
+import * as userutil from './util/session_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store
@@ -39,4 +40,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.login = login
   window.signup = signup
   window.logout = logout
+  window.userutil = userutil
 })
