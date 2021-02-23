@@ -1,21 +1,77 @@
-import React from "react";
+import React from 'react'
 
 class LoginForm extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+      email: '',
+      password: '',
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.loginDemo = this.loginDemo.bind(this)
+    this.renderErrors = this.renderErrors.bind(this)
+    this.errorsOccured = this.errorsOccured.bind(this)
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors()
+  }
+
+  handleField(field) {
+    return (e) =>
+      this.setState({
+        [field]: e.currentTarget.value,
+      })
+  }
+
+  loginDemo(e) {
+    e.preventDefault()
+    this.props.loginDemo({
+      email: 'ha2@gmail.com',
+      password: '123456',
+    })
+  }
+
+  renderErrors() {
+    if (this.errorsOccured) {
+      return (
+        <ul>
+          {this.props.errors.session.map((error, idx) => (
+            <li className="session-error alert-error" key={`error-${idx}`}>
+              {' '}
+              {error}
+              <span
+                className="close-btn"
+                onClick={() => this.props.clearErrors()}
+              >
+                &times;
+              </span>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  }
+
+  errorsOccured() {
+    this.props.errors.session.length !== 0
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const user = Object.assign({}, this.state)
+    this.props.processForm(user)
   }
 
   render() {
     return (
       <div className="login-outer-wrap">
-
         <div className="login-header-wrap">
           <h2>I'm header</h2>
           <div className="login-sections">
             <div className="login-body">
               <div className="login-background">I'm a background</div>
               <div className="login-form-container">
-
                 <h2 className="login-letter">Log In</h2>
                 <form className="login-form-box">
                   <br />
@@ -29,30 +85,31 @@ class LoginForm extends React.Component {
 
                   <br />
                   <div className="login-input-box">
-                      <input className="login-input-password" type="password" placeholder="Password"/>
+                    <input
+                      className="login-input-password"
+                      type="password"
+                      placeholder="Password"
+                    />
                   </div>
-                  <br/>
+                  <br />
                   <button className="login-button">Sign In</button>
-
                 </form>
-                <br/>
+                <br />
                 <div className="singup-link-login-form">
-                    <button className="demo-user-button">Demo</button>
-                    <div className="signup-new">Create a new account</div>
+                  <button className="demo-user-button">Demo</button>
+                  <div className="signup-new">Create a new account</div>
                 </div>
-
               </div>
             </div>
 
             <div className="login-footer-wrap">
-                <footer className="login-footer">I'm a footer</footer>
+              <footer className="login-footer">I'm a footer</footer>
             </div>
-
           </div>
         </div>
       </div>
-    );
+    )
   }
 }
 
-export default LoginForm;
+export default LoginForm
