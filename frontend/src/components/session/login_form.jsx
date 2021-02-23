@@ -1,4 +1,8 @@
-import React from 'react'
+import React from 'react';
+import Navbar from '../navbar/navbar';
+import { Link } from 'react-router-dom';
+import './login.css';
+import '../splash/splash.css';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -11,7 +15,6 @@ class LoginForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.loginDemo = this.loginDemo.bind(this)
-    this.renderErrors = this.renderErrors.bind(this)
     this.errorsOccured = this.errorsOccured.bind(this)
   }
 
@@ -35,26 +38,6 @@ class LoginForm extends React.Component {
     })
   }
 
-  renderErrors() {
-    if (this.errorsOccured) {
-      return (
-        <ul>
-          {this.props.errors.map((error, idx) => (
-            <li key={`error-${idx}`}>
-              {' '}
-              {error}
-              <span
-                onClick={() => this.props.clearErrors()}
-              >
-                &times;
-              </span>
-            </li>
-          ))}
-        </ul>
-      )
-    }
-  }
-
   errorsOccured() {
     return this.props.errors.length !== 0
   }
@@ -68,14 +51,18 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-outer-wrap">
+
+        <Navbar />
+
         <div className="login-header-wrap">
-          <h2>I'm header</h2>
-          {this.renderErrors()}
           <div className="login-sections">
             <div className="login-body">
-              <div className="login-background">I'm a background</div>
+              <div className="login-background">
+              </div>
               <div className="login-form-container">
-                <h2 className="login-letter">Log In</h2>
+                <div className="login-box-letter">
+                  <h2 className="login-letter">Log In</h2>
+                </div>
                 <form onSubmit={this.handleSubmit}
                    className="login-form-box">
                   <br />
@@ -86,6 +73,9 @@ class LoginForm extends React.Component {
                       placeholder="Email"
                       value={this.state.email}
                     />
+                    <div className="errors">
+                      {this.props.errors.email}
+                    </div>
                   </div>
 
                   <br />
@@ -96,22 +86,35 @@ class LoginForm extends React.Component {
                       placeholder="Password"
                       value={this.state.password}
                     />
+                    <div className="errors">
+                      {this.props.errors.password}
+                    </div>
                   </div>
                   <br />
                   <button className="login-button">Sign In</button>
+                  <button className="demo-button">Demo</button>
+                  <div className="signup-new"> <Link to="/signup" className="login-link-to-signup">Create a new account</Link></div>
                 </form>
                 <br />
-                <div className="singup-link-login-form">
-                  <button 
-                      className="demo-user-button">Demo</button>
-                  <div className="signup-new">Create a new account</div>
-                </div>
               </div>
             </div>
 
-            <div className="login-footer-wrap">
-              <footer className="login-footer">I'm a footer</footer>
-            </div>
+            <div className="splash-footer">
+                    <div className="splash-footer-wrapper">
+                        {/* <div className="thank you-wrap"> */}
+                        <div className="thank-you">Thank you for your visit</div>
+                        {/* </div> */}
+                    <div className="splash-footer-info">
+                        <div className="engineerd-by">Engineerd with love by:</div>
+                        <div className="info-us">
+                        <a className="contact" href="https://github.com/shinara03" target="_blank">Lena</a>
+                        <a className="contact" href="https://github.com/andmitriy93" target="_blank">Dmitrii</a>
+                        <a className="contact" href="https://github.com/jsadsad" target="_blank">Josh</a>
+                        <a className="contact" href="https://github.com/kinda-dev" target="_blank">Fabio</a>
+                        </div>
+                    </div>
+                    </div>
+                </div>
           </div>
         </div>
       </div>
