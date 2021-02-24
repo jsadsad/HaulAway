@@ -17,13 +17,12 @@ class Navbar extends React.Component {
         return (
             <header className="navbar">
                 <div className="navbar-wrapper">
-
-                    <div className="navbar-signup-wrap">
-                        <button className="navbar-signup-button">SIGNUP</button>
+                    {/* <Link to={'/signup'}>SIGNUP</Link> */}
+                    <div className="navbar-left-wrap">
+                        <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>Haulaway</Link></div>
                     </div>
-                    <div className="navbar-login-buttons-wrap">
-                        <div className="navbar-demo-login-wrap"><button className="navbar-demo-login">DEMO LOGIN</button></div>
-                        <div className="navbar-login-wrap"><button className="navbar-login-button">LOGIN</button></div>
+                    <div className="navbar-right-wrap">
+                        <div className="navbar-user-menu-wrap"><button className="navbar-login-button">user</button></div>
                     </div>
 
                 </div>
