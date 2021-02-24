@@ -5,7 +5,7 @@ import JobPostForm from './job_post_form';
 
 const mapStateToProps = ({ errors }) => {
   return {
-    errors: errors.errors
+    errors: errors.job
   }
 }
 
