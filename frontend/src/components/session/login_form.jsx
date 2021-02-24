@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../navbar/navbar';
+import Navbar from '../navbar/navbar_container';
 import { Link } from 'react-router-dom';
 import './login.css';
 import '../splash/splash.css';
@@ -62,9 +62,7 @@ class LoginForm extends React.Component {
               <div className="login-form-container">
                 <form onSubmit={this.handleSubmit}
                    className="login-form-box">
-                <div className="login-box-letter">
                   <h2 className="login-letter">Log In</h2>
-                </div>
                   <br />
                   <div className="login-input-box">
                     <input onChange={this.handleField('email')}

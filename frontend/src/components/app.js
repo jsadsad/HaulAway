@@ -14,13 +14,13 @@ import JobIndexContainer from './job/job_index_container'
 
 const App = () => (
   <Switch>
-    <Route exact path="/" component={SplashPage} />
-    <Route exact path='/homepage' component={HomepageContainer} />
-    <Route exact path="/login" component={LoginFormContainer} />
-    <Route exact path="/signup" component={SignupFormContainer} />
-    <Route exact path="/job/new" component={JobPostFormContainer} />
-    <Route exact path='/jobs' component={JobIndexContainer} />
-    <Route exact path='/users/:userId' component={UserShowContainer} />
+    <AuthRoute exact path="/" component={SplashPage} />
+    <AuthRoute exact path="/login" component={LoginFormContainer} />
+    <AuthRoute exact path="/signup" component={SignupFormContainer} />
+    <ProtectedRoute exact path='/homepage' component={HomepageContainer} />
+    <ProtectedRoute exact path="/job/new" component={JobPostFormContainer} />
+    <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
+    <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
   </Switch>
 )
 

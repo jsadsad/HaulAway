@@ -1,26 +1,7 @@
-button {
-  color: white;
-  background-color: #1FCE6D;
-  font-weight: bold;
-  border-radius: 12px 12px 12px 12px;
-  font-size: 14.4px;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 4px;
-  cursor: pointer;
-  text-size-adjust: 100%;
-  -webkit-font-smoothing: antialiased;
-  text-decoration-line: none;
-  text-decoration-color: white;
-  text-decoration-style: solid;
-  text-decoration-thickness: auto;
-  border: 0;
-  box-shadow: none;
-}
-
 .navbar {
   position: relative;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 
 .navbar-wrapper {
@@ -41,36 +22,16 @@ button {
   justify-content: space-between;
 }
 
-.navbar-signup-wrap {
+.navbar-left-wrap {
   display: flex;
   margin-left: 30px;
   max-height: 40px;
 }
 
-.navbar-signup-wrap:hover .navbar-signup-button {
-  background-color: white;
-  color: rgb(17, 185, 17);
-}
-
-.navbar-login-buttons-wrap {
+.navbar-right-wrap {
   display: flex;
   margin-right: 30px;
   height: 100%;
-}
-
-.navbar-demo-login-wrap .navbar-login-wrap {
-  display: flex;
-  min-height: 40px;
-}
-
-.navbar-demo-login-wrap:hover .navbar-demo-login {
-  background-color: white;
-  color: rgb(17, 185, 17);
-}
-
-.navbar-login-wrap:hover .navbar-login-button {
-  background-color: white;
-  color: rgb(17, 185, 17);
 }
 
 .navbar-login-button {
@@ -78,6 +39,64 @@ button {
   height: 40px;
 }
 
-.navbar-demo-login {
-  height: 40px;
+.logo-link {
+  font-family: 'Pacifico', cursive;
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.navbar-menu {
+  display: none;
+  position: absolute;
+  right: 30px;
+  background-color: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(156, 154, 154, 0.76);
+  /* padding-left: 5px; */
+  padding-top: 5px;
+  width: 130px;
+  z-index: 10;
+  text-align: left;
+  height: 50px;
+  top: 38px;
+  border-radius: 3px;
+  transition: 0.2s;
+}
+
+.navbar-right-wrap:hover .navbar-menu {
+  display: block;
+  /* position: absolute; */
+}
+
+.navbar-right-wrap {
+  cursor: pointer;
+  /* display: flex; */
+}
+
+.navbar-menu-user {
+  border-bottom: 1px solid rgba(156, 154, 154, 0.76);
+  /* width: 100%; */
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.logout {
+  padding-left: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: white;
+}
+
+.navbar-user-link {
+  color: white;
+  text-decoration: none;
+}
+
+.fa-cog {
+  font-size: 15px;
+}
+
+.navbar-menu-user {
+  color: white;
+  text-decoration: none;
 }
