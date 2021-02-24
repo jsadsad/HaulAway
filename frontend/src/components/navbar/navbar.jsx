@@ -32,8 +32,8 @@ class Navbar extends React.Component {
                             </div>
 
                             <div className="navbar-menu">
-                                <div className="navbar-menu-user">{this.props.currentUser.firstName}</div>
-                                <div className="logout-button" onClick={this.logoutUser}>Log Out</div>
+                                <Link className="navbar-user-link" to={'/user'}><div className="navbar-menu-user">{this.props.currentUser.firstName} <i className="fas fa-cog"></i></div></Link>
+                                <div className="logout" onClick={this.logoutUser}>Log Out</div>
                             </div>
                         </div>
 

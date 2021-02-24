@@ -1,5 +1,7 @@
 .navbar {
   position: relative;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
 }
 
 .navbar-wrapper {
@@ -47,25 +49,52 @@
 .navbar-menu {
   display: none;
   position: absolute;
-  right: -6px;
+  right: 30px;
   background-color: rgba(20, 20, 20, 0.9);
   border: 1px solid rgba(156, 154, 154, 0.76);
-  padding: 10px;
-  width: 125px;
-  z-index: 1;
+  /* padding-left: 5px; */
+  padding-top: 5px;
+  width: 130px;
+  z-index: 10;
   text-align: left;
-  height: 20px;
-  margin-top: -10px;
-  display: flex;
-  align-items: center;
+  height: 50px;
+  top: 38px;
 }
 
-.navbar-right-wrap :hover .navbar-menu {
+.navbar-right-wrap:hover .navbar-menu {
   display: block;
   /* position: absolute; */
 }
 
 .navbar-right-wrap {
   cursor: pointer;
-  display: flex;
+  /* display: flex; */
+}
+
+.navbar-menu-user {
+  border-bottom: 1px solid rgba(156, 154, 154, 0.76);
+  /* width: 100%; */
+  padding-left: 5px;
+  padding-bottom: 5px;
+}
+
+.logout {
+  padding-left: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: white;
+}
+
+.navbar-user-link {
+  color: white;
+  text-decoration: none;
+}
+
+.fa-cog {
+  font-size: 15px;
+}
+
+.navbar-menu-user {
+  color: white;
+  text-decoration: none;
 }
