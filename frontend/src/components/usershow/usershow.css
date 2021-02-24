@@ -1,0 +1,53 @@
+.user-show-page {
+  height: 100vh;
+}
+
+.user-info-wrapper {
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.show-page-wrapper {
+  display: flex;
+  
+}
+
+.user-image {
+    border-radius: 30px;
+    margin-top: 30px;
+    border: 1px solid black;
+    height: 290px;
+    width: 290px;
+    text-align: center;
+}
+
+.user-name {
+  display: flex;
+  justify-content: space-between;
+  width: 135px;
+}
+
+.job-wrapper {
+  /* border: 1px solid red; */
+  width: 100%;
+  margin-right: 45px;
+}
+
+.job-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.job-request {
+  border: 1px solid black;
+  min-height: 250px;
+}
+
+.job-accept {
+  border: 1px solid black;
+  min-height: 250px;
+}
