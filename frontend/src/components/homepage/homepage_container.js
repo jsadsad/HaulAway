@@ -1,6 +1,6 @@
 import Homepage from './homepage'
 import { connect } from 'react-redux'
-import {} from '../../actions/job_actions'
+import {fetchJobs} from '../../actions/job_actions'
 
 const mapStateToProps = state => {
   return {
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-
+    
   }
 }
 
