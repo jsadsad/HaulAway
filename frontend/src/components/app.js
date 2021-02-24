@@ -14,7 +14,7 @@ const App = () => (
     <Route exact path="/" component={SplashPage} />
     <Route exact path="/login" component={LoginFormContainer} />
     <Route exact path="/signup" component={SignupFormContainer} />
-    <Route exact path='/user' component={UserShowContainer} />
+    <Route exact path='/users/:userId' component={UserShowContainer} />
   </Switch>
 )
 //Route path='/user' should be changed to path='/user/:userId' and 
