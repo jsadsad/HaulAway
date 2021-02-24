@@ -5,6 +5,38 @@ import './job_post.css'
 class JobPostForm extends React.Component {
   constructor(props) {
     super(props)
+
+    this.state = {
+      description: '',
+      pickup: '',
+      destinataion: '',
+      jobDifficulty: '',
+      // pictures: '',
+      jobType: '',
+      jobStartDate: '',
+      jobEndDate: '',
+    }
+
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.errorsOccured = this.errorsOccured.bind(this)
+  }
+  
+  componentWilUnmount() {
+    this.props.clearErrors()
+  }
+
+  handleField(field) {
+    return (e) => this.setState({ [field]: e.currentTarget.value })
+  }
+
+  errorsOccured() {
+    return this.props.errors.length !== 0
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const job = Object.assign({}, this.state)
+    this.props.processJobForm(job)
   }
 
   render() {
@@ -21,59 +53,70 @@ class JobPostForm extends React.Component {
                   //   type="text"
                   className="job-post-input-desc"
                   placeholder="Description"
-                  //   onChange={this.handleField('description')}
+                  value={this.state.description}
+                    onChange={this.handleField('description')}
                 />
+                {this.props.errors.description}
               </div>
               <br />
               <div className="job-post-input-box">
-                <input
+                {/* <input
                   type="text"
                   className="job-post-input-count"
                   placeholder="Count"
-                />
+                  // value={this.state.}
+                /> */}
                 <input type="file" className="job-post-upload-btn" />
               </div>
               <br />
 
               <div className="job-post-lvl-btn">
-                <button>Easy</button>
-                <button>Medium</button>
-                <button>Hard</button>
+                <button onClick={this.handleField('jobDifficulty')} value="easy">Easy</button>
+                <button onClick={this.handleField('jobDifficulty')} value="medium">Medium</button>
+                <button onClick={this.handleField('jobDifficulty')} value="hard">Hard</button>
               </div>
               <br />
 
               <div className="job-post-input-box">
-                <input
+                <input onChange={this.handleField('pickup')}
                   type="text"
                   className="job-post-input-start"
-                  placeholder="start location"
-                />
+                  placeholder="pickup"
+                  value={this.state.pickup}
+                  />
+                  {this.props.errors.pickup}
               </div>
               <br />
 
               <div className="job-post-input-box">
-                <input
+                <input onChange={this.handleField('destination')}
                   type="text"
                   className="job-post-input-dest"
                   placeholder="destination"
+                  value={this.state.destinataion}
                 />
+                {this.props.errors.destinataion}
               </div>
               <br />
 
               <div className="job-post-input-box">
-                <input
+                <input onChange={this.handleField('jobStartDate')}
                   type="date"
                   className="job-post-input-date"
                   placeholder="start date"
+                  value={this.state.jobStartDate}
                 />
+                {this.props.errors.jobStartDate}
               </div>
               <br />
               <div className="job-post-input-box">
-                <input
+                <input onChange={this.handleField('jobEndDate')}
                   type="date"
                   className="job-post-input-date2"
                   placeholder="end date"
+                  value={this.state.jobEndDate}
                 />
+                {this.props.errors.jobEndDate}
               </div>
               <br />
 
