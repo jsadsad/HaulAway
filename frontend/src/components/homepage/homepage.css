@@ -1,0 +1,42 @@
+.homepage-wrapper {
+  height: 100vh;
+  background: #2E3740;
+}
+
+.homepage-job-index-wrapper {
+  border: 1px solid black;
+  color: white;
+  height: 200px;
+}
+
+.homepage-job-button-wrapper { 
+  /* border: 1px solid orangered; */
+  height: 150px;
+  text-align: center;
+}
+
+.homepage-job-offer-wrapper {
+  border: 1px solid black;
+  color: white;
+  height: 200px;
+}
+
+.homepage-job-buttons {
+  padding: 39px 253px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.homepage-rj-button {
+  width: 233px;
+  height: 73px;
+  font-size: 23px;
+}
+
+.homepage-oj-button {
+  width: 233px;
+  height: 73px;
+  font-size: 23px;
+}
+

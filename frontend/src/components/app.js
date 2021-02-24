@@ -9,17 +9,17 @@ import SignupFormContainer from '../components/session/signup_form_container'
 import LoginFormContainer from '../components/session/login_form_container'
 import JobPostFormContainer from './posts/job_post_container';
 import UserShowContainer from './usershow/user_show_container'
+import HomepageContainer from './homepage/homepage_container'
 
 const App = () => (
   <Switch>
     <Route exact path="/" component={SplashPage} />
+    <Route exact path='/homepage' component={HomepageContainer} />
     <Route exact path="/login" component={LoginFormContainer} />
     <Route exact path="/signup" component={SignupFormContainer} />
     <Route exact path="/job/new" component={JobPostFormContainer} />
     <Route exact path='/users/:userId' component={UserShowContainer} />
   </Switch>
 )
-//Route path='/user' should be changed to path='/user/:userId' and 
-//component should be {usershow}
 
 export default App
