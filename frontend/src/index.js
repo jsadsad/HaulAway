@@ -8,6 +8,7 @@ import { createStore } from 'redux'
 
 import { signup, login, logout } from './actions/session_actions'
 import * as userutil from './util/session_api_util';
+import {fetchUser, fetchUsers} from './actions/user_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store
@@ -41,4 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.signup = signup
   window.logout = logout
   window.userutil = userutil
+  window.fetchUsers = fetchUsers
+  window.fetchUser = fetchUser
 })
