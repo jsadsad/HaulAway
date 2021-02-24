@@ -11,10 +11,10 @@ import UserShowContainer from './usershow/user_show_container'
 
 const App = () => (
   <Switch>
-    <Route exact path="/" component={SplashPage} />
-    <Route exact path="/login" component={LoginFormContainer} />
-    <Route exact path="/signup" component={SignupFormContainer} />
-    <Route exact path='/user' component={UserShowContainer} />
+    <AuthRoute exact path="/" component={SplashPage} />
+    <AuthRoute exact path="/login" component={LoginFormContainer} />
+    <AuthRoute exact path="/signup" component={SignupFormContainer} />
+    <ProtectedRoute exact path='/user' component={UserShowContainer} />
   </Switch>
 )
 //Route path='/user' should be changed to path='/user/:userId' and 
