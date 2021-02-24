@@ -15,7 +15,7 @@ const App = () => (
     <Route exact path="/" component={SplashPage} />
     <Route exact path="/login" component={LoginFormContainer} />
     <Route exact path="/signup" component={SignupFormContainer} />
-    <Route exact path="/jobPost" component={JobPostForm} />
+    <Route exact path="/job/new" component={JobPostForm} />
     <Route exact path='/users/:userId' component={UserShowContainer} />
   </Switch>
 )

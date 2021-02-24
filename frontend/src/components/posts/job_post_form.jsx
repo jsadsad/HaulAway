@@ -4,7 +4,18 @@ import './job_post.css'
 
 class JobPostForm extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
+
+    this.state = {
+      description: '',
+      pickup: '',
+      destinataion: '',
+      jobDifficulty: '',
+      // pictures: '',
+      jobType: '',
+      jobStartDate: '',
+      jobEndDate: ''
+    }
   }
 
   render() {

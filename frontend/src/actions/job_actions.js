@@ -17,6 +17,7 @@ const receiveJob = (job) => {
     job,
   }
 }
+
 const removeJob = (jobId) => {
   return {
     type: DELETE_JOB,
