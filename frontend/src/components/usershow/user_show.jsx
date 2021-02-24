@@ -7,8 +7,11 @@ class UserShow extends React.Component {
 
     return(
        <div className='user-show-page'>
+        
         <NavBar/>
+        
         <div className='show-page-wrapper'>
+          
           <div className='user-info-wrapper'>
             <div className='user-image'>
               <h1>User image</h1>
@@ -20,18 +23,20 @@ class UserShow extends React.Component {
               <p className='user-lastname'>last name</p>
             </div>
           </div>
+          
           <div className='job-wrapper'>
             <h2 className='job-info-header'>JOBS </h2>
             <div className='job-info-wrapper'>
               <div className='job-request'>
-                <h2>Currently You requested 0 jobs</h2>
+                <h2>Hauling Requests</h2>
               </div>
               <div className='job-accept'>
-                <h2>Currently You accepted 0 jobs</h2>
+                <h2>Hauling Offers</h2>
               </div>
             </div>
           </div>
         </div>
+      
       </div>
     )
   }

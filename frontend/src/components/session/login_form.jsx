@@ -61,10 +61,10 @@ class LoginForm extends React.Component {
               </div>
               <div className="login-form-container">
                 <div className="login-box-letter">
-                  <h2 className="login-letter">Log In</h2>
                 </div>
                 <form onSubmit={this.handleSubmit}
                    className="login-form-box">
+                  <h2 className="login-letter">Log In</h2>
                   <br />
                   <div className="login-input-box">
                     <input onChange={this.handleField('email')}
