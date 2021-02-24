@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../navbar/navbar';
+import Navbar from '../navbar/navbar_container';
 import { Link } from 'react-router-dom';
 import './login.css';
 import '../splash/splash.css';

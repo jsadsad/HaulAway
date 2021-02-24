@@ -5,11 +5,17 @@ import Navbar from './navbar';
 const mapStateToProps = (state) => {
     return {
         loggedIn: state.session.isAuthenticated,
-        userName: state.session.user.firstName,
+        currentUser: state.session.user
     };
 };
 
-export default connect(mapStateToProps, { logout })(Navbar)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        logout: () => dispatch(logout()),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
 
 
 
