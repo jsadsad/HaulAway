@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const fetchJobs = () => {
+export const fetchAllJobs = () => {
   return axios.get('/api/jobs')
 }
 
