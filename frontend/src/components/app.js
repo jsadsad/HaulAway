@@ -10,6 +10,7 @@ import LoginFormContainer from '../components/session/login_form_container'
 import JobPostFormContainer from './posts/job_post_container';
 import UserShowContainer from './usershow/user_show_container'
 import HomepageContainer from './homepage/homepage_container'
+import JobIndexContainer from './job/job_index_container'
 
 const App = () => (
   <Switch>
@@ -18,6 +19,7 @@ const App = () => (
     <Route exact path="/login" component={LoginFormContainer} />
     <Route exact path="/signup" component={SignupFormContainer} />
     <Route exact path="/job/new" component={JobPostFormContainer} />
+    <Route exact path='/jobs' component={JobIndexContainer} />
     <Route exact path='/users/:userId' component={UserShowContainer} />
   </Switch>
 )
