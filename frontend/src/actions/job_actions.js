@@ -1,4 +1,4 @@
-import * as JobApiUtil from '../util/job_util'
+import * as JobApiUtil from '../util/job_api_util'
 
 export const RECEIVE_JOBS = `RECEIVE_JOBS`
 export const RECEIVE_JOB = `RECEIVE_JOB`
@@ -36,10 +36,9 @@ export const clearErrors = () => {
 export const receiveJobErrors = (errors) => {
   return {
     type: RECEIVE_JOB_ERRORS,
-    errors
+    errors,
   }
 }
-
 
 export const fetchJobs = () => (dispatch) => {
   return JobApiUtil.fetchAllJobs()
@@ -48,8 +47,8 @@ export const fetchJobs = () => (dispatch) => {
 }
 
 export const fetchJob = (jobId) => (dispatch) => {
-  return JobApiUtil.fetchAllJobs(jobId)
-    .then((job) => dispatch(receiveJobs(job)))
+  return JobApiUtil.fetchJob(jobId)
+    .then((job) => dispatch(receiveJob(job)))
     .catch((error) => dispatch(receiveJobErrors(error.response.data)))
 }
 

@@ -6,9 +6,11 @@ import jwt_decode from 'jwt-decode'
 import { setAuthToken } from './util/session_api_util'
 import { createStore } from 'redux'
 
+//testing
 import { signup, login, logout } from './actions/session_actions'
 import * as userutil from './util/session_api_util';
 import {fetchUser, fetchUsers} from './actions/user_actions'
+import {fetchJob, fetchJobs} from './actions/job_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store
@@ -44,4 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.userutil = userutil
   window.fetchUsers = fetchUsers
   window.fetchUser = fetchUser
+  window.fetchJob = fetchJob
+  window.fetchJobs = fetchJobs
 })
