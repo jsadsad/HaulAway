@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const mongoose = require('mongoose')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const passport = require('passport')
@@ -7,7 +8,7 @@ const keys = require('../../config/keys')
 const Jobs = require('../../models/Jobs')
 
 const validateJob = require('../../validation/validate-job');
-
+mongoose.set('useFindAndModify', false);
 router.get('/test', (req, res) => res.json({ msg: 'This is the jobs route' }))
 
 
@@ -85,26 +86,13 @@ router.post(
     }
 )
 
-router.patch(
-    '/:id',
-    (req, res) => {
-        const { errors, isValid } = validateJob(req.body)
-
-        if (!isValid) {
-            return res.status(400)
-            .json(errors)
-        }
-
-        const filter = {
-            id: req.params.id
-        }
+router.patch('/:id', (req, res) => {
+        const filter = { _id: req.params.id }
         const update = req.body
 
-        Job.findOneAndUpdate(filter, update, {
-            new: true
-        })
+        Job.findOneAndUpdate(filter, update, { new: true })
         .then((job) => {
-            const udpatedJob = { 
+            const updatedJob = { 
                 id: job.id,
                 description: job.description,
                 pickup: job.pickup,
@@ -113,14 +101,12 @@ router.patch(
                 jobType: job.jobType,
                 jobStartDate: job.jobStartDate,
                 jobEndDate: job.jobEndDate,
-                jobPoster: req.user.id,
-                jobTaker: req.user.id,
+                // jobPoster: req.user.id,
+                // jobTaker: req.user.id,
             }
-            res.json(udpatedJob)
+            res.json(updatedJob)
         })
-        .catch((error) => {
-            res.status(400)
-            .json(error)
+        .catch((error) => {res.status(404).json(error)
         })
     }
 )
