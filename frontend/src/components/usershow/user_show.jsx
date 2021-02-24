@@ -21,8 +21,8 @@ class UserShow extends React.Component {
         <div className='show-page-wrapper'>
           
           <div className='user-info-wrapper'>
-            <div className='user-image'>
-              <h1>User image</h1>
+            <div className='user-image-wrap'>
+              <img className="user-image" src={user.profilePic} alt=""/>
             </div>
             <p>ratings</p>
             <p>{user.email}</p>
