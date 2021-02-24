@@ -60,8 +60,6 @@ class LoginForm extends React.Component {
               <div className="login-background">
               </div>
               <div className="login-form-container">
-                <div className="login-box-letter">
-                </div>
                 <form onSubmit={this.handleSubmit}
                    className="login-form-box">
                   <h2 className="login-letter">Log In</h2>

@@ -3,7 +3,15 @@ import NavBar from '../navbar/navbar_container';
 import usershow from './usershow.css';
 
 class UserShow extends React.Component {
+
+  componentDidMount() {
+    this.props.fetchUser(this.props.userId)
+  }
+
   render() {
+
+    const user = this.props.users[this.props.userId]
+    if (!user) {return null}
 
     return(
        <div className='user-show-page'>
@@ -17,10 +25,10 @@ class UserShow extends React.Component {
               <h1>User image</h1>
             </div>
             <p>ratings</p>
-            <p>email</p>
+            <p>{user.email}</p>
             <div className='user-name'>
-              <p className='user-firstname'>first name</p>
-              <p className='user-lastname'>last name</p>
+              <p className='user-firstname'>{user.firstName}</p>
+              <p className='user-lastname'>{user.lastName}</p>
             </div>
           </div>
           

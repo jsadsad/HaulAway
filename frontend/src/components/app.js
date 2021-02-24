@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom'
 import SplashPage from './splash/splash_page'
 import SignupFormContainer from '../components/session/signup_form_container'
 import LoginFormContainer from '../components/session/login_form_container'
+import JobPostFormContainer from './posts/job_post_container';
 import UserShowContainer from './usershow/user_show_container'
 
 const App = () => (
@@ -15,6 +16,8 @@ const App = () => (
     <AuthRoute exact path="/login" component={LoginFormContainer} />
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
     <ProtectedRoute exact path='/user' component={UserShowContainer} />
+    <ProtectedRoute exact path="/job/new" component={JobPostFormContainer} />
+    <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
   </Switch>
 )
 //Route path='/user' should be changed to path='/user/:userId' and 
