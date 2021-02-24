@@ -1,7 +1,7 @@
-import React from 'react'
-import Navbar from '../navbar/navbar'
-import './signup.css'
-import '../splash/splash.css'
+import React from 'react';
+import Navbar from '../navbar/navbar_container';
+import './signup.css';
+import '../splash/splash.css';
 import { uploadPhoto } from '../../util/photo_api_util'
 
 class SignupForm extends React.Component {
