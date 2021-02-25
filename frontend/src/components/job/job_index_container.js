@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import {fetchJobs} from '../../actions/job_actions'
 
 const mapStateToProps = state => {
-  debugger
   return {
     jobs: Object.values(state.entities.jobs)
   }
