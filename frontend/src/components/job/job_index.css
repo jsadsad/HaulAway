@@ -22,7 +22,7 @@
   font-size: 14px;
   color: white;
   display: flex;
-  cursor: pointer;
+  cursor: pointer; 
 }
 
 .job-it-image-wrapper {
