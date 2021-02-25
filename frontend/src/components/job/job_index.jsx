@@ -16,7 +16,7 @@ class JobIndex extends React.Component {
     <div className='job-index-wrapper'>
       <Navbar />
       <div className='job-index-header'>
-        <h1>JOBS</h1>
+        <h1>Available Jobs</h1>
       </div>
       <div className='job-index-item-wrapper'>
         {this.props.jobs.map(job => {
