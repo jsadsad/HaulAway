@@ -1,0 +1,48 @@
+.job-index-wrapper {
+  background: #2E3740;
+  min-height: 100hv;
+}
+
+.job-index-item-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  justify-items: center;
+  grid-gap: 20px 0;
+  padding-bottom: 20px;
+}
+
+.job-index-item {
+  /* background-color: rgb(35, 175, 75); */
+  background-color: #1fce6d;
+  border: 1px solid white;
+  border-radius: 10px;
+  height: 250px;
+  width: 450px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  color: white;
+  display: flex;
+  cursor: pointer; 
+}
+
+.job-it-image-wrapper {
+  border: 1px solid white;
+  border-radius: 10px;
+  width: 230px;
+  height: 250px;
+  text-align: center;
+}
+ 
+.job-it-text-wrapper {
+  height: 250px;
+  width: 200px;
+  overflow-x: scroll;
+  text-align: center;
+  margin-left: 10px;
+}
+
+.job-index-header {
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+  text-align: center;
+}

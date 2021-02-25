@@ -1,5 +1,6 @@
 .user-show-page {
-  height: 100vh;
+  min-height: 100vh;
+  min-width: 100vw;
   font-family: 'Montserrat', sans-serif;
   background: #2e3740;
   color: white;
@@ -10,7 +11,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 60px;
+  padding: 40px 60px;
+  font-size: 20px;
+  
 }
 
 .show-page-wrapper {
@@ -20,43 +23,91 @@
 .user-image-wrap {
   border-radius: 30px;
   margin-top: 30px;
-  border: 1px solid black;
+  border: 1px solid white;
   height: 290px;
   width: 290px;
   text-align: center;
   display: flex;
   justify-items: stretch;
+  overflow: hidden;
 }
 
 .user-image {
   /* height: 100%; */
-  border-radius: 30px;
+  /* border-radius: 150px; */
 }
 
-.user-name {
+/* .user-name {
   display: flex;
   justify-content: space-between;
   width: 135px;
+} */
+
+.user-name {
+ display: flex;
 }
 
-.job-wrapper {
-  /* border: 1px solid red; */
-  width: 100%;
-  margin-right: 45px;
+.user-lastname {
+  margin-left: 5px;
 }
+
 
 .job-info-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  border: 1px solid white;
+  max-height: 600px;
+  margin-right: 20px;
+  border-radius: 10px;
 }
 
-.job-request {
-  border: 1px solid black;
-  min-height: 250px;
+.show-page-wrapper {
+  display: grid;
+  grid-template-columns: 410px;
 }
 
-.job-accept {
-  border: 1px solid black;
-  min-height: 250px;
+.job-info-index-wrapper {
+  overflow: scroll;
+  /* display: grid; */
+  /* grid-template-columns: repeat(4, minmax(0, 1fr)); */
+  /* grid-gap: 10px; */
+  /* justify-items: center; */
+  margin: 10px 10px;
+  /* border: 1px solid white; */
+
+  
+}
+
+.job-info-header {
+  display: grid;
+  grid-template-columns: 130px repeat(4, minmax(0, 1fr));
+  font-size: 14px;
+  justify-items: center;
+  margin: 0 20px;
+
+}
+
+.rest-wrapper {
+  grid-column-start: 2;
+}
+
+.job-info-wrapper > h2 {
+  padding-left: 30px;
+  /* background-color: rgb(150, 238, 150); */
+}
+
+.job-info-index {
+  /* display: flex;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 130px repeat(4, minmax(0, 1fr));
+  justify-items: center;
+
+  /* border: 1px solid white; */
+}
+
+.job-info-index > p {
+  margin-left: 20px;
+}
+
+.job-info-index:hover {
+  background-color: #1fce6d;
 }

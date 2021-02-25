@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
 import { createJob, clearErrors } from '../../actions/job_actions'
-import JobPostForm from './job_form'
+import JobOfferForm from './job_offer'
 
-const mapStateToProps = ({ errors }) => {
+const mSTP = ({ errors }) => {
   return {
     errors: errors.job,
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mDTP = (dispatch) => {
   return {
     clearErrors: () => dispatch(clearErrors),
     processJobForm: (job) => dispatch(createJob(job)),
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(JobPostForm)
+export default connect(mSTP, mDTP)(JobOfferForm)
