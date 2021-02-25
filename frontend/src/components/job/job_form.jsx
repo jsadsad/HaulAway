@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../navbar/navbar'
+import { uploadPhoto } from '../../util/photo_api_util'
 import './job_form.css'
 
 class JobPostForm extends React.Component {
@@ -9,35 +10,69 @@ class JobPostForm extends React.Component {
     this.state = {
       description: '',
       pickup: '',
-      destinataion: '',
+      destination: '',
       jobDifficulty: '',
-      // pictures: '',
       jobType: 'request',
       jobStartDate: '',
       jobEndDate: '',
+      pictures: '',
+      selectedFile: null,
     }
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.errorsOccured = this.errorsOccured.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handlePhotoFile = this.handlePhotoFile.bind(this)
   }
-  
+
   componentWilUnmount() {
     this.props.clearErrors()
   }
 
-  handleField(field) {
-    return (e) => this.setState({ [field]: e.currentTarget.value })
-  }
-
-  errorsOccured() {
-    return this.props.errors.length !== 0
-  }
-
   handleSubmit(e) {
     e.preventDefault()
-    const job = Object.assign({}, this.state)
-    this.props.processJobForm(job)
-    .then(job => this.props.history.push(`/job`))
+    if (this.state.selectedFile) {
+      const data = new FormData(e.target)
+      data.append('file', this.state.selectedFile)
+      uploadPhoto(data).then((res) => {
+        let job = {
+          description: this.state.description,
+          pickup: this.state.pickup,
+          destination: this.state.destination,
+          jobDifficulty: this.state.jobDifficulty,
+          jobType: this.state.jobType,
+          jobStartDate: this.state.jobStartDate,
+          jobEndDate: this.state.jobEndDate,
+          pictures: res.data.newData.Location,
+        }
+        this.props
+          .processJobForm(job)
+          .then((job) => this.props.history.push(`/job`))
+      })
+    } else {
+      let job = {
+        description: this.state.description,
+        pickup: this.state.pickup,
+        destination: this.state.destination,
+        jobDifficulty: this.state.jobDifficulty,
+        jobType: this.state.jobType,
+        jobStartDate: this.state.jobStartDate,
+        jobEndDate: this.state.jobEndDate,
+        pictures: this.state.pictures,
+      }
+      this.props
+        .processJobForm(job)
+        .then((job) => this.props.history.push(`/job`))
+    }
+  }
+
+  handlePhotoFile(e) {
+    e.preventDefault()
+    this.setState({
+      selectedFile: e.target.files[0],
+    })
+  }
+
+  handleField(field) {
+    return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
   render() {
@@ -55,7 +90,7 @@ class JobPostForm extends React.Component {
                   className="job-post-input-desc"
                   placeholder="Description"
                   value={this.state.description}
-                    onChange={this.handleField('description')}
+                  onChange={this.handleField('description')}
                 />
                 {this.props.errors.description}
               </div>
@@ -67,34 +102,45 @@ class JobPostForm extends React.Component {
                   placeholder="Count"
                   // value={this.state.}
                 /> */}
-                <input type="file" className="job-post-upload-btn" />
+                <input
+                  type="file"
+                  className="job-post-upload-btn"
+                  multiple
+                  onChange={this.handlePhotoFile}
+                />
               </div>
               <br />
 
               <div className="job-post-lvl-btn">
                 <label>Choose difficulty</label>
-                <select onChange={this.handleField('jobDifficulty')} value={this.state.jobDifficulty}>
-                  <option  value="easy">Easy</option>
-                  <option  value="medium">Medium</option>
-                  <option  value="hard">Hard</option>
+                <select
+                  onChange={this.handleField('jobDifficulty')}
+                  value={this.state.jobDifficulty}
+                >
+                  <option value="easy">Easy</option>
+                  <option value="medium">Medium</option>
+                  <option value="hard">Hard</option>
                 </select>
-
               </div>
               <br />
 
               <div className="job-post-input-box">
-                <input onChange={this.handleField('pickup')}
+                <input
+                  style={{ color: 'black' }}
+                  onChange={this.handleField('pickup')}
                   type="text"
                   className="job-post-input-start"
                   placeholder="pickup"
                   value={this.state.pickup}
-                  />
-                  {this.props.errors.pickup}
+                />
+                {this.props.errors.pickup}
               </div>
               <br />
 
               <div className="job-post-input-box">
-                <input onChange={this.handleField('destination')}
+                <input
+                  style={{ color: 'black' }}
+                  onChange={this.handleField('destination')}
                   type="text"
                   className="job-post-input-dest"
                   placeholder="destination"
@@ -105,7 +151,8 @@ class JobPostForm extends React.Component {
               <br />
 
               <div className="job-post-input-box">
-                <input onChange={this.handleField('jobStartDate')}
+                <input
+                  onChange={this.handleField('jobStartDate')}
                   type="date"
                   className="job-post-input-date"
                   placeholder="start date"
@@ -115,7 +162,8 @@ class JobPostForm extends React.Component {
               </div>
               <br />
               <div className="job-post-input-box">
-                <input onChange={this.handleField('jobEndDate')}
+                <input
+                  onChange={this.handleField('jobEndDate')}
                   type="date"
                   className="job-post-input-date2"
                   placeholder="end date"
