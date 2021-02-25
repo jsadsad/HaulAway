@@ -3,74 +3,99 @@
   font-size: 14px;
 }
 
-.login-letter {
-  color: #607781;
-  font-family: 'Sofia', cursive;
-  font-size: 30px;
-  font-weight: bold;
-  font-size: 3.6em;
-  text-align: center;
-  /* margin-bottom: 20px; */
-}
-
-/* body {
-    background: #2E3740;
-    color: #435160;
-    font-family: 'Open Sans', sans-serif;
-} */
-
 .login-outer-wrap {
   margin: 0 auto;
   min-width: 100%;
   overflow: hidden;
-
-  object-fit: contain;
   height: 100vh;
   color: white;
   background: #2e3740;
   text-align: center;
-}
-
-.login-form-container {
-  display: flex;
-  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .login-body {
-  height: 100%;
-  background: #2e3740;
-  color: #435160;
-  font-family: 'Open Sans', sans-serif;
-  margin-top: 100px;
-}
+  padding: 0 35%;
 
-.login-sections {
-  margin: 0 auto;
+  position: relative;
+
+  margin-bottom: 0;
+  background: 0 0;
+  color: #fff;
+}
+.login-form-container {
+  min-height: 660px;
+  padding: 60px 68px 40px;
+  margin-bottom: 90px;
+
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 240px;
+
+  z-index: 1;
+
+  position: relative;
 }
 
 .login-form-box {
-  width: 350px;
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  margin-left: -175px;
+  margin-bottom: 0;
+  margin-top: 0em;
+  display: block;
 }
 
-.login-input-box {
-  width: 350px;
-  padding: 10px 0px;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid #435160;
+.sign-in-letters {
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
+
+  margin: 0 0 10px 0;
+  padding: 0;
+}
+
+.login-input-little-box {
+  padding-bottom: 16px;
+  max-width: 100%;
 }
 
 .login-input-email {
-  width: 350px;
-  padding: 10px 0px;
   background: transparent;
-  border: 0;
   color: #fff;
+  /* border-radius: 4px; */
+  /* border: 0; */
+  /* color: #fff; */
+  height: 50px;
+  line-height: 50px;
+  padding: 16px 20px 0;
+  width: 100%;
+  box-shadow: none;
+  box-sizing: border-box;
   font-size: 16px;
+  border: 0;
+
+  border-bottom: 1px solid #435160;
+}
+
+.login-input-password {
+  background: transparent;
+  color: #fff;
+  /* border-radius: 4px; */
+  /* border: 0; */
+  /* color: #fff; */
+  height: 50px;
+  line-height: 50px;
+  padding: 16px 20px 0;
+  width: 100%;
+  box-shadow: none;
+  box-sizing: border-box;
+  font-size: 16px;
+  border: 0;
+
+  border-bottom: 1px solid #435160;
 }
 
 .login-input-password {
@@ -83,35 +108,73 @@
 }
 
 .login-button {
-  background: #1fce6d;
-  font-size: 14.4px;
+  font-size: 16px;
   text-transform: uppercase;
-  border-radius: 12px 12px 12px 12px;
-}
-
-.demo-button {
-  background: #1fce6d;
-  font-size: 14.4px;
-  text-transform: uppercase;
-  border-radius: 12px 12px 12px 12px;
-  position: absolute;
-  margin-left: 22%;
-  /* margin-top:  10%; */
-}
-
-.signup-new {
-  font-size: 14px;
-  color: #1fce6d;
-  position: absolute;
-  margin-top: 5%;
-}
-
-.login-link-to-signup {
-  text-decoration: none;
+  /* border-radius: 12px 12px 12px 12px; */
+  height: 100%;
+  border: 0.8px solid #1fce6d;
+  background: transparent;
   color: #1fce6d;
 }
 
-.singup-link-login-form {
+.sing-up-link-login-form {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.demo-user-wrap {
+  /* margin-bottom: 25px; */
+  min-height: 20px;
+  display: flex;
+  width: 100%;
+}
+
+.demo-user-button {
+  height: 100%;
+  font-size: 16px;
+  border: 0.8px solid #1fce6d;
+  background: transparent;
+  color: #1fce6d;
+}
+
+.sign-up-new {
+  color: #737373;
+  font-size: 14px;
+  font-weight: 600;
+  display: block;
+  /* margin-top: 16px; */
+  flex-direction: row;
+}
+
+.sign-up-link:hover {
+  text-decoration: underline;
+}
+.singup-link-login-form {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* .demo-button {
+  background: #1fce6d;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 12px 12px 12px 12px;
+  display: flex;
+  width: 100%;
+} */
+
+.sign-up-link {
+  text-decoration: none;
+  font-size: 14px;
+  color: #1fce6d;
+  /* position: absolute; */
+  /* margin-top: 5%; */
+  font-weight: 600;
+}
+
+.center-pixel {
+  top: 50%;
+  left: 50%;
+  position: absolute;
 }
