@@ -69,3 +69,10 @@ export const destroyJob = (jobId) => (dispatch) => {
     .then(() => dispatch(removeJob(jobId)))
     .catch((error) => dispatch(receiveJobErrors(error.response.data)))
 }
+
+
+export const fetchUserJobs = (userId) => (dispatch) => {
+  return JobApiUtil.fetchUserJobs(userId)
+    .then((jobs) => dispatch(receiveJobs(jobs)))
+    .catch((error) => dispatch(receiveJobErrors(error.response.data)))
+}
