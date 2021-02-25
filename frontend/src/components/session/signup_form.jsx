@@ -41,6 +41,12 @@ class SignupForm extends React.Component {
   // }
 
   handleSubmit(e) {
+
+    const capitalize = (s) => {
+      if (typeof s !== 'string') return ''
+      return s.charAt(0).toUpperCase() + s.slice(1)
+    }
+
     e.preventDefault()
 
     if (this.state.selectedFile) {
@@ -48,8 +54,8 @@ class SignupForm extends React.Component {
       data.append('file', this.state.selectedFile)
       uploadPhoto(data).then((res) => {
         let user = {
-          firstName: this.state.firstName,
-          lastName: this.state.lastName,
+          firstName: capitalize(this.state.firstName),
+          lastName: capitalize(this.state.lastName),
           phoneNumber: this.state.phoneNumber,
           email: this.state.email,
           photoId: res.data.newData.photoId,
@@ -58,11 +64,12 @@ class SignupForm extends React.Component {
           password2: this.state.password2,
         }
         this.props.processForm(user)
+
       })
     } else {
       let user = {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
+        firstName: capitalize(this.state.firstName),
+        lastName: capitalize(this.state.lastName),
         phoneNumber: this.state.phoneNumber,
         email: this.state.email,
         profilePic: this.state.profilePic,
@@ -70,6 +77,7 @@ class SignupForm extends React.Component {
         password2: this.state.password2,
       }
       this.props.processForm(user)
+
     }
   }
 
