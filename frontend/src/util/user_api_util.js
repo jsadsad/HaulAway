@@ -7,3 +7,7 @@ export const getUsers = () => {
 export const getUser= id => {
   return axios.get(`/api/users/${id}`)
 };
+
+export const deleteUser = (userId) => {
+  return axios.delete(`/api/users/${userId}`)
+}
