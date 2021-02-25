@@ -20,6 +20,10 @@ const ReviewSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users',
   },
+  userReviewed: {
+    type: Schema.Types.JobPoster,
+    ref: 'jobs'
+  }
 })
 
 const Reviews = mongoose.model('reviews', ReviewSchema)

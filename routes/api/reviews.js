@@ -12,7 +12,7 @@ router.get('/test', (req, res) => {
   res.json({ msg: 'this is reviews route' })
 })
 
-router.get('/reviews', (req, res) => {
+router.get('/', (req, res) => {
   Reviews.find()
     .sort({ date: -1 }) // order newest first
     .then((reviews) => res.json(reviews))
