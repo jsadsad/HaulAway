@@ -20,7 +20,7 @@ const App = () => (
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
     <ProtectedRoute exact path='/homepage' component={HomepageContainer} />
     <ProtectedRoute exact path="/job/new" component={JobFormContainer} />
-    <Route exact path="/job/:jobId" component={JobShowContainer} />
+    <ProtectedRoute exact path="/job/:jobId" component={JobShowContainer} />
     <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
     <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
   </Switch>
