@@ -57,7 +57,7 @@
   width: 130px;
   z-index: 10;
   text-align: left;
-  height: 50px;
+  height: 85px;
   top: 38px;
   border-radius: 3px;
   transition: 0.2s;
@@ -80,16 +80,28 @@
   padding-bottom: 5px;
 }
 
+.navbar-link-user-profile {
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-link-jobs-index {
+  color: white;
+  text-decoration: none;
+}
+.navbar-menu-jobs {
+  padding-left: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: white;
+  border-bottom: 1px solid rgba(156, 154, 154, 0.76);
+}
+
 .logout {
   padding-left: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
   color: white;
-}
-
-.navbar-user-link {
-  color: white;
-  text-decoration: none;
 }
 
 .fa-cog {

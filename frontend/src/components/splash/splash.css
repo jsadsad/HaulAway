@@ -188,6 +188,7 @@ button {
 .info-us {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 .contact {
   /* text-decoration: none; */
