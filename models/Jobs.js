@@ -46,16 +46,9 @@ const JobSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  // jobTakers: [{
-  //     type: Schema.Types.ObjectId,
-  //     ref: 'users',
-  // }],
   jobTaker: {
     type: String,
-  },
-  isAvailable: {
-    type: Boolean,
-    default: true,
+    default: ''
   },
 })
 

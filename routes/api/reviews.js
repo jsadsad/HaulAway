@@ -5,7 +5,6 @@ const mongoose = require('mongoose')
 const passport = require('passport')
 
 const Reviews = require('../../models/Reviews')
-const reviews = require('../../validation/reviews')
 const validateReviewsInput = require('../../validation/reviews')
 
 router.get('/test', (req, res) => {
@@ -19,6 +18,16 @@ router.get('/', (req, res) => {
     .catch((err) =>
       res.status(404).json({ noReviewsFound: 'No reviews found' })
     )
+})
+
+router.get('/:id', (req, res) => {
+  Reviews.findById(req.params.id)
+    .then((review) => {
+      res.json(review)
+    })
+    .catch((error) => {
+      res.status(400).json({ noReviewsFound: 'Review not found' })
+    })
 })
 
 router.post(
@@ -40,6 +49,38 @@ router.post(
     })
 
     newReview.save().then((review) => res.json(review))
+  }
+)
+
+router.patch('/:id', (req, res) => {
+  const filter = { _id: req.params.id }
+  const update = req.body
+
+  Reviews.findOneAndUpdate(filter, update, { new: true })
+    .then((review) => {
+      const updatedReview = {
+        id: review.id,
+        title: review.title,
+        body: review.body,
+        rating: review.rating,
+        date: Date.now,
+        author: review.author,
+        job: review.job
+      }
+      res.json(updatedReview)
+    })
+    .catch((error) => {
+      res.status(404).json(error)
+    })
+})
+
+router.delete(
+  '/:review_id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Reviews.deleteOne({ _id: req.params.review_id })
+      .then((deletedReview) => res.json(deletedReview))
+      .catch((error) => res.status(404).json({ noReviewFound: 'No Review Found.' }))
   }
 )
 

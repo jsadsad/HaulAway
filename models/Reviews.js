@@ -20,9 +20,10 @@ const ReviewSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users',
   },
-  userReviewed: {
-    type: Schema.Types.JobPoster,
-    ref: 'jobs'
+  job: {
+    // type: Schema.Types.ObjectId,
+    // ref: 'jobs'
+    type: String,
   }
 })
 
