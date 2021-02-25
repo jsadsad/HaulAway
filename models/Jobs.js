@@ -39,19 +39,13 @@ const JobSchema = new Schema({
     default: Date.now,
   },
   pictures: {
-    type: String,
+    type: Array,
     required: false,
   },
   time: {
     type: Date,
     default: Date.now,
   },
-  jobTakers: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'users',
-    },
-  ],
 })
 
 module.exports = Job = mongoose.model('jobs', JobSchema)

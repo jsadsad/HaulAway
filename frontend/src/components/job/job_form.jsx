@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../navbar/navbar'
-import { uploadPhoto } from '../../util/photo_api_util'
+import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
 
 class JobPostForm extends React.Component {
@@ -15,7 +15,7 @@ class JobPostForm extends React.Component {
       jobType: 'request',
       jobStartDate: '',
       jobEndDate: '',
-      pictures: '',
+      pictures: [],
       selectedFile: null,
     }
 
@@ -30,9 +30,16 @@ class JobPostForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault()
     if (this.state.selectedFile) {
-      const data = new FormData(e.target)
-      data.append('file', this.state.selectedFile)
-      uploadPhoto(data).then((res) => {
+      const newData = new FormData()
+      for (let i = 0; i < this.state.selectedFile.length; i++) {
+        newData.append('file', this.state.selectedFile[i])
+      }
+      uploadPhotos(newData).then((res) => {
+        let data = Object.values(res.data.Data)
+        let location = []
+        for (let i = 0; i < data.length; i++) {
+          location = location.concat(data[i].Location)
+        }
         let job = {
           description: this.state.description,
           pickup: this.state.pickup,
@@ -41,11 +48,9 @@ class JobPostForm extends React.Component {
           jobType: this.state.jobType,
           jobStartDate: this.state.jobStartDate,
           jobEndDate: this.state.jobEndDate,
-          pictures: res.data.newData.Location,
+          pictures: location,
         }
-        this.props
-          .processJobForm(job)
-          .then((job) => this.props.history.push(`/job`))
+        this.props.processJobForm(job)
       })
     } else {
       let job = {
@@ -67,7 +72,7 @@ class JobPostForm extends React.Component {
   handlePhotoFile(e) {
     e.preventDefault()
     this.setState({
-      selectedFile: e.target.files[0],
+      selectedFile: e.target.files,
     })
   }
 
