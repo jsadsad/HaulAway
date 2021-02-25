@@ -10,6 +10,7 @@ import LoginFormContainer from '../components/session/login_form_container'
 import JobFormContainer from '../components/job/job_form_container'
 import UserShowContainer from './usershow/user_show_container'
 import HomepageContainer from './homepage/homepage_container'
+import JobIndexContainer from './job/job_index_container'
 import JobShowContainer from '../components/job/job_show_container'
 
 const App = () => (
@@ -21,6 +22,7 @@ const App = () => (
     <ProtectedRoute exact path="/job/new" component={JobFormContainer} />
     <ProtectedRoute exact path="/job/:jobId" component={JobShowContainer} />
     <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
+    <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
   </Switch>
 )
 
