@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
 })
 
 router.post(
-  '/new',
+  '/',
   passport.authenticate('jwt', { session: false }),
   (req, res) => {
     const { errors, isValid } = validateReviewsInput(req.body)
