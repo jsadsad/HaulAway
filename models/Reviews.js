@@ -12,7 +12,11 @@ const ReviewSchema = new Schema({
     type: Number,
     require: true,
   },
-  reviewPoster: {
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+  author: {
     type: Schema.Types.ObjectId,
     ref: 'users',
   },
