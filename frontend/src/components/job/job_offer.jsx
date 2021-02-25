@@ -15,6 +15,28 @@ class JobOfferForm extends React.Component {
       jobStartDate: '',
       // jobEndDate: '',
     }
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.errorsOccured = this.errorsOccured.bind(this)
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors()
+  }
+
+  handleField(field) {
+    return e => this.setState({ [field]: e.currentTarget.value })
+  }
+
+  errorsOccured() {
+    return this.props.errors.length !== 0
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const job = Object.assign({}, this.state)
+    this.props.processJobForm(job)
+    .then(job => this.props.history.push(`/job`))
   }
 
   render() {
@@ -27,27 +49,33 @@ class JobOfferForm extends React.Component {
             <form onSubmit={this.handleSubmit} className="job-offer-form-boxx">
               <h2 className="job-offer-text">Job Offer</h2>
               <div className="job-offer-input-box">
-                <input
+                <input onChange={this.handleField('pickup')}
                   type="text"
                   className="job-offer-input-pickup"
                   placeholder="Pickup"
+                  value={this.state.pickup}
                 />
+                {this.props.errors.pickup}
               </div>
               <br />
               <div className="job-offer-input-box">
-                <input
+                <input onChange={this.handleField('destination')}
                   type="text"
                   className="job-offer-input-dest"
                   placeholder="Destination"
+                  value={this.state.destinataion}
                 />
+                {this.props.errors.destinataion}
               </div>
               <br />
               <div className="job-offer-input-box">
-                <input
+                <input onChange={this.handleField('jobStartDate')}
                   type="date"
                   className="job-offer-input-start"
                   placeholder="Start date"
+                  value={this.state.jobStartDate}
                 />
+                {this.props.errors.jobStartDate}
               </div>
               <br />
               <button>Submit</button>
