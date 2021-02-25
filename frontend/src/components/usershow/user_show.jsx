@@ -22,7 +22,7 @@ class UserShow extends React.Component {
           
           <div className='user-info-wrapper'>
             <div className='user-image-wrap'>
-              <img className="user-image" src={user.profilePic} alt=""/>
+              <img className="user-image" src={user.profilePic} alt={user.firstName}/>
             </div>
             <p>ratings</p>
             <p>{user.email}</p>
