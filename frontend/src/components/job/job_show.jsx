@@ -67,7 +67,7 @@ class JobShow extends React.Component {
                 type="text"
                 className="job-show-input-dest"
                 placeholder="Destination"
-                value={job.destinataion}
+                value={job.destination}
               />
             </div>
           </div>
