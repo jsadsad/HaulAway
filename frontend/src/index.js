@@ -10,7 +10,7 @@ import { createStore } from 'redux'
 import { signup, login, logout } from './actions/session_actions'
 import * as userutil from './util/session_api_util';
 import {fetchUser, fetchUsers} from './actions/user_actions'
-import {fetchJob, fetchJobs} from './actions/job_actions'
+import {fetchJob, fetchJobs, fetchUserJobs} from './actions/job_actions'
 
 document.addEventListener('DOMContentLoaded', () => {
   let store
@@ -48,4 +48,5 @@ document.addEventListener('DOMContentLoaded', () => {
   window.fetchUser = fetchUser
   window.fetchJob = fetchJob
   window.fetchJobs = fetchJobs
+  window.fetchUserJobs = fetchUserJobs
 })
