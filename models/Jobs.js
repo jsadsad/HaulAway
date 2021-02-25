@@ -6,10 +6,6 @@ const JobSchema = new Schema ({
         type: Schema.Types.ObjectId,
         ref: 'users',
     },
-    jobTakers: {
-        type: Schema.Types.ObjectId,
-        ref: 'users',
-    },
     description: {
         type: String,
         required: true,
@@ -25,10 +21,6 @@ const JobSchema = new Schema ({
     jobDifficulty: {
         type: String,
         required: true,
-    },
-    pictures: {
-        data: Buffer,
-        contentType: String,
     },
     jobType: {
         type: String,
@@ -46,7 +38,18 @@ const JobSchema = new Schema ({
         type: Date,
         default: Date.now
     },
-
-});
+    pictures: {
+        type: String,
+        required: false,
+    },
+    time : { 
+        type : Date, 
+        default: Date.now 
+    },
+    jobTakers: [{
+        type: Schema.Types.ObjectId,
+        ref: 'users',
+    }],
+})
 
 module.exports = Job = mongoose.model('jobs', JobSchema);

@@ -49,6 +49,7 @@ router.post(
     }
 
     const newJob = new Job({
+      jobPoster: req.user.id,
       description: req.body.description,
       pickup: req.body.pickup,
       destination: req.body.destination,
@@ -56,8 +57,7 @@ router.post(
       jobType: req.body.jobType,
       jobStartDate: req.body.jobStartDate,
       jobEndDate: req.body.jobEndDate,
-      jobPoster: req.user.id,
-      jobTaker: req.user.id,
+      pictures: req.body.pictures,
     })
     newJob.save().then((job) => {
       res.json(job)
@@ -80,8 +80,6 @@ router.patch('/:id', (req, res) => {
         jobType: job.jobType,
         jobStartDate: job.jobStartDate,
         jobEndDate: job.jobEndDate,
-        // jobPoster: req.user.id,
-        // jobTaker: req.user.id,
       }
       res.json(updatedJob)
     })
