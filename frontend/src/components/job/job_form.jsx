@@ -12,7 +12,7 @@ class JobPostForm extends React.Component {
       destinataion: '',
       jobDifficulty: '',
       // pictures: '',
-      jobType: '',
+      jobType: 'request',
       jobStartDate: '',
       jobEndDate: '',
     }
@@ -37,6 +37,7 @@ class JobPostForm extends React.Component {
     e.preventDefault()
     const job = Object.assign({}, this.state)
     this.props.processJobForm(job)
+    .then(job => this.props.history.push(`/job`))
   }
 
   render() {
@@ -71,9 +72,13 @@ class JobPostForm extends React.Component {
               <br />
 
               <div className="job-post-lvl-btn">
-                <button onClick={this.handleField('jobDifficulty')} value="easy">Easy</button>
-                <button onClick={this.handleField('jobDifficulty')} value="medium">Medium</button>
-                <button onClick={this.handleField('jobDifficulty')} value="hard">Hard</button>
+                <label>Choose difficulty</label>
+                <select onChange={this.handleField('jobDifficulty')} value={this.state.jobDifficulty}>
+                  <option  value="easy">Easy</option>
+                  <option  value="medium">Medium</option>
+                  <option  value="hard">Hard</option>
+                </select>
+
               </div>
               <br />
 
@@ -93,9 +98,9 @@ class JobPostForm extends React.Component {
                   type="text"
                   className="job-post-input-dest"
                   placeholder="destination"
-                  value={this.state.destinataion}
+                  value={this.state.destination}
                 />
-                {this.props.errors.destinataion}
+                {this.props.errors.destination}
               </div>
               <br />
 

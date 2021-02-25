@@ -17,13 +17,20 @@
   display: flex;
 }
 
-.user-image {
+.user-image-wrap {
   border-radius: 30px;
   margin-top: 30px;
   border: 1px solid black;
   height: 290px;
   width: 290px;
   text-align: center;
+  display: flex;
+  justify-items: stretch;
+}
+
+.user-image {
+  /* height: 100%; */
+  border-radius: 30px;
 }
 
 .user-name {
