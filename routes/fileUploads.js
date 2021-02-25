@@ -61,7 +61,7 @@ router.post('/upload', upload.single('file'), function (req, res) {
         fileLink: s3FileURL + file.originalname,
         s3_key: params.Key,
       }
-      var photo = new PHOTO(newFileUploaded)
+      let photo = new PHOTO(newFileUploaded)
       photo.save(function (error, newFile) {
         if (error) {
           throw error
@@ -70,6 +70,40 @@ router.post('/upload', upload.single('file'), function (req, res) {
       let newData = Object.assign({}, data, { photoId: photo._id })
       res.send({ newData })
     }
+  })
+})
+
+router.post('/uploads', upload.array('file', 12), (req, res) => {
+  const file = req.files
+  let s3bucket = new AWS.S3({
+    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    region: process.env.AWS_REGION,
+  })
+  s3bucket.createBucket(function () {
+    let ResponseData = []
+
+    file.map((item) => {
+      let params = {
+        Bucket: process.env.AWS_BUCKET_NAME,
+        Key: item.originalname,
+        Body: item.buffer,
+        ACL: 'public-read',
+      }
+      s3bucket.upload(params, function (err, data) {
+        if (err) {
+          res.json({ error: true, Message: err })
+        } else {
+          ResponseData.push(data)
+          if (ResponseData.length == file.length) {
+            res.json({
+              Message: 'File Uploaded successfully',
+              Data: ResponseData,
+            })
+          }
+        }
+      })
+    })
   })
 })
 
