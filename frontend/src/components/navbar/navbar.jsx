@@ -44,14 +44,9 @@ class Navbar extends React.Component {
           return (
               <header className="navbar">
                   <div className="navbar-wrapper">
-                      {/* <Link to={'/signup'}>SIGNUP</Link> */}
                       <div className="navbar-left-wrap">
-                          <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>Haulaway</Link></div>
+                          <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>HaulAway</Link></div>
                       </div>
-                      {/* <div className="navbar-right-wrap">
-                          <div className="navbar-user-menu-wrap"><i class="fas fa-bars"></i></div>
-                      </div> */}
-
                   </div>
               </header>
           );

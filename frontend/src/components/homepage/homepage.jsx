@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import './homepage.css'
+import { Link } from 'react-router-dom';
+
 
 const Homepage = () => {
   return(
