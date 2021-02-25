@@ -1,7 +1,9 @@
-import React from 'react'
-import Navbar from '../navbar/navbar_container'
-import './homepage.css'
-import { withRouter } from "react-router"
+import React from 'react';
+import Navbar from '../navbar/navbar_container';
+import './homepage.css';
+import { withRouter } from "react-router";
+
+
 
 
 class Homepage extends React.Component {
