@@ -8,6 +8,7 @@ import SplashPage from './splash/splash_page'
 import SignupFormContainer from '../components/session/signup_form_container'
 import LoginFormContainer from '../components/session/login_form_container'
 import JobFormContainer from '../components/job/job_form_container'
+import JobOfferFormContainer from '../components/job/job_offer_container'
 import UserShowContainer from './usershow/user_show_container'
 import HomepageContainer from './homepage/homepage_container'
 import JobIndexContainer from './job/job_index_container'
@@ -20,6 +21,7 @@ const App = () => (
     <AuthRoute exact path="/signup" component={SignupFormContainer} />
     <ProtectedRoute exact path='/homepage' component={HomepageContainer} />
     <ProtectedRoute exact path="/jobs/new" component={JobFormContainer} />
+    <ProtectedRoute exact path="/jobs/offer" component={JobOfferFormContainer} />
     <ProtectedRoute exact path="/job/:jobId" component={JobShowContainer} />
     <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
     <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
