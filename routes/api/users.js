@@ -22,8 +22,6 @@ router.get(
   }
 )
 
-/*--------------------NEWLY ADDED: LENA--------------*/
-
 router.get('/', (req, res) => {
   User.find()
     .then((users) => res.json(users))
@@ -37,8 +35,6 @@ router.get('/:id', (req, res) => {
       res.status(404).json({ nouserfound: 'No user found with that ID' })
     )
 })
-
-/*----------------------------------------------------*/
 
 router.post('/register', (req, res) => {
   const { errors, isValid } = validateRegisterInput(req.body)
@@ -138,5 +134,16 @@ router.post('/login', (req, res) => {
     })
   })
 })
+
+router.delete(
+  '/:user_id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    User.deleteOne({ _id: req.params.job_id })
+      .then((deletedUser) => res.json(deletedUser))
+      .catch((err) => res.status(404).json({ noJobFound: 'No Job Found.' }))
+  }
+)
+
 
 module.exports = router
