@@ -278,7 +278,7 @@ class JobPostForm extends React.Component {
                 border: '1px solid black',
                 borderRadius: '5px',
               }}
-              zoom={14}
+              zoom={12}
               google={this.props.google}
               initialCenter={{
                 lat: 36.778259,
