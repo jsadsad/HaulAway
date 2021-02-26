@@ -18,7 +18,7 @@ class Homepage extends React.Component {
         </div>
         <div className='homepage-job-button-wrapper'>
           <div className='homepage-job-buttons'>
-            <button onClick={() => this.props.history.push('/job/new')} className='homepage-rj-button'>Request a Job</button>
+            <button onClick={() => this.props.history.push('/jobs/new')} className='homepage-rj-button'>Request a Job</button>
             <button className='homepage-oj-button'>Offer a Job</button>
           </div>
         </div>
