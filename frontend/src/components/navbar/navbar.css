@@ -97,11 +97,19 @@
   border-bottom: 1px solid rgba(156, 154, 154, 0.76);
 }
 
+.navbar-menu-jobs:hover {
+  background: #029343;
+}
+
 .logout {
   padding-left: 5px;
   padding-bottom: 5px;
   padding-top: 5px;
   color: white;
+}
+
+.logout:hover {
+  background: #029343;
 }
 
 .fa-cog {
@@ -111,4 +119,8 @@
 .navbar-menu-user {
   color: white;
   text-decoration: none;
+}
+
+.navbar-menu-user:hover {
+  background: #029343;
 }

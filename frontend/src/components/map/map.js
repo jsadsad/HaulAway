@@ -33,8 +33,8 @@ class Map extends React.Component {
       <div>
         <GoogleMapExample
           isMarkerShown
-          containerElement={ <div style={{height: `500px`, width: `500px`}} />}
-          mapElement = {<div style={{ height: `100%`}}/>}
+          containerElement={ <div  style={{height: `500px`, width: `500px`}} />}
+          mapElement = {<div  style={{ height: `100%`}}/>}
          />
       </div>
     )

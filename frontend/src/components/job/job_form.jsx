@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../navbar/navbar'
+import Navbar from '../navbar/navbar_container'
 import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
 import Autocomplete from 'react-google-autocomplete'
@@ -102,51 +102,49 @@ class JobPostForm extends React.Component {
   render() {
     return (
       <div className="job-post-outer">
+        <h2>Outer</h2>
         <Navbar />
 
         <div className="job-post-container">
+          <h1>Container</h1>
           <div className="job-post-form">
+            <h1>Form</h1>
             <form onSubmit={this.handleSubmit} className="job-post-form-box">
-              <h2 className="job-post-text">Job Request</h2>
-              <div className="job-post-input-box">
-                <textarea
-                  //   type="text"
-                  className="job-post-input-desc"
-                  placeholder="Description"
-                  value={this.state.description}
-                  onChange={this.handleField('description')}
-                />
-                {this.props.errors.description}
-              </div>
-              <br />
-              <div className="job-post-input-box">
-                {/* <input
-                  type="text"
-                  className="job-post-input-count"
-                  placeholder="Count"
-                  // value={this.state.}
-                /> */}
-                <input
-                  type="file"
-                  className="job-post-upload-btn"
-                  multiple
-                  onChange={this.handlePhotoFile}
-                />
-              </div>
-              <br />
-              <div className="job-post-lvl-btn">
-                <label>Choose difficulty</label>
-                <select
-                  onChange={this.handleField('jobDifficulty')}
-                  value={this.state.jobDifficulty}
-                >
-                  <option value="easy">Easy</option>
-                  <option value="medium">Medium</option>
-                  <option value="hard">Hard</option>
-                </select>
-              </div>
-              <br />
-              {/* <div className="job-post-input-box">
+              <div className="job-post-fields">
+                <h2 className="job-post-text">Job Request</h2>
+                <div className="job-post-input-box">
+                  <textarea
+                    //   type="text"
+                    className="job-post-input-desc"
+                    placeholder="Description"
+                    value={this.state.description}
+                    onChange={this.handleField('description')}
+                  />
+                  {this.props.errors.description}
+                </div>
+                <br />
+                <div className="job-post-input-box">
+                  <input
+                    type="file"
+                    className="job-post-upload-btn"
+                    multiple
+                    onChange={this.handlePhotoFile}
+                  />
+                </div>
+                <br />
+                <div className="job-post-lvl-btn">
+                  <label>Choose difficulty</label>
+                  <select
+                    onChange={this.handleField('jobDifficulty')}
+                    value={this.state.jobDifficulty}
+                  >
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                  </select>
+                </div>
+                <br />
+                {/* <div className="job-post-input-box">
                 <input
                   style={{ color: 'black' }}
                   onChange={this.handleField('pickup')}
@@ -157,15 +155,18 @@ class JobPostForm extends React.Component {
                 />
                 {this.props.errors.pickup}
               </div> */}
-              <Autocomplete
-                onPlaceSelected={this.onPickupSelected}
-                style={{ width: '25%' }}
-                types={['address']}
-                componentRestrictions={{ country: 'us' }}
-                placeholder="Pickup"
-              />
-              <br />
-              {/* <div className="job-post-input-box">
+                <div className="job-post-input-box">
+                  <Autocomplete
+                    onPlaceSelected={this.onPickupSelected}
+                    className="job-post-input-pickup"
+                    style={{ width: '25%' }}
+                    types={['address']}
+                    componentRestrictions={{ country: 'us' }}
+                    placeholder="Pickup"
+                  />
+                </div>
+                <br />
+                {/* <div className="job-post-input-box">
                 <input
                   style={{ color: 'black' }}
                   onChange={this.handleField('destination')}
@@ -176,49 +177,55 @@ class JobPostForm extends React.Component {
                 />
                 {this.props.errors.destination}
               </div> */}
-              <Autocomplete
-                onPlaceSelected={this.onDestinationSelected}
-                style={{ width: '25%' }}
-                types={['address']}
-                componentRestrictions={{ country: 'us' }}
-                onChange={this.handleField('destination')}
-                placeholder="Destination"
-              />
-              <br />
-              <div className="job-post-input-box">
-                <input
-                  onChange={this.handleField('jobStartDate')}
-                  type="date"
-                  className="job-post-input-date"
-                  placeholder="start date"
-                  value={this.state.jobStartDate}
-                />
-                {this.props.errors.jobStartDate}
+                <div className="job-post-input-box">
+                  <Autocomplete
+                    onPlaceSelected={this.onDestinationSelected}
+                    className="job-post-input-dest"
+                    style={{ width: '25%' }}
+                    types={['address']}
+                    componentRestrictions={{ country: 'us' }}
+                    onChange={this.handleField('destination')}
+                    placeholder="Destination"
+                  />
+                </div>
+                <br />
+                <div className="job-post-input-box">
+                  <input
+                    onChange={this.handleField('jobStartDate')}
+                    type="date"
+                    className="job-post-input-date"
+                    placeholder="start date"
+                    value={this.state.jobStartDate}
+                  />
+                  {this.props.errors.jobStartDate}
+                </div>
+                <br />
+                <div className="job-post-input-box">
+                  <input
+                    onChange={this.handleField('jobEndDate')}
+                    type="date"
+                    className="job-post-input-date2"
+                    placeholder="end date"
+                    value={this.state.jobEndDate}
+                  />
+                  {this.props.errors.jobEndDate}
+                </div>
+                <br/>
+                <button className="job-form-btn">Submit</button>
+              </div>
+              <br/>
+              <div className="job-form-map">
+                {/* <h2>Map container</h2> */}
+                <Map />
               </div>
               <br />
-              <div className="job-post-input-box">
-                <input
-                  onChange={this.handleField('jobEndDate')}
-                  type="date"
-                  className="job-post-input-date2"
-                  placeholder="end date"
-                  value={this.state.jobEndDate}
-                />
-                {this.props.errors.jobEndDate}
-              </div>
-              <br />
-              <button>Submit</button>
             </form>
-            <div>
-              <Map/>
-            </div>
           </div>
         </div>
+        <br/>
         <div className="splash-footer">
           <div className="splash-footer-wrapper">
-            {/* <div className="thank you-wrap"> */}
             <div className="thank-you">Thank you for your visit</div>
-            {/* </div> */}
             <div className="splash-footer-info">
               <div className="engineerd-by">Engineerd with love by:</div>
               <div className="info-us">

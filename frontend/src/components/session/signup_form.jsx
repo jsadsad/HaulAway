@@ -151,7 +151,7 @@ class SignupForm extends React.Component {
                   <div className="errors">{this.props.errors.phoneNumber}</div>
                 </div>
                 <br />
-                <input type="file" onChange={this.handlePhotoFile} />
+                <input type="file" onChange={this.handlePhotoFile} className="signup-photo-btn"/>
                 {/* <div className="signup-input-box">
                   <input
                     className="signup-input-dateOfBirth"
@@ -159,8 +159,10 @@ class SignupForm extends React.Component {
                     placeholder="Date of birth"
                   />
                 </div> */}
-                <br />
+
                 {/* {this.renderErrors()} */}
+                <br/>
+                <br/>
                 <button className="signup-button">Cofirm</button>
               </form>
               <br />

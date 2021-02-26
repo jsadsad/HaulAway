@@ -33,6 +33,10 @@
   font-size: 23px;
 }
 
+.homepage-rj-button:hover {
+  background: #029343;
+}
+
 .homepage-oj-button {
   width: 233px;
   height: 73px;
