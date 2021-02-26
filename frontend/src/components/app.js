@@ -13,21 +13,25 @@ import UserShowContainer from './usershow/user_show_container'
 import HomepageContainer from './homepage/homepage_container'
 import JobIndexContainer from './job/job_index_container'
 import JobShowContainer from '../components/job/job_show_container'
+import Modal from '../components/modal/modal'
 import JobEditContainer from '../components/job/job_edit_container'
 
 const App = () => (
-  <Switch>
-    <AuthRoute exact path="/" component={SplashPage} />
-    <AuthRoute exact path="/login" component={LoginFormContainer} />
-    <AuthRoute exact path="/signup" component={SignupFormContainer} />
-    <ProtectedRoute exact path='/homepage' component={HomepageContainer} />
-    <ProtectedRoute exact path="/jobs/new" component={JobFormContainer} />
-    <ProtectedRoute exact path="/jobs/offer" component={JobOfferFormContainer} />
-    <ProtectedRoute exact path="/job/:jobId" component={JobShowContainer} />
-    <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
-    <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
-    <ProtectedRoute exact path='/jobs/:jobId' component={JobEditContainer} />
-  </Switch>
+  <div>
+    <Modal />
+    <Switch>
+      <AuthRoute exact path="/" component={SplashPage} />
+      <AuthRoute exact path="/login" component={LoginFormContainer} />
+      <AuthRoute exact path="/signup" component={SignupFormContainer} />
+      <ProtectedRoute exact path='/homepage' component={HomepageContainer} />
+      <ProtectedRoute exact path="/jobs/new" component={JobFormContainer} />
+      <ProtectedRoute exact path="/jobs/offer" component={JobOfferFormContainer} />
+      <ProtectedRoute exact path="/jobs/:jobId" component={JobShowContainer} />
+      <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
+      <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
+      <ProtectedRoute exact path='/jobs/edit/:jobId' component={JobEditContainer} />
+    </Switch>
+  </div>
 )
 
 export default App

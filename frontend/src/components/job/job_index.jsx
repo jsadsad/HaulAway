@@ -25,7 +25,7 @@ class JobIndex extends React.Component {
             return (
               <div key={job._id} className='job-index-item'
               onClick={() => {
-                this.props.history.push(`/job/${job._id}`)}} >
+                this.props.history.push(`/jobs/${job._id}`)}} >
                 <div className='job-it-image-wrapper'>
                 <img className="user-image" src={job.pictures[0]} alt={job.title}/>
                 </div>

@@ -1,0 +1,51 @@
+.user-edit-modal-wrapper {
+  /* background-color: rgb(190, 189, 189); */
+  width: 400px;
+  height: 200px;
+  background-color: #20b161;;
+  color: white; 
+  font-family: 'Montserrat', sans-serif;
+  justify-self: center;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 5px 3px 2px 1px rgba(223, 223, 235, 0.2);
+}
+
+.uem-form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  padding: 15px;
+  
+}
+
+.uem-header {
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.uem-input {
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+.uem-input input {
+  background-color: white;
+  border: none;
+}
+.uem-buttons {
+  display: flex;
+  padding: 10px 60px;
+}
+
+.uem-buttons button {
+  margin: 10px;
+  width: 100px;
+  background: white;
+  color: #1fce6d;
+  border: 1px solid #1fce6d;
+}
+
