@@ -64,17 +64,10 @@
   color: white;
 }
 
-.homepage-job-index-wrapper {
-  /* border-top: 1px solid white; */
-}
-
 .homepage-img-wrapper {
-  /* width: 600px;
-  height: 800px; */
-  /* width: 900px; */
   width: 100vw;
-  height: 620px;
-  opacity: 0.8;
+  height: 640px;
+  opacity: 0.7;
   z-index: -1;
 }
 
@@ -83,17 +76,46 @@
   height: 100%;
 }
 
-.homepage-job-button-wrapper {
-  /* display: flex; */
-  /* background: #d3d3d3; */
-}
-
-.homepage-job-buttons{
-}
-
 .homepage-job-buttons-header {
-  position: abosoute;
-  left: 50%;
-  top: 50%;
+  position: absolute;
+  left: 65%;
+  top: 45%;
+  color: white;
+  font-size: 30px;
   /* transform: translate(-50%, -50%); */
+  
+}
+.homepage-job-index-wrapper {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  width: 100vw;
+  padding-bottom: 20px;
+}
+
+.homepage-job-index {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 30px;
+}
+
+.homepage-job-index-items {
+  border: 1px solid white;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.homepage-job-index-header {
+  display: flex;
+}
+
+.homepage-job-index-header h2 {
+  padding-left: 30px;
+}
+
+.homepage-view-all {
+ cursor: pointer;
+}
+
+.homepage-view-all:hover {
+  text-decoration: underline;
 }
