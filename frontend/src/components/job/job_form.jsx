@@ -1,9 +1,10 @@
 import React from 'react'
+import Autocomplete from 'react-google-autocomplete'
 import Navbar from '../navbar/navbar_container'
 import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
-import Autocomplete from 'react-google-autocomplete'
-import Map from '../map/map'
+
+import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
 
 class JobPostForm extends React.Component {
   constructor(props) {
@@ -17,6 +18,14 @@ class JobPostForm extends React.Component {
       jobType: 'request',
       jobStartDate: '',
       jobEndDate: '',
+      mapPosition: {
+        lat: '',
+        lng: '',
+      },
+      markerPosition: {
+        lat: '',
+        lng: '',
+      },
       pictures: [],
       selectedFile: null,
     }
@@ -93,13 +102,24 @@ class JobPostForm extends React.Component {
   }
 
   onDestinationSelected(place) {
-    const address = place.formatted_address
+    const address = place.formatted_address,
+      latValue = place.geometry.location.lat(),
+      lngValue = place.geometry.location.lng()
     this.setState({
       destination: address ? address : '',
+      markerPosition: {
+        lat: latValue,
+        lng: lngValue,
+      },
+      mapPosition: {
+        lat: latValue,
+        lng: lngValue,
+      },
     })
   }
 
   render() {
+    const coords = this.state.mapPosition
     return (
       <div className="job-post-outer">
         <h2>Outer</h2>
@@ -210,10 +230,10 @@ class JobPostForm extends React.Component {
                   />
                   {this.props.errors.jobEndDate}
                 </div>
-                <br/>
+                <br />
                 <button className="job-form-btn">Submit</button>
               </div>
-              <br/>
+              <br />
               <div className="job-form-map">
                 {/* <h2>Map container</h2> */}
                 <Map />
@@ -222,7 +242,7 @@ class JobPostForm extends React.Component {
             </form>
           </div>
         </div>
-        <br/>
+        <br />
         <div className="splash-footer">
           <div className="splash-footer-wrapper">
             <div className="thank-you">Thank you for your visit</div>
@@ -259,6 +279,43 @@ class JobPostForm extends React.Component {
                 </a>
               </div>
             </div>
+            <Map
+              style={{
+                width: '45vw',
+                height: '150px',
+                position: 'relative',
+                top: '30px',
+                border: '1px solid black',
+                borderRadius: '5px',
+              }}
+              zoom={12}
+              google={this.props.google}
+              initialCenter={{
+                lat: 36.778259,
+                lng: -119.417931,
+              }}
+              center={{
+                lat: this.state.mapPosition.lat,
+                lng: this.state.mapPosition.lng,
+              }}
+            >
+              <Marker
+                draggable={true}
+                position={{
+                  lat: this.state.markerPosition.lat,
+                  lng: this.state.markerPosition.lng,
+                }}
+              />
+              <Circle
+                radius={1200}
+                center={coords}
+                strokeColor="transparent"
+                strokeOpacity={0}
+                strokeWeight={5}
+                fillColor="#FF0000"
+                fillOpacity={0.2}
+              />
+            </Map>
           </div>
         </div>
       </div>
@@ -266,4 +323,6 @@ class JobPostForm extends React.Component {
   }
 }
 
-export default JobPostForm
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyBQf1ahKg7gbuVHd9daHMMvm0zfPEpnBd8',
+})(JobPostForm)
