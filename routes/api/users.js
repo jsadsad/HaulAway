@@ -145,7 +145,7 @@ router.patch('/:id', (req, res) => {
         _id: user.id,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
-        email: req.body.email,
+        email: user.email,
         password: user.password,
         phoneNumber: user.phoneNumber,
         profilePic: user.profilePic,

@@ -22,7 +22,10 @@ export const fetchUsers = () => dispatch => (
 export const fetchUser = id => dispatch => (
   getUser(id)
     .then(user => dispatch(receiveUser(user)))
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err)
+      return Promise.reject(err)
+    })
 )
 
 

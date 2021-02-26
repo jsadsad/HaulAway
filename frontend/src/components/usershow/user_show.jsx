@@ -28,8 +28,13 @@ class UserShow extends React.Component {
 
   render() {
 
-    const user = this.props.users[this.props.userId]
+    const user = this.props.user
     if (!user) {return null}
+
+    let editButton = ''
+    if(this.props.userId === this.props.currentUserId) {
+      editButton =  <div onClick={() => this.props.openModal('edit user', user._id )}>Edit</div>
+    }
 
     return(
        <div className='user-show-page'>
@@ -48,7 +53,8 @@ class UserShow extends React.Component {
             </div>
             {/* <p>ratings</p> */}
             <p>{user.email}</p>
-            <div onClick={() => this.props.openModal('edit user', user._id )}>Edit</div>
+            {/* <div onClick={() => this.props.openModal('edit user', user._id )}>Edit</div> */}
+            {editButton}
           </div>
           
           <div className='rest-wrapper'>

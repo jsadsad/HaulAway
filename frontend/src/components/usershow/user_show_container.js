@@ -7,7 +7,8 @@ import {openModal} from '../../actions/modal_actions'
 const mapStateToProps = (state, ownProps) => {
   return {
     userId: ownProps.match.params.userId,
-    users: state.entities.users,
+    currentUserId: state.session.user.id,
+    user: state.entities.users[ownProps.match.params.userId],
     jobs: Object.values(state.entities.jobs),
   }
 }
