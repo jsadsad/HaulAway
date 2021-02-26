@@ -12,6 +12,7 @@ class JobShow extends React.Component {
 
     this.takeJob = this.takeJob.bind(this);
     this.leaveJob = this.leaveJob.bind(this);
+    this.closeJob = this.closeJob.bind(this);
 
     
     // this.editJobButton= this.editJobButton.bind(this)
@@ -19,8 +20,22 @@ class JobShow extends React.Component {
 }
 
   componentDidMount() {
+    const oldJobId = localStorage.getItem('jobId')
+    // debugger
+
+    // if (oldJobId) {
+    // this.props.fetchJob(this.props.oldJobId)
+    // } else {
     this.props.fetchJob(this.props.jobId)
+
+    // }
   }
+
+  componentWillUnmount() {
+    localStorage.setItem('jobId', this.props.jobId)
+  }
+
+
 
   takeJob(e) {
     e.preventDefault();
@@ -37,7 +52,6 @@ class JobShow extends React.Component {
     
 
     this.props.updateJob(takenJob)
-    .then(this.props.history.push('/homepage'))
 
   }
 
@@ -54,24 +68,39 @@ class JobShow extends React.Component {
     }
     
     
+    
+    this.props.updateJob(takenJob)
+  }
+
+  closeJob(e) {
+    e.preventDefault();
+    // this.props.job = {
+    //   jobTaker: this.props.jobtaker
+    // }
+
+    const takenJob = {
+      _id: this.props.jobId,
+      isClosed: true      
+    }
+    
+    
 
     this.props.updateJob(takenJob)
     .then(this.props.history.push('/homepage'))
 
   }
 
-  editJobButton() {
+    editJobButton() {
     const job = this.props.jobs[this.props.jobId]
     
-    if (job.jobPoster === this.props.currentUserId) {
-      console.log(this.props.jobs.jobPoster === this.props.currentUserId)
+    if ((job.jobPoster === this.props.currentUserId) && (!job.isClosed)) {
       return (
         <button className="edit-job-button">Edit Job</button>
         )
       }
     }
     
-    takeJobButton() {
+  takeJobButton() {
       const job = this.props.jobs[this.props.jobId]
       // debugger
       if ((job.jobPoster !== this.props.currentUserId) && (job.isAvailable)) {
@@ -79,10 +108,10 @@ class JobShow extends React.Component {
           <button className="take-job-button" onClick={this.takeJob}>Take Job</button>
           )
         }
-      }
+  }
       
-      leaveJobButton() {
-        const job = this.props.jobs[this.props.jobId]
+  leaveJobButton() {
+    const job = this.props.jobs[this.props.jobId]
     // debugger
     if (job.jobTaker === this.props.currentUserId) {
       return (
@@ -91,9 +120,23 @@ class JobShow extends React.Component {
     }
   }
 
+  closeJobButton() {
+    const job = this.props.jobs[this.props.jobId]
+    
+    if ((job.jobPoster === this.props.currentUserId) && (!job.isAvailable)) {
+      return (
+        <button className="close-job-button" onClick={this.closeJob}>Close Job</button>
+        )
+      }
+
+  }
+
   render() {
     const job = this.props.jobs[this.props.jobId]
-    if (!job) {return null}
+    // const available = job.isAvailable
+    // if (!job) {return null}
+    if (!job) return <h1>loading</h1>
+
     
     return (
       <div className="job-show-outer">
@@ -109,6 +152,8 @@ class JobShow extends React.Component {
           <div className="take-job-button-wrap">{ this.takeJobButton() }</div>
           <div className="leave-job-button-wrap">{ this.leaveJobButton()}</div>
           <div className="edit-job-button-wrap">{ this.editJobButton() }</div>
+          <div className="close-job-button-wrap">{ this.closeJobButton() }</div>
+
           <div className="job-show-footer">
             <div className="job-show-map">
               <h2>Ill be a map</h2>
