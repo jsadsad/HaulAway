@@ -135,6 +135,30 @@ router.post('/login', (req, res) => {
   })
 })
 
+router.patch('/:id', (req, res) => {
+  const filter = { _id: req.params.id }
+  const update = req.body
+
+  User.findOneAndUpdate(filter, update, { new: true })
+    .then((user) => {
+      const updatedUser = {
+        _id: user.id,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        password: user.password,
+        phoneNumber: user.phoneNumber,
+        profilePic: user.profilePic,
+        reviews: user.reviews,
+      }
+      res.json(updatedUser)
+    })
+    .catch((error) => {
+      res.status(404).json(error)
+    })
+})
+
+
 router.delete(
   '/:user_id',
   passport.authenticate('jwt', { session: false }),
