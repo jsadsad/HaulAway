@@ -1,4 +1,4 @@
-.homepage-wrapper {
+/* .homepage-wrapper {
   height: 100vh;
   background: #2E3740;
 }
@@ -10,7 +10,6 @@
 }
 
 .homepage-job-button-wrapper { 
-  /* border: 1px solid orangered; */
   height: 150px;
   text-align: center;
 }
@@ -39,4 +38,62 @@
   height: 73px;
   font-size: 23px;
 }
+ */
 
+.homepage-wrapper {
+  min-height: 100vh;
+  background: #2E3740;
+}
+
+
+.homepage-rj-button {
+  position: absolute;
+  left: 77%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  width: 180px;
+  height: 70px;
+  font-size: 20px;
+}
+
+.homepage-rj-button:hover {
+  background-color: #1fce6d;
+  color: white;
+}
+
+.homepage-job-index-wrapper {
+  /* border-top: 1px solid white; */
+}
+
+.homepage-img-wrapper {
+  /* width: 600px;
+  height: 800px; */
+  /* width: 900px; */
+  width: 100vw;
+  height: 620px;
+  opacity: 0.8;
+  z-index: -1;
+}
+
+.homepage-img {
+  width: 100%;
+  height: 100%;
+}
+
+.homepage-job-button-wrapper {
+  /* display: flex; */
+  /* background: #d3d3d3; */
+}
+
+.homepage-job-buttons{
+}
+
+.homepage-job-buttons-header {
+  position: abosoute;
+  left: 50%;
+  top: 50%;
+  /* transform: translate(-50%, -50%); */
+}
