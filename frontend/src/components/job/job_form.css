@@ -1,7 +1,7 @@
 .job-post-outer {
   text-align: center;
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
   background: linear-gradient(132deg, #d75364, #874bee, #414567);
   background-size: 400% 400%;
   animation: Gradient 15s ease infinite;

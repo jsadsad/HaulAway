@@ -120,12 +120,6 @@ class JobPostForm extends React.Component {
               </div>
               <br />
               <div className="job-post-input-box">
-                {/* <input
-                  type="text"
-                  className="job-post-input-count"
-                  placeholder="Count"
-                  // value={this.state.}
-                /> */}
                 <input
                   type="file"
                   className="job-post-upload-btn"
@@ -206,11 +200,11 @@ class JobPostForm extends React.Component {
                 />
                 {this.props.errors.jobEndDate}
               </div>
+              <Map/>
               <br />
               <button>Submit</button>
             </form>
             <div>
-              <Map/>
             </div>
           </div>
         </div>
