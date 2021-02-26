@@ -1,17 +1,7 @@
-@media(min-width: 700px){
+@media (min-width: 700px) {
   .job-post-outer {
     display: flex;
   }
-
-}
-
-.job-post-outer {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background: linear-gradient(132deg, #d75364, #874bee, #414567);
-  background-size: 400% 400%;
-  animation: Gradient 15s ease infinite;
 }
 
 @keyframes Gradient {
@@ -24,6 +14,15 @@
   100% {
     background-position: 0% 50%;
   }
+}
+
+.job-post-outer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(132deg, #d75364, #874bee, #414567);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
 }
 
 /* borders around containers to see properties */
@@ -51,7 +50,7 @@
   padding: 10px;
 } */
 
-.job-post-form-box{
+.job-post-form-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -59,13 +58,17 @@
   /* border: 1px solid blue; */
 }
 
-.job-form-map {
+.job-form-google-map {
   display: flex;
   object-fit: contain;
 }
 
+.job-form-google-map-container {
+  display: flex;
+  object-fit: contain;
+}
 
-.job-post-fields{
+.job-post-fields {
   display: flex;
   flex-direction: column;
   width: 400px;
@@ -78,14 +81,13 @@
 }
 
 .job-post-input-box {
-  width: 300px;
+  width: 100vw;
 }
 
 .job-form-btn {
-  transition: .5s;
+  transition: 0.5s;
   overflow: hidden;
 }
-
 
 .job-form-btn:hover {
   background: #029343;

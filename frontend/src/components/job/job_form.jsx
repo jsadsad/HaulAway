@@ -1,10 +1,9 @@
 import React from 'react'
 import Autocomplete from 'react-google-autocomplete'
 import Navbar from '../navbar/navbar_container'
+import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
 import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
-
-import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
 
 class JobPostForm extends React.Component {
   constructor(props) {
@@ -63,10 +62,9 @@ class JobPostForm extends React.Component {
           jobEndDate: this.state.jobEndDate,
           pictures: location,
         }
-        this.props.processJobForm(job)
-        .then((payload) => {
-          this.props.history.push(`/job/${payload.job.data._id}`)})
-
+        this.props.processJobForm(job).then((payload) => {
+          this.props.history.push(`/job/${payload.job.data._id}`)
+        })
       })
     } else {
       let job = {
@@ -79,10 +77,9 @@ class JobPostForm extends React.Component {
         jobEndDate: this.state.jobEndDate,
         pictures: this.state.pictures,
       }
-      this.props
-        .processJobForm(job)
-        .then((payload) => {
-          this.props.history.push(`/job/${payload.job.data._id}`)})
+      this.props.processJobForm(job).then((payload) => {
+        this.props.history.push(`/job/${payload.job.data._id}`)
+      })
     }
   }
 
@@ -126,20 +123,14 @@ class JobPostForm extends React.Component {
     const coords = this.state.mapPosition
     return (
       <div className="job-post-outer">
-        <h2>Outer</h2>
         <Navbar />
-
         <div className="job-post-container">
-          <h1>Container</h1>
           <div className="job-post-form">
-            <h1>Form</h1>
             <form onSubmit={this.handleSubmit} className="job-post-form-box">
               <div className="job-post-fields">
                 <h2 className="job-post-text">Job Request</h2>
                 <div className="job-post-input-box">
                   <textarea
-                    //   type="text"
-                    className="job-post-input-desc"
                     placeholder="Description"
                     value={this.state.description}
                     onChange={this.handleField('description')}
@@ -157,28 +148,19 @@ class JobPostForm extends React.Component {
                 </div>
                 <br />
                 <div className="job-post-lvl-btn">
-                  <label>Choose difficulty</label>
                   <select
                     onChange={this.handleField('jobDifficulty')}
                     value={this.state.jobDifficulty}
                   >
+                    <option value="" disabled defaultValue>
+                      Difficulty
+                    </option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
                   </select>
                 </div>
                 <br />
-                {/* <div className="job-post-input-box">
-                <input
-                  style={{ color: 'black' }}
-                  onChange={this.handleField('pickup')}
-                  type="text"
-                  className="job-post-input-start"
-                  placeholder="pickup"
-                  value={this.state.pickup}
-                />
-                {this.props.errors.pickup}
-              </div> */}
                 <div className="job-post-input-box">
                   <Autocomplete
                     onPlaceSelected={this.onPickupSelected}
@@ -190,17 +172,6 @@ class JobPostForm extends React.Component {
                   />
                 </div>
                 <br />
-                {/* <div className="job-post-input-box">
-                <input
-                  style={{ color: 'black' }}
-                  onChange={this.handleField('destination')}
-                  type="text"
-                  className="job-post-input-dest"
-                  placeholder="destination"
-                  value={this.state.destination}
-                />
-                {this.props.errors.destination}
-              </div> */}
                 <div className="job-post-input-box">
                   <Autocomplete
                     onPlaceSelected={this.onDestinationSelected}
@@ -279,44 +250,47 @@ class JobPostForm extends React.Component {
                 </a>
               </div>
             </div>
-            <Map
-              style={{
-                width: '45vw',
-                height: '150px',
-                position: 'relative',
-                top: '30px',
-                border: '1px solid black',
-                borderRadius: '5px',
-              }}
-              zoom={12}
-              google={this.props.google}
-              initialCenter={{
-                lat: 36.778259,
-                lng: -119.417931,
-              }}
-              center={{
-                lat: this.state.mapPosition.lat,
-                lng: this.state.mapPosition.lng,
-              }}
-            >
-              <Marker
-                draggable={true}
-                position={{
-                  lat: this.state.markerPosition.lat,
-                  lng: this.state.markerPosition.lng,
-                }}
-              />
-              <Circle
-                radius={1200}
-                center={coords}
-                strokeColor="transparent"
-                strokeOpacity={0}
-                strokeWeight={5}
-                fillColor="#FF0000"
-                fillOpacity={0.2}
-              />
-            </Map>
           </div>
+        </div>
+        <div className="job-form-google-map-container">
+          <Map
+            className="job-form-google-map"
+            style={{
+              width: '45vw',
+              height: '150px',
+              position: 'relative',
+              top: '30px',
+              border: '1px solid black',
+              borderRadius: '5px',
+            }}
+            zoom={12}
+            google={this.props.google}
+            initialCenter={{
+              lat: 36.778259,
+              lng: -119.417931,
+            }}
+            center={{
+              lat: this.state.mapPosition.lat,
+              lng: this.state.mapPosition.lng,
+            }}
+          >
+            <Marker
+              draggable={true}
+              position={{
+                lat: this.state.markerPosition.lat,
+                lng: this.state.markerPosition.lng,
+              }}
+            />
+            <Circle
+              radius={1200}
+              center={coords}
+              strokeColor="transparent"
+              strokeOpacity={0}
+              strokeWeight={5}
+              fillColor="#FF0000"
+              fillOpacity={0.2}
+            />
+          </Map>
         </div>
       </div>
     )
