@@ -50,6 +50,14 @@ const JobSchema = new Schema({
     type: String,
     default: ''
   },
+  isAvailable: {
+    type: Boolean,
+    default: true
+  },
+  isClosed: {
+    type: Boolean,
+    default: false
+  }
 })
 
 module.exports = Job = mongoose.model('jobs', JobSchema)

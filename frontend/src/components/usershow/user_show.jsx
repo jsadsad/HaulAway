@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../navbar/navbar_container';
 
-import usershow from './usershow.css';
+import usershow from './user_show.css';
 
 class UserShow extends React.Component {
 
