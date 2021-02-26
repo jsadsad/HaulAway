@@ -73,3 +73,13 @@
 .job-post-input-box {
   width: 300px;
 }
+
+.job-form-btn {
+  transition: .5s;
+  overflow: hidden;
+}
+
+
+.job-form-btn:hover {
+  background: #029343;
+}

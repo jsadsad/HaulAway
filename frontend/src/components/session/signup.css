@@ -105,3 +105,7 @@
   text-transform: uppercase;
   border-radius: 12px 12px 12px 12px;
 }
+
+.signup-button:hover {
+  background: #029343;
+}

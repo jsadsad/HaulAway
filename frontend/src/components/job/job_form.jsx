@@ -211,18 +211,18 @@ class JobPostForm extends React.Component {
                   {this.props.errors.jobEndDate}
                 </div>
                 <br/>
-                <button>Submit</button>
+                <button className="job-form-btn">Submit</button>
               </div>
               <div className="job-form-map">
                 <h2>Map container</h2>
                 <Map />
               </div>
               <br />
-
             </form>
             <div></div>
           </div>
         </div>
+        <br/>
         <div className="splash-footer">
           <div className="splash-footer-wrapper">
             <div className="thank-you">Thank you for your visit</div>

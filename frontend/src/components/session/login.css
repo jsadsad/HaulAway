@@ -138,6 +138,10 @@
   color: #1fce6d;
 }
 
+.demo-user-button:hover {
+  background: #029343;
+}
+
 .sign-up-new {
   color: #737373;
   font-size: 14px;
