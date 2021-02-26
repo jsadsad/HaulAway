@@ -20,7 +20,7 @@ const ReviewSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users',
   },
-  job: {
+  jobId: {
     // type: Schema.Types.ObjectId,
     // ref: 'jobs'
     type: String,
