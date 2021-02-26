@@ -1,17 +1,30 @@
-@media(min-width: 700px){
+@media (min-width: 700px) {
   .job-post-outer {
     display: flex;
   }
-
 }
 
-.job-post-outer {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  background: linear-gradient(132deg, #d75364, #874bee, #414567);
-  background-size: 400% 400%;
-  animation: Gradient 15s ease infinite;
+::-webkit-input-placeholder {
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+}
+:-ms-input-placeholder {
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
 }
 
 @keyframes Gradient {
@@ -26,11 +39,19 @@
   }
 }
 
-/* borders around containers to see properties */
-/* .job-post-outer div{
-  border: 1px #ccc solid;
-  padding: 10px;
-} */
+.job-post-outer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: linear-gradient(132deg, #d75364, #874bee, #414567);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite;
+}
+
+.job-post-input-desc {
+  height: 10rem;
+  width: 15rem;
+}
 
 .job-post-container {
   display: flex;
@@ -40,37 +61,36 @@
 
 .job-post-form {
   display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
-  /* border: 1px red solid; */
+  justify-content: space-between;
+  font-size: 1.5rem;
 }
 
-/* borders around containers to see properties */
-/* .job-post-form div {
-  border: 1px #ccc solid;
-  padding: 10px;
-} */
-
-.job-post-form-box{
+.job-post-form-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  /* border: 1px solid blue; */
+}
+
+.job-form-google-map-container {
+  display: flex;
+  object-fit: contain;
+  max-width: 20%;
+  max-height: 20%;
 }
 
 .job-form-map {
-  display: flex;
-  object-fit: contain;
+  max-width: 25%;
+  max-height: 75%;
+  top: 100px;
+  border: 3px solid black;
+  border-radius: 5px;
 }
 
-
-.job-post-fields{
-  display: flex;
+.job-post-fields {
   flex-direction: column;
-  width: 400px;
-  justify-content: space-between;
-  /* border: 1px solid brown; */
+  max-width: 2%;
+  max-height: 100%;
 }
 
 .job-post-fields button {
@@ -78,14 +98,13 @@
 }
 
 .job-post-input-box {
-  width: 300px;
+  width: 50vw;
 }
 
 .job-form-btn {
-  transition: .5s;
+  transition: 0.5s;
   overflow: hidden;
 }
-
 
 .job-form-btn:hover {
   background: #029343;

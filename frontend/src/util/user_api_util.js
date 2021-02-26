@@ -11,3 +11,7 @@ export const getUser= id => {
 export const deleteUser = (userId) => {
   return axios.delete(`/api/users/${userId}`)
 }
+
+export const updateUser= (user) => {
+  return axios.patch(`/api/users/${user._id}`, user )
+}

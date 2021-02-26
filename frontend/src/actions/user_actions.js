@@ -1,4 +1,4 @@
-import {getUser, getUsers} from '../util/user_api_util'
+import {getUser, getUsers, updateUser} from '../util/user_api_util'
 
 export const RECEIVE_USERS = "RECEIVE_USERS"
 export const RECEIVE_USER = "RECEIVE_USER"
@@ -22,5 +22,15 @@ export const fetchUsers = () => dispatch => (
 export const fetchUser = id => dispatch => (
   getUser(id)
     .then(user => dispatch(receiveUser(user)))
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err)
+      return Promise.reject(err)
+    })
 )
+
+
+export const updateUserInfo = (user) => (dispatch) => {
+  return updateUser(user)
+    .then((updatedUser) => dispatch(receiveUser(updatedUser)))
+    .catch((error) => console.log(error))
+}
