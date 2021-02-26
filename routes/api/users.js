@@ -70,7 +70,7 @@ router.post('/register', (req, res) => {
                 jwt.sign(
                   payload,
                   keys.secretOrKey,
-                  { expiresIn: 3600 },
+                  { expiresIn: 7000 },
                   (err, token) => {
                     res.json({
                       success: true,
@@ -119,7 +119,7 @@ router.post('/login', (req, res) => {
         jwt.sign(
           payload,
           keys.secretOrKey,
-          { expiresIn: 3600 },
+          { expiresIn: 7000 },
           (err, token) => {
             res.json({
               success: true,
@@ -144,6 +144,5 @@ router.delete(
       .catch((err) => res.status(404).json({ noJobFound: 'No Job Found.' }))
   }
 )
-
 
 module.exports = router

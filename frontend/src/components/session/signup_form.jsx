@@ -1,8 +1,8 @@
-import React from 'react';
-import Navbar from '../navbar/navbar_container';
-import './signup.css';
-import '../splash/splash.css';
+import React from 'react'
+import Navbar from '../navbar/navbar_container'
 import { uploadPhoto } from '../../util/photo_api_util'
+import './signup.css'
+import '../splash/splash.css'
 
 class SignupForm extends React.Component {
   constructor(props) {
@@ -21,27 +21,13 @@ class SignupForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePhotoFile = this.handlePhotoFile.bind(this)
-    this.errorsOccured = this.errorsOccured.bind(this)
   }
 
   componentWillUnmount() {
     this.props.clearErrors()
   }
 
-  // handleSubmit(e) {
-  //   e.preventDefault()
-
-  //   if (this.state.selectedFile) {
-  //     const data = new FormData(e.target)
-  //     data.append('file', this.state.selectedFile)
-  //   }
-
-  //   const user = Object.assign({}, this.state)
-  //   this.props.processForm(user)
-  // }
-
   handleSubmit(e) {
-
     const capitalize = (s) => {
       if (typeof s !== 'string') return ''
       return s.charAt(0).toUpperCase() + s.slice(1)
@@ -58,13 +44,11 @@ class SignupForm extends React.Component {
           lastName: capitalize(this.state.lastName),
           phoneNumber: this.state.phoneNumber,
           email: this.state.email,
-          photoId: res.data.newData.photoId,
           profilePic: res.data.newData.Location,
           password: this.state.password,
           password2: this.state.password2,
         }
         this.props.processForm(user)
-
       })
     } else {
       let user = {
@@ -77,7 +61,6 @@ class SignupForm extends React.Component {
         password2: this.state.password2,
       }
       this.props.processForm(user)
-
     }
   }
 
@@ -88,12 +71,8 @@ class SignupForm extends React.Component {
     })
   }
 
-  update(field) {
-    return (e) => this.setState({ [field]: e.target.value })
-  }
-
-  errorsOccured() {
-    return this.props.errors.length !== 0
+  handleField(field) {
+    return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
   render() {
@@ -109,7 +88,7 @@ class SignupForm extends React.Component {
                 <br />
                 <div className="signup-input-box">
                   <input
-                    onChange={this.update('firstName')}
+                    onChange={this.handleField('firstName')}
                     className="signup-input-firstname"
                     type="text"
                     placeholder="First Name"
@@ -120,7 +99,7 @@ class SignupForm extends React.Component {
                 <br />
                 <div className="signup-input-box">
                   <input
-                    onChange={this.update('lastName')}
+                    onChange={this.handleField('lastName')}
                     className="signup-input-lastname"
                     type="text"
                     placeholder="Last Name"
@@ -131,7 +110,7 @@ class SignupForm extends React.Component {
                 <br />
                 <div className="signup-input-box">
                   <input
-                    onChange={this.update('email')}
+                    onChange={this.handleField('email')}
                     className="signup-input-email"
                     type="text"
                     placeholder="Email"
@@ -142,7 +121,7 @@ class SignupForm extends React.Component {
                 <br />
                 <div className="signup-input-box">
                   <input
-                    onChange={this.update('password')}
+                    onChange={this.handleField('password')}
                     className="signup-input-password"
                     type="password"
                     placeholder="Password"
@@ -153,7 +132,7 @@ class SignupForm extends React.Component {
                 <br />
                 <div className="signup-input-box">
                   <input
-                    onChange={this.update('password2')}
+                    onChange={this.handleField('password2')}
                     className="signup-input-password"
                     type="password"
                     placeholder="Confirm password"
@@ -164,7 +143,7 @@ class SignupForm extends React.Component {
                 <br />
                 <div className="signup-input-box">
                   <input
-                    onChange={this.update('phoneNumber')}
+                    onChange={this.handleField('phoneNumber')}
                     className="signup-input-phone"
                     type="tel"
                     placeholder="Phone number"

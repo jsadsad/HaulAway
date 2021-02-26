@@ -39,7 +39,7 @@ const JobSchema = new Schema({
     default: Date.now,
   },
   pictures: {
-    type: String,
+    type: Array,
     required: false,
   },
   time: {
