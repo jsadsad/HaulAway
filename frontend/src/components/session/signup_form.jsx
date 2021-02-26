@@ -163,7 +163,7 @@ class SignupForm extends React.Component {
                 {/* {this.renderErrors()} */}
                 <br/>
                 <br/>
-                <button className="signup-button">Cofirm</button>
+                <button className="signup-button">Confirm</button>
               </form>
               <br />
             </div>

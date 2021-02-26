@@ -91,7 +91,7 @@ class JobShow extends React.Component {
     
     if ((job.jobPoster === this.props.currentUserId) && (!job.isClosed) && (job.isAvailable)) {
       return (
-        <button className="edit-job-button">Edit Job</button>
+        <button onClick={()=> this.props.history.push(`/jobs/edit/${job._id}`)} className="edit-job-button">Edit Job</button>
         )
       }
     }

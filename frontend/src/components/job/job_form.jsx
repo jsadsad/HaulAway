@@ -63,7 +63,7 @@ class JobPostForm extends React.Component {
           pictures: location,
         }
         this.props.processJobForm(job).then((payload) => {
-          this.props.history.push(`/job/${payload.job.data._id}`)
+          this.props.history.push(`/jobs/${payload.job.data._id}`)
         })
       })
     } else {
@@ -78,7 +78,7 @@ class JobPostForm extends React.Component {
         pictures: this.state.pictures,
       }
       this.props.processJobForm(job).then((payload) => {
-        this.props.history.push(`/job/${payload.job.data._id}`)
+        this.props.history.push(`/jobs/${payload.job.data._id}`)
       })
     }
   }
@@ -155,7 +155,7 @@ class JobPostForm extends React.Component {
                     value={this.state.jobDifficulty}
                   >
                     <option value="" disabled defaultValue>
-                      Difficulty
+                      --Please Select Difficulty--
                     </option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
