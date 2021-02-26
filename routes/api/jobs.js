@@ -28,6 +28,7 @@ router.get('/:id', (req, res) => {
     })
 })
 
+
 router.get('/user/:poster_id', (req, res) => {
   Jobs.find({ jobPoster: req.params.poster_id })
     .then((jobs) => {
@@ -80,6 +81,7 @@ router.patch('/:id', (req, res) => {
         jobType: job.jobType,
         jobStartDate: job.jobStartDate,
         jobEndDate: job.jobEndDate,
+        jobTaker: req.body.jobTaker
       }
       res.json(updatedJob)
     })
