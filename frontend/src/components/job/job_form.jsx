@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../navbar/navbar'
 import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
+import Autocomplete from 'react-google-autocomplete'
 
 class JobPostForm extends React.Component {
   constructor(props) {
@@ -21,6 +22,8 @@ class JobPostForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePhotoFile = this.handlePhotoFile.bind(this)
+    this.onPickupSelected = this.onPickupSelected.bind(this)
+    this.onDestinationSelected = this.onDestinationSelected.bind(this)
   }
 
   componentWilUnmount() {
@@ -80,6 +83,21 @@ class JobPostForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
+  onPickupSelected(place) {
+    const address = place.formatted_address
+
+    this.setState({
+      pickup: address ? address : '',
+    })
+  }
+
+  onDestinationSelected(place) {
+    const address = place.formatted_address
+    this.setState({
+      destination: address ? address : '',
+    })
+  }
+
   render() {
     return (
       <div className="job-post-outer">
@@ -115,7 +133,6 @@ class JobPostForm extends React.Component {
                 />
               </div>
               <br />
-
               <div className="job-post-lvl-btn">
                 <label>Choose difficulty</label>
                 <select
@@ -128,8 +145,7 @@ class JobPostForm extends React.Component {
                 </select>
               </div>
               <br />
-
-              <div className="job-post-input-box">
+              {/* <div className="job-post-input-box">
                 <input
                   style={{ color: 'black' }}
                   onChange={this.handleField('pickup')}
@@ -139,10 +155,16 @@ class JobPostForm extends React.Component {
                   value={this.state.pickup}
                 />
                 {this.props.errors.pickup}
-              </div>
+              </div> */}
+              <Autocomplete
+                onPlaceSelected={this.onPickupSelected}
+                style={{ width: '25%' }}
+                types={['address']}
+                componentRestrictions={{ country: 'us' }}
+                placeholder="Pickup"
+              />
               <br />
-
-              <div className="job-post-input-box">
+              {/* <div className="job-post-input-box">
                 <input
                   style={{ color: 'black' }}
                   onChange={this.handleField('destination')}
@@ -152,9 +174,16 @@ class JobPostForm extends React.Component {
                   value={this.state.destination}
                 />
                 {this.props.errors.destination}
-              </div>
+              </div> */}
+              <Autocomplete
+                onPlaceSelected={this.onDestinationSelected}
+                style={{ width: '25%' }}
+                types={['address']}
+                componentRestrictions={{ country: 'us' }}
+                onChange={this.handleField('destination')}
+                placeholder="Destination"
+              />
               <br />
-
               <div className="job-post-input-box">
                 <input
                   onChange={this.handleField('jobStartDate')}
@@ -177,7 +206,6 @@ class JobPostForm extends React.Component {
                 {this.props.errors.jobEndDate}
               </div>
               <br />
-
               <button>Submit</button>
             </form>
           </div>
