@@ -117,6 +117,10 @@
   color: #1fce6d;
 }
 
+.login-button:hover {
+  background: #029343;
+}
+
 .sing-up-link-login-form {
   display: flex;
   justify-content: space-between;

@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../navbar/navbar'
+import Navbar from '../navbar/navbar_container'
 import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
 import Autocomplete from 'react-google-autocomplete'
@@ -102,13 +102,13 @@ class JobPostForm extends React.Component {
   render() {
     return (
       <div className="job-post-outer">
-        {/* <h2>Outer</h2> */}
+        <h2>Outer</h2>
         <Navbar />
 
         <div className="job-post-container">
-          {/* <h1>Container</h1> */}
+          <h1>Container</h1>
           <div className="job-post-form">
-            {/* <h1>Form</h1> */}
+            <h1>Form</h1>
             <form onSubmit={this.handleSubmit} className="job-post-form-box">
               <div className="job-post-fields">
                 <h2 className="job-post-text">Job Request</h2>
@@ -213,13 +213,13 @@ class JobPostForm extends React.Component {
                 <br/>
                 <button className="job-form-btn">Submit</button>
               </div>
+              <br/>
               <div className="job-form-map">
-                <h2>Map container</h2>
+                {/* <h2>Map container</h2> */}
                 <Map />
               </div>
               <br />
             </form>
-            <div></div>
           </div>
         </div>
         <br/>
