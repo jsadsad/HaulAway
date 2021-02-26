@@ -3,6 +3,7 @@ import Navbar from '../navbar/navbar'
 import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
 import Autocomplete from 'react-google-autocomplete'
+import Map from '../map/map'
 
 class JobPostForm extends React.Component {
   constructor(props) {
@@ -208,6 +209,9 @@ class JobPostForm extends React.Component {
               <br />
               <button>Submit</button>
             </form>
+            <div>
+              <Map/>
+            </div>
           </div>
         </div>
         <div className="splash-footer">
