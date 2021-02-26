@@ -32,9 +32,9 @@ class Navbar extends React.Component {
 
                             {/* {this.props.currentUser.firstName} <i className="fas fa-cog"></i> */}
                             <div className="navbar-menu">
-                                <Link className="navbar-link-user-profile" to={`/users/${this.props.currentUser.id}`}><div className="navbar-menu-user"><i class="fas fa-user"></i> Profile</div></Link>
-                                <Link className="navbar-link-jobs-index" to={"/jobs"}><div className="navbar-menu-jobs"><i class="fas fa-shuttle-van"></i> Jobs</div></Link>
-                                <div className="logout" onClick={this.logoutUser}><i class="fas fa-times-circle"></i> Log Out</div>
+                                <Link className="navbar-link-user-profile" to={`/users/${this.props.currentUser.id}`}><div className="navbar-menu-user"><i className="fas fa-user"></i> Profile</div></Link>
+                                <Link className="navbar-link-jobs-index" to={"/jobs"}><div className="navbar-menu-jobs"><i className="fas fa-shuttle-van"></i> Jobs</div></Link>
+                                <div className="logout" onClick={this.logoutUser}><i className="fas fa-times-circle"></i> Log Out</div>
                             </div>
                         </div>
 
