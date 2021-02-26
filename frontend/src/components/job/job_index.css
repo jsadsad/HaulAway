@@ -1,5 +1,5 @@
 .job-index-wrapper {
-  background: #2E3740;
+  background: #2e3740;
   min-height: 100hv;
 }
 
@@ -22,7 +22,7 @@
   font-size: 14px;
   color: white;
   display: flex;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .job-it-image-wrapper {
@@ -31,8 +31,11 @@
   width: 230px;
   height: 250px;
   text-align: center;
+  display: flex;
+  justify-items: stretch;
+  overflow: hidden;
 }
- 
+
 .job-it-text-wrapper {
   height: 250px;
   width: 200px;

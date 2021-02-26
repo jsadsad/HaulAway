@@ -27,7 +27,7 @@ class JobIndex extends React.Component {
               onClick={() => {
                 this.props.history.push(`/job/${job._id}`)}} >
                 <div className='job-it-image-wrapper'>
-                  <h3>Job image</h3>
+                <img className="user-image" src={job.pictures[0]} alt={job.title}/>
                 </div>
                 <div className='job-it-text-wrapper'>
                   <h3>Destination: {job.destination}</h3>

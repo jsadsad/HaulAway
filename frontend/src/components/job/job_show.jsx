@@ -1,76 +1,159 @@
 import React from 'react'
 
 class JobShow extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      _id: this.props.jobId,
+      jobTaker: '',
+      isAvailable: true
+    }
+
+    this.takeJob = this.takeJob.bind(this);
+    this.leaveJob = this.leaveJob.bind(this);
+    this.closeJob = this.closeJob.bind(this);
+
+    
+    // this.editJobButton= this.editJobButton.bind(this)
+
+}
 
   componentDidMount() {
+    const oldJobId = localStorage.getItem('jobId')
+    // debugger
+
+    // if (oldJobId) {
+    // this.props.fetchJob(this.props.oldJobId)
+    // } else {
     this.props.fetchJob(this.props.jobId)
+
+    // }
+  }
+
+  componentWillUnmount() {
+    localStorage.setItem('jobId', this.props.jobId)
+  }
+
+
+
+  takeJob(e) {
+    e.preventDefault();
+    // this.props.job = {
+    //   jobTaker: this.props.jobtaker
+    // }
+
+    const takenJob = {
+      _id: this.props.jobId,
+      jobTaker: this.props.currentUserId,
+      isAvailable: false      
+    }
+    
+    
+
+    this.props.updateJob(takenJob)
+
+  }
+
+  leaveJob(e) {
+    e.preventDefault();
+    // this.props.job = {
+    //   jobTaker: this.props.jobtaker
+    // }
+
+    const takenJob = {
+      _id: this.props.jobId,
+      jobTaker: '',
+      isAvailable: true      
+    }
+    
+    
+    
+    this.props.updateJob(takenJob)
+  }
+
+  closeJob(e) {
+    e.preventDefault();
+    // this.props.job = {
+    //   jobTaker: this.props.jobtaker
+    // }
+
+    const takenJob = {
+      _id: this.props.jobId,
+      isClosed: true      
+    }
+    
+    
+
+    this.props.updateJob(takenJob)
+    .then(this.props.history.push('/homepage'))
+
+  }
+
+    editJobButton() {
+    const job = this.props.jobs[this.props.jobId]
+    
+    if ((job.jobPoster === this.props.currentUserId) && (!job.isClosed)) {
+      return (
+        <button className="edit-job-button">Edit Job</button>
+        )
+      }
+    }
+    
+  takeJobButton() {
+      const job = this.props.jobs[this.props.jobId]
+      // debugger
+      if ((job.jobPoster !== this.props.currentUserId) && (job.isAvailable)) {
+        return (
+          <button className="take-job-button" onClick={this.takeJob}>Take Job</button>
+          )
+        }
+  }
+      
+  leaveJobButton() {
+    const job = this.props.jobs[this.props.jobId]
+    // debugger
+    if (job.jobTaker === this.props.currentUserId) {
+      return (
+        <button className="leave-job-button" onClick={this.leaveJob}>Leave Job</button>
+      )
+    }
+  }
+
+  closeJobButton() {
+    const job = this.props.jobs[this.props.jobId]
+    
+    if ((job.jobPoster === this.props.currentUserId) && (!job.isAvailable)) {
+      return (
+        <button className="close-job-button" onClick={this.closeJob}>Close Job</button>
+        )
+      }
+
   }
 
   render() {
     const job = this.props.jobs[this.props.jobId]
-    if (!job) {return null}
+    // const available = job.isAvailable
+    // if (!job) {return null}
+    if (!job) return <h1>loading</h1>
+
     
     return (
       <div className="job-show-outer">
         <div className="job-show-wrapper">
           <div className="job-show-header">
-            <div className="job-show-poster">
-              {/* <h2>Job Poster</h2> */}
-              {job.jobType} {/* For now as a poster render jobType */}
-            </div>
+            <div className="job-show-poster">{job.jobType}</div>
+            <div className="job-show-box">{job.description}</div>
+            <div className="job-show-box">{job.jobDifficulty}</div>
+            <div>{job.jobStartDate}</div>
+            <div>{job.jobEndDate}</div>
+            <div>{job.pickup}</div>
+            <div>{job.destination}</div>
+          <div className="take-job-button-wrap">{ this.takeJobButton() }</div>
+          <div className="leave-job-button-wrap">{ this.leaveJobButton()}</div>
+          <div className="edit-job-button-wrap">{ this.editJobButton() }</div>
+          <div className="close-job-button-wrap">{ this.closeJobButton() }</div>
 
-            <div className="job-show-box">
-              <input
-                type="text"
-                className="job-show-input-desc"
-                placeholder="Description"
-                value={job.description}
-              />
-            </div>
-
-            <div className="job-show-box">
-              <input
-                type="text"
-                className="job-show-input-diff"
-                placeholder="Difficulty"
-                value={job.jobDifficulty}
-              />
-            </div>
-          </div>
-          <div className="job-show-body">
-            <div className="job-show-box">
-              <input
-                type="date"
-                className="job-show-input-start"
-                placeholder="Start Date"
-                value={job.jobStartDate}
-              />
-            </div>
-            <div className="job-show-box">
-              <input
-                type="date"
-                className="job-show-input-end"
-                placeholder="End Date"
-                value={job.jobEndDate}
-              />
-            </div>
-            <div className="job-show-box">
-              <input
-                type="text"
-                className="job-show-input-pickup"
-                placeholder="Pickup"
-                value={job.pickup}
-              />
-            </div>
-            <div className="job-show-box">
-              <input
-                type="text"
-                className="job-show-input-dest"
-                placeholder="Destination"
-                value={job.destination}
-              />
-            </div>
-          </div>
           <div className="job-show-footer">
             <div className="job-show-map">
               <h2>Ill be a map</h2>
@@ -78,6 +161,7 @@ class JobShow extends React.Component {
           </div>
         </div>
       </div>
+    </div>
     )
   }
 }
