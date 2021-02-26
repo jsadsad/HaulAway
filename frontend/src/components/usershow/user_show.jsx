@@ -14,7 +14,7 @@ class UserShow extends React.Component {
   getjobIndexItems() {
     return this.props.jobs.map((job, index) => {
       return (
-        <div onClick={() => this.props.history.push(`/job/${job._id}`)} 
+        <div onClick={() => this.props.history.push(`/jobs/${job._id}`)} 
         className='job-info-index'>
           <p>{index + 1}</p>
           <p>{job.jobStartDate}</p>

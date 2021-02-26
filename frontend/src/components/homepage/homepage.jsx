@@ -47,7 +47,7 @@ class Homepage extends React.Component {
               if(job === undefined) return null;
               return (
                 <div key={job._id} className="homepage-job-index-items"
-                  onClick={() => this.props.history.push(`/job/${job._id}`)}>
+                  onClick={() => this.props.history.push(`/jobs/${job._id}`)}>
                   <div>Pickup: {job.pickup}</div>
                   <div>Destination: {job.destination}</div>
                   <div>Start Date: {job.jobStartDate}</div>

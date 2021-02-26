@@ -1,11 +1,12 @@
 import React from 'react'
-import Autocomplete from 'react-google-autocomplete'
 import Navbar from '../navbar/navbar_container'
-import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
+import Autocomplete from 'react-google-autocomplete'
 import { uploadPhotos } from '../../util/photo_api_util'
-import './job_form.css'
+import './job_edit.css'
 
-class JobPostForm extends React.Component {
+import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
+
+class JobEdit extends React.Component {
   constructor(props) {
     super(props)
 
@@ -18,12 +19,12 @@ class JobPostForm extends React.Component {
       jobStartDate: '',
       jobEndDate: '',
       mapPosition: {
-        lat: 36.778259,
-        lng: -119.417931,
+        lat: '',
+        lng: '',
       },
       markerPosition: {
-        lat: undefined,
-        lng: undefined,
+        lat: '',
+        lng: '',
       },
       pictures: [],
       selectedFile: null,
@@ -35,8 +36,8 @@ class JobPostForm extends React.Component {
     this.onDestinationSelected = this.onDestinationSelected.bind(this)
   }
 
-  componentWilUnmount() {
-    this.props.clearErrors()
+  componentDidMount() {
+    this.props.fetchJob(this.props.match.params.jobId)
   }
 
   handleSubmit(e) {
@@ -62,7 +63,7 @@ class JobPostForm extends React.Component {
           jobEndDate: this.state.jobEndDate,
           pictures: location,
         }
-        this.props.processJobForm(job).then((payload) => {
+        this.props.updateJob(job).then((payload) => {
           this.props.history.push(`/job/${payload.job.data._id}`)
         })
       })
@@ -77,7 +78,7 @@ class JobPostForm extends React.Component {
         jobEndDate: this.state.jobEndDate,
         pictures: this.state.pictures,
       }
-      this.props.processJobForm(job).then((payload) => {
+      this.props.updateJob(job).then((payload) => {
         this.props.history.push(`/job/${payload.job.data._id}`)
       })
     }
@@ -120,129 +121,101 @@ class JobPostForm extends React.Component {
   }
 
   render() {
+    if (!this.props.job) return null
     const coords = this.state.mapPosition
+
     return (
-      <div className="job-post-outer">
+      <div className="job-edit-outer">
+        {/* <h2>Outer</h2> */}
         <Navbar />
-        <div className="job-post-container">
-          <div className="job-post-form">
-            <form onSubmit={this.handleSubmit} className="job-post-form-box">
-              <div className="job-post-fields">
-                <h2 className="job-post-text">Job Request</h2>
-                <div className="job-post-input-box">
-                  <textarea
-                    className="job-post-input-desc"
-                    placeholder="Description"
-                    value={this.state.description}
-                    onChange={this.handleField('description')}
-                  />
-                  {this.props.errors.description}
-                </div>
-                <br />
-                <div className="job-post-input-box">
-                  <input
-                    type="file"
-                    className="job-post-upload-btn"
-                    multiple
-                    onChange={this.handlePhotoFile}
-                  />
-                </div>
-                <br />
-                <div className="job-post-lvl-btn">
+        <div className="job-edit-container">
+          {/* <h1>Container</h1> */}
+          <div className="job-edit-form">
+            {/* <h1>Form</h1> */}
+            <form onSubmit={this.handleSubmit} className="job-edit-form-box">
+              <h2 className="job-edit-text">Job Edit</h2>
+              <div className="job-edit-input-box">
+                <textarea
+                  className="job-edit-input-desc"
+                  placeholder="Description"
+                  value={this.state.description}
+                  onChange={this.handleField('description')}
+                />
+                {this.props.errors.description}
+              </div>
+              <br />
+              <div className="job-edit-input-box">
+                <input
+                  type="file"
+                  className="job-edit-upload-btn"
+                  multiple
+                  onChange={this.handlePhotoFile}
+                />
+              </div>
+              <br />
+              <div className="job-edit-input-box">
+                <div className="job-edit-lvl-btn">
+                  <label>Choose difficulty</label>
                   <select
-                    style={{ width: '345px' }}
                     onChange={this.handleField('jobDifficulty')}
                     value={this.state.jobDifficulty}
                   >
-                    <option value="" disabled defaultValue>
-                      Difficulty
-                    </option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
                   </select>
                 </div>
-                <br />
-                <div className="job-post-input-box">
-                  <Autocomplete
-                    onPlaceSelected={this.onPickupSelected}
-                    className="job-post-input-pickup"
-                    style={{ width: '40%' }}
-                    types={['address']}
-                    componentRestrictions={{ country: 'us' }}
-                    placeholder="Pickup"
-                  />
-                </div>
-                <br />
-                <div className="job-post-input-box">
-                  <Autocomplete
-                    onPlaceSelected={this.onDestinationSelected}
-                    className="job-post-input-dest"
-                    style={{ width: '40%' }}
-                    types={['address']}
-                    componentRestrictions={{ country: 'us' }}
-                    onChange={this.handleField('destination')}
-                    placeholder="Destination"
-                  />
-                </div>
-                <br />
-                <div className="job-post-input-box">
-                  <input
-                    onChange={this.handleField('jobStartDate')}
-                    type="date"
-                    className="job-post-input-date"
-                    placeholder="start date"
-                    value={this.state.jobStartDate}
-                  />
-                  {this.props.errors.jobStartDate}
-                </div>
-                <br />
-                <div className="job-post-input-box">
-                  <input
-                    onChange={this.handleField('jobEndDate')}
-                    type="date"
-                    className="job-post-input-date2"
-                    placeholder="end date"
-                    value={this.state.jobEndDate}
-                  />
-                  {this.props.errors.jobEndDate}
-                </div>
-                <br />
-                <button className="job-form-btn">Submit</button>
               </div>
               <br />
-              <div className="job-form-google-map-container">
-                <Map
-                  className="job-form-map"
-                  zoom={12}
-                  google={this.props.google}
-                  initialCenter={{
-                    lat: 36.778259,
-                    lng: -119.417931,
-                  }}
-                  center={{
-                    lat: this.state.mapPosition.lat,
-                    lng: this.state.mapPosition.lng,
-                  }}
-                >
-                  <Marker
-                    draggable={true}
-                    position={{
-                      lat: this.state.markerPosition.lat,
-                      lng: this.state.markerPosition.lng,
-                    }}
-                  />
-                  <Circle
-                    radius={2400}
-                    center={coords}
-                    strokeColor="transparent"
-                    strokeOpacity={0}
-                    strokeWeight={5}
-                    fillColor="#FF0000"
-                    fillOpacity={0.2}
-                  />
-                </Map>
+              <div className="job-edit-input-box">
+                <Autocomplete
+                  onPlaceSelected={this.onPickupSelected}
+                  className="job-edit-input-pickup"
+                  style={{ width: '25%' }}
+                  types={['address']}
+                  componentRestrictions={{ country: 'us' }}
+                  placeholder="Pickup"
+                />
+                {this.props.errors.pickup}
               </div>
+              <br />
+              <div className="job-edit-input-box">
+                <Autocomplete
+                  onPlaceSelected={this.onDestinationSelected}
+                  className="job-edit-input-dest"
+                  style={{ width: '25%' }}
+                  types={['address']}
+                  componentRestrictions={{ country: 'us' }}
+                  onChange={this.handleField('destination')}
+                  placeholder="Destination"
+                />
+                {this.props.errors.destination}
+              </div>
+              <br />
+              <div className="job-edit-input-box">
+                <input
+                  onChange={this.handleField('jobStartDate')}
+                  type="date"
+                  className="job-edit-input-date"
+                  placeholder="Start date"
+                  value={this.state.jobStartDate}
+                />
+                {this.props.errors.jobStartDate}
+              </div>
+              <br />
+              <div className="job-edit-input-box">
+                <input
+                  onChange={this.handleField('jobEndDate')}
+                  type="date"
+                  className="job-edit-input-date2"
+                  placeholder="End date"
+                  value={this.state.jobEndDate}
+                />
+                {this.props.errors.jobEndDate}
+              </div>
+              <br />
+              <button className="job-edit-btn">Submit</button>
+              <br />
               <br />
             </form>
           </div>
@@ -284,6 +257,43 @@ class JobPostForm extends React.Component {
                 </a>
               </div>
             </div>
+            <Map
+              style={{
+                width: '45vw',
+                height: '150px',
+                position: 'relative',
+                top: '30px',
+                border: '1px solid black',
+                borderRadius: '5px',
+              }}
+              zoom={12}
+              google={this.props.google}
+              initialCenter={{
+                lat: 36.778259,
+                lng: -119.417931,
+              }}
+              center={{
+                lat: this.state.mapPosition.lat,
+                lng: this.state.mapPosition.lng,
+              }}
+            >
+              <Marker
+                draggable={true}
+                position={{
+                  lat: this.state.markerPosition.lat,
+                  lng: this.state.markerPosition.lng,
+                }}
+              />
+              <Circle
+                radius={1200}
+                center={coords}
+                strokeColor="transparent"
+                strokeOpacity={0}
+                strokeWeight={5}
+                fillColor="#FF0000"
+                fillOpacity={0.2}
+              />
+            </Map>
           </div>
         </div>
       </div>
@@ -293,4 +303,4 @@ class JobPostForm extends React.Component {
 
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyBQf1ahKg7gbuVHd9daHMMvm0zfPEpnBd8',
-})(JobPostForm)
+})(JobEdit)

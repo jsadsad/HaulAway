@@ -14,6 +14,7 @@ import HomepageContainer from './homepage/homepage_container'
 import JobIndexContainer from './job/job_index_container'
 import JobShowContainer from '../components/job/job_show_container'
 import Modal from '../components/modal/modal'
+import JobEditContainer from '../components/job/job_edit_container'
 
 const App = () => (
   <div>
@@ -25,9 +26,10 @@ const App = () => (
       <ProtectedRoute exact path='/homepage' component={HomepageContainer} />
       <ProtectedRoute exact path="/jobs/new" component={JobFormContainer} />
       <ProtectedRoute exact path="/jobs/offer" component={JobOfferFormContainer} />
-      <ProtectedRoute exact path="/job/:jobId" component={JobShowContainer} />
+      <ProtectedRoute exact path="/jobs/:jobId" component={JobShowContainer} />
       <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
       <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
+      <ProtectedRoute exact path='/jobs/edit/:jobId' component={JobEditContainer} />
     </Switch>
   </div>
 )
