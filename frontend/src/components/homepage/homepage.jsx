@@ -44,6 +44,7 @@ class Homepage extends React.Component {
           </div>
           <div className="homepage-job-index"> 
             {fourJobs.map(job => {
+              if(job === undefined) return null;
               return (
                 <div key={job._id} className="homepage-job-index-items"
                   onClick={() => this.props.history.push(`/job/${job._id}`)}>
