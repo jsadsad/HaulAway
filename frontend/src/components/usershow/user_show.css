@@ -55,9 +55,10 @@
 
 .job-info-wrapper {
   border: 1px solid white;
-  max-height: 600px;
+  max-height: 550px;
   margin-right: 20px;
   border-radius: 10px;
+  overflow: scroll;
 }
 
 .show-page-wrapper {

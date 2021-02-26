@@ -6,7 +6,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     userId: ownProps.match.params.userId,
     users: state.entities.users,
-    jobs: Object.values(state.entities.jobs)
+    jobs: Object.values(state.entities.jobs),
   }
 }
 
