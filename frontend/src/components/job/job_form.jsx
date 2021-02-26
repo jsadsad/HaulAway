@@ -64,6 +64,9 @@ class JobPostForm extends React.Component {
           pictures: location,
         }
         this.props.processJobForm(job)
+        .then((payload) => {
+          this.props.history.push(`/job/${payload.job.data._id}`)})
+
       })
     } else {
       let job = {
@@ -78,7 +81,8 @@ class JobPostForm extends React.Component {
       }
       this.props
         .processJobForm(job)
-        .then((job) => this.props.history.push(`/job`))
+        .then((payload) => {
+          this.props.history.push(`/job/${payload.job.data._id}`)})
     }
   }
 

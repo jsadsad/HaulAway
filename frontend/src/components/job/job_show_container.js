@@ -7,6 +7,7 @@ const mSTP = (state, ownProps) => {
     jobId: ownProps.match.params.jobId,
     jobs: state.entities.jobs,
     currentUserId: state.session.user.id,
+    job: state.entities.jobs[ownProps.match.params.jobId], 
 
   }
 }

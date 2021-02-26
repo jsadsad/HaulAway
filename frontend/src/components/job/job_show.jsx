@@ -132,7 +132,9 @@ class JobShow extends React.Component {
   }
 
   render() {
-    const job = this.props.jobs[this.props.jobId]
+    // const job = this.props.jobs[this.props.jobId]
+    const job = this.props.job
+
     // const available = job.isAvailable
     // if (!job) {return null}
     if (!job) return <h1>loading</h1>
