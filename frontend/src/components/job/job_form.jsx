@@ -234,10 +234,6 @@ class JobPostForm extends React.Component {
                 <button className="job-form-btn">Submit</button>
               </div>
               <br />
-              <div className="job-form-map">
-                {/* <h2>Map container</h2> */}
-                <Map />
-              </div>
               <br />
             </form>
           </div>
