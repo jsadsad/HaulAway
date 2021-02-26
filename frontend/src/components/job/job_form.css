@@ -25,11 +25,10 @@
   animation: Gradient 15s ease infinite;
 }
 
-/* borders around containers to see properties */
-/* .job-post-outer div{
-  border: 1px #ccc solid;
-  padding: 10px;
-} */
+.job-post-input-desc {
+  height: 10rem;
+  width: 15rem;
+}
 
 .job-post-container {
   display: flex;
@@ -39,41 +38,36 @@
 
 .job-post-form {
   display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
-  /* border: 1px red solid; */
+  justify-content: space-between;
+  font-size: 1.5rem;
 }
-
-/* borders around containers to see properties */
-/* .job-post-form div {
-  border: 1px #ccc solid;
-  padding: 10px;
-} */
 
 .job-post-form-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  /* border: 1px solid blue; */
-}
-
-.job-form-google-map {
-  display: flex;
-  object-fit: contain;
 }
 
 .job-form-google-map-container {
   display: flex;
   object-fit: contain;
+  max-width: 20%;
+  max-height: 20%;
+}
+
+.job-form-map {
+  max-width: 25%;
+  max-height: 50%;
+  top: 100px;
+  border: 3px solid black;
+  border-radius: 5px;
 }
 
 .job-post-fields {
-  display: flex;
   flex-direction: column;
-  width: 400px;
-  justify-content: space-between;
-  /* border: 1px solid brown; */
+  max-width: 2%;
+  max-height: 100%;
 }
 
 .job-post-fields button {
@@ -81,7 +75,7 @@
 }
 
 .job-post-input-box {
-  width: 100vw;
+  width: 50vw;
 }
 
 .job-form-btn {
