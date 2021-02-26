@@ -126,12 +126,12 @@ class JobEdit extends React.Component {
 
     return (
       <div className="job-edit-outer">
-        <h2>Outer</h2>
+        {/* <h2>Outer</h2> */}
         <Navbar />
         <div className="job-edit-container">
-          <h1>Container</h1>
+          {/* <h1>Container</h1> */}
           <div className="job-edit-form">
-            <h1>Form</h1>
+            {/* <h1>Form</h1> */}
             <form onSubmit={this.handleSubmit} className="job-edit-form-box">
               <h2 className="job-edit-text">Job Edit</h2>
               <div className="job-edit-input-box">
