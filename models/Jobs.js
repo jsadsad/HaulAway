@@ -57,6 +57,10 @@ const JobSchema = new Schema({
   isClosed: {
     type: Boolean,
     default: false
+  },
+  isReviewed: {
+    type: Boolean,
+    default: false
   }
 })
 
