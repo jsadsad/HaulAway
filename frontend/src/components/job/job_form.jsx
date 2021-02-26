@@ -18,12 +18,12 @@ class JobPostForm extends React.Component {
       jobStartDate: '',
       jobEndDate: '',
       mapPosition: {
-        lat: '',
-        lng: '',
+        lat: 36.778259,
+        lng: -119.417931,
       },
       markerPosition: {
-        lat: '',
-        lng: '',
+        lat: undefined,
+        lng: undefined,
       },
       pictures: [],
       selectedFile: null,
@@ -233,7 +233,7 @@ class JobPostForm extends React.Component {
                     }}
                   />
                   <Circle
-                    radius={1200}
+                    radius={2400}
                     center={coords}
                     strokeColor="transparent"
                     strokeOpacity={0}
