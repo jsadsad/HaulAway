@@ -10,6 +10,7 @@ const jobs = require('./routes/api/jobs')
 const User = require('./models/User')
 const fileUploadRoutes = require('./routes/fileUploads')
 const path = require('path')
+const reviews = require('./routes/api/reviews')
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'))
@@ -31,6 +32,7 @@ mongoose
 
 app.get('/', (req, res) => res.send('Hello World'))
 
+app.use('/api/reviews', reviews)
 app.use('/api/users', users)
 app.use('/api/jobs', jobs)
 app.use('/api/photos', fileUploadRoutes)

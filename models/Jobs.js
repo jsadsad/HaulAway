@@ -46,6 +46,10 @@ const JobSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  jobTaker: {
+    type: String,
+    default: ''
+  },
 })
 
 module.exports = Job = mongoose.model('jobs', JobSchema)
