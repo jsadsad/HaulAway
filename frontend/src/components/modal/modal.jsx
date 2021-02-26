@@ -2,6 +2,7 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import './modal.css'
+import EditUserModal from './user_edit_modal'
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -9,6 +10,9 @@ function Modal({modal, closeModal}) {
   }
   let component;
   switch (modal) {
+    case 'edit user':
+      component = <EditUserModal/>
+      break;
     default:
       return null;
   }
@@ -23,7 +27,7 @@ function Modal({modal, closeModal}) {
 
 const mapStateToProps = state => {
   return {
-    modal: state.modal
+    modal: state.modal.name
   };
 };
 

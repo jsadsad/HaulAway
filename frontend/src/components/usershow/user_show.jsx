@@ -48,6 +48,7 @@ class UserShow extends React.Component {
             </div>
             {/* <p>ratings</p> */}
             <p>{user.email}</p>
+            <div onClick={() => this.props.openModal('edit user', user._id )}>Edit</div>
           </div>
           
           <div className='rest-wrapper'>
