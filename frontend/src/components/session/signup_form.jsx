@@ -77,142 +77,81 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-      <div className="signup-outer-wrap">
-        <Navbar />
-
-        <div className="signup-sections">
-          <div className="signup-body">
-            <div className="signup-form-container">
-              <h2 className="signup-text">Register</h2>
-              <form onSubmit={this.handleSubmit} className="signup-form-box">
-                <br />
-                <div className="signup-input-box">
+     <div className='signup-page-wrapper'>
+       <Navbar />
+       <div className='signup-form-wrapper'>
+          <div className='signup-form-header'>Register</div>
+          <form onSubmit={this.handleSubmit} className='signup-form'>
+            <div className='signup-input'>
+              <input
+                  className='signup-input-field'
+                  onChange={this.handleField('firstName')}
+                  type="text"
+                  placeholder="First Name"
+                  value={this.state.firstName}
+              />
+              <div className='signup-errors'>{this.props.errors.firstName}</div>
+            </div>
+            <div className='signup-input'>
+              <input
+                  className='signup-input-field'
+                  onChange={this.handleField('lastName')}
+                  type="text"
+                  placeholder="Last Name"
+                  value={this.state.lastName}
+              />
+              <div className="signup-errors">{this.props.errors.lastName}</div>
+            </div>
+            <div className="signup-input">
+              <input
+                  className='signup-input-field'
+                  onChange={this.handleField('email')}
+                  type="text"
+                  placeholder="Email"
+                  value={this.state.email}
+              />
+              <div className="signup-errors">{this.props.errors.email}</div>
+            </div>
+            <div className="signup-input">
+              <input
+                  className='signup-input-field'
+                  onChange={this.handleField('password')}
+                  type="password"
+                  placeholder="Password"
+                  value={this.state.password}
+              />
+              <div className="signup-errors">{this.props.errors.password}</div>
+            </div>
+            <div className="signup-input">
+              <input
+                  className='signup-input-field'
+                  onChange={this.handleField('password2')}
+                  type="password"
+                  placeholder="Confirm password"
+                  value={this.state.password2}
+              />
+              <div className="signup-errors">{this.props.errors.password2}</div>
+            </div>
+            <div className="signup-input">
                   <input
-                    onChange={this.handleField('firstName')}
-                    className="signup-input-firstname"
-                    type="text"
-                    placeholder="First Name"
-                    value={this.state.firstName}
-                  />
-                  <div className="errors">{this.props.errors.firstName}</div>
-                </div>
-                <br />
-                <div className="signup-input-box">
-                  <input
-                    onChange={this.handleField('lastName')}
-                    className="signup-input-lastname"
-                    type="text"
-                    placeholder="Last Name"
-                    value={this.state.lastName}
-                  />
-                  <div className="errors">{this.props.errors.lastName}</div>
-                </div>
-                <br />
-                <div className="signup-input-box">
-                  <input
-                    onChange={this.handleField('email')}
-                    className="signup-input-email"
-                    type="text"
-                    placeholder="Email"
-                    value={this.state.email}
-                  />
-                  <div className="errors">{this.props.errors.email}</div>
-                </div>
-                <br />
-                <div className="signup-input-box">
-                  <input
-                    onChange={this.handleField('password')}
-                    className="signup-input-password"
-                    type="password"
-                    placeholder="Password"
-                    value={this.state.password}
-                  />
-                  <div className="errors">{this.props.errors.password}</div>
-                </div>
-                <br />
-                <div className="signup-input-box">
-                  <input
-                    onChange={this.handleField('password2')}
-                    className="signup-input-password"
-                    type="password"
-                    placeholder="Confirm password"
-                    value={this.state.password2}
-                  />
-                  <div className="errors">{this.props.errors.password2}</div>
-                </div>
-                <br />
-                <div className="signup-input-box">
-                  <input
+                    className='signup-input-field'
                     onChange={this.handleField('phoneNumber')}
-                    className="signup-input-phone"
                     type="tel"
                     placeholder="Phone number"
                   />
-                  <div className="errors">{this.props.errors.phoneNumber}</div>
-                </div>
-                <br />
-                <input type="file" onChange={this.handlePhotoFile} className="signup-photo-btn"/>
-                {/* <div className="signup-input-box">
-                  <input
-                    className="signup-input-dateOfBirth"
-                    type="date"
-                    placeholder="Date of birth"
-                  />
-                </div> */}
-
-                {/* {this.renderErrors()} */}
-                <br/>
-                <br/>
-                <button className="signup-button">Confirm</button>
-              </form>
-              <br />
+              <div className="signup-errors">{this.props.errors.phoneNumber}</div>
             </div>
-          </div>
-
-          <div className="splash-footer">
-            <div className="splash-footer-wrapper">
-              {/* <div className="thank you-wrap"> */}
-              <div className="thank-you">Thank you for your visit</div>
-              {/* </div> */}
-              <div className="splash-footer-info">
-                <div className="engineerd-by">Engineerd with love by:</div>
-                <div className="info-us">
-                  <a
-                    className="contact"
-                    href="https://github.com/shinara03"
-                    target="_blank"
-                  >
-                    Lena
-                  </a>
-                  <a
-                    className="contact"
-                    href="https://github.com/andmitriy93"
-                    target="_blank"
-                  >
-                    Dmitrii
-                  </a>
-                  <a
-                    className="contact"
-                    href="https://github.com/jsadsad"
-                    target="_blank"
-                  >
-                    Josh
-                  </a>
-                  <a
-                    className="contact"
-                    href="https://github.com/kinda-dev"
-                    target="_blank"
-                  >
-                    Fabio
-                  </a>
-                </div>
-              </div>
+            <div className='signup-input-file'>
+              <input type="file" onChange={this.handlePhotoFile} className="signup-photo-btn"/>
             </div>
-          </div>
-        </div>
-      </div>
+            <button className="signup-button">Confirm</button>
+          </form>
+       </div>
+     </div>
     )
   }
 }
 
 export default SignupForm
+
+
