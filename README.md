@@ -3,17 +3,25 @@
 HaulAway is a user-to-user service that helps alleviate the difficulties of moving _haul_ from one destination to the next. I
 
 ![Logo](production_img/logo.png)
+
 ![Home Page](production_img/home_page.png)
 
 # Technologies Used
 
 [MongoDB](https://www.mongodb.com/)
+
 [Express](https://expressjs.com/)
+
 [React](https://reactjs.org/)
+
 [Node](https://nodejs.org/en/)
+
 [AWS S3](https://aws.amazon.com/s3/)
+
 [google-maps-react](https://www.npmjs.com/package/google-maps-react)
+
 [react-google-autocomplete](https://www.npmjs.com/package/react-google-autocomplete)
+
 [multer](https://www.npmjs.com/package/multer)
 
 # Features
@@ -43,8 +51,11 @@ Users have the ability to upload multiple photos at once and those images are un
 # The Brilliant Team
 
 [Joshua C. Sadsad](https://github.com/jsadsad/): Team Lead
+
 [Lena Shin](https://github.com/shinara03): Backend Lead
+
 [Fabio R. Bortone](https://github.com/kinda-dev): Frontend Lead
+
 [Dmitrii An](https://github.com/andmitriy93): Flex
 
 # Future Incorporations
