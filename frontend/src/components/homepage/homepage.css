@@ -46,9 +46,8 @@
 
 .homepage-wrapper {
   min-height: 100vh;
-  background: #2E3740;
+  background: #2e3740;
 }
-
 
 .homepage-rj-button {
   position: absolute;
@@ -87,7 +86,6 @@
   color: white;
   font-size: 30px;
   /* transform: translate(-50%, -50%); */
-  
 }
 .homepage-job-index-wrapper {
   color: white;
@@ -103,13 +101,24 @@
 }
 
 .homepage-job-index-items {
-  border: 1px solid white;
+  border: 1px solid #fff;
+  border-radius: 5px;
   padding: 10px;
   cursor: pointer;
 }
 
+.homepage-job-index-items:hover {
+  background: #655025;
+  border-color: #000000;
+  transition: all 0.4s ease 0s;
+}
+
 .homepage-job-index-header {
   display: flex;
+}
+
+.homepage-looking-for-jobs {
+  color: cornflowerblue;
 }
 
 .homepage-job-index-header h2 {
@@ -117,7 +126,7 @@
 }
 
 .homepage-view-all {
- cursor: pointer;
+  cursor: pointer;
 }
 
 .homepage-view-all:hover {
