@@ -9,12 +9,34 @@ class Homepage extends React.Component {
   }
 
   render() {
-    if (this.props.jobs.length === 0) return null
-
+    const { jobs } = this.props
+    if (!jobs) return null
     let maxJobs = []
-    for (let i = 0; i < 4; i++) {
-      maxJobs = maxJobs.concat(this.props.jobs[i])
+
+    if (jobs.length > 0 && jobs.length !== 4) {
+      for (let i = 0; i < jobs.length; i++) {
+        maxJobs = maxJobs.concat(jobs[i])
+      }
     }
+
+    const isAvailable = (
+      <div>
+        {maxJobs.map((job) => {
+          return (
+            <div
+              key={job._id}
+              className="homepage-job-index-items"
+              onClick={() => this.props.history.push(`/jobs/${job._id}`)}
+            >
+              <div>Pickup: {job.pickup}</div>
+              <div>Destination: {job.destination}</div>
+              <div>Start Date: {job.jobStartDate}</div>
+              <div>End Date: {job.jobEndDate}</div>
+            </div>
+          )
+        })}
+      </div>
+    )
 
     return (
       <div className="homepage-wrapper">
@@ -47,21 +69,11 @@ class Homepage extends React.Component {
           </div>
 
           <div className="homepage-job-index">
-            {maxJobs.map((job) => {
-              if (job === undefined) return null
-              return (
-                <div
-                  key={job._id}
-                  className="homepage-job-index-items"
-                  onClick={() => this.props.history.push(`/jobs/${job._id}`)}
-                >
-                  <div>Pickup: {job.pickup}</div>
-                  <div>Destination: {job.destination}</div>
-                  <div>Start Date: {job.jobStartDate}</div>
-                  <div>End Date: {job.jobEndDate}</div>
-                </div>
-              )
-            })}
+            {jobs.length > 0 ? (
+              <div>{isAvailable}</div>
+            ) : (
+              <h2 style={{ color: 'red' }}>No Jobs Currently Available...</h2>
+            )}
           </div>
         </div>
       </div>
