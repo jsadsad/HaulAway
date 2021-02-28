@@ -1,16 +1,17 @@
 import Homepage from './homepage'
 import { connect } from 'react-redux'
-import {fetchJobs} from '../../actions/job_actions'
+import { fetchJobs } from '../../actions/job_actions'
+import { getAvailableJobs } from '../../selectors/selectors'
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    jobs: Object.values(state.entities.jobs)
+    jobs: getAvailableJobs(state),
   }
 }
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    fetchJobs: () => dispatch(fetchJobs())
+    fetchJobs: () => dispatch(fetchJobs()),
   }
 }
 
