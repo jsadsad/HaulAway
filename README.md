@@ -50,17 +50,17 @@ Googles Maps is dynamic to show where a destination or pickup can be depending o
 
 4. AWS
 
-Users have the ability to upload multiple photos at once and those images are uniquely stored in their information.
+Users have the ability to upload multiple photos at once and images are uniquely stored in the User's document.
 
 ![Job Index](production_img/job_index.png)
 
 # The Brilliant Team
 
-[Joshua C. Sadsad](https://github.com/jsadsad/): Team Lead
+[Joshua C. Sadsad](https://github.com/jsadsad/): Lead
 
-[Lena Shin](https://github.com/shinara03): Backend Lead
+[Lena Shin](https://github.com/shinara03): Backend
 
-[Fabio R. Bortone](https://github.com/kinda-dev): Frontend Lead
+[Fabio R. Bortone](https://github.com/kinda-dev): Frontend
 
 [Dmitrii An](https://github.com/andmitriy93): Flex
 
