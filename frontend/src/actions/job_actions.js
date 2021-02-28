@@ -64,13 +64,14 @@ export const createJob = (job) => (dispatch) => {
 export const updateJob = (job) => (dispatch) => {
   return JobApiUtil.updateJob(job)
     .then((updatedJob) => dispatch(receiveJob(updatedJob)))
-    .catch((error) => dispatch(receiveJobErrors(error.response.data)))
+    // .catch((error) => dispatch(receiveJobErrors(error.response.data)))
 }
 
 export const destroyJob = (jobId) => (dispatch) => {
   return JobApiUtil.deleteJob(jobId)
     .then(() => dispatch(removeJob(jobId)))
-    .catch((error) => dispatch(receiveJobErrors(error.response.data)))
+    .catch((error) => console.log(error))
+    // .catch((error) => dispatch(receiveJobErrors(error.response.data)))
 }
 
 

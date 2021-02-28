@@ -1,7 +1,128 @@
+@media (min-width: 700px) {
+  .job-post-outer {
+    display: flex;
+  }
+}
+
+::-webkit-input-placeholder {
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+}
+:-ms-input-placeholder {
+  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+/* @keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
 .job-edit-outer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  /* background: linear-gradient(132deg, #d75364, #874bee, #414567);
+  background-size: 400% 400%;
+  animation: Gradient 15s ease infinite; */
+  background: #2e3740;
   min-height: 100vh;
   min-width: 100vw;
   font-family: 'Montserrat', sans-serif;
   background: #2e3740;
   color: white;
 }
+
+.job-edit-input-desc {
+  height: 10rem;
+  width: 15rem;
+}
+
+.job-edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.job-edit-form {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.3rem;
+}
+
+.job-edit-form-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.job-edit-google-map-container {
+  display: flex;
+  object-fit: contain;
+  max-width: 20%;
+  max-height: 20%;
+}
+
+.job-edit-map {
+  max-width: 25%;
+  max-height: 75%;
+  top: 100px;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.job-edit-fields {
+  flex-direction: column;
+  max-width: 2%;
+  max-height: 100%;
+}
+
+.job-edit-fields button {
+  width: 100px;
+}
+
+.job-edit-text {
+  font-family: 'Sofia', cursive;
+  font-weight: bold;
+  text-align: center;
+}
+
+.job-edit-input-box {
+  width: 50vw;
+}
+
+.job-edit-btn {
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.job-edit-btn:hover {
+  background: #029343;
+}
+
+.job-edit-btn-container {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
