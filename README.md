@@ -1,6 +1,8 @@
 # HaulAway
 
-HaulAway is a user-to-user service that helps alleviate the difficulties of moving _haul_ from one destination to the next. I
+_HaulAway_ is a user-to-user service that helps alleviate the difficulties of moving _haul_ from one destination to the next.
+
+Every submitted information is stored in our NoSQL document-oriented _Mongo_ database. _Express_ is used for our backend routing to simplify the task of writing server code. _React_ is the tool used for creating views rendered in HTML. Lastly with _Node_, JavaScript is able to be implemented in the backend mainly used to handle server-side requests.
 
 ![Logo](production_img/logo.png)
 
@@ -32,13 +34,17 @@ We built a User Authentication system to access the job form and display your jo
 
 ![User Auth](production_img/user_auth.png)
 
+![User Example](production_img/user_ex.png)
+
 2. Job Postings
 
 Users have to submit a form with required fields and pass validations to submit a job.
 
+![User Example](production_img/job_ex.png)
+
 3. Google Maps
 
-Googles Maps is dynamic to show where a destination or pickup can be depending on the page. A circle property is also included in the map to help visualize the location.
+Googles Maps is dynamic to show where a destination or pickup can be depending on the route. A _Circle_ prop is included in the map to help visualize the location.
 
 ![Job Form](production_img/job_request.png)
 
@@ -67,3 +73,4 @@ Users have the ability to upload multiple photos at once and those images are un
 ## References
 
 [Uploading-to-S3](https://paulrohan.medium.com/file-upload-to-aws-s3-bucket-in-a-node-react-mongo-app-and-using-multer-72884322aada)
+[Why-Use-MongoDB](https://www.mongodb.com/why-use-mongodb)
