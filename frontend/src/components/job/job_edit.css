@@ -27,7 +27,7 @@
   font-style: italic;
 }
 
-@keyframes Gradient {
+/* @keyframes Gradient {
   0% {
     background-position: 0% 50%;
   }
@@ -37,15 +37,16 @@
   100% {
     background-position: 0% 50%;
   }
-}
+} */
 
 .job-edit-outer {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background: linear-gradient(132deg, #d75364, #874bee, #414567);
+  /* background: linear-gradient(132deg, #d75364, #874bee, #414567);
   background-size: 400% 400%;
-  animation: Gradient 15s ease infinite;
+  animation: Gradient 15s ease infinite; */
+  background: #2e3740;
 }
 
 .job-edit-input-desc {
@@ -62,7 +63,7 @@
 .job-edit-form {
   display: flex;
   justify-content: space-between;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .job-edit-form-box {
@@ -97,16 +98,27 @@
   width: 100px;
 }
 
+.job-edit-text {
+  font-family: 'Sofia', cursive;
+  font-weight: bold;
+  text-align: center;
+}
+
 .job-edit-input-box {
   width: 50vw;
 }
 
 .job-edit-btn {
-  height: auto;
   transition: 0.5s;
   overflow: hidden;
 }
 
 .job-edit-btn:hover {
   background: #029343;
+}
+
+.job-edit-btn-container {
+  width: 250px;
+  display: flex;
+  justify-content: space-between;
 }

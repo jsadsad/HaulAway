@@ -30,14 +30,16 @@ class JobEdit extends React.Component {
       selectedFile: null,
     }
 
+
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePhotoFile = this.handlePhotoFile.bind(this)
     this.onPickupSelected = this.onPickupSelected.bind(this)
     this.onDestinationSelected = this.onDestinationSelected.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
-    this.props.fetchJob(this.props.match.params.jobId)
+    this.props.fetchJob(this.props.jobId)
   }
 
   handleSubmit(e) {
@@ -54,6 +56,7 @@ class JobEdit extends React.Component {
           location = location.concat(data[i].Location)
         }
         let job = {
+          _id: this.props.jobId,
           description: this.state.description,
           pickup: this.state.pickup,
           destination: this.state.destination,
@@ -64,11 +67,12 @@ class JobEdit extends React.Component {
           pictures: location,
         }
         this.props.updateJob(job).then((payload) => {
-          this.props.history.push(`/job/${payload.job.data._id}`)
+          this.props.history.push(`/jobs/${payload.job.data._id}`)
         })
       })
     } else {
       let job = {
+        _id: this.props.jobId,
         description: this.state.description,
         pickup: this.state.pickup,
         destination: this.state.destination,
@@ -79,9 +83,15 @@ class JobEdit extends React.Component {
         pictures: this.state.pictures,
       }
       this.props.updateJob(job).then((payload) => {
-        this.props.history.push(`/job/${payload.job.data._id}`)
+        this.props.history.push(`/jobs/${payload.job.data._id}`)
       })
     }
+  }
+
+  handleDelete(e) {
+    e.preventDefault()
+    this.props.deleteJob(this.props.jobId)
+      .then(this.props.history.push(`/jobs`))
   }
 
   handlePhotoFile(e) {
@@ -156,7 +166,7 @@ class JobEdit extends React.Component {
                 <br />
                 <div className="job-edit-input-box">
                   <div className="job-edit-lvl-btn">
-                    <label>Choose difficulty</label>
+                    <label className="job-edit-text">Choose difficulty</label>
                     <select
                       onChange={this.handleField('jobDifficulty')}
                       value={this.state.jobDifficulty}
@@ -215,7 +225,10 @@ class JobEdit extends React.Component {
                   {this.props.errors.jobEndDate}
                 </div>
                 <br />
-                <button className="job-edit-btn">Submit Changes</button>
+                <div className="job-edit-btn-container">
+                  <button>Submit</button>
+                  <button onClick={this.handleDelete}>Delete</button>
+                </div>
                 <br />
               </div>
               <br />
