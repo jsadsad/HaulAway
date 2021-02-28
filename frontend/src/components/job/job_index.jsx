@@ -30,6 +30,7 @@ class JobIndex extends React.Component {
                 <img className="user-image" src={job.pictures[0]} alt={job.title}/>
                 </div>
                 <div className='job-it-text-wrapper'>
+                  <h3>Haul requested by: {job.jobPoster.firstName} {job.jobPoster.lastName[0]}</h3>
                   <h3>Destination: {job.destination}</h3>
                   <h3>Pick-up location: {job.pickup}</h3>
                   <h3>Difficulty: {job.jobDifficulty}</h3>

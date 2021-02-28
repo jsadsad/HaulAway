@@ -4,7 +4,6 @@ import { fetchJobs } from '../../actions/job_actions'
 import { getAvailableJobs } from '../../selectors/selectors'
 
 const mapStateToProps = (state) => {
-  debugger
   return {
     jobs: getAvailableJobs(state),
   }
