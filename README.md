@@ -1,5 +1,7 @@
 # HaulAway
 
+[Live!](https://haulaway.herokuapp.com/#/)
+
 _HaulAway_ is a user-to-user service that helps alleviate the difficulties of moving _haul_ from one destination to the next.
 
 Every submitted information is stored in our NoSQL document-oriented _Mongo_ database. _Express_ is used for our backend routing to simplify the task of writing server code. _React_ is the tool used for creating views rendered in HTML. Lastly with _Node_, JavaScript is able to be implemented in the backend mainly used to handle server-side requests.
