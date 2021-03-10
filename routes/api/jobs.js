@@ -9,6 +9,7 @@ mongoose.set('useFindAndModify', false)
 
 router.get('/', (req, res) => {
   Jobs.find()
+    .populate('jobPoster')
     .sort({ date: 1 })
     .then((jobs) => {
       res.json(jobs)
@@ -20,6 +21,7 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   Jobs.findById(req.params.id)
+    .populate('jobPoster')
     .then((job) => {
       res.json(job)
     })

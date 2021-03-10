@@ -11,13 +11,13 @@ class JobEdit extends React.Component {
     super(props)
 
     this.state = {
-      description: '',
-      pickup: '',
-      destination: '',
-      jobDifficulty: '',
+      description: this.props.job.description,
+      pickup: this.props.job.pickup,
+      destination: this.props.job.destination,
+      jobDifficulty: this.props.job.jobDifficulty,
       jobType: 'request',
-      jobStartDate: '',
-      jobEndDate: '',
+      jobStartDate: this.props.job.jobStartDate,
+      jobEndDate: this.props.job.jobEndDate,
       mapPosition: {
         lat: '',
         lng: '',
@@ -26,18 +26,20 @@ class JobEdit extends React.Component {
         lat: '',
         lng: '',
       },
-      pictures: [],
+      pictures: this.props.job.pictures,
       selectedFile: null,
     }
+
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePhotoFile = this.handlePhotoFile.bind(this)
     this.onPickupSelected = this.onPickupSelected.bind(this)
     this.onDestinationSelected = this.onDestinationSelected.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
   componentDidMount() {
-    this.props.fetchJob(this.props.match.params.jobId)
+    this.props.fetchJob(this.props.jobId)
   }
 
   handleSubmit(e) {
@@ -54,6 +56,7 @@ class JobEdit extends React.Component {
           location = location.concat(data[i].Location)
         }
         let job = {
+          _id: this.props.jobId,
           description: this.state.description,
           pickup: this.state.pickup,
           destination: this.state.destination,
@@ -64,11 +67,12 @@ class JobEdit extends React.Component {
           pictures: location,
         }
         this.props.updateJob(job).then((payload) => {
-          this.props.history.push(`/job/${payload.job.data._id}`)
+          this.props.history.push(`/jobs/${payload.job.data._id}`)
         })
       })
     } else {
       let job = {
+        _id: this.props.jobId,
         description: this.state.description,
         pickup: this.state.pickup,
         destination: this.state.destination,
@@ -79,9 +83,15 @@ class JobEdit extends React.Component {
         pictures: this.state.pictures,
       }
       this.props.updateJob(job).then((payload) => {
-        this.props.history.push(`/job/${payload.job.data._id}`)
+        this.props.history.push(`/jobs/${payload.job.data._id}`)
       })
     }
+  }
+
+  handleDelete(e) {
+    e.preventDefault()
+    this.props.deleteJob(this.props.jobId)
+      .then(this.props.history.push(`/jobs`))
   }
 
   handlePhotoFile(e) {
@@ -133,89 +143,127 @@ class JobEdit extends React.Component {
           <div className="job-edit-form">
             {/* <h1>Form</h1> */}
             <form onSubmit={this.handleSubmit} className="job-edit-form-box">
-              <h2 className="job-edit-text">Job Edit</h2>
-              <div className="job-edit-input-box">
-                <textarea
-                  className="job-edit-input-desc"
-                  placeholder="Description"
-                  value={this.state.description}
-                  onChange={this.handleField('description')}
-                />
-                {this.props.errors.description}
-              </div>
-              <br />
-              <div className="job-edit-input-box">
-                <input
-                  type="file"
-                  className="job-edit-upload-btn"
-                  multiple
-                  onChange={this.handlePhotoFile}
-                />
-              </div>
-              <br />
-              <div className="job-edit-input-box">
-                <div className="job-edit-lvl-btn">
-                  <label>Choose difficulty</label>
-                  <select
-                    onChange={this.handleField('jobDifficulty')}
-                    value={this.state.jobDifficulty}
-                  >
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
-                  </select>
+              <div className="job-edit-fields">
+                <h2 className="job-edit-text">Job Edit</h2>
+                <div className="job-edit-input-box">
+                  <textarea
+                    className="job-edit-input-desc"
+                    placeholder="Description"
+                    value={this.state.description}
+                    onChange={this.handleField('description')}
+                  />
+                  {this.props.errors.description}
                 </div>
+                <br />
+                <div className="job-edit-input-box">
+                  <input
+                    type="file"
+                    className="job-edit-upload-btn"
+                    multiple
+                    onChange={this.handlePhotoFile}
+                  />
+                </div>
+                <br />
+                <div className="job-edit-input-box">
+                  <div className="job-edit-lvl-btn">
+                    <label className="job-edit-text">Choose difficulty</label>
+                    <select
+                      onChange={this.handleField('jobDifficulty')}
+                      value={this.state.jobDifficulty}
+                    >
+                      <option value="easy">Easy</option>
+                      <option value="medium">Medium</option>
+                      <option value="hard">Hard</option>
+                    </select>
+                  </div>
+                </div>
+                <br />
+                <div className="job-edit-input-box">
+                  <Autocomplete
+                    onPlaceSelected={this.onPickupSelected}
+                    className="job-edit-input-pickup"
+                    style={{ width: '25%' }}
+                    types={['address']}
+                    componentRestrictions={{ country: 'us' }}
+                    placeholder="Pickup"
+                  />
+                  {this.props.errors.pickup}
+                </div>
+                <br />
+                <div className="job-edit-input-box">
+                  <Autocomplete
+                    onPlaceSelected={this.onDestinationSelected}
+                    className="job-edit-input-dest"
+                    style={{ width: '25%' }}
+                    types={['address']}
+                    componentRestrictions={{ country: 'us' }}
+                    onChange={this.handleField('destination')}
+                    placeholder="Destination"
+                  />
+                  {this.props.errors.destination}
+                </div>
+                <br />
+                <div className="job-edit-input-box">
+                  <input
+                    onChange={this.handleField('jobStartDate')}
+                    type="date"
+                    className="job-edit-input-date"
+                    placeholder="Start date"
+                    value={this.state.jobStartDate}
+                  />
+                  {this.props.errors.jobStartDate}
+                </div>
+                <br />
+                <div className="job-edit-input-box">
+                  <input
+                    onChange={this.handleField('jobEndDate')}
+                    type="date"
+                    className="job-edit-input-date2"
+                    placeholder="End date"
+                    value={this.state.jobEndDate}
+                  />
+                  {this.props.errors.jobEndDate}
+                </div>
+                <br />
+                <div className="job-edit-btn-container">
+                  <button>Submit</button>
+                  <button onClick={this.handleDelete}>Delete</button>
+                </div>
+                <br />
               </div>
               <br />
-              <div className="job-edit-input-box">
-                <Autocomplete
-                  onPlaceSelected={this.onPickupSelected}
-                  className="job-edit-input-pickup"
-                  style={{ width: '25%' }}
-                  types={['address']}
-                  componentRestrictions={{ country: 'us' }}
-                  placeholder="Pickup"
-                />
-                {this.props.errors.pickup}
+              <div className="job-edit-google-map-container">
+                <Map
+                  className="job-edit-map"
+                  zoom={12}
+                  google={this.props.google}
+                  initialCenter={{
+                    lat: 36.778259,
+                    lng: -119.417931,
+                  }}
+                  center={{
+                    lat: this.state.mapPosition.lat,
+                    lng: this.state.mapPosition.lng,
+                  }}
+                >
+                  <Marker
+                    draggable={true}
+                    position={{
+                      lat: this.state.markerPosition.lat,
+                      lng: this.state.markerPosition.lng,
+                    }}
+                  />
+                  <Circle
+                    radius={2400}
+                    center={coords}
+                    strokeColor="transparent"
+                    strokeOpacity={0}
+                    strokeWeight={5}
+                    fillColor="#FF0000"
+                    fillOpacity={0.2}
+                  />
+                </Map>
               </div>
-              <br />
-              <div className="job-edit-input-box">
-                <Autocomplete
-                  onPlaceSelected={this.onDestinationSelected}
-                  className="job-edit-input-dest"
-                  style={{ width: '25%' }}
-                  types={['address']}
-                  componentRestrictions={{ country: 'us' }}
-                  onChange={this.handleField('destination')}
-                  placeholder="Destination"
-                />
-                {this.props.errors.destination}
-              </div>
-              <br />
-              <div className="job-edit-input-box">
-                <input
-                  onChange={this.handleField('jobStartDate')}
-                  type="date"
-                  className="job-edit-input-date"
-                  placeholder="Start date"
-                  value={this.state.jobStartDate}
-                />
-                {this.props.errors.jobStartDate}
-              </div>
-              <br />
-              <div className="job-edit-input-box">
-                <input
-                  onChange={this.handleField('jobEndDate')}
-                  type="date"
-                  className="job-edit-input-date2"
-                  placeholder="End date"
-                  value={this.state.jobEndDate}
-                />
-                {this.props.errors.jobEndDate}
-              </div>
-              <br />
-              <button className="job-edit-btn">Submit</button>
-              <br />
               <br />
             </form>
           </div>
@@ -257,43 +305,6 @@ class JobEdit extends React.Component {
                 </a>
               </div>
             </div>
-            <Map
-              style={{
-                width: '45vw',
-                height: '150px',
-                position: 'relative',
-                top: '30px',
-                border: '1px solid black',
-                borderRadius: '5px',
-              }}
-              zoom={12}
-              google={this.props.google}
-              initialCenter={{
-                lat: 36.778259,
-                lng: -119.417931,
-              }}
-              center={{
-                lat: this.state.mapPosition.lat,
-                lng: this.state.mapPosition.lng,
-              }}
-            >
-              <Marker
-                draggable={true}
-                position={{
-                  lat: this.state.markerPosition.lat,
-                  lng: this.state.markerPosition.lng,
-                }}
-              />
-              <Circle
-                radius={1200}
-                center={coords}
-                strokeColor="transparent"
-                strokeOpacity={0}
-                strokeWeight={5}
-                fillColor="#FF0000"
-                fillOpacity={0.2}
-              />
-            </Map>
           </div>
         </div>
       </div>

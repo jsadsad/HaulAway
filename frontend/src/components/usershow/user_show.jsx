@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from '../navbar/navbar_container';
 
-import usershow from './user_show.css';
+import './user_show.css';
 
 class UserShow extends React.Component {
 
@@ -33,7 +33,7 @@ class UserShow extends React.Component {
 
     let editButton = ''
     if(this.props.userId === this.props.currentUserId) {
-      editButton =  <div onClick={() => this.props.openModal('edit user', user._id )}>Edit</div>
+      editButton =  <button onClick={() => this.props.openModal('edit user', user._id )}>Edit</button>
     }
 
     return(
