@@ -1,18 +1,23 @@
 .job-index-wrapper {
   background: #2e3740;
-  min-height: 100hv;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
 .job-index-item-wrapper {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   justify-items: center;
   grid-gap: 20px 0;
-  padding-bottom: 20px;
+  padding-bottom: 20px; */
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .job-index-item {
   /* background-color: rgb(35, 175, 75); */
+  position: sticky;
   background-color: #1fce6d;
   border: 1px solid white;
   border-radius: 10px;
@@ -23,6 +28,7 @@
   color: white;
   display: flex;
   cursor: pointer;
+  margin-bottom: 30px;
 }
 
 .job-it-image-wrapper {
