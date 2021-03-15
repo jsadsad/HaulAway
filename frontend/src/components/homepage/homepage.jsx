@@ -55,9 +55,17 @@ class Homepage extends React.Component {
             >
               Request a Job
             </button>
+            <div className="homepage-job-index-header">
+              Take a look what do we have
+            </div>
+            <button 
+              onClick={() => this.props.history.push('/jobs')}
+              className="homepage-lj-button">
+              View All
+            </button>
           </div>
         </div>
-        <div className="homepage-job-index-wrapper">
+        {/* <div className="homepage-job-index-wrapper">
           <div className="homepage-job-index-header">
             <h2 className="homepage-looking-for-jobs">Looking for Jobs?</h2>
             <h2
@@ -75,7 +83,7 @@ class Homepage extends React.Component {
               <h2 style={{ color: 'red' }}>No Jobs Currently Available...</h2>
             )}
           </div>
-        </div>
+        </div> */}
       </div>
     )
   }

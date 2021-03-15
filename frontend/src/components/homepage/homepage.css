@@ -87,7 +87,35 @@
   font-size: 30px;
   /* transform: translate(-50%, -50%); */
 }
-.homepage-job-index-wrapper {
+
+
+.homepage-job-index-header {
+  position: absolute;
+  left: 11%;
+  top: 45%;
+  color: white;
+  font-size: 30px;
+}
+
+.homepage-lj-button {
+  position: absolute;
+  left: 25%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  width: 180px;
+  height: 70px;
+  font-size: 20px;
+}
+
+.homepage-lj-button:hover {
+  background-color: #1fce6d;
+  color: white;
+}
+
+/* .homepage-job-index-wrapper {
   color: white;
   font-family: 'Montserrat', sans-serif;
   width: 100vw;
@@ -131,4 +159,4 @@
 
 .homepage-view-all:hover {
   text-decoration: underline;
-}
+} */
