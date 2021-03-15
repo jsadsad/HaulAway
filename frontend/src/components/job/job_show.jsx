@@ -74,6 +74,7 @@ class JobShow extends React.PureComponent {
 
     this.props.updateJob(takenJob)
   }
+<<<<<<< HEAD
 
   editJobButton() {
     const job = this.props.job
@@ -105,6 +106,31 @@ class JobShow extends React.PureComponent {
     }
   }
 
+=======
+  
+    editJobButton() {
+      const job = this.props.job
+      
+      
+      if ((job.jobPoster._id === this.props.currentUserId) && (!job.isClosed) && (job.isAvailable)) {
+        return (
+          <button onClick={()=> this.props.history.push(`/jobs/edit/${job._id}`)} className="edit-job-button">Edit Job</button>
+        )
+      }
+    }
+    
+    takeJobButton() {
+      const job = this.props.job
+
+      
+      if ((job.jobPoster._id !== this.props.currentUserId) && (job.isAvailable)) {
+        return (
+          <button className="take-job-button" onClick={this.takeJob}>Take Job</button>
+          )
+        }
+      }
+      
+>>>>>>> main
   leaveJobButton() {
     const job = this.props.job
 
