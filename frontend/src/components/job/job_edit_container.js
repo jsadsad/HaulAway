@@ -1,14 +1,18 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { fetchJob, updateJob, clearErrors, destroyJob } from '../../actions/job_actions'
+import {
+  fetchJob,
+  updateJob,
+  clearErrors,
+  destroyJob,
+} from '../../actions/job_actions'
 import JobEdit from './job_edit'
 
 const mSTP = (state, ownProps) => {
-  // debugger
   return {
     errors: state.errors.job,
     job: state.entities.jobs[ownProps.match.params.jobId],
-    jobId: ownProps.match.params.jobId
+    jobId: ownProps.match.params.jobId,
   }
 }
 
@@ -17,7 +21,7 @@ const mDTP = (dispatch) => {
     updateJob: (job) => dispatch(updateJob(job)),
     fetchJob: (jobId) => dispatch(fetchJob(jobId)),
     clearErrors: () => dispatch(clearErrors),
-    deleteJob: jobId => dispatch(destroyJob(jobId)),
+    deleteJob: (jobId) => dispatch(destroyJob(jobId)),
   }
 }
 
