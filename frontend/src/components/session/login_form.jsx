@@ -143,7 +143,7 @@ class LoginForm extends React.Component {
                     <a className="contact" href="https://github.com/kinda-dev" target="_blank">Fabio</a>
                   </div>
                 </div>
-            </div>
+            </div> 
         </div>
       </div>
     )
