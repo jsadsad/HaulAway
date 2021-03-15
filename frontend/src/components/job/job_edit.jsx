@@ -11,13 +11,13 @@ class JobEdit extends React.Component {
     super(props)
 
     this.state = {
-      description: this.props.job.description,
-      pickup: this.props.job.pickup,
-      destination: this.props.job.destination,
-      jobDifficulty: this.props.job.jobDifficulty,
+      description: this.props.job,
+      pickup: this.props.job,
+      destination: this.props.job,
+      jobDifficulty: this.props.job,
       jobType: 'request',
-      jobStartDate: this.props.job.jobStartDate,
-      jobEndDate: this.props.job.jobEndDate,
+      jobStartDate: this.props.job,
+      jobEndDate: this.props.job,
       mapPosition: {
         lat: '',
         lng: '',
@@ -26,10 +26,9 @@ class JobEdit extends React.Component {
         lat: '',
         lng: '',
       },
-      pictures: this.props.job.pictures,
+      pictures: this.props.job,
       selectedFile: null,
     }
-
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePhotoFile = this.handlePhotoFile.bind(this)
@@ -39,7 +38,18 @@ class JobEdit extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchJob(this.props.jobId)
+    this.props.fetchJob(this.props.match.params.jobId).then(() => {
+      this.setState({
+        description: this.props.job ? this.props.job.description : '',
+        pickup: this.props.job ? this.props.job.pickup : '',
+        destination: this.props.job ? this.props.job.destination : '',
+        jobDifficulty: this.props.job ? this.props.job.jobDifficulty : '',
+        jobStartDate: this.props.job ? this.props.job.jobStartDate : '',
+        jobEndDate: this.props.job ? this.props.job.jobEndDate : '',
+        jobType: this.props.job ? this.props.job.jobType : '',
+        // mapPosition: this.props.job ? this.props.job.mapPosition : '',
+      })
+    })
   }
 
   handleSubmit(e) {
@@ -90,7 +100,8 @@ class JobEdit extends React.Component {
 
   handleDelete(e) {
     e.preventDefault()
-    this.props.deleteJob(this.props.jobId)
+    this.props
+      .deleteJob(this.props.jobId)
       .then(this.props.history.push(`/jobs`))
   }
 
