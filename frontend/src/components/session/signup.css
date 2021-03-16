@@ -79,6 +79,25 @@
   background-color: #1fce6d;
 }
 
+.login-link {
+  text-decoration: none;
+  font-size: 14px;
+  color: #1fce6d;
+  font-weight: 600;
+}
+
+.login-link:hover {
+  color: #afe1c537;
+}
+
+.signup-login-link {
+  padding-top: 10px;
+  font-family: "Monserrat", sans-serif;
+  font-size: 17px;
+  color: #fff;
+  padding-bottom: 5px;
+}
+
 .signup-errors {
   color: #c2b608;
   margin-top: 3px;
