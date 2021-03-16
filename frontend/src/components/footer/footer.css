@@ -1,0 +1,140 @@
+
+
+.splash-footer {
+  display: flex;
+  min-height: 150px;
+  padding: 30px 30px 20px 30px;
+}
+
+.splash-footer-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+}
+
+.splash-footer-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 100%;
+}
+
+.thank-you {
+  height: 70px;
+  color: black;
+  font-size: 30px;
+  font-weight: 300;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.splash-footer-about-us {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  padding-top: 15px;
+}
+
+.info-us {
+  display: flex;
+  font-size: 20px;
+  min-width: 20%;
+  height: 90%;
+  align-items: center;
+  flex-direction: column;
+  justify-items: center;
+  color: #1fec1f;
+}
+
+.info-us-contacts {
+  display: flex;
+  padding-top: 15px;
+  justify-content: center;
+}
+
+.contact {
+  text-decoration: none;
+  padding: 5px;
+
+}
+
+
+.fa {
+  font-size: 24px;
+}
+
+.fa.fa-github {
+  color: white;
+  background-color: black;
+}
+
+.fa.fa-github:hover {
+  color: #212121;
+}
+
+.fa.fa-linkedin {
+  color: white;
+  background-color: #1c659d;
+}
+
+.fa.fa-linkedin:hover {
+  color: #212121;
+}
+
+.fa.fa-angellist {
+  color: white;
+  background: #2e3740;
+}
+
+.fa.fa-angellist:hover {
+  color: black;
+}
+
+
+/* .splash-footer {
+  position: absolute;
+  display: flex;
+  padding-right: 30px;
+  padding-left: 30px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding-bottom: 20px;
+  justify-content: center;
+}
+
+.splash-footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.thank-you {
+  display: flex;
+  align-items: center;
+}
+
+.splash-footer-info {
+  display: flex;
+  align-items: center;
+}
+
+.engineerd-by {
+  padding-right: 10px;
+}
+
+.info-us {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px;
+}
+.contact {
+  color: white;
+  padding: 3px;
+} */

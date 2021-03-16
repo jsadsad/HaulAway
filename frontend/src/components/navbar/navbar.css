@@ -46,8 +46,12 @@
   font-size: 30px;
 }
 
+.logo-link:hover {
+  color: #1fce6d;
+}
+
 .navbar-menu {
-  display: none;
+  /* display: none; */
   position: absolute;
   right: 30px;
   background-color: rgba(20, 20, 20, 0.9);
@@ -63,10 +67,10 @@
   transition: 0.2s;
 }
 
-.navbar-right-wrap:hover .navbar-menu {
+/* .navbar-right-wrap:hover .navbar-menu {
   display: block;
   /* position: absolute; */
-}
+/* } */
 
 .navbar-right-wrap {
   cursor: pointer;
