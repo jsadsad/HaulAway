@@ -7,8 +7,6 @@
 .navbar-wrapper {
   background-color: transparent;
   position: relative;
-  /* max-width: 1920px; */
-  /* margin: 0 auto; */
   padding-top: 20px;
   width: 100%;
   top: 0;
@@ -56,21 +54,22 @@
   right: 30px;
   background-color: rgba(20, 20, 20, 0.9);
   border: 1px solid rgba(156, 154, 154, 0.76);
-  /* padding-left: 5px; */
   padding-top: 5px;
-  width: 130px;
+  /* width: 130px; */
+  width: 155px;
   z-index: 10;
   text-align: left;
-  height: 85px;
+  /* height: 85px; */
+  height: 116px;
   top: 38px;
   border-radius: 3px;
   transition: 0.2s;
 }
 
-/* .navbar-right-wrap:hover .navbar-menu {
+.navbar-right-wrap:hover .navbar-menu {
   display: block;
   /* position: absolute; */
-/* } */
+}
 
 .navbar-right-wrap {
   cursor: pointer;
@@ -79,7 +78,6 @@
 
 .navbar-menu-user {
   border-bottom: 1px solid rgba(156, 154, 154, 0.76);
-  /* width: 100%; */
   padding-left: 5px;
   padding-bottom: 5px;
 }
@@ -93,6 +91,12 @@
   color: white;
   text-decoration: none;
 }
+
+.navbar-link-jobs-new {
+  color: white;  
+  text-decoration: none;
+}
+
 .navbar-menu-jobs {
   padding-left: 5px;
   padding-bottom: 5px;
@@ -102,6 +106,18 @@
 }
 
 .navbar-menu-jobs:hover {
+  background: #029343;
+}
+
+.navbar-menu-jobs-new {
+  padding-left: 5px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  color: white;
+  border-bottom: 1px solid rgba(156, 154, 154, 0.76);
+}
+
+.navbar-menu-jobs-new:hover {
   background: #029343;
 }
 
@@ -116,9 +132,9 @@
   background: #029343;
 }
 
-.fa-cog {
+/* .fa-cog {
   font-size: 15px;
-}
+} */
 
 .navbar-menu-user {
   color: white;
@@ -127,4 +143,8 @@
 
 .navbar-menu-user:hover {
   background: #029343;
+}
+
+.fa.fa-handshake-o {
+  font-size: 18px;
 }
