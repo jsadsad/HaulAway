@@ -26,6 +26,7 @@ button {
   outline: none;
 }
 
+
 .splash-page {
   min-width: 100%;
   overflow: hidden;
@@ -115,14 +116,27 @@ button {
   /* min-height: 40px; */
 }
 
+
+
 .splash-signup-link {
   font-weight: bolder;
   text-decoration: none;
+  color: #1fce6d;
+  /* color: white; */
+}
+
+.splash-signup-link:hover {
+  color: white;
 }
 
 .splash-login-link {
   font-weight: bolder;
   text-decoration: none;
+  color: #1fce6d;
+}
+
+.splash-login-link:hover {
+  color: white;
 }
 
 /* .splash-signup-wrap:hover .splash-signup-button .splash-signup-link {
@@ -134,6 +148,28 @@ button {
   background-color: white;
   color: #1fce6d;
 } */
+
+.splash-signup-button {
+  color: #1fce6d;
+  background-color: rgba(0, 0, 0, 0.399);
+  border: 1px solid #1fce6d;
+}
+
+.splash-signup-button:hover {
+  background-color: #1fce6d;
+  color: white;
+}
+
+.splash-login-button {
+  color: #1fce6d;
+  background-color: rgba(0, 0, 0, 0.399);
+  border: 1px solid #1fce6d;
+}
+
+.splash-login-button:hover {
+  background-color: #1fce6d;
+  color: white;
+}
 
 .center-pixel {
   top: 50%;
