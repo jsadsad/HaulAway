@@ -42,28 +42,41 @@ class Homepage extends React.Component {
       <div className="homepage-wrapper">
         <Navbar />
         <div className="homepage-job-button-wrapper">
-          <div className="homepage-img-wrapper">
-            <img className="homepage-img" src="/box3.jpeg" />
-          </div>
+          <div className="homepage-img-wrapper"
+            style={{
+              backgroundImage: "url('/box3.jpeg')",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          >
           <div className="homepage-job-buttons">
-            <div className="homepage-job-buttons-header">
-              Need help with your boxes?
+            {/* <div className="homepage-job-buttons-wrapper"> */}
+              <div className="homepage-job-left-elements-wrapper">
+                <div className="homepage-job-buttons-left-header">
+                  Take a look what do we have
+                </div>
+                <button
+                  onClick={() => this.props.history.push('/jobs')}
+                  className="homepage-lj-button"
+                >
+                  View All
+                </button>
+              </div>
+              <div className="homepage-job-right-elements-wrapper">
+                <div className="homepage-job-buttons-right-header">
+                  Need help with your boxes?
+                </div>
+                <button
+                  onClick={() => this.props.history.push('/jobs/new')}
+                  className="homepage-rj-button"
+                >
+                  Request a Job
+                </button>
+              </div>
             </div>
-            <button
-              onClick={() => this.props.history.push('/jobs/new')}
-              className="homepage-rj-button"
-            >
-              Request a Job
-            </button>
-            <div className="homepage-job-index-header">
-              Take a look what do we have
-            </div>
-            <button 
-              onClick={() => this.props.history.push('/jobs')}
-              className="homepage-lj-button">
-              View All
-            </button>
+            {/* <img className="homepage-img" src="/box3.jpeg" /> */}
           </div>
+          {/* </div> */}
         </div>
         {/* <div className="homepage-job-index-wrapper">
           <div className="homepage-job-index-header">
