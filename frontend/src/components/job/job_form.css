@@ -50,10 +50,6 @@ input[type='file'] {
   height: 100%;
   background: #2e3740;
   min-height: 100vh;
-  /* background: linear-grad
-  /* background: linear-gradient(132deg, #d75364, #874bee, #414567); */
-  /* background-size: 400% 400%; */
-  /* animation: Gradient 15s ease infinite; */
 }
 
 .job-post-text {

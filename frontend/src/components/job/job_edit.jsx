@@ -11,20 +11,20 @@ class JobEdit extends React.Component {
     super(props)
 
     this.state = {
-      description: this.props.job,
-      pickup: this.props.job,
-      destination: this.props.job,
-      jobDifficulty: this.props.job,
-      jobType: 'request',
-      jobStartDate: this.props.job,
-      jobEndDate: this.props.job,
+      // description: this.props.job,
+      // pickup: this.props.job,
+      // destination: this.props.job,
+      // jobDifficulty: this.props.job,
+      // jobType: 'request',
+      // jobStartDate: this.props.job,
+      // jobEndDate: this.props.job,
       mapPosition: {
-        lat: '',
-        lng: '',
+        lat: 36.778259,
+        lng: -119.417931,
       },
       markerPosition: {
-        lat: '',
-        lng: '',
+        lat: undefined,
+        lng: undefined,
       },
       pictures: this.props.job,
       selectedFile: null,
@@ -40,14 +40,14 @@ class JobEdit extends React.Component {
   componentDidMount() {
     this.props.fetchJob(this.props.match.params.jobId).then(() => {
       this.setState({
-        description: this.props.job ? this.props.job.description : '',
-        pickup: this.props.job ? this.props.job.pickup : '',
-        destination: this.props.job ? this.props.job.destination : '',
-        jobDifficulty: this.props.job ? this.props.job.jobDifficulty : '',
-        jobStartDate: this.props.job ? this.props.job.jobStartDate : '',
-        jobEndDate: this.props.job ? this.props.job.jobEndDate : '',
-        jobType: this.props.job ? this.props.job.jobType : '',
-        // mapPosition: this.props.job ? this.props.job.mapPosition : '',
+        // description: this.props.job ? this.props.job.description : '',
+        // pickup: this.props.job ? this.props.job.pickup : '',
+        // destination: this.props.job ? this.props.job.destination : '',
+        // jobDifficulty: this.props.job ? this.props.job.jobDifficulty : '',
+        // jobStartDate: this.props.job ? this.props.job.jobStartDate : '',
+        // // jobEndDate: this.props.job ? this.props.job.jobEndDate : '',
+        // // jobType: this.props.job ? this.props.job.jobType : '',
+        // // pictures: this.props.job ? this.props.job.pictures : [],
       })
     })
   }
@@ -143,16 +143,15 @@ class JobEdit extends React.Component {
 
   render() {
     if (!this.props.job) return null
+
+    const { job } = this.props
     const coords = this.state.mapPosition
 
     return (
       <div className="job-edit-outer">
-        {/* <h2>Outer</h2> */}
         <Navbar />
         <div className="job-edit-container">
-          {/* <h1>Container</h1> */}
           <div className="job-edit-form">
-            {/* <h1>Form</h1> */}
             <form onSubmit={this.handleSubmit} className="job-edit-form-box">
               <div className="job-edit-fields">
                 <h2 className="job-edit-text">Job Edit</h2>
@@ -196,7 +195,7 @@ class JobEdit extends React.Component {
                     style={{ width: '25%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
-                    placeholder="Pickup"
+                    placeholder={job.pickup}
                   />
                   {this.props.errors.pickup}
                 </div>
@@ -209,29 +208,29 @@ class JobEdit extends React.Component {
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('destination')}
-                    placeholder="Destination"
+                    placeholder={job.destination}
                   />
                   {this.props.errors.destination}
                 </div>
                 <br />
                 <div className="job-edit-input-box">
                   <input
+                    required
                     onChange={this.handleField('jobStartDate')}
                     type="date"
                     className="job-edit-input-date"
-                    placeholder="Start date"
-                    value={this.state.jobStartDate}
+                    value={job.jobStartDate}
                   />
                   {this.props.errors.jobStartDate}
                 </div>
                 <br />
                 <div className="job-edit-input-box">
                   <input
+                    required
                     onChange={this.handleField('jobEndDate')}
                     type="date"
                     className="job-edit-input-date2"
-                    placeholder="End date"
-                    value={this.state.jobEndDate}
+                    value={job.jobEndDate}
                   />
                   {this.props.errors.jobEndDate}
                 </div>
@@ -248,10 +247,6 @@ class JobEdit extends React.Component {
                   className="job-edit-map"
                   zoom={12}
                   google={this.props.google}
-                  initialCenter={{
-                    lat: 36.778259,
-                    lng: -119.417931,
-                  }}
                   center={{
                     lat: this.state.mapPosition.lat,
                     lng: this.state.mapPosition.lng,
@@ -277,45 +272,6 @@ class JobEdit extends React.Component {
               </div>
               <br />
             </form>
-          </div>
-        </div>
-        <br />
-        <div className="splash-footer">
-          <div className="splash-footer-wrapper">
-            <div className="thank-you">Thank you for your visit</div>
-            <div className="splash-footer-info">
-              <div className="engineerd-by">Engineerd with love by:</div>
-              <div className="info-us">
-                <a
-                  className="contact"
-                  href="https://github.com/shinara03"
-                  target="_blank"
-                >
-                  Lena
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/andmitriy93"
-                  target="_blank"
-                >
-                  Dmitrii
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/jsadsad"
-                  target="_blank"
-                >
-                  Josh
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/kinda-dev"
-                  target="_blank"
-                >
-                  Fabio
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
