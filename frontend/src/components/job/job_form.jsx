@@ -8,7 +8,6 @@ import './job_form.css'
 class JobPostForm extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       description: '',
       pickup: '',
@@ -120,6 +119,7 @@ class JobPostForm extends React.Component {
 
   render() {
     const coords = this.state.mapPosition
+
     return (
       <div className="job-post-outer">
         <Navbar />
@@ -179,8 +179,8 @@ class JobPostForm extends React.Component {
                   <input
                     onChange={this.handleField('jobStartDate')}
                     type="date"
+                    required
                     className="job-post-input-date"
-                    placeholder="start date"
                     value={this.state.jobStartDate}
                   />
                   {this.props.errors.jobStartDate}
@@ -190,21 +190,17 @@ class JobPostForm extends React.Component {
                   <input
                     onChange={this.handleField('jobEndDate')}
                     type="date"
+                    required
                     className="job-post-input-date2"
-                    placeholder="end date"
                     value={this.state.jobEndDate}
                   />
                   {this.props.errors.jobEndDate}
                 </div>
                 <br />
                 <div className="job-post-input-box">
-                  <label className="upload-photos-text">Upload Photos: </label>
-                  <input
-                    type="file"
-                    title=" "
-                    onChange={this.handlePhotoFile}
-                    multiple
-                  />
+                  <label className="upload-photos-text">Upload Photos</label>
+                  <br />
+                  <input type="file" onChange={this.handlePhotoFile} multiple />
                 </div>
                 <button className="job-form-btn">Submit</button>
               </div>
@@ -237,15 +233,20 @@ class JobPostForm extends React.Component {
                     strokeOpacity={0}
                     strokeWeight={5}
                     fillColor="#FF0000"
-                    fillOpacity={0.2}
+                    fillOpacity={0.3}
                   />
                 </Map>
               </div>
-              <br />
             </form>
+            <div className="jobs-new-img-container">
+              <img
+                className="jobs-new-img"
+                src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_help.jpeg"
+                alt="Happy To Help"
+              />
+            </div>
           </div>
         </div>
-        <br />
       </div>
     )
   }
