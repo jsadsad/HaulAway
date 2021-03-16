@@ -6,3 +6,27 @@
   color: white;
 }
 
+.job-show-body-wrapper{
+  display: flex;
+  min-width: 100vw;
+  margin-top: 1%;
+  flex-direction: column;
+  align-items: center;
+  /* test  */
+  /* min-height: 70vh; */
+  border: solid red 3px;
+}
+
+.job-show-body-inner-wrapper{
+  display: flex;
+  max-width: 50%;
+
+}
+
+.job-show-info-left-side{
+  padding: 30px;
+}
+
+.job-show-info-right-side{
+  padding: 30px;
+}
