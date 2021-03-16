@@ -81,7 +81,7 @@ class LoginForm extends React.Component {
             <div className="sign-up-new">New to HaulAway? <Link className="sign-up-link" to="/signup">Sign up now</Link>.</div>
           </div>
         </div>
-        <Footer />
+        <footer className="login-footer"><Footer /></footer>
       </div>
     )
   }

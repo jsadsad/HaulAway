@@ -3,7 +3,7 @@
 .splash-footer {
   display: flex;
   min-height: 150px;
-  padding: 20px 30px 20px 30px;
+  padding: 30px 30px 20px 30px;
 }
 
 .splash-footer-wrapper {
@@ -21,7 +21,9 @@
 
 .thank-you {
   height: 70px;
-  font-size: 25px;
+  color: black;
+  font-size: 30px;
+  font-weight: 300;
   justify-content: center;
   display: flex;
   align-items: center;
@@ -31,7 +33,7 @@
   display: flex;
   justify-content: space-around;
   height: 100%;
-  padding-top: 10px;
+  padding-top: 15px;
 }
 
 .info-us {
