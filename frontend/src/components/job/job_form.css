@@ -4,6 +4,9 @@
   }
 }
 
+input[type='file'] {
+  font-size: 0.5rem;
+}
 
 ::-webkit-input-placeholder {
   text-align: center;
@@ -28,7 +31,7 @@
   font-style: italic;
 }
 
-@keyframes Gradient {
+/* @keyframes Gradient {
   0% {
     background-position: 0% 50%;
   }
@@ -38,15 +41,15 @@
   100% {
     background-position: 0% 50%;
   }
-}
+} */
 
 .job-post-outer {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  background: linear-gradient(132deg, #d75364, #874bee, #414567);
-  background-size: 400% 400%;
-  animation: Gradient 15s ease infinite;
+  height: 100%;
+  /* background: linear-gradient(132deg, #d75364, #874bee, #414567); */
+  /* background-size: 400% 400%; */
+  /* animation: Gradient 15s ease infinite; */
 }
 
 .job-post-input-desc {
@@ -81,11 +84,10 @@
 }
 
 .job-form-map {
-  max-width: 25%;
-  max-height: 75%;
+  max-width: 30%;
+  max-height: 45%;
   top: 100px;
-  border: 3px solid black;
-  border-radius: 5px;
+  border: 4px solid #000;
 }
 
 .job-post-fields {
@@ -109,4 +111,12 @@
 
 .job-form-btn:hover {
   background: #029343;
+}
+
+.job-post-lvl-btn {
+  width: 345px;
+}
+
+.upload-photos-text {
+  font-size: 1rem;
 }
