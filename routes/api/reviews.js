@@ -46,6 +46,7 @@ router.post(
       rating: req.body.rating,
       date: req.body.date,
       author: req.user._id,
+      jobId: req.body.jobId
     })
 
     newReview.save().then((review) => res.json(review))
