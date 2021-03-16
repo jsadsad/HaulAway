@@ -82,6 +82,10 @@
   padding-bottom: 5px;
 }
 
+.navbar-menu-user:hover {
+  background: #029343;
+}
+
 .navbar-link-user-profile {
   color: white;
   text-decoration: none;
@@ -135,15 +139,6 @@
 /* .fa-cog {
   font-size: 15px;
 } */
-
-.navbar-menu-user {
-  color: white;
-  text-decoration: none;
-}
-
-.navbar-menu-user:hover {
-  background: #029343;
-}
 
 .fa.fa-handshake-o {
   font-size: 18px;
