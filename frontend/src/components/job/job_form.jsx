@@ -2,6 +2,7 @@ import React from 'react'
 import Autocomplete from 'react-google-autocomplete'
 import Navbar from '../navbar/navbar_container'
 import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
+import { getDistance, convertDistance } from 'geolib'
 import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
 
@@ -19,6 +20,15 @@ class JobPostForm extends React.Component {
       mapPosition: {
         lat: 36.778259,
         lng: -119.417931,
+      },
+      distance: '',
+      pickupCoords: {
+        lat: undefined,
+        lng: undefined,
+      },
+      destinationCoords: {
+        lat: undefined,
+        lng: undefined,
       },
       markerPosition: {
         lat: undefined,
@@ -93,9 +103,22 @@ class JobPostForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
+  handleDistance() {
+    // let distance = getDistance(
+    //   this.state.pickupCoords,
+    //   this.state.destinationCoords
+    // )
+  }
+
   onPickupSelected(place) {
-    const address = place.formatted_address
+    const address = place.formatted_address,
+      latValue = place.geometry.location.lat(),
+      lngValue = place.geometry.location.lng()
     this.setState({
+      pickupCoords: {
+        lat: latValue,
+        lng: lngValue,
+      },
       pickup: address ? address : '',
     })
   }
@@ -105,6 +128,10 @@ class JobPostForm extends React.Component {
       latValue = place.geometry.location.lat(),
       lngValue = place.geometry.location.lng()
     this.setState({
+      destinationCoords: {
+        lat: latValue,
+        lng: lngValue,
+      },
       destination: address ? address : '',
       markerPosition: {
         lat: latValue,
@@ -119,6 +146,14 @@ class JobPostForm extends React.Component {
 
   render() {
     const coords = this.state.mapPosition
+    let distance = convertDistance(
+      getDistance(
+        { latitude: 37.63001712737978, longitude: -122.06648471909358 },
+        { latitude: 37.54777503139295, longitude: -122.298524901902 },
+        0.01
+      ),
+      'mi'
+    )
 
     return (
       <div className="job-post-outer">
@@ -173,6 +208,9 @@ class JobPostForm extends React.Component {
                     onChange={this.handleField('destination')}
                     placeholder="Destination"
                   />
+                </div>
+                <div>
+                  <label>Distance: {Math.round(distance)} miles</label>
                 </div>
                 <br />
                 <div className="job-post-input-box">
