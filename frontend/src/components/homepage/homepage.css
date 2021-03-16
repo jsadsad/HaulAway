@@ -62,15 +62,12 @@
 
 .homepage-job-button-wrapper {
   display: block;
-  /* width: 100vw; */
   max-width: 100%;
   max-height: 640px;
   align-items: center;
 }
 
 .homepage-img-wrapper {
-  /* width: 90vw; */
-  /* margin-left: 5vw; */
   height: 640px;
   opacity: 0.7;
   display: flex;
@@ -99,6 +96,7 @@
 .homepage-job-buttons-right-header {
   color: #0ab818;
   font-size: 30px;
+  font-weight: 500;
 }
 
 .homepage-rj-button {
@@ -124,6 +122,7 @@
 .homepage-job-buttons-left-header {
   color: #0ab818;
   font-size: 30px;
+  font-weight: 500;
 }
 
 .homepage-lj-button {
