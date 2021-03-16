@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import { uploadPhoto } from '../../util/photo_api_util'
 import { Link } from 'react-router-dom';
+import Footer from '../footer/footer';
 import './signup.css'
 import '../splash/splash.css'
 
@@ -154,6 +155,7 @@ class SignupForm extends React.Component {
             <button className="signup-button">Confirm</button>
           </form>
        </div>
+       {/* <footer><Footer /></footer> */}
      </div>
     )
   }
