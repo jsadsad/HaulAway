@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import './homepage.css'
 import { withRouter } from 'react-router'
+import Footer from '../footer/footer'
 
 class Homepage extends React.Component {
   componentDidMount() {
@@ -42,22 +43,43 @@ class Homepage extends React.Component {
       <div className="homepage-wrapper">
         <Navbar />
         <div className="homepage-job-button-wrapper">
-          <div className="homepage-img-wrapper">
-            <img className="homepage-img" src="/box3.jpeg" />
-          </div>
+          <div className="homepage-img-wrapper"
+            style={{
+              backgroundImage: "url('/box3.jpeg')",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+            }}
+          >
           <div className="homepage-job-buttons">
-            <div className="homepage-job-buttons-header">
-              Need help with your boxes?
+            {/* <div className="homepage-job-buttons-wrapper"> */}
+              <div className="homepage-job-left-elements-wrapper">
+                <div className="homepage-job-buttons-left-header">
+                  Take a look what do we have
+                </div>
+                <button
+                  onClick={() => this.props.history.push('/jobs')}
+                  className="homepage-lj-button"
+                >
+                  View All
+                </button>
+              </div>
+              <div className="homepage-job-right-elements-wrapper">
+                <div className="homepage-job-buttons-right-header">
+                  Need help with your boxes?
+                </div>
+                <button
+                  onClick={() => this.props.history.push('/jobs/new')}
+                  className="homepage-rj-button"
+                >
+                  Request a Job
+                </button>
+              </div>
             </div>
-            <button
-              onClick={() => this.props.history.push('/jobs/new')}
-              className="homepage-rj-button"
-            >
-              Request a Job
-            </button>
+            {/* <img className="homepage-img" src="/box3.jpeg" /> */}
           </div>
+          {/* </div> */}
         </div>
-        <div className="homepage-job-index-wrapper">
+        {/* <div className="homepage-job-index-wrapper">
           <div className="homepage-job-index-header">
             <h2 className="homepage-looking-for-jobs">Looking for Jobs?</h2>
             <h2
@@ -75,7 +97,8 @@ class Homepage extends React.Component {
               <h2 style={{ color: 'red' }}>No Jobs Currently Available...</h2>
             )}
           </div>
-        </div>
+        </div> */}
+        <Footer />
       </div>
     )
   }

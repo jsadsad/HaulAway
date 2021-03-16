@@ -44,9 +44,127 @@
 }
  */
 
+
+
+
+
+
+
+
+
+
+
+
 .homepage-wrapper {
   min-height: 100vh;
   background: #2e3740;
+}
+
+.homepage-job-button-wrapper {
+  display: block;
+  max-width: 100%;
+  max-height: 640px;
+  align-items: center;
+}
+
+.homepage-img-wrapper {
+  height: 640px;
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage-job-buttons {
+  max-width: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 5%;
+  padding-left: 5%;
+}
+
+.homepage-job-right-elements-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.homepage-job-buttons-right-header {
+  color: #0ab818;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.homepage-rj-button {
+  color: #1fce6d;
+  background-color: rgba(0, 0, 0, 0.399);
+  border: 1px solid #1fce6d;
+  width: 180px;
+  height: 77px;
+  font-size: 20px;
+  outline: none;
+}
+.homepage-rj-button:hover {
+  background-color: #1fce6d;
+  color: white;
+}
+
+.homepage-job-left-elements-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage-job-buttons-left-header {
+  color: #0ab818;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.homepage-lj-button {
+  color: #1fce6d;
+  background-color: rgba(0, 0, 0, 0.399);
+  border: 1px solid #1fce6d;
+  width: 180px;
+  height: 70px;
+  font-size: 20px;
+  outline: none;
+}
+
+.homepage-lj-button:hover {
+  background-color: #1fce6d;
+  color: white;
+}
+
+
+/* prev worked  */
+/* .homepage-wrapper {
+  min-height: 100vh;
+  background: #2e3740;
+}
+
+.homepage-img-wrapper {
+  width: 100vw;
+  height: 640px;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.homepage-img {
+  width: 100%;
+  height: 100%;
+}
+
+
+.homepage-job-right-elements-wrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 360px;
+  border: 1px solid blue;
 }
 
 .homepage-rj-button {
@@ -67,27 +185,58 @@
   color: white;
 }
 
-.homepage-img-wrapper {
-  width: 100vw;
-  height: 640px;
-  opacity: 0.7;
-  z-index: -1;
-}
-
-.homepage-img {
-  width: 100%;
-  height: 100%;
-}
-
 .homepage-job-buttons-header {
   position: absolute;
   left: 65%;
   top: 45%;
   color: white;
   font-size: 30px;
-  /* transform: translate(-50%, -50%); */
+  transform: translate(-50%, -50%);
 }
-.homepage-job-index-wrapper {
+
+.homepage-job-left-elements-wrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  max-width: 336px;
+  height: 20%;
+  left: 5%;
+  top: 45%;
+  border: 1px solid red;
+}
+
+.homepage-job-index-header {
+  position: absolute;
+  max-width: 336px;
+  left: 5%;
+  top: 45%;
+  color: white;
+  font-size: 30px;
+  border: 1px solid black;
+}
+
+.homepage-lj-button {
+  position: absolute;
+  left: 30%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  width: 180px;
+  height: 70px;
+  font-size: 20px;
+}
+
+.homepage-lj-button:hover {
+  background-color: #1fce6d;
+  color: white;
+} */
+
+/* end of prev worked */
+
+
+/* .homepage-job-index-wrapper {
   color: white;
   font-family: 'Montserrat', sans-serif;
   width: 100vw;
@@ -131,4 +280,8 @@
 
 .homepage-view-all:hover {
   text-decoration: underline;
-}
+} */
+
+
+
+
