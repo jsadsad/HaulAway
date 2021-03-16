@@ -1,0 +1,46 @@
+
+.splash-footer {
+  position: absolute;
+  display: flex;
+  padding-right: 30px;
+  padding-left: 30px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding-bottom: 20px;
+  justify-content: center;
+}
+
+.splash-footer-wrapper {
+  display: flex;
+  justify-content: space-between;
+  background-color: transparent;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.thank-you {
+  display: flex;
+  align-items: center;
+}
+
+.splash-footer-info {
+  display: flex;
+  align-items: center;
+}
+
+.engineerd-by {
+  padding-right: 10px;
+}
+
+.info-us {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 10px;
+}
+.contact {
+  color: white;
+}
