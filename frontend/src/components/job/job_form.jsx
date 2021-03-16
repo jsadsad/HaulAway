@@ -146,9 +146,9 @@ class JobPostForm extends React.Component {
                     <option value="" disabled defaultValue>
                       --Please Select Difficulty--
                     </option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
+                    <option value="easy">&#60;-----Easy-----&#62;</option>
+                    <option value="medium">&#60;-----Medium-----</option>
+                    <option value="hard">&#60;-----Hard-----&#62;</option>
                   </select>
                 </div>
                 <br />
@@ -176,6 +176,7 @@ class JobPostForm extends React.Component {
                 </div>
                 <br />
                 <div className="job-post-input-box">
+                  <label className="form-start-end-date">Start</label>
                   <input
                     onChange={this.handleField('jobStartDate')}
                     type="date"
@@ -187,6 +188,7 @@ class JobPostForm extends React.Component {
                 </div>
                 <br />
                 <div className="job-post-input-box">
+                  <label className="form-start-end-date">End</label>
                   <input
                     onChange={this.handleField('jobEndDate')}
                     type="date"
@@ -198,7 +200,7 @@ class JobPostForm extends React.Component {
                 </div>
                 <br />
                 <div className="job-post-input-box">
-                  <label className="upload-photos-text">Upload Photos</label>
+                  <label className="upload-photos-text">Upload Photos!</label>
                   <br />
                   <input type="file" onChange={this.handlePhotoFile} multiple />
                 </div>

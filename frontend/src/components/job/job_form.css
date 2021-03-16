@@ -4,11 +4,6 @@
   }
 }
 
-input[type='file'] {
-  font-size: 0.5rem;
-  color: transparent;
-}
-
 ::-webkit-input-placeholder {
   text-align: center;
   font-size: 1rem;
@@ -32,17 +27,10 @@ input[type='file'] {
   font-style: italic;
 }
 
-/* @keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-} */
+input[type='file'] {
+  font-size: 0.5rem;
+  color: transparent;
+}
 
 .job-post-outer {
   display: flex;
@@ -138,4 +126,11 @@ input[type='file'] {
 .jobs-new-img {
   width: 90%;
   height: 90%;
+}
+
+.form-start-end-date {
+  font-size: 1.1rem;
+  color: rgb(218, 70, 70);
+  margin-right: 15px;
+  padding: 5px;
 }

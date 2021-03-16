@@ -11,13 +11,6 @@ class JobEdit extends React.Component {
     super(props)
 
     this.state = {
-      // description: this.props.job,
-      // pickup: this.props.job,
-      // destination: this.props.job,
-      // jobDifficulty: this.props.job,
-      // jobType: 'request',
-      // jobStartDate: this.props.job,
-      // jobEndDate: this.props.job,
       mapPosition: {
         lat: 36.778259,
         lng: -119.417931,
@@ -40,14 +33,14 @@ class JobEdit extends React.Component {
   componentDidMount() {
     this.props.fetchJob(this.props.match.params.jobId).then(() => {
       this.setState({
-        // description: this.props.job ? this.props.job.description : '',
-        // pickup: this.props.job ? this.props.job.pickup : '',
-        // destination: this.props.job ? this.props.job.destination : '',
-        // jobDifficulty: this.props.job ? this.props.job.jobDifficulty : '',
-        // jobStartDate: this.props.job ? this.props.job.jobStartDate : '',
-        // // jobEndDate: this.props.job ? this.props.job.jobEndDate : '',
-        // // jobType: this.props.job ? this.props.job.jobType : '',
-        // // pictures: this.props.job ? this.props.job.pictures : [],
+        description: this.props.job ? this.props.job.description : '',
+        pickup: this.props.job ? this.props.job.pickup : '',
+        destination: this.props.job ? this.props.job.destination : '',
+        jobDifficulty: this.props.job ? this.props.job.jobDifficulty : '',
+        jobStartDate: this.props.job ? this.props.job.jobStartDate : '',
+        jobEndDate: this.props.job ? this.props.job.jobEndDate : '',
+        jobType: this.props.job ? this.props.job.jobType : '',
+        pictures: this.props.job ? this.props.job.pictures : [],
       })
     })
   }
@@ -147,6 +140,19 @@ class JobEdit extends React.Component {
     const { job } = this.props
     const coords = this.state.mapPosition
 
+    let previewPictures
+    if (job.pictures) {
+      previewPictures = job.pictures.map((pic, idx) => {
+        return (
+          <div key={idx}>
+            <img className="preview-img" src={pic} alt="box-pictures" />
+          </div>
+        )
+      })
+    } else {
+      previewPictures = ''
+    }
+
     return (
       <div className="job-edit-outer">
         <Navbar />
@@ -164,34 +170,21 @@ class JobEdit extends React.Component {
                   />
                   {this.props.errors.description}
                 </div>
-                <br />
-                <div className="job-edit-input-box">
-                  <input
-                    type="file"
-                    className="job-edit-upload-btn"
-                    multiple
-                    onChange={this.handlePhotoFile}
-                  />
-                </div>
-                <br />
-                <div className="job-edit-input-box">
-                  <div className="job-edit-lvl-btn">
-                    <label className="job-edit-text">Choose difficulty</label>
-                    <select
-                      onChange={this.handleField('jobDifficulty')}
-                      value={this.state.jobDifficulty}
-                    >
-                      <option value="easy">Easy</option>
-                      <option value="medium">Medium</option>
-                      <option value="hard">Hard</option>
-                    </select>
-                  </div>
+                <div>
+                  <select
+                    className="job-post-lvl-btn"
+                    onChange={this.handleField('jobDifficulty')}
+                    value={this.state.jobDifficulty}
+                  >
+                    <option value="easy">&#60;-----Easy-----&#62;</option>
+                    <option value="medium">&#60;-----Medium-----</option>
+                    <option value="hard">&#60;-----Hard-----&#62;</option>
+                  </select>
                 </div>
                 <br />
                 <div className="job-edit-input-box">
                   <Autocomplete
                     onPlaceSelected={this.onPickupSelected}
-                    className="job-edit-input-pickup"
                     style={{ width: '25%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
@@ -203,7 +196,6 @@ class JobEdit extends React.Component {
                 <div className="job-edit-input-box">
                   <Autocomplete
                     onPlaceSelected={this.onDestinationSelected}
-                    className="job-edit-input-dest"
                     style={{ width: '25%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
@@ -214,6 +206,7 @@ class JobEdit extends React.Component {
                 </div>
                 <br />
                 <div className="job-edit-input-box">
+                  <label className="edit-start-end-date">Start</label>
                   <input
                     required
                     onChange={this.handleField('jobStartDate')}
@@ -225,6 +218,7 @@ class JobEdit extends React.Component {
                 </div>
                 <br />
                 <div className="job-edit-input-box">
+                  <label className="edit-start-end-date">End</label>
                   <input
                     required
                     onChange={this.handleField('jobEndDate')}
@@ -235,8 +229,22 @@ class JobEdit extends React.Component {
                   {this.props.errors.jobEndDate}
                 </div>
                 <br />
+                <div className="job-edit-input-box">
+                  <label className="edit-upload-photos-text">
+                    Upload More Photos?
+                  </label>
+                  <br />
+                  <input
+                    type="file"
+                    className="job-edit-upload-btn"
+                    multiple
+                    onChange={this.handlePhotoFile}
+                  />
+                </div>
+                <div className="preview-photos">{previewPictures}</div>
+                <br />
                 <div className="job-edit-btn-container">
-                  <button>Submit</button>
+                  <button className="edit-form-btn">Submit</button>
                   <button onClick={this.handleDelete}>Delete</button>
                 </div>
                 <br />
@@ -270,8 +278,14 @@ class JobEdit extends React.Component {
                   />
                 </Map>
               </div>
-              <br />
             </form>
+            <div className="jobs-new-img-container">
+              <img
+                className="jobs-edit-img"
+                src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_boxes_2.jpeg"
+                alt="Happy to help!"
+              />
+            </div>
           </div>
         </div>
       </div>
