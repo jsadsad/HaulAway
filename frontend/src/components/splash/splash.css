@@ -23,6 +23,7 @@ button {
   box-shadow: none;
   text-decoration: none;
   height: 30px;
+  outline: none;
 }
 
 .splash-page {
@@ -138,59 +139,4 @@ button {
   top: 50%;
   left: 50%;
   position: absolute;
-}
-
-.splash-footer {
-  position: absolute;
-  display: flex;
-  padding-right: 30px;
-  padding-left: 30px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding-bottom: 20px;
-  justify-content: center;
-}
-
-.splash-footer-wrapper {
-  display: flex;
-  justify-content: space-between;
-  background-color: transparent;
-  position: relative;
-  /* max-width: 1920px; */
-  /* margin: 0 auto; */
-  top: 0;
-  /* left: 0; */
-  /* right: 0; */
-  width: 100%;
-
-  z-index: 10;
-  /* display: flex;
-  justify-content: space-between; */
-}
-
-.thank-you {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-}
-
-.splash-footer-info {
-  display: flex;
-  /* justify-content: center; */
-  align-items: center;
-}
-
-.engineerd-by {
-  padding-right: 10px;
-}
-
-.info-us {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-}
-.contact {
-  /* text-decoration: none; */
-  color: white;
 }

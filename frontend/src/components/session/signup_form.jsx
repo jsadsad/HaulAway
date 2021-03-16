@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import { uploadPhoto } from '../../util/photo_api_util'
+import { Link } from 'react-router-dom';
 import './signup.css'
 import '../splash/splash.css'
 
@@ -142,7 +143,13 @@ class SignupForm extends React.Component {
               <div className="signup-errors">{this.props.errors.phoneNumber}</div>
             </div>
             <div className='signup-input-file'>
+              <label className="signup-photo-label">
+                Upload avatar
+              </label>
               <input type="file" onChange={this.handlePhotoFile} className="signup-photo-btn"/>
+            </div>
+            <div className="signup-login-link">
+              Already with us?   <Link className="login-link" to="/login">Sign In</Link>
             </div>
             <button className="signup-button">Confirm</button>
           </form>

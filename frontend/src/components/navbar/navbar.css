@@ -46,6 +46,10 @@
   font-size: 30px;
 }
 
+.logo-link:hover {
+  color: #1fce6d;
+}
+
 .navbar-menu {
   display: none;
   position: absolute;
