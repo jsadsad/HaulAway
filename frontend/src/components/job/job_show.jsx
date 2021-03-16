@@ -184,13 +184,22 @@ class JobShow extends React.PureComponent {
         <div className="job-show-wrapper">
           <div className="job-show-header">
             {haulRequester}
-            <div className="job-show-poster">{job.jobType}</div>
+            {/* <div className="job-show-poster">{job.jobType}</div> */}
             <div className="job-show-box">{job.description}</div>
             <div className="job-show-box">{job.jobDifficulty}</div>
             <div>{job.jobStartDate}</div>
             <div>{job.jobEndDate}</div>
             <div>{job.pickup}</div>
             <div>{job.destination}</div>
+            <div className="job-show-pictures-wrap">
+            {job.pictures.map((picture, idx) => {
+              return (
+              <div className="job-show-single-picture-wrap" key={idx}>
+                <img className="job-wshow-picture" src={picture} alt="job-picture"/>
+              </div>
+              )
+            })}
+            </div>
             <div className="take-job-button-wrap">{this.takeJobButton()}</div>
             <div className="leave-job-button-wrap">{this.leaveJobButton()}</div>
             <div className="edit-job-button-wrap">{this.editJobButton()}</div>
