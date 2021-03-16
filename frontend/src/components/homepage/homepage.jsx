@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import './homepage.css'
 import { withRouter } from 'react-router'
+import Footer from '../footer/footer'
 
 class Homepage extends React.Component {
   componentDidMount() {
@@ -97,6 +98,7 @@ class Homepage extends React.Component {
             )}
           </div>
         </div> */}
+        <Footer />
       </div>
     )
   }
