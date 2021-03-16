@@ -142,6 +142,9 @@ class SignupForm extends React.Component {
               <div className="signup-errors">{this.props.errors.phoneNumber}</div>
             </div>
             <div className='signup-input-file'>
+              <label className="signup-photo-label">
+                Upload avatar
+              </label>
               <input type="file" onChange={this.handlePhotoFile} className="signup-photo-btn"/>
             </div>
             <button className="signup-button">Confirm</button>

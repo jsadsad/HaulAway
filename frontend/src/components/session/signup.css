@@ -42,15 +42,31 @@
   color: white;
 }
 
+.signup-photo-label {
+  color: #1fce6d;
+  padding-right: 10px;
+}
+
 .signup-input-file {
   padding: 10px 0px;
   margin-left: 50px;
 }
 
+
 .signup-button {
   margin: 10px;
   align-self: center;
-  width: 150px;
+  width: 100px;
+  height: 100%;
+  font-size: 16px;
+  border: 0.8px solid #1fce6d;
+  background: transparent;
+  color: #1fce6d;
+}
+
+.signup-button:hover {
+  color: white;
+  background-color: #1fce6d;
 }
 
 .signup-photo-btn {
@@ -58,6 +74,10 @@
   align-self: center;
 }
 
+.file-upload-button {
+  color: white;
+  background-color: #1fce6d;
+}
 
 .signup-errors {
   color: #c2b608;
