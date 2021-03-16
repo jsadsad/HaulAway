@@ -11,7 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 60px;
+  padding: 42px 60px;
   font-size: 20px;
   
 }
@@ -38,27 +38,43 @@
   /* border-radius: 150px; */
 }
 
-/* .user-name {
-  display: flex;
-  justify-content: space-between;
-  width: 135px;
-} */
-
 .user-name {
  display: flex;
+ justify-content: center;
+ padding: 10px 0;
 }
 
 .user-lastname {
   margin-left: 5px;
 }
 
+.user-info-text-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.user-email {
+  padding: 10px 0;
+}
+
+.average-rating {
+  padding: 10px 0;
+}
+
+.name-edit-button {
+  padding: 10px 0;
+}
 
 .job-info-wrapper {
   border: 1px solid white;
-  max-height: 550px;
+  max-height: 500px;
   margin-right: 20px;
   border-radius: 10px;
   overflow: scroll;
+  background-color: rgb(253, 253, 253);
+  color: black;
 }
 
 .show-page-wrapper {
@@ -67,7 +83,7 @@
 }
 
 .job-info-index-wrapper {
-  overflow: scroll;
+  /* overflow: scroll; */
   /* display: grid; */
   /* grid-template-columns: repeat(4, minmax(0, 1fr)); */
   /* grid-gap: 10px; */
@@ -84,7 +100,7 @@
   font-size: 14px;
   justify-items: center;
   margin: 0 20px;
-
+  border-bottom: 1px solid black;
 }
 
 .rest-wrapper {
@@ -96,12 +112,18 @@
   /* background-color: rgb(150, 238, 150); */
 }
 
+.job-header {
+  background-color: #1fce6d;
+}
+
 .job-info-index {
   /* display: flex;
   justify-content: space-between; */
   display: grid;
   grid-template-columns: 130px repeat(4, minmax(0, 1fr));
   justify-items: center;
+  color: black;
+  cursor: pointer;
 
   /* border: 1px solid white; */
 }
@@ -112,4 +134,64 @@
 
 .job-info-index:hover {
   background-color: #1fce6d;
+}
+
+.review-header {
+  padding-left: 30px;
+  /* background-color: turquoise; */
+  background-color: #1fce6d;
+}
+
+.review-info-index-wrapper {
+ 
+}
+
+.review-info-wrapper {
+  margin: 20px 0;
+  border: 1px solid white;
+  max-height: 550px;
+  margin-right: 20px;
+  border-radius: 10px;
+  overflow: scroll;
+  background: white; 
+  color: black;
+}
+
+.review-info-index {
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.review-info-index:hover {
+  background-color: #1fce6d;
+}
+
+#filled-star {
+  color: #f7f709;
+  /* text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; */
+}
+
+#unfilled-star {
+  /* color: #f7f709; */
+  /* text-shadow: -0.5px 0 #000, 0 0.5px #000, 0.5px 0 #000, 0 -0.5px #000; */
+}
+
+.review-delete-button {
+  cursor: pointer;
+  /* font-size: 20px; */
+  border: 1px solid white;
+  background-color: white;
+  color: black;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+.review-delete-button:hover {
+  color: red;
+}
+
+.no-review-message {
+  text-align: center;
 }
