@@ -95,7 +95,7 @@ class JobEdit extends React.Component {
     e.preventDefault()
     this.props
       .deleteJob(this.props.jobId)
-      .then(this.props.history.push(`/jobs`))
+      .then(this.props.history.push(`/homepage`))
   }
 
   handlePhotoFile(e) {
@@ -245,7 +245,9 @@ class JobEdit extends React.Component {
                 <br />
                 <div className="job-edit-btn-container">
                   <button className="edit-form-btn">Submit</button>
-                  <button onClick={this.handleDelete}>Delete</button>
+                  <button className="edit-form-btn" onClick={this.handleDelete}>
+                    Delete
+                  </button>
                 </div>
                 <br />
               </div>

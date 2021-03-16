@@ -27,11 +27,6 @@
   font-style: italic;
 }
 
-input[type='file'] {
-  font-size: 0.5rem;
-  color: transparent;
-}
-
 .job-edit-outer {
   display: flex;
   flex-direction: column;
@@ -95,7 +90,7 @@ input[type='file'] {
 }
 
 .job-edit-input-box {
-  width: 85vw;
+  width: 90vw;
 }
 
 .job-edit-btn {
