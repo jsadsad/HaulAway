@@ -8,7 +8,6 @@ import './job_form.css'
 class JobPostForm extends React.Component {
   constructor(props) {
     super(props)
-
     this.state = {
       description: '',
       pickup: '',
@@ -96,7 +95,6 @@ class JobPostForm extends React.Component {
 
   onPickupSelected(place) {
     const address = place.formatted_address
-
     this.setState({
       pickup: address ? address : '',
     })
@@ -121,6 +119,7 @@ class JobPostForm extends React.Component {
 
   render() {
     const coords = this.state.mapPosition
+
     return (
       <div className="job-post-outer">
         <Navbar />
@@ -138,28 +137,18 @@ class JobPostForm extends React.Component {
                   />
                   {this.props.errors.description}
                 </div>
-                <br />
-                <div className="job-post-input-box">
-                  <input
-                    type="file"
-                    className="job-post-upload-btn"
-                    multiple
-                    onChange={this.handlePhotoFile}
-                  />
-                </div>
-                <br />
-                <div className="job-post-lvl-btn">
+                <div>
                   <select
-                    style={{ width: '345px' }}
+                    className="job-post-lvl-btn"
                     onChange={this.handleField('jobDifficulty')}
                     value={this.state.jobDifficulty}
                   >
                     <option value="" disabled defaultValue>
                       --Please Select Difficulty--
                     </option>
-                    <option value="easy">Easy</option>
-                    <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
+                    <option value="easy">&#60;-----Easy-----&#62;</option>
+                    <option value="medium">&#60;-----Medium-----</option>
+                    <option value="hard">&#60;-----Hard-----&#62;</option>
                   </select>
                 </div>
                 <br />
@@ -187,27 +176,34 @@ class JobPostForm extends React.Component {
                 </div>
                 <br />
                 <div className="job-post-input-box">
+                  <label className="form-start-end-date">Start</label>
                   <input
                     onChange={this.handleField('jobStartDate')}
                     type="date"
+                    required
                     className="job-post-input-date"
-                    placeholder="start date"
                     value={this.state.jobStartDate}
                   />
                   {this.props.errors.jobStartDate}
                 </div>
                 <br />
                 <div className="job-post-input-box">
+                  <label className="form-start-end-date">End</label>
                   <input
                     onChange={this.handleField('jobEndDate')}
                     type="date"
+                    required
                     className="job-post-input-date2"
-                    placeholder="end date"
                     value={this.state.jobEndDate}
                   />
                   {this.props.errors.jobEndDate}
                 </div>
                 <br />
+                <div className="job-post-input-box">
+                  <label className="upload-photos-text">Upload Photos!</label>
+                  <br />
+                  <input type="file" onChange={this.handlePhotoFile} multiple />
+                </div>
                 <button className="job-form-btn">Submit</button>
               </div>
               <br />
@@ -239,50 +235,17 @@ class JobPostForm extends React.Component {
                     strokeOpacity={0}
                     strokeWeight={5}
                     fillColor="#FF0000"
-                    fillOpacity={0.2}
+                    fillOpacity={0.3}
                   />
                 </Map>
               </div>
-              <br />
             </form>
-          </div>
-        </div>
-        <br />
-        <div className="splash-footer">
-          <div className="splash-footer-wrapper">
-            <div className="thank-you">Thank you for your visit</div>
-            <div className="splash-footer-info">
-              <div className="engineerd-by">Engineerd with love by:</div>
-              <div className="info-us">
-                <a
-                  className="contact"
-                  href="https://github.com/shinara03"
-                  target="_blank"
-                >
-                  Lena
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/andmitriy93"
-                  target="_blank"
-                >
-                  Dmitrii
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/jsadsad"
-                  target="_blank"
-                >
-                  Josh
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/kinda-dev"
-                  target="_blank"
-                >
-                  Fabio
-                </a>
-              </div>
+            <div className="jobs-new-img-container">
+              <img
+                className="jobs-new-img"
+                src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_help.jpeg"
+                alt="Happy To Help"
+              />
             </div>
           </div>
         </div>

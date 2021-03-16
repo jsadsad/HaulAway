@@ -11,20 +11,13 @@ class JobEdit extends React.Component {
     super(props)
 
     this.state = {
-      description: this.props.job,
-      pickup: this.props.job,
-      destination: this.props.job,
-      jobDifficulty: this.props.job,
-      jobType: 'request',
-      jobStartDate: this.props.job,
-      jobEndDate: this.props.job,
       mapPosition: {
-        lat: '',
-        lng: '',
+        lat: 36.778259,
+        lng: -119.417931,
       },
       markerPosition: {
-        lat: '',
-        lng: '',
+        lat: undefined,
+        lng: undefined,
       },
       pictures: this.props.job,
       selectedFile: null,
@@ -47,7 +40,7 @@ class JobEdit extends React.Component {
         jobStartDate: this.props.job ? this.props.job.jobStartDate : '',
         jobEndDate: this.props.job ? this.props.job.jobEndDate : '',
         jobType: this.props.job ? this.props.job.jobType : '',
-        // mapPosition: this.props.job ? this.props.job.mapPosition : '',
+        pictures: this.props.job ? this.props.job.pictures : [],
       })
     })
   }
@@ -102,7 +95,7 @@ class JobEdit extends React.Component {
     e.preventDefault()
     this.props
       .deleteJob(this.props.jobId)
-      .then(this.props.history.push(`/jobs`))
+      .then(this.props.history.push(`/homepage`))
   }
 
   handlePhotoFile(e) {
@@ -143,16 +136,28 @@ class JobEdit extends React.Component {
 
   render() {
     if (!this.props.job) return null
+
+    const { job } = this.props
     const coords = this.state.mapPosition
+
+    let previewPictures
+    if (job.pictures) {
+      previewPictures = job.pictures.map((pic, idx) => {
+        return (
+          <div key={idx}>
+            <img className="preview-img" src={pic} alt="box-pictures" />
+          </div>
+        )
+      })
+    } else {
+      previewPictures = ''
+    }
 
     return (
       <div className="job-edit-outer">
-        {/* <h2>Outer</h2> */}
         <Navbar />
         <div className="job-edit-container">
-          {/* <h1>Container</h1> */}
           <div className="job-edit-form">
-            {/* <h1>Form</h1> */}
             <form onSubmit={this.handleSubmit} className="job-edit-form-box">
               <div className="job-edit-fields">
                 <h2 className="job-edit-text">Job Edit</h2>
@@ -165,38 +170,25 @@ class JobEdit extends React.Component {
                   />
                   {this.props.errors.description}
                 </div>
-                <br />
-                <div className="job-edit-input-box">
-                  <input
-                    type="file"
-                    className="job-edit-upload-btn"
-                    multiple
-                    onChange={this.handlePhotoFile}
-                  />
-                </div>
-                <br />
-                <div className="job-edit-input-box">
-                  <div className="job-edit-lvl-btn">
-                    <label className="job-edit-text">Choose difficulty</label>
-                    <select
-                      onChange={this.handleField('jobDifficulty')}
-                      value={this.state.jobDifficulty}
-                    >
-                      <option value="easy">Easy</option>
-                      <option value="medium">Medium</option>
-                      <option value="hard">Hard</option>
-                    </select>
-                  </div>
+                <div>
+                  <select
+                    className="job-post-lvl-btn"
+                    onChange={this.handleField('jobDifficulty')}
+                    value={this.state.jobDifficulty}
+                  >
+                    <option value="easy">&#60;-----Easy-----&#62;</option>
+                    <option value="medium">&#60;-----Medium-----</option>
+                    <option value="hard">&#60;-----Hard-----&#62;</option>
+                  </select>
                 </div>
                 <br />
                 <div className="job-edit-input-box">
                   <Autocomplete
                     onPlaceSelected={this.onPickupSelected}
-                    className="job-edit-input-pickup"
                     style={{ width: '25%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
-                    placeholder="Pickup"
+                    placeholder={job.pickup}
                   />
                   {this.props.errors.pickup}
                 </div>
@@ -204,41 +196,58 @@ class JobEdit extends React.Component {
                 <div className="job-edit-input-box">
                   <Autocomplete
                     onPlaceSelected={this.onDestinationSelected}
-                    className="job-edit-input-dest"
                     style={{ width: '25%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('destination')}
-                    placeholder="Destination"
+                    placeholder={job.destination}
                   />
                   {this.props.errors.destination}
                 </div>
                 <br />
                 <div className="job-edit-input-box">
+                  <label className="edit-start-end-date">Start</label>
                   <input
+                    required
                     onChange={this.handleField('jobStartDate')}
                     type="date"
                     className="job-edit-input-date"
-                    placeholder="Start date"
-                    value={this.state.jobStartDate}
+                    value={job.jobStartDate}
                   />
                   {this.props.errors.jobStartDate}
                 </div>
                 <br />
                 <div className="job-edit-input-box">
+                  <label className="edit-start-end-date">End</label>
                   <input
+                    required
                     onChange={this.handleField('jobEndDate')}
                     type="date"
                     className="job-edit-input-date2"
-                    placeholder="End date"
-                    value={this.state.jobEndDate}
+                    value={job.jobEndDate}
                   />
                   {this.props.errors.jobEndDate}
                 </div>
                 <br />
+                <div className="job-edit-input-box">
+                  <label className="edit-upload-photos-text">
+                    Upload More Photos?
+                  </label>
+                  <br />
+                  <input
+                    type="file"
+                    className="job-edit-upload-btn"
+                    multiple
+                    onChange={this.handlePhotoFile}
+                  />
+                </div>
+                <div className="preview-photos">{previewPictures}</div>
+                <br />
                 <div className="job-edit-btn-container">
-                  <button>Submit</button>
-                  <button onClick={this.handleDelete}>Delete</button>
+                  <button className="edit-form-btn">Submit</button>
+                  <button className="edit-form-btn" onClick={this.handleDelete}>
+                    Delete
+                  </button>
                 </div>
                 <br />
               </div>
@@ -248,10 +257,6 @@ class JobEdit extends React.Component {
                   className="job-edit-map"
                   zoom={12}
                   google={this.props.google}
-                  initialCenter={{
-                    lat: 36.778259,
-                    lng: -119.417931,
-                  }}
                   center={{
                     lat: this.state.mapPosition.lat,
                     lng: this.state.mapPosition.lng,
@@ -275,46 +280,13 @@ class JobEdit extends React.Component {
                   />
                 </Map>
               </div>
-              <br />
             </form>
-          </div>
-        </div>
-        <br />
-        <div className="splash-footer">
-          <div className="splash-footer-wrapper">
-            <div className="thank-you">Thank you for your visit</div>
-            <div className="splash-footer-info">
-              <div className="engineerd-by">Engineerd with love by:</div>
-              <div className="info-us">
-                <a
-                  className="contact"
-                  href="https://github.com/shinara03"
-                  target="_blank"
-                >
-                  Lena
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/andmitriy93"
-                  target="_blank"
-                >
-                  Dmitrii
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/jsadsad"
-                  target="_blank"
-                >
-                  Josh
-                </a>
-                <a
-                  className="contact"
-                  href="https://github.com/kinda-dev"
-                  target="_blank"
-                >
-                  Fabio
-                </a>
-              </div>
+            <div className="jobs-new-img-container">
+              <img
+                className="jobs-edit-img"
+                src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_boxes_2.jpeg"
+                alt="Happy to help!"
+              />
             </div>
           </div>
         </div>
