@@ -16,6 +16,7 @@ import JobShowContainer from '../components/job/job_show_container'
 import ReviewFormContainer from '../components/review/review_form_container'
 import Modal from '../components/modal/modal'
 import JobEditContainer from '../components/job/job_edit_container'
+import AboutUs from './aboutUs/about_us'
 
 const App = () => (
   <div>
@@ -32,6 +33,7 @@ const App = () => (
       <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
       <ProtectedRoute exact path='/jobs/edit/:jobId' component={JobEditContainer} />
       <ProtectedRoute exact path='/review' component={ReviewFormContainer} />
+      <ProtectedRoute exact path='/about' component={AboutUs} />
     </Switch>
   </div>
 )

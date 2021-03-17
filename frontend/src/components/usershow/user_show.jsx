@@ -6,9 +6,11 @@ import './user_show.css';
 class UserShow extends React.Component {
 
   componentDidMount() {
+    // debugger
     this.props.fetchUser(this.props.userId)
     // this.props.fetchUsers()
-    this.props.fetchUserJobs(this.props.userId)
+    this.props.fetchJobs()
+    // this.props.fetchUserJobs(this.props.userId)
     this.props.fetchReviews()
   }
 
@@ -157,9 +159,11 @@ class UserShow extends React.Component {
 
   render() {
 
-    const user = this.props.user
+    const {user, jobs}= this.props
     if (!user) {return <div>Loading</div>}
 
+    // debugger 
+    console.log(jobs)
     let editButton = ''
     if(this.props.userId === this.props.currentUserId) {
       editButton =  <button onClick={() => this.props.openModal('edit user', user._id )}>Edit</button>
