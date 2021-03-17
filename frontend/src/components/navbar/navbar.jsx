@@ -32,9 +32,8 @@ class Navbar extends React.Component {
         console.log(this.state.showMenu)
         if (this.props.loggedIn) {
             return (
-                <header className="navbar">
+                <div className="navbar">
                     <div className="navbar-wrapper">
-                        {/* <Link to={'/signup'}>SIGNUP</Link> */}
                         <div className="navbar-left-wrap">
                             <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>HaulAway</Link></div>
                         </div>
@@ -51,7 +50,8 @@ class Navbar extends React.Component {
                                     ? (
                                         <div className="navbar-menu">
                                             <Link className="navbar-link-user-profile" to={`/users/${this.props.currentUser.id}`}><div className="navbar-menu-user"><i className="fas fa-user"></i> Profile</div></Link>
-                                            <Link className="navbar-link-jobs-index" to={"/jobs"}><div className="navbar-menu-jobs"><i className="fas fa-shuttle-van"></i> Jobs</div></Link>
+                                            <Link className="navbar-link-jobs-index" to={"/jobs"}><div className="navbar-menu-jobs"><i className="fas fa-shuttle-van"></i> All Jobs</div></Link>
+                                            <Link className="navbar-link-jobs-new" to="/jobs/new"><div className="navbar-menu-jobs-new" ><i class='fa fa-handshake-o'></i> Request a Job</div></Link>
                                             <div className="logout" onClick={this.logoutUser}><i className="fas fa-times-circle"></i> Log Out</div>
                                         </div>
                                     )
@@ -59,32 +59,27 @@ class Navbar extends React.Component {
                                         null
                                     )
                             }
-                            {/* // <div className="navbar-menu">
-                            //     <Link className="navbar-link-user-profile" to={`/users/${this.props.currentUser.id}`}><div className="navbar-menu-user"><i className="fas fa-user"></i> Profile</div></Link>
-                            //     <Link className="navbar-link-jobs-index" to={"/jobs"}><div className="navbar-menu-jobs"><i className="fas fa-shuttle-van"></i> Jobs</div></Link>
-                            //     <div className="logout" onClick={this.logoutUser}><i className="fas fa-times-circle"></i> Log Out</div>
-                            // </div> */}
                         </div>
 
                     </div>
-                </header>
+                </div>
             );
         } else {
           return (
-              <header className="navbar">
+              <div className="navbar">
                   <div className="navbar-wrapper">
                       <div className="navbar-left-wrap">
                           <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>HaulAway</Link></div>
                       </div>
                   </div>
-              </header>
+              </div>
           );
         }
 
   }  
 
 
-
+    
     render() {
         return (
             <>

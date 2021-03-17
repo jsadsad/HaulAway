@@ -18,8 +18,8 @@
 .job-index-item {
   /* background-color: rgb(35, 175, 75); */
   position: sticky;
-  background-color: #1fce6d;
-  border: 1px solid white;
+  background-color: #2e3740;
+  border: 1px solid #1fce6d;
   border-radius: 10px;
   height: 250px;
   width: 450px;
@@ -31,11 +31,15 @@
   margin-bottom: 30px;
 }
 
+.job-index-item:hover {
+  background-color: whitesmoke;
+}
+
 .job-it-image-wrapper {
   border: 1px solid white;
   border-radius: 10px;
   width: 230px;
-  height: 250px;
+  /* height: 250px; */
   text-align: center;
   display: flex;
   justify-items: stretch;
@@ -46,8 +50,9 @@
   height: 250px;
   width: 200px;
   overflow-x: scroll;
-  text-align: center;
+  text-align: left;
   margin-left: 10px;
+  color: #1fce6d;
 }
 
 .job-index-header {

@@ -2,6 +2,7 @@ import React from 'react'
 import Autocomplete from 'react-google-autocomplete'
 import Navbar from '../navbar/navbar_container'
 import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
+import { getDistance, convertDistance } from 'geolib'
 import { uploadPhotos } from '../../util/photo_api_util'
 import './job_form.css'
 
@@ -20,6 +21,14 @@ class JobPostForm extends React.Component {
         lat: 36.778259,
         lng: -119.417931,
       },
+      pickupCoords: {
+        lat: '',
+        lng: '',
+      },
+      destinationCoords: {
+        lat: '',
+        lng: '',
+      },
       markerPosition: {
         lat: undefined,
         lng: undefined,
@@ -32,6 +41,7 @@ class JobPostForm extends React.Component {
     this.handlePhotoFile = this.handlePhotoFile.bind(this)
     this.onPickupSelected = this.onPickupSelected.bind(this)
     this.onDestinationSelected = this.onDestinationSelected.bind(this)
+    this.distanceRender = this.distanceRender.bind(this)
   }
 
   componentWilUnmount() {
@@ -54,6 +64,8 @@ class JobPostForm extends React.Component {
         let job = {
           description: this.state.description,
           pickup: this.state.pickup,
+          distance: this.distanceRender().toFixed(2),
+          price: this.priceRender().toFixed(2),
           destination: this.state.destination,
           jobDifficulty: this.state.jobDifficulty,
           jobType: this.state.jobType,
@@ -70,6 +82,8 @@ class JobPostForm extends React.Component {
         description: this.state.description,
         pickup: this.state.pickup,
         destination: this.state.destination,
+        distance: this.state.distance,
+        price: this.state.price,
         jobDifficulty: this.state.jobDifficulty,
         jobType: this.state.jobType,
         jobStartDate: this.state.jobStartDate,
@@ -94,8 +108,14 @@ class JobPostForm extends React.Component {
   }
 
   onPickupSelected(place) {
-    const address = place.formatted_address
+    const address = place.formatted_address,
+      latValue = place.geometry.location.lat(),
+      lngValue = place.geometry.location.lng()
     this.setState({
+      pickupCoords: {
+        lat: latValue,
+        lng: lngValue,
+      },
       pickup: address ? address : '',
     })
   }
@@ -105,6 +125,10 @@ class JobPostForm extends React.Component {
       latValue = place.geometry.location.lat(),
       lngValue = place.geometry.location.lng()
     this.setState({
+      destinationCoords: {
+        lat: latValue,
+        lng: lngValue,
+      },
       destination: address ? address : '',
       markerPosition: {
         lat: latValue,
@@ -115,6 +139,36 @@ class JobPostForm extends React.Component {
         lng: lngValue,
       },
     })
+  }
+
+  distanceRender() {
+    if (
+      this.state.destination === '' ||
+      this.state.pickup === '' ||
+      !this.state.destination.includes('USA')
+    ) {
+      return 0
+    } else {
+      return convertDistance(
+        getDistance(
+          {
+            latitude: this.state.pickupCoords.lat,
+            longitude: this.state.pickupCoords.lng,
+          },
+          {
+            latitude: this.state.destinationCoords.lat,
+            longitude: this.state.destinationCoords.lng,
+          },
+          0.01
+        ),
+        'mi'
+      )
+    }
+  }
+
+  priceRender() {
+    let distancePrice = this.distanceRender()
+    return distancePrice * 2.55
   }
 
   render() {
@@ -174,7 +228,22 @@ class JobPostForm extends React.Component {
                     placeholder="Destination"
                   />
                 </div>
-                <br />
+                <div className="form-distance-container">
+                  <label className="form-distance-text">
+                    Distance:
+                    <span className="form-distance-num">
+                      {this.distanceRender().toFixed(2)} miles
+                    </span>
+                  </label>
+                </div>
+                <div className="form-distance-container">
+                  <label className="form-distance-text">
+                    Price:
+                    <span className="form-distance-num">
+                      $ {this.priceRender().toFixed(2)}
+                    </span>
+                  </label>
+                </div>
                 <div className="job-post-input-box">
                   <label className="form-start-end-date">Start</label>
                   <input
@@ -193,6 +262,7 @@ class JobPostForm extends React.Component {
                     onChange={this.handleField('jobEndDate')}
                     type="date"
                     required
+                    min={this.state.jobStartDate}
                     className="job-post-input-date2"
                     value={this.state.jobEndDate}
                   />
