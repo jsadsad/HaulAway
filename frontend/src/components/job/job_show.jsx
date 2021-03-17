@@ -181,7 +181,7 @@ class JobShow extends React.PureComponent {
               <div className="job-show-info-wrapper">
                 <div className="job-show-poster color-one">
                   Haul requested by:{' '}
-                  <Link to={`/users/${job.jobPoster}`} className="job-poster-link color-two">{job.jobPoster.firstName}</Link>
+                  <Link to={`/users/${job.jobPoster._id}`} className="job-poster-link color-two">{job.jobPoster.firstName}</Link>
                 </div>
                 {/* {haulRequester} */}
                 <div className="job-show-description-title color-one">Job Description:</div>
