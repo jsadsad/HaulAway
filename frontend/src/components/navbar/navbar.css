@@ -26,7 +26,6 @@
 .navbar-left-wrap {
   display: flex;
   margin-left: 30px;
-  /* max-height: 40px; */
   align-items: center;
 
 }
@@ -35,6 +34,18 @@
   display: flex;
   margin-right: 30px;
   align-items: center;
+}
+
+.navbar-about-us-link {
+  text-decoration: none;
+  color: #f8f8ff;
+  font-weight: 400;
+  padding-right: 15px;
+}
+
+.navbar-about-us-link:hover {
+  color: #1fce6d;
+  transition: .6s;
 }
 
 .logo-link {
