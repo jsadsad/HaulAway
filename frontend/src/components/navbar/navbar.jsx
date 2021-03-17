@@ -21,20 +21,17 @@ class Navbar extends React.Component {
     this.props.logout()
   }
 
-  getNavbar() {
-    if (this.props.loggedIn) {
-      return (
-        <header className="navbar">
-          <div className="navbar-wrapper">
-            <div className="navbar-left-wrap">
-              <div className="navbar-logo-wrap">
-                <Link className="logo-link" to={'/'}>
-                  HaulAway
-                </Link>
-              </div>
-            </div>
-            <div className="navbar-right-wrap">
-              {/* <div className="navbar-menu-logo-wrap">
+    getNavbar() {
+        console.log(this.state.showMenu)
+        if (this.props.loggedIn) {
+            return (
+                <div className="navbar">
+                    <div className="navbar-wrapper">
+                        <div className="navbar-left-wrap">
+                            <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>HaulAway</Link></div>
+                        </div>
+                        <div className="navbar-right-wrap">
+                            {/* <div className="navbar-menu-logo-wrap">
                                 <i className="fas fa-bars"></i>
                             </div> */}
 
@@ -60,6 +57,32 @@ class Navbar extends React.Component {
                     <div className="navbar-menu-jobs-new">
                       <i class="fa fa-handshake-o"></i> Request a Job
                     </div>
+<<<<<<< HEAD
+                </div>
+            );
+        } else {
+          return (
+              <div className="navbar">
+                  <div className="navbar-wrapper">
+                      <div className="navbar-left-wrap">
+                          <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>HaulAway</Link></div>
+                      </div>
+                  </div>
+              </div>
+          );
+        }
+
+  }  
+
+
+
+    render() {
+        return (
+            <>
+                { this.getNavbar() }
+            </>
+        )
+=======
                   </Link>
                   <div className="logout" onClick={this.logoutUser}>
                     <i className="fas fa-times-circle"></i> Log Out
@@ -84,6 +107,7 @@ class Navbar extends React.Component {
           </div>
         </header>
       )
+>>>>>>> main
     }
   }
 
