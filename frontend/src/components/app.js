@@ -31,7 +31,7 @@ const App = () => (
       <ProtectedRoute exact path='/users/:userId' component={UserShowContainer} />
       <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
       <ProtectedRoute exact path='/jobs/edit/:jobId' component={JobEditContainer} />
-      <ProtectedRoute exact path='/review' component={ReviewFormContainer} />
+      <ProtectedRoute exact path='/jobs/:jobId/review' component={ReviewFormContainer} />
     </Switch>
   </div>
 )
