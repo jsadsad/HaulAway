@@ -62,7 +62,7 @@ class AboutUs extends React.Component {
               <img className="about-us-avatar" src="https://angel.co/cdn-cgi/image/width=200,height=200,format=auto,fit=cover/https://photos.angel.co/users/12751669-original?1614949616" alt=""/>
             </div>
             <div className="about-us-person-desc">
-              <h2 className="about-us-names">Dmitriy An</h2>
+              <h2 className="about-us-names">Dmitrii An</h2>
               <p className="about-us-p">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa inventore, sint iure, odit voluptas adipisci voluptates temporibus corporis animi autem perspiciatis repellendus accusantium eos ullam sunt dolorum consequatur ad consectetur.</p>
               <div className="info-us">
                 <div className="info-us-contacts">
