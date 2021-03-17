@@ -3,19 +3,19 @@ import Navbar from '../navbar/navbar_container'
 import './job_show.css'
 import { Link, withRouter } from 'react-router-dom'
 
-class JobShow extends React.PureComponent {
+class JobShow extends React.Component {
   constructor(props) {
     super(props)
 
-    // this.state = {
-    //   // _id: this.props.jobId,
-    //   jobTaker: '',
-    //   isAvailable: true,
-    //   isClosed: false,
-    //   isReviewed: false,
-    //   // job: this.props.job
-    //   isChanged: true
-    // }
+    this.state = {
+      // _id: this.props.jobId,
+      jobTaker: '',
+      isAvailable: '',
+      isClosed: '',
+      isReviewed: '',
+      // job: this.props.job
+      isChanged: false
+    }
 
     this.takeJob = this.takeJob.bind(this)
     this.leaveJob = this.leaveJob.bind(this)
@@ -31,12 +31,35 @@ class JobShow extends React.PureComponent {
   componentDidMount() {
     // debugger
     this.props.fetchJob(this.props.jobId)
+      // .then((job) => {
+      //   this.setState({
+      //     jobTaker: job.jobTaker,
+      //     isAvailable: job.isAvailable,
+      //     isClosed: job.isClosed,
+      //     isReviewed: job.isReviewed,
+      //     isChanged: job.isChanged
+      // })
+
+      // })
   }
 
   componentDidUpdate(prevProps,prevState) {
-    if (this.props.job !== prevProps.job) {
+    // debugger
+    if (this.state.isChanged !== prevState.isChanged) {
       this.props.fetchJob(this.props.jobId)
+      .then((job) => {
+        this.setState({
+          jobTaker: job.jobTaker,
+          isAvailable: job.isAvailable,
+          isClosed: job.isClosed,
+          isReviewed: job.isReviewed,
+          isChanged: job.isChanged
+      })
+
+      })
     }
+
+
 
   }
 
@@ -50,6 +73,11 @@ class JobShow extends React.PureComponent {
     }
 
     this.props.updateJob(takenJob)
+      .then(
+        this.setState({
+          isChanged: !this.state.isChanged,
+      })
+      )
   }
 
   leaveJob(e) {
@@ -73,6 +101,11 @@ class JobShow extends React.PureComponent {
       jobPoster: this.props.job.jobPoster
     }
     this.props.updateJob(takenJob)
+    .then(
+      this.setState({
+        isChanged: !this.state.isChanged,
+    })
+    )
   }
 
   closeReview(e) {
@@ -121,6 +154,7 @@ class JobShow extends React.PureComponent {
   }
 
   closeJob(e) {
+    // debugger
     e.preventDefault()
 
 
@@ -131,6 +165,11 @@ class JobShow extends React.PureComponent {
 
     }
     this.props.updateJob(takenJob)
+    .then(
+      this.setState({
+        isChanged: !this.state.isChanged,
+    })
+    )
   }
 
   closeJobButton() {
@@ -143,7 +182,7 @@ class JobShow extends React.PureComponent {
       !job.isClosed
     ) {
       return (
-        <button className="close-job-button" onClick={this.closeJob} job={this.props.job}>
+        <button className="close-job-button" onClick={this.closeJob} action="closeJob">
           Close Job
         </button>
       )

@@ -4,6 +4,12 @@ import NavBar from '../navbar/navbar_container';
 import './user_show.css';
 
 class UserShow extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+    }
+  }
 
   componentDidMount() {
     // debugger
