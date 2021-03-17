@@ -37,11 +37,6 @@
   align-items: center;
 }
 
-.navbar-login-button {
-  margin-left: 10px;
-  height: 40px;
-}
-
 .logo-link {
   font-family: 'Pacifico', cursive;
   text-decoration: none;
@@ -66,7 +61,7 @@
   text-align: left;
   /* height: 85px; */
   height: 116px;
-  top: 38px;
+  top: 6vh;
   border-radius: 3px;
   transition: 0.2s;
 }
