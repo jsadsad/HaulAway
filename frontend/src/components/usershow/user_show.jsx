@@ -14,6 +14,14 @@ class UserShow extends React.Component {
     this.props.fetchReviews()
   }
 
+  componentDidUpdate(prevProps,prevState) {
+    if (this.props.userId !== prevProps.userId) {
+      this.props.fetchUser(this.props.userId)
+    }
+
+
+  }
+
 
   getjobIndexItems() {
     return this.props.jobs.map((job, index) => {
