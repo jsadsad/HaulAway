@@ -3,8 +3,8 @@
   min-width: 100vw;
   font-family: 'Montserrat', sans-serif;
   background: #2e3740;
-  color: white;
   cursor: default;
+  color: white;
 }
 
 .job-show-body-wrapper{
@@ -88,6 +88,10 @@
   object-fit: contain;
   /* justify-content: space-around; */
   transition: 0.6s ease-in;
+}
+
+.job-show-single-picture-wrap{
+  padding: 5px;
 }
 
 .job-show-picture{
