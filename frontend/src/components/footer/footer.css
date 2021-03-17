@@ -8,7 +8,6 @@
   display: flex;
   height: 10vh;
   max-height: 10vh;
-  /* padding-top: 30px; */
   flex-direction: column;
   object-fit: contain;
 }
@@ -28,8 +27,6 @@
 .footer-about-us {
   display: flex;
   justify-content: space-around;
-  /* padding-top: 15px; */
-  /* to delete */
   background: #2e3740;
 
 }
@@ -37,8 +34,6 @@
 .info-us {
   display: flex;
   font-size: 20px;
-  /* min-width: 20%; */
-  /* height: 90%; */
   align-items: center;
   flex-direction: column;
   justify-items: center;
@@ -47,16 +42,14 @@
 
 .info-us-contacts {
   display: flex;
-  /* padding-top: 15px; */
-  justify-content: center;
+  justify-content: space-around;
+  width: 150px;
 }
 
 .contact {
   text-decoration: none;
-  /* padding: 5px; */
   padding-left: 5px;
   padding-right: 5px;
-
 }
 
 .fa {

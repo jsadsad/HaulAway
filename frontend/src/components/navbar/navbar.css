@@ -39,11 +39,13 @@
 .navbar-about-us-link {
   text-decoration: none;
   color: #f8f8ff;
+  font-weight: 400;
   padding-right: 15px;
 }
 
 .navbar-about-us-link:hover {
   color: #1fce6d;
+  transition: .6s;
 }
 
 .logo-link {
