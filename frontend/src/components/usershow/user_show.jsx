@@ -4,6 +4,12 @@ import NavBar from '../navbar/navbar_container';
 import './user_show.css';
 
 class UserShow extends React.Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+    }
+  }
 
   componentDidMount() {
     // debugger
@@ -12,6 +18,14 @@ class UserShow extends React.Component {
     this.props.fetchJobs()
     // this.props.fetchUserJobs(this.props.userId)
     this.props.fetchReviews()
+  }
+
+  componentDidUpdate(prevProps,prevState) {
+    if (this.props.userId !== prevProps.userId) {
+      this.props.fetchUser(this.props.userId)
+    }
+
+
   }
 
 
