@@ -16,11 +16,13 @@
   /* test  */
   height: 80vh;
   border: solid red 3px;
+  justify-content: center;
 }
 
 .job-show-body-inner-wrapper{
   display: flex;
   max-width: 50%;
+  min-width: 50%;
 
 }
 
@@ -40,15 +42,18 @@
 
 .job-show-info-left-side{
   padding: 30px;
+  min-width: 50%;
   width: 50%;
+  display: block;
 
 }
 
 .job-show-info-right-side{
   padding: 30px;
+  min-width: 50%;
+  width: 50%;
   display: flex;
   flex-direction: column;
-  width: 50%;
 }
 
 .job-show-poster{
@@ -70,6 +75,7 @@
 
 .job-show-start-end-inner-wrap{
   display: flex;
+  align-items: baseline;
 }
 
 .job-show-map{
@@ -80,8 +86,8 @@
   display: flex;
   /* flex-direction: column; */
   object-fit: contain;
-  justify-content: space-around;
-  transition: 0.4s ease-in-out;
+  /* justify-content: space-around; */
+  transition: 0.6s ease-in;
 }
 
 .job-show-picture{
@@ -89,16 +95,18 @@
   width: 50px;
   border-radius: 12px;
   border: solid 3px #1fce6d;
+  transition: 0.6s ease-in;
+
 }
 
 .job-show-single-picture-wrap:hover .job-show-picture{
   position: absolute;
-  margin-left: -100px;
+  /* margin-left: -100px; */
   z-index: 1;
   height: 200px;
   width: 200px;
-  border-radius: 12px;
-  display: flex;
+  /* border-radius: 12px; */
+  /* display: flex; */
 
 }
 
