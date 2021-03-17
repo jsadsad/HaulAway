@@ -32,7 +32,7 @@ class UserShow extends React.Component {
 
   getReviewIndexItems() {
     let totalReviewNum = 0
-    let reviewIndexItems  = this.props.jobs.map((job) => {
+    let reviewIndexItems  = this.props.postedJobs.map((job) => {
       return this.props.reviews.map((review, index) => {
         if (job._id === review.jobId) {
           totalReviewNum += 1
@@ -68,7 +68,7 @@ class UserShow extends React.Component {
   calculateAverage() {
     let totalRating = 0;
     let totalUserReviews = 0;
-    this.props.jobs.forEach(job => {
+    this.props.postedJobs.forEach(job => {
       this.props.reviews.forEach(review => {
         if(job._id === review.jobId) {
           totalRating += review.rating
