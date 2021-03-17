@@ -28,7 +28,7 @@ const Footer = () => {
           <div className="info-us-contacts">
             <a className="contact" href="https://github.com/kinda-dev" target="_blank"><i className='fa fa-github'></i></a>
             <a className="contact" href="https://www.linkedin.com/in/fabio-raffaele-bortone/" target="_blank"><i className='fa fa-linkedin'></i></a>
-            <a className="contact" href="" target="_blank"><i className='fa fa-angellist'></i></a>
+            <a className="contact" href="https://angel.co/u/fabio-raffaele-bortone" target="_blank"><i className='fa fa-angellist'></i></a>
           </div>
         </div>
         <div className="info-us">
