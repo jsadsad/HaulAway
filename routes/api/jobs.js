@@ -77,7 +77,9 @@ router.patch('/:id', (req, res) => {
     .then((job) => {
       const updatedJob = {
         _id: job.id,
-        jobPoster: job.jobPoster,
+        jobPoster: {
+          _id: job.jobPoster
+        },
         description: job.description,
         pickup: job.pickup,
         destination: job.destination,

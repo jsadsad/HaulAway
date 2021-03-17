@@ -8,7 +8,8 @@ class JobShow extends React.Component {
     super(props)
 
     this.state = {
-      isChanged: false
+      isChanged: false,
+      shouldUpdate: true
     }
 
     this.takeJob = this.takeJob.bind(this)
@@ -24,7 +25,7 @@ class JobShow extends React.Component {
 
   componentDidMount() {
     // debugger
-    if (!this.props.job) {
+    if (this.state.shouldUpdate) {
     this.props.fetchJob(this.props.jobId)
     }
   }
@@ -33,7 +34,12 @@ class JobShow extends React.Component {
     // debugger
     if (this.state.isChanged !== prevState.isChanged) {
       this.props.fetchJob(this.props.jobId)
-      // return this.props.job
+      .then(
+        this.setState({
+          shouldUpdate: false
+  
+      })
+      )
     }
 
 
@@ -81,6 +87,8 @@ class JobShow extends React.Component {
     .then(
       this.setState({
         isChanged: !this.state.isChanged,
+        shouldUpdate: false
+
     })
     )
   }
@@ -145,6 +153,8 @@ class JobShow extends React.Component {
     .then(
       this.setState({
         isChanged: !this.state.isChanged,
+        shouldUpdate: false
+
     })
     )
   }
@@ -182,7 +192,7 @@ class JobShow extends React.Component {
             Would you like to review this transaction?
           </div>
           <div className="review-job-buttons-inner-wrap">
-            <button className="test-reopen-job" onClick={this.openJob}></button>
+            <button className="test-reopen-job" onClick={this.openJob}>Re-Open Job</button>
             <Link to={`/jobs/${job._id}/review`} job={job}>
               <button className="close-job-button">YES</button>
             </Link>
