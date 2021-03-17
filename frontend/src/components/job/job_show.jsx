@@ -167,54 +167,78 @@ class JobShow extends React.PureComponent {
   render() {
     const job = this.props.job
     if (!job) return null
-    // if (!job.jobPoster) return <h1>Loading</h1>
-    let haulRequester = ''
-    if (job.jobPoster) {
-      haulRequester = (
-        <div className="job-poster-name">
-          Haul requested by:{' '}
-          <Link to={`/users/${job.jobPoster}`}>{job.jobPoster.firstName}</Link>
-        </div>
-      )
-    }
 
     return (
       <div className="job-show-outer">
+
         <Navbar />
-        <div className="job-show-wrapper">
-          <div className="job-show-header">
-            {haulRequester}
-            {/* <div className="job-show-poster">{job.jobType}</div> */}
-            <div className="job-show-box">{job.description}</div>
-            <div className="job-show-box">{job.jobDifficulty}</div>
-            <div>{job.jobStartDate}</div>
-            <div>{job.jobEndDate}</div>
-            <div>{job.pickup}</div>
-            <div>{job.destination}</div>
-            <div className="job-show-pictures-wrap">
-            {job.pictures.map((picture, idx) => {
-              return (
-              <div className="job-show-single-picture-wrap" key={idx}>
-                <img className="job-wshow-picture" src={picture} alt="job-picture"/>
+
+        <div className="job-show-body-wrapper">
+          <div className="job-show-body-inner-wrapper">
+
+            <div className="job-show-info-left-side">
+
+              <div className="job-show-info-wrapper">
+                <div className="job-show-poster color-one">
+                  Haul requested by:{' '}
+                  <Link to={`/users/${job.jobPoster}`} className="job-poster-link color-two">{job.jobPoster.firstName}</Link>
+                </div>
+                {/* {haulRequester} */}
+                <div className="job-show-description-title color-one">Job Description:</div>
+                <div className="job-show-description color-two">{job.description}</div>
+                <div className="job-show-difficulty-title color-one">Difficulty:&nbsp;&nbsp;
+                  <div className="job-show-difficulty color-two">{job.jobDifficulty}</div>
+                </div>
+                <div className="job-show-start-end-title color-one">This job will be available:</div>
+                  <div className="job-show-start-end-inner-wrap">
+                    <div className="job-show-start-title color-one">from&nbsp;</div>
+                    <div className="job-show-start-date color-two">&nbsp;{job.jobStartDate}&nbsp;</div>
+                    <div className="job-show-end-title color-one">&nbsp;to&nbsp;</div>
+                    <div className="job-show-end-date color-two">&nbsp;{job.jobEndDate}</div>
+                  </div>
+                <div className="job-show-pickup-title color-one">Pickup at:
+                  <div className="job-show-pickup color-two">{job.pickup}</div>
+                </div>
+                <div className="job-show-delivery-title color-one">Delivery at:
+                  <div className="job-show-destination color-two">{job.destination}</div>
+                </div>
               </div>
-              )
-            })}
-            </div>
-            <div className="take-job-button-wrap">{this.takeJobButton()}</div>
-            <div className="leave-job-button-wrap">{this.leaveJobButton()}</div>
-            <div className="edit-job-button-wrap">{this.editJobButton()}</div>
-            <div className="close-job-button-wrap">{this.closeJobButton()}</div>
-            <div className="review-job-buttons-wrap">
-              {this.reviewJobButtons()}
+
+              <div className="job-show-buttons-wrapper">
+                <div className="take-job-button-wrap">{this.takeJobButton()}</div>
+                <div className="leave-job-button-wrap">{this.leaveJobButton()}</div>
+                <div className="edit-job-button-wrap">{this.editJobButton()}</div>
+                <div className="close-job-button-wrap">{this.closeJobButton()}</div>
+                <div className="review-job-buttons-wrap">{this.reviewJobButtons()}</div>
+              </div>
+
             </div>
 
-            <div className="job-show-footer">
+            <div className="job-show-info-right-side">
+
               <div className="job-show-map">
-                <h2>Ill be a map</h2>
+                <div>Ill be a map</div>
               </div>
+              <div className="job-show-pictures-title color-one">Items to Haul:</div> 
+              <div className="job-show-pictures-wrap">
+                {job.pictures.map((picture, idx) => {
+                  return (
+                    <div className="job-show-single-picture-wrap" key={idx}>
+                      <img className="job-show-picture" src={picture} alt="job-picture"/>
+                    </div>
+                  )
+                })}
+              </div>
+
             </div>
+
+
+              
           </div>
         </div>
+
+        <div className="job-show-footer"></div>
+
       </div>
     )
   }
