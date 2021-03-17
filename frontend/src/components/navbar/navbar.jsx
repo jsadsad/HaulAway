@@ -29,7 +29,6 @@ class Navbar extends React.Component {
     }
 
     getNavbar() {
-        console.log(this.state.showMenu)
         if (this.props.loggedIn) {
             return (
                 <div className="navbar">
@@ -38,6 +37,7 @@ class Navbar extends React.Component {
                             <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>HaulAway</Link></div>
                         </div>
                         <div className="navbar-right-wrap">
+                            <Link className="navbar-about-us-link" to="/about">About Us</Link>
                             {/* <div className="navbar-menu-logo-wrap">
                                 <i className="fas fa-bars"></i>
                             </div> */}
