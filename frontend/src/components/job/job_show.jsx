@@ -179,23 +179,28 @@ class JobShow extends React.PureComponent {
             <div className="job-show-info-left-side">
 
               <div className="job-show-info-wrapper">
-                <div className="job-show-poster">
+                <div className="job-show-poster color-one">
                   Haul requested by:{' '}
-                  <Link to={`/users/${job.jobPoster}`} className="job-poster-link">{job.jobPoster.firstName}</Link>
+                  <Link to={`/users/${job.jobPoster}`} className="job-poster-link color-two">{job.jobPoster.firstName}</Link>
                 </div>
                 {/* {haulRequester} */}
                 <div className="job-show-description-title color-one">Job Description:</div>
-                <div className="job-show-description">{job.description}</div>
-                <div className="job-show-difficulty-title color-one">Difficulty: <div className="job-show-difficulty">{job.jobDifficulty}</div></div>
-                <div className="job-show-start-end">Job availabilty dates:
-                  <div className="job-show-start-date">{job.jobStartDate}</div>
-                  <div className="job-show-end-date">{job.jobEndDate}</div>
+                <div className="job-show-description color-two">{job.description}</div>
+                <div className="job-show-difficulty-title color-one">Difficulty:&nbsp;&nbsp;
+                  <div className="job-show-difficulty color-two">{job.jobDifficulty}</div>
                 </div>
+                <div className="job-show-start-end-title color-one">This job will be available:</div>
+                  <div className="job-show-start-end-inner-wrap">
+                    <div className="job-show-start-title color-one">from&nbsp;</div>
+                    <div className="job-show-start-date color-two">&nbsp;{job.jobStartDate}&nbsp;</div>
+                    <div className="job-show-end-title color-one">&nbsp;to&nbsp;</div>
+                    <div className="job-show-end-date color-two">&nbsp;{job.jobEndDate}</div>
+                  </div>
                 <div className="job-show-pickup-title color-one">Pickup at:
-                  <div className="job-show-pickup">{job.pickup}</div>
+                  <div className="job-show-pickup color-two">{job.pickup}</div>
                 </div>
                 <div className="job-show-delivery-title color-one">Delivery at:
-                  <div className="job-show-destination">{job.destination}</div>
+                  <div className="job-show-destination color-two">{job.destination}</div>
                 </div>
               </div>
 
@@ -212,13 +217,14 @@ class JobShow extends React.PureComponent {
             <div className="job-show-info-right-side">
 
               <div className="job-show-map">
-                <h2>Ill be a map</h2>
+                <div>Ill be a map</div>
               </div>
-              <div className="job-show-pictures-wrap">Items to Haul:
+              <div className="job-show-pictures-title color-one">Items to Haul:</div> 
+              <div className="job-show-pictures-wrap">
                 {job.pictures.map((picture, idx) => {
                   return (
                     <div className="job-show-single-picture-wrap" key={idx}>
-                      <img className="job-wshow-picture" src={picture} alt="job-picture"/>
+                      <img className="job-show-picture" src={picture} alt="job-picture"/>
                     </div>
                   )
                 })}

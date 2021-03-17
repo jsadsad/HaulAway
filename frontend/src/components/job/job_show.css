@@ -4,6 +4,7 @@
   font-family: 'Montserrat', sans-serif;
   background: #2e3740;
   color: white;
+  cursor: default;
 }
 
 .job-show-body-wrapper{
@@ -13,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   /* test  */
-  /* min-height: 70vh; */
+  height: 80vh;
   border: solid red 3px;
 }
 
@@ -23,10 +24,81 @@
 
 }
 
+.color-one{
+  color: #1fce6d;
+  font-size:medium;
+  font-weight: 800;
+}
+
+.color-two{
+  color: white;
+  font-size: large;
+  font-weight: 800;
+  padding-bottom: 15px;
+
+}
+
 .job-show-info-left-side{
   padding: 30px;
+  width: 50%;
+
 }
 
 .job-show-info-right-side{
   padding: 30px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
 }
+
+.job-show-poster{
+  padding-bottom: 15px;
+}
+
+.job-show-poster:hover .job-poster-link{
+  text-decoration: underline;
+}
+
+.job-poster-link{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.job-show-difficulty-title{
+  display: flex;
+}
+
+.job-show-start-end-inner-wrap{
+  display: flex;
+}
+
+.job-show-map{
+  min-height: 50%;
+}
+
+.job-show-pictures-wrap{
+  display: flex;
+  /* flex-direction: column; */
+  object-fit: contain;
+  justify-content: space-around;
+  transition: 0.4s ease-in-out;
+}
+
+.job-show-picture{
+  height: 50px;
+  width: 50px;
+  border-radius: 12px;
+  border: solid 3px #1fce6d;
+}
+
+.job-show-single-picture-wrap:hover .job-show-picture{
+  position: absolute;
+  margin-left: -100px;
+  z-index: 1;
+  height: 200px;
+  width: 200px;
+  border-radius: 12px;
+  display: flex;
+
+}
+
