@@ -47,7 +47,7 @@
 .homepage-rj-button {
   color: #1fce6d;
   background-color: rgba(0, 0, 0, 0.399);
-  border: 1px solid #1fce6d;
+  border: 3px solid #1fce6d;
   width: 180px;
   height: 77px;
   font-size: 20px;
@@ -74,7 +74,7 @@
 .homepage-lj-button {
   color: #1fce6d;
   background-color: rgba(0, 0, 0, 0.399);
-  border: 1px solid #1fce6d;
+  border: 3px solid #1fce6d;
   width: 180px;
   height: 70px;
   font-size: 20px;

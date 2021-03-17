@@ -51,7 +51,7 @@ class Navbar extends React.Component {
                                         <div className="navbar-menu">
                                             <Link className="navbar-link-user-profile" to={`/users/${this.props.currentUser.id}`}><div className="navbar-menu-user"><i className="fas fa-user"></i> Profile</div></Link>
                                             <Link className="navbar-link-jobs-index" to={"/jobs"}><div className="navbar-menu-jobs"><i className="fas fa-shuttle-van"></i> All Jobs</div></Link>
-                                            <Link className="navbar-link-jobs-new" to="/jobs/new"><div className="navbar-menu-jobs-new" ><i class='fa fa-handshake-o'></i> Request a Job</div></Link>
+                                            <Link className="navbar-link-jobs-new" to="/jobs/new"><div className="navbar-menu-jobs-new" ><i className="fa fa-handshake-o"></i> Request a Job</div></Link>
                                             <div className="logout" onClick={this.logoutUser}><i className="fas fa-times-circle"></i> Log Out</div>
                                         </div>
                                     )
