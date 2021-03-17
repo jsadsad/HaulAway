@@ -8,11 +8,13 @@ class JobShow extends React.PureComponent {
     super(props)
 
     this.state = {
-      _id: this.props.jobId,
+      // _id: this.props.jobId,
       jobTaker: '',
       isAvailable: true,
       isClosed: false,
       isReviewed: false,
+      // job: this.props.job
+      isChanged: true
     }
 
     this.takeJob = this.takeJob.bind(this)
@@ -27,7 +29,15 @@ class JobShow extends React.PureComponent {
   }
 
   componentDidMount() {
+    // debugger
     this.props.fetchJob(this.props.jobId)
+  }
+
+  componentDidUpdate(prevProps,prevState) {
+    if (this.props.job !== prevProps.job) {
+      this.props.fetchJob(this.props.jobId)
+    }
+
   }
 
   takeJob(e) {
@@ -60,6 +70,7 @@ class JobShow extends React.PureComponent {
     const takenJob = {
       _id: this.props.jobId,
       isClosed: false,
+      jobPoster: this.props.job.jobPoster
     }
     this.props.updateJob(takenJob)
   }
@@ -89,7 +100,7 @@ class JobShow extends React.PureComponent {
     takeJobButton() {
       const job = this.props.job
 
-      
+      // debugger
       if ((job.jobPoster._id !== this.props.currentUserId) && (job.isAvailable)) {
         return (
           <button className="take-job-button" onClick={this.takeJob}>Take Job</button>
@@ -112,9 +123,12 @@ class JobShow extends React.PureComponent {
   closeJob(e) {
     e.preventDefault()
 
+
     const takenJob = {
       _id: this.props.jobId,
       isClosed: true,
+      jobPoster: this.props.job.jobPoster
+
     }
     this.props.updateJob(takenJob)
   }
@@ -129,7 +143,7 @@ class JobShow extends React.PureComponent {
       !job.isClosed
     ) {
       return (
-        <button className="close-job-button" onClick={this.closeJob}>
+        <button className="close-job-button" onClick={this.closeJob} job={this.props.job}>
           Close Job
         </button>
       )
@@ -138,7 +152,7 @@ class JobShow extends React.PureComponent {
 
   reviewJobButtons() {
     const job = this.props.job
-    if (!job.jobPoster) return null
+    // if (!job.jobPoster) return null
 
     //this is checking if the jobclosed is true and jobreview should be false
     if (
@@ -153,7 +167,7 @@ class JobShow extends React.PureComponent {
           </div>
           <div className="review-job-buttons-inner-wrap">
             <button className="test-reopen-job" onClick={this.openJob}></button>
-            <Link to={'/review'} job={job}>
+            <Link to={`/jobs/${job._id}/review`} job={job}>
               <button className="close-job-button">YES</button>
             </Link>
             <button className="close-job-button" onClick={this.closeReview}>
