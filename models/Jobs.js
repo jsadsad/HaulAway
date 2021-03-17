@@ -18,6 +18,10 @@ const JobSchema = new Schema({
     type: String,
     required: true,
   },
+  distance: {
+    type: Number,
+    required: true,
+  },
   jobDifficulty: {
     type: String,
     required: true,
@@ -48,20 +52,20 @@ const JobSchema = new Schema({
   },
   jobTaker: {
     type: String,
-    default: ''
+    default: '',
   },
   isAvailable: {
     type: Boolean,
-    default: true
+    default: true,
   },
   isClosed: {
     type: Boolean,
-    default: false
+    default: false,
   },
   isReviewed: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 })
 
 module.exports = Job = mongoose.model('jobs', JobSchema)

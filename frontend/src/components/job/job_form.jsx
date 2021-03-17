@@ -21,14 +21,13 @@ class JobPostForm extends React.Component {
         lat: 36.778259,
         lng: -119.417931,
       },
-      distance: '',
       pickupCoords: {
-        lat: undefined,
-        lng: undefined,
+        lat: '',
+        lng: '',
       },
       destinationCoords: {
-        lat: undefined,
-        lng: undefined,
+        lat: '',
+        lng: '',
       },
       markerPosition: {
         lat: undefined,
@@ -103,13 +102,6 @@ class JobPostForm extends React.Component {
     return (e) => this.setState({ [field]: e.currentTarget.value })
   }
 
-  handleDistance() {
-    // let distance = getDistance(
-    //   this.state.pickupCoords,
-    //   this.state.destinationCoords
-    // )
-  }
-
   onPickupSelected(place) {
     const address = place.formatted_address,
       latValue = place.geometry.location.lat(),
@@ -146,10 +138,17 @@ class JobPostForm extends React.Component {
 
   render() {
     const coords = this.state.mapPosition
+
     let distance = convertDistance(
       getDistance(
-        { latitude: 37.63001712737978, longitude: -122.06648471909358 },
-        { latitude: 37.54777503139295, longitude: -122.298524901902 },
+        {
+          latitude: this.state.pickupCoords.lat,
+          longitude: this.state.pickupCoords.lng,
+        },
+        {
+          latitude: this.state.destinationCoords.lat,
+          longitude: this.state.destinationCoords.lng,
+        },
         0.01
       ),
       'mi'
@@ -209,10 +208,14 @@ class JobPostForm extends React.Component {
                     placeholder="Destination"
                   />
                 </div>
-                <div>
-                  <label>Distance: {Math.round(distance)} miles</label>
+                <div className="form-distance-container">
+                  <label className="form-distance-text">
+                    Distance:
+                    <span className="form-distance-num">
+                      {Math.round(distance * 100) / 100} miles
+                    </span>
+                  </label>
                 </div>
-                <br />
                 <div className="job-post-input-box">
                   <label className="form-start-end-date">Start</label>
                   <input
@@ -231,6 +234,7 @@ class JobPostForm extends React.Component {
                     onChange={this.handleField('jobEndDate')}
                     type="date"
                     required
+                    min={this.state.jobStartDate}
                     className="job-post-input-date2"
                     value={this.state.jobEndDate}
                   />

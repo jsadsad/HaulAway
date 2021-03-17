@@ -38,6 +38,7 @@ input[type='file'] {
   height: 100%;
   background: #2e3740;
   min-height: 100vh;
+  cursor: default;
 }
 
 .job-post-text {
@@ -133,4 +134,20 @@ input[type='file'] {
   color: rgb(218, 70, 70);
   margin-right: 15px;
   padding: 5px;
+}
+
+.form-distance-container {
+  width: 20rem;
+  margin-bottom: 1.2rem;
+}
+
+.form-distance-text {
+  color: rgb(218, 70, 70);
+  font-size: 1rem;
+}
+
+.form-distance-num {
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  padding-left: 20px;
 }
