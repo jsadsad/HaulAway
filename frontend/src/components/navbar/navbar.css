@@ -1,35 +1,40 @@
 .navbar {
-  position: relative;
+  /* position: relative; */
+  z-index: 10;
   font-family: 'Montserrat', sans-serif;
   color: white;
+  top: 0;
+  left: 0;
+  /* justify-content: center;
+  align-items: center; */
+  height: 10vh;
 }
 
 .navbar-wrapper {
   background-color: transparent;
-  position: relative;
-  padding-top: 20px;
+  /* position: relative; */
+  /* padding-top: 20px; */
   width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 5rem;
+  height: 100%;
+  /* align-items: center; */
 
-  z-index: 10;
   display: flex;
   justify-content: space-between;
+  object-fit: contain;
 }
 
 .navbar-left-wrap {
   display: flex;
   margin-left: 30px;
-  max-height: 40px;
+  /* max-height: 40px; */
+  align-items: center;
+
 }
 
 .navbar-right-wrap {
   display: flex;
   margin-right: 30px;
-  height: 100%;
+  align-items: center;
 }
 
 .navbar-login-button {

@@ -32,7 +32,7 @@ class Navbar extends React.Component {
         console.log(this.state.showMenu)
         if (this.props.loggedIn) {
             return (
-                <header className="navbar">
+                <div className="navbar">
                     <div className="navbar-wrapper">
                         <div className="navbar-left-wrap">
                             <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>HaulAway</Link></div>
@@ -62,17 +62,17 @@ class Navbar extends React.Component {
                         </div>
 
                     </div>
-                </header>
+                </div>
             );
         } else {
           return (
-              <header className="navbar">
+              <div className="navbar">
                   <div className="navbar-wrapper">
                       <div className="navbar-left-wrap">
                           <div className="navbar-logo-wrap"><Link className="logo-link" to={'/'}>HaulAway</Link></div>
                       </div>
                   </div>
-              </header>
+              </div>
           );
         }
 
