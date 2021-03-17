@@ -11,7 +11,6 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
   height: 90vh;
   min-height: 100%;
   padding-left: 10px;
@@ -24,7 +23,6 @@
   width: 45%;
   height: 40%;
   margin: 10px 0px 10px 0px;
-  /* border: 1px solid #1fe36d; */
   outline: none;
   justify-content: center;
   align-items: center;
