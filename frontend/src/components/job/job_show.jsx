@@ -8,12 +8,6 @@ class JobShow extends React.Component {
     super(props)
 
     this.state = {
-      // _id: this.props.jobId,
-      jobTaker: '',
-      isAvailable: '',
-      isClosed: '',
-      isReviewed: '',
-      // job: this.props.job
       isChanged: false
     }
 
@@ -30,33 +24,16 @@ class JobShow extends React.Component {
 
   componentDidMount() {
     // debugger
+    if (!this.props.job) {
     this.props.fetchJob(this.props.jobId)
-      // .then((job) => {
-      //   this.setState({
-      //     jobTaker: job.jobTaker,
-      //     isAvailable: job.isAvailable,
-      //     isClosed: job.isClosed,
-      //     isReviewed: job.isReviewed,
-      //     isChanged: job.isChanged
-      // })
-
-      // })
+    }
   }
 
   componentDidUpdate(prevProps,prevState) {
     // debugger
     if (this.state.isChanged !== prevState.isChanged) {
       this.props.fetchJob(this.props.jobId)
-      .then((job) => {
-        this.setState({
-          jobTaker: job.jobTaker,
-          isAvailable: job.isAvailable,
-          isClosed: job.isClosed,
-          isReviewed: job.isReviewed,
-          isChanged: job.isChanged
-      })
-
-      })
+      // return this.props.job
     }
 
 
