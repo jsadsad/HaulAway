@@ -7,15 +7,15 @@ class JobShow extends React.PureComponent {
   constructor(props) {
     super(props)
 
-    this.state = {
-      // _id: this.props.jobId,
-      jobTaker: '',
-      isAvailable: true,
-      isClosed: false,
-      isReviewed: false,
-      // job: this.props.job
-      isChanged: true
-    }
+    // this.state = {
+    //   // _id: this.props.jobId,
+    //   jobTaker: '',
+    //   isAvailable: true,
+    //   isClosed: false,
+    //   isReviewed: false,
+    //   // job: this.props.job
+    //   isChanged: true
+    // }
 
     this.takeJob = this.takeJob.bind(this)
     this.leaveJob = this.leaveJob.bind(this)

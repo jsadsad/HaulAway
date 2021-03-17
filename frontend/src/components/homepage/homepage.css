@@ -1,9 +1,7 @@
-
 .homepage-wrapper {
   min-height: 100vh;
   background: #2e3740;
   font-family: 'Montserrat', sans-serif;
-
 }
 
 .homepage-inner-wrapper {
@@ -14,7 +12,7 @@
 }
 
 .homepage-img-wrapper {
-  height: 640px;
+  height: 80vh;
   opacity: 0.7;
   display: flex;
   align-items: center;
@@ -87,7 +85,3 @@
   background-color: #1fce6d;
   color: white;
 }
-
-
-
-
