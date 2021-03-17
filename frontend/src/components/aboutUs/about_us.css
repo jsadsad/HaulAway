@@ -24,15 +24,18 @@
   width: 45%;
   height: 40%;
   margin: 10px 0px 10px 0px;
-  border: 1px solid #1fe36d;
+  /* border: 1px solid #1fe36d; */
   outline: none;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(177 191 206 / 50%);
+  background-color: #2e3740;
 }
 
 .about-us-person:hover {
   /* background: #2e3740; */
-  border: 1px solid #1fe36d;
+  border: 1px solid #f8f8ff;
 }
 
 .about-us-person-img {
@@ -55,4 +58,16 @@
   justify-content: center;
   overflow: auto;
   padding-left: 10px;
+}
+
+.about-us-names {
+  color: #f8f8ff;
+  font-weight: 700;
+  padding-top: 20px;
+}
+
+.about-us-p {
+  font-weight: 500;
+  font-size: 16px;
+  color: #1fe36d;
 }
