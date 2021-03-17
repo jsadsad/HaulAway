@@ -2,9 +2,11 @@
 .homepage-wrapper {
   min-height: 100vh;
   background: #2e3740;
+  font-family: 'Montserrat', sans-serif;
+
 }
 
-.homepage-job-button-wrapper {
+.homepage-inner-wrapper {
   display: block;
   max-width: 100%;
   max-height: 640px;
