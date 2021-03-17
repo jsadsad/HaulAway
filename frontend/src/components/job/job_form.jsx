@@ -41,6 +41,7 @@ class JobPostForm extends React.Component {
     this.handlePhotoFile = this.handlePhotoFile.bind(this)
     this.onPickupSelected = this.onPickupSelected.bind(this)
     this.onDestinationSelected = this.onDestinationSelected.bind(this)
+    this.distanceRender = this.distanceRender.bind(this)
   }
 
   componentWilUnmount() {
@@ -63,6 +64,8 @@ class JobPostForm extends React.Component {
         let job = {
           description: this.state.description,
           pickup: this.state.pickup,
+          distance: this.distanceRender().toFixed(2),
+          price: this.priceRender().toFixed(2),
           destination: this.state.destination,
           jobDifficulty: this.state.jobDifficulty,
           jobType: this.state.jobType,
@@ -79,6 +82,8 @@ class JobPostForm extends React.Component {
         description: this.state.description,
         pickup: this.state.pickup,
         destination: this.state.destination,
+        distance: this.state.distance,
+        price: this.state.price,
         jobDifficulty: this.state.jobDifficulty,
         jobType: this.state.jobType,
         jobStartDate: this.state.jobStartDate,
@@ -136,23 +141,38 @@ class JobPostForm extends React.Component {
     })
   }
 
+  distanceRender() {
+    if (
+      this.state.destination === '' ||
+      this.state.pickup === '' ||
+      !this.state.destination.includes('USA')
+    ) {
+      return 0
+    } else {
+      return convertDistance(
+        getDistance(
+          {
+            latitude: this.state.pickupCoords.lat,
+            longitude: this.state.pickupCoords.lng,
+          },
+          {
+            latitude: this.state.destinationCoords.lat,
+            longitude: this.state.destinationCoords.lng,
+          },
+          0.01
+        ),
+        'mi'
+      )
+    }
+  }
+
+  priceRender() {
+    let distancePrice = this.distanceRender()
+    return distancePrice * 2.55
+  }
+
   render() {
     const coords = this.state.mapPosition
-
-    let distance = convertDistance(
-      getDistance(
-        {
-          latitude: this.state.pickupCoords.lat,
-          longitude: this.state.pickupCoords.lng,
-        },
-        {
-          latitude: this.state.destinationCoords.lat,
-          longitude: this.state.destinationCoords.lng,
-        },
-        0.01
-      ),
-      'mi'
-    )
 
     return (
       <div className="job-post-outer">
@@ -212,7 +232,15 @@ class JobPostForm extends React.Component {
                   <label className="form-distance-text">
                     Distance:
                     <span className="form-distance-num">
-                      {Math.round(distance * 100) / 100} miles
+                      {this.distanceRender().toFixed(2)} miles
+                    </span>
+                  </label>
+                </div>
+                <div className="form-distance-container">
+                  <label className="form-distance-text">
+                    Price:
+                    <span className="form-distance-num">
+                      $ {this.priceRender().toFixed(2)}
                     </span>
                   </label>
                 </div>

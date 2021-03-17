@@ -22,6 +22,10 @@ const JobSchema = new Schema({
     type: Number,
     required: true,
   },
+  price: {
+    type: Number,
+    required: true,
+  },
   jobDifficulty: {
     type: String,
     required: true,
