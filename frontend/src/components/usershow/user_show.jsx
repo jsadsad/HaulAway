@@ -48,7 +48,7 @@ class UserShow extends React.Component {
     let totalReviewNum = 0
     let reviewIndexItems  = this.props.postedJobs.map((job) => {
       return this.props.reviews.map((review, index) => {
-        if (job._id === review.jobId) {
+        if (job._id === review.jobId && this.props.user !== review.author) {
           totalReviewNum += 1
           let formattedDate = new Date(review.date)
           let deleteButton = null;
@@ -84,7 +84,7 @@ class UserShow extends React.Component {
     let totalUserReviews = 0;
     this.props.postedJobs.forEach(job => {
       this.props.reviews.forEach(review => {
-        if(job._id === review.jobId) {
+        if(job._id === review.jobId && this.props.user !== review.author) {
           totalRating += review.rating
           totalUserReviews += 1
         }
