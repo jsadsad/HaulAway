@@ -153,7 +153,7 @@ class JobShow extends React.PureComponent {
           </div>
           <div className="review-job-buttons-inner-wrap">
             <button className="test-reopen-job" onClick={this.openJob}></button>
-            <Link to={'/review'} job={job}>
+            <Link to={`/jobs/${job._id}/review`} job={job}>
               <button className="close-job-button">YES</button>
             </Link>
             <button className="close-job-button" onClick={this.closeReview}>
