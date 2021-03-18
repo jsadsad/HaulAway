@@ -4,6 +4,7 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: #2e3740;
+  cursor: default;
 }
 
 .about-us-wrapper {
