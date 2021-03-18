@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../navbar/navbar_container';
+import Loader from '../Loader/loader'
 
 import './user_show.css';
 
@@ -166,7 +167,8 @@ class UserShow extends React.Component {
   render() {
 
     const {user, jobs}= this.props
-    if (!user) {return <div>Loading</div>}
+    // if (!user) {return <div>Loading</div>}
+    if (!user) {return <Loader />}
 
     // debugger 
     console.log(jobs)
