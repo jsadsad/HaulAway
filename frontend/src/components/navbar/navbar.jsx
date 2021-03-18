@@ -29,7 +29,6 @@ class Navbar extends React.Component {
     }
 
     getNavbar() {
-        console.log(this.state.showMenu)
         if (this.props.loggedIn) {
             return (
                 <div className="navbar">

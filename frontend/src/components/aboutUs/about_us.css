@@ -4,6 +4,7 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: #2e3740;
+  cursor: default;
 }
 
 .about-us-wrapper {
@@ -11,7 +12,6 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  border: 1px solid black;
   height: 90vh;
   min-height: 100%;
   padding-left: 10px;
@@ -24,7 +24,6 @@
   width: 45%;
   height: 40%;
   margin: 10px 0px 10px 0px;
-  /* border: 1px solid #1fe36d; */
   outline: none;
   justify-content: center;
   align-items: center;
@@ -46,6 +45,7 @@
 .about-us-avatar {
   height: 100%;
   width: 100%;
+  border-radius: 10px;
 }
 
 .about-us-person-desc {
@@ -58,6 +58,7 @@
   justify-content: center;
   overflow: auto;
   padding-left: 10px;
+  padding-right: 10px;
 }
 
 .about-us-names {
