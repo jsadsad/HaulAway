@@ -4,7 +4,7 @@ import {fetchUser, fetchUsers} from '../../actions/user_actions'
 import {fetchUserJobs, fetchJobs} from '../../actions/job_actions'
 import {fetchReviews, destroyReview} from '../../actions/review_actions'
 import {openModal} from '../../actions/modal_actions'
-import {getUserJobs} from '../../selectors/selectors'
+import {getUserJobs, getOnlyPostedJobs} from '../../selectors/selectors'
 
 const mapStateToProps = (state, ownProps) => {
   let jobs = Object.values(state.entities.jobs)
@@ -17,14 +17,16 @@ const mapStateToProps = (state, ownProps) => {
     // users: state.entities.users,
     // jobs: Object.values(state.entities.jobs),
     jobs: getUserJobs(state, ownProps.match.params.userId),
+    postedJobs: getOnlyPostedJobs(state, ownProps.match.params.userId),
     reviews: Object.values(state.entities.reviews),
+    // allUsers: state.entities.users
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchUser: (id) => dispatch(fetchUser(id)),
-    // fetchUsers: () => dispatch(fetchUsers()),
+    fetchUsers: () => dispatch(fetchUsers()),
     fetchUserJobs: (userId) => dispatch(fetchUserJobs(userId)),
     fetchJobs: () => dispatch(fetchJobs()),
     fetchReviews: () => dispatch(fetchReviews()),

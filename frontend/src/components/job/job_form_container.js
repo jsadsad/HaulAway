@@ -1,4 +1,4 @@
-import { connect } from 'react-redux'
+ import { connect } from 'react-redux'
 import { createJob, clearErrors } from '../../actions/job_actions'
 import JobPostForm from './job_form'
 

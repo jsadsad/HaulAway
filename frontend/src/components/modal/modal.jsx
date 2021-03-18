@@ -3,6 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import './modal.css'
 import EditUserModal from './user_edit_modal'
+import ReviewShowModal from './review_show_modal'
 
 function Modal({modal, closeModal}) {
   if (!modal) {
@@ -12,6 +13,9 @@ function Modal({modal, closeModal}) {
   switch (modal) {
     case 'edit user':
       component = <EditUserModal/>
+      break;
+    case 'review show':
+      component = <ReviewShowModal/>
       break;
     default:
       return null;
