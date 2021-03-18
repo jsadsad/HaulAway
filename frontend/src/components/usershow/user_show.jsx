@@ -48,7 +48,7 @@ class UserShow extends React.Component {
     let totalReviewNum = 0
     let reviewIndexItems  = this.props.postedJobs.map((job) => {
       return this.props.reviews.map((review, index) => {
-        if (job._id === review.jobId && this.props.user !== review.author) {
+        if (job._id === review.jobId && this.props.user._id !== review.author) {
           totalReviewNum += 1
           let formattedDate = new Date(review.date)
           let deleteButton = null;
@@ -84,7 +84,7 @@ class UserShow extends React.Component {
     let totalUserReviews = 0;
     this.props.postedJobs.forEach(job => {
       this.props.reviews.forEach(review => {
-        if(job._id === review.jobId && this.props.user !== review.author) {
+        if(job._id === review.jobId && this.props.user._id !== review.author) {
           totalRating += review.rating
           totalUserReviews += 1
         }
@@ -169,7 +169,7 @@ class UserShow extends React.Component {
     if (!user) {return <div>Loading</div>}
 
     // debugger 
-    console.log(jobs)
+    // console.log(jobs)
     let editButton = ''
     if(this.props.userId === this.props.currentUserId) {
       editButton =  <button onClick={() => this.props.openModal('edit user', user._id )}>Edit</button>

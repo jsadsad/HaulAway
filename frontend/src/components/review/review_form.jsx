@@ -36,7 +36,7 @@ class ReviewForm extends Component {
         jobId: this.state.jobId
       }
       console.log(review)
-      this.props.processForm(review).then(review => console.log(review))
+      this.props.processForm(review)
     }
     render() {
       return (
