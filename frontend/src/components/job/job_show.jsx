@@ -146,7 +146,7 @@ class JobShow extends React.Component {
     // debugger
     this.props.job.reviews.push(this.props.currentUserId)
 
-    const takenJob = {
+    const reviewedJob = {
       _id: this.props.jobId,
       // isReviewed: true,
       reviews: this.props.job.reviews,
@@ -160,7 +160,7 @@ class JobShow extends React.Component {
       pickup: this.props.job.pickup,
     }
 
-    this.props.updateJob(takenJob)
+    this.props.updateJob(reviewedJob)
   }
 
   editJobButton() {

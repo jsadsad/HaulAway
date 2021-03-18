@@ -36,7 +36,28 @@ class ReviewForm extends Component {
         jobId: this.state.jobId
       }
       console.log(review)
+      this.props.job.reviews.push(this.props.author)
+
       this.props.processForm(review)
+        .then(() => {
+
+        
+          const reviewedJob = {
+            _id: this.props.jobId,
+            // isReviewed: true,
+            reviews: this.props.job.reviews,
+            
+            description: this.props.job.description,
+            destination: this.props.job.destination,
+            jobDifficulty: this.props.job.jobDifficulty,
+            jobEndDate: this.props.job.jobEndDate,
+            jobStartDate: this.props.job.jobStartDate,
+            jobType: this.props.job.jobType,
+            pickup: this.props.job.pickup,
+          }
+        
+        this.props.updateJob(reviewedJob)
+      })
     }
     render() {
       return (
