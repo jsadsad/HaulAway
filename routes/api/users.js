@@ -114,6 +114,7 @@ router.post('/login', (req, res) => {
           firstName: user.firstName,
           lastName: user.lastName,
           phoneNumber: user.phoneNumber,
+          reviews: user.reviews
         }
 
         jwt.sign(
@@ -149,7 +150,6 @@ router.patch('/:id', (req, res) => {
         password: user.password,
         phoneNumber: user.phoneNumber,
         profilePic: user.profilePic,
-        reviews: user.reviews,
       }
       res.json(updatedUser)
     })

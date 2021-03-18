@@ -26,9 +26,7 @@ const UserSchema = new Schema({
     type: String,
     required: false,
   },
-  reviews: {
-    type: Array,
-  },
+
 })
 
 module.exports = User = mongoose.model('users', UserSchema)

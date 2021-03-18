@@ -95,7 +95,7 @@ router.patch('/:id', (req, res) => {
         jobTaker: job.jobTaker,
         isAvailable: job.isAvailable,
         isClosed: job.isClosed,
-        isReviewed: job.isReviewed,
+        reviews: job.reviews
       }
       res.json(updatedJob)
     })
