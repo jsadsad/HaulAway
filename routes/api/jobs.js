@@ -72,16 +72,20 @@ router.post(
 router.patch('/:id', (req, res) => {
   const filter = { _id: req.params.id }
   const update = req.body
+  const { errors, isValid } = validateJob(req.body)
+
+  if (!isValid) {
+    return res.status(400).json(errors)
+  }
 
   Job.findOneAndUpdate(filter, update, { new: true })
-  .populate('jobPoster')
+    .populate('jobPoster')
     .then((job) => {
       const updatedJob = {
         _id: job.id,
         jobPoster: {
           _id: job.jobPoster._id,
-          firstName: job.jobPoster.firstName
-
+          firstName: job.jobPoster.firstName,
         },
         description: job.description,
         pickup: job.pickup,
