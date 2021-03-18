@@ -66,9 +66,8 @@ const JobSchema = new Schema({
     type: Boolean,
     default: false,
   },
-  isReviewed: {
-    type: Boolean,
-    default: false,
+  reviews: {
+    type: Array,
   },
 })
 

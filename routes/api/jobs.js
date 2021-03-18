@@ -85,7 +85,11 @@ router.patch('/:id', (req, res) => {
         _id: job.id,
         jobPoster: {
           _id: job.jobPoster._id,
+<<<<<<< HEAD
           firstName: job.jobPoster.firstName,
+=======
+          firstName: job.jobPoster.firstName
+>>>>>>> main
         },
         description: job.description,
         pickup: job.pickup,
@@ -100,7 +104,7 @@ router.patch('/:id', (req, res) => {
         jobTaker: job.jobTaker,
         isAvailable: job.isAvailable,
         isClosed: job.isClosed,
-        isReviewed: job.isReviewed,
+        reviews: job.reviews
       }
       res.json(updatedJob)
     })
