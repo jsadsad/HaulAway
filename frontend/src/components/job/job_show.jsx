@@ -125,6 +125,9 @@ class JobShow extends React.Component {
 
   closeReview(e) {
     e.preventDefault()
+    const newArray = this.props.reviews
+    this.props.reviews.push(this.props.jobId)
+    console.log(newArray)
 
     const takenJob = {
       _id: this.props.jobId,
@@ -207,27 +210,29 @@ class JobShow extends React.Component {
 
   reviewJobButtons() {
     const job = this.props.job
-    if (
-      job.jobPoster._id === this.props.currentUserId &&
-      !job.isReviewed &&
-      job.isClosed
-    )
-      return (
-        <div className="review-job-buttons">
-          <div className="review-buttons-title">
-            Would you like to review this transaction?
-          </div>
-          <div className="review-job-buttons-inner-wrap">
-            <button className="test-reopen-job" onClick={this.openJob}>Re-Open Job</button>
-            <Link to={`/jobs/${job._id}/review`} job={job}>
-              <button className="close-job-button">YES</button>
-            </Link>
-            <button className="close-job-button" onClick={this.closeReview}>
-              NO
-            </button>
-          </div>
-        </div>
+    // debugger
+    if (!this.props.reviews.includes(this.props.jobId)) {
+      if (
+        ((job.jobPoster._id === this.props.currentUserId) || (job.jobTaker === this.props.currentUserId)) &&
+        job.isClosed
       )
+        return (
+          <div className="review-job-buttons">
+            <div className="review-buttons-title">
+              Would you like to review this transaction?
+            </div>
+            <div className="review-job-buttons-inner-wrap">
+              <button className="test-reopen-job" onClick={this.openJob}>Re-Open Job</button>
+              <Link to={`/jobs/${job._id}/review`} job={job}>
+                <button className="close-job-button">YES</button>
+              </Link>
+              <button className="close-job-button" onClick={this.closeReview}>
+                NO
+              </button>
+            </div>
+          </div>
+        )
+    }
   }
 
   // jobPictures() {
@@ -252,6 +257,7 @@ class JobShow extends React.Component {
     if (!job) return null
     const coords = this.state.mapPosition
 
+    // console.log(this.state.session.user.lastName)
 
     return (
       <div className="job-show-outer">
