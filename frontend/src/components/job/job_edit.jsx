@@ -174,10 +174,10 @@ class JobEdit extends React.Component {
                   <select
                     className="job-post-lvl-btn"
                     onChange={this.handleField('jobDifficulty')}
-                    value={this.state.jobDifficulty}
+                    defaultValue={this.state.jobDifficulty}
                   >
                     <option value="easy">&#60;-----Easy-----&#62;</option>
-                    <option value="medium">&#60;-----Medium-----</option>
+                    <option value="medium">&#60;-----Medium-----&#62;</option>
                     <option value="hard">&#60;-----Hard-----&#62;</option>
                   </select>
                 </div>
@@ -188,6 +188,7 @@ class JobEdit extends React.Component {
                     style={{ width: '25%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
+                    defaultValue={job.pickup}
                     placeholder={job.pickup}
                   />
                   {this.props.errors.pickup}
@@ -200,6 +201,7 @@ class JobEdit extends React.Component {
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('destination')}
+                    defaultValue={job.pickup}
                     placeholder={job.destination}
                   />
                   {this.props.errors.destination}
@@ -208,7 +210,6 @@ class JobEdit extends React.Component {
                 <div className="job-edit-input-box">
                   <label className="edit-start-end-date">Start</label>
                   <input
-                    required
                     onChange={this.handleField('jobStartDate')}
                     type="date"
                     className="job-edit-input-date"
@@ -220,7 +221,6 @@ class JobEdit extends React.Component {
                 <div className="job-edit-input-box">
                   <label className="edit-start-end-date">End</label>
                   <input
-                    required
                     onChange={this.handleField('jobEndDate')}
                     type="date"
                     className="job-edit-input-date2"
