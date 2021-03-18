@@ -78,8 +78,17 @@ class JobShow extends React.Component {
       _id: this.props.jobId,
       jobTaker: this.props.currentUserId,
       isAvailable: false,
-    }
 
+      description: this.props.job.description,
+      destination: this.props.job.destination,
+      jobDifficulty: this.props.job.jobDifficulty,
+      jobEndDate: this.props.job.jobEndDate,
+      jobStartDate: this.props.job.jobStartDate,
+      jobType: this.props.job.jobType,
+      pickup: this.props.job.pickup,
+
+    }
+    // debugger
     this.props.updateJob(takenJob).then(
       this.setState({
         isChanged: !this.state.isChanged,
@@ -94,6 +103,14 @@ class JobShow extends React.Component {
       _id: this.props.jobId,
       jobTaker: '',
       isAvailable: true,
+
+      description: this.props.job.description,
+      destination: this.props.job.destination,
+      jobDifficulty: this.props.job.jobDifficulty,
+      jobEndDate: this.props.job.jobEndDate,
+      jobStartDate: this.props.job.jobStartDate,
+      jobType: this.props.job.jobType,
+      pickup: this.props.job.pickup,
     }
 
     this.props.updateJob(takenJob)
@@ -106,6 +123,14 @@ class JobShow extends React.Component {
       _id: this.props.jobId,
       isClosed: false,
       jobPoster: this.props.job.jobPoster,
+
+      description: this.props.job.description,
+      destination: this.props.job.destination,
+      jobDifficulty: this.props.job.jobDifficulty,
+      jobEndDate: this.props.job.jobEndDate,
+      jobStartDate: this.props.job.jobStartDate,
+      jobType: this.props.job.jobType,
+      pickup: this.props.job.pickup,
     }
     this.props.updateJob(takenJob).then(
       this.setState({
@@ -117,13 +142,22 @@ class JobShow extends React.Component {
 
   closeReview(e) {
     e.preventDefault()
-    const newArray = this.props.reviews
-    this.props.reviews.push(this.props.jobId)
-    console.log(newArray)
+    // const newArray = this.props.reviews
+    // debugger
+    this.props.job.reviews.push(this.props.currentUserId)
 
     const takenJob = {
       _id: this.props.jobId,
-      isReviewed: true,
+      // isReviewed: true,
+      reviews: this.props.job.reviews,
+
+      description: this.props.job.description,
+      destination: this.props.job.destination,
+      jobDifficulty: this.props.job.jobDifficulty,
+      jobEndDate: this.props.job.jobEndDate,
+      jobStartDate: this.props.job.jobStartDate,
+      jobType: this.props.job.jobType,
+      pickup: this.props.job.pickup,
     }
 
     this.props.updateJob(takenJob)
@@ -179,6 +213,14 @@ class JobShow extends React.Component {
       _id: this.props.jobId,
       isClosed: true,
       jobPoster: this.props.job.jobPoster,
+
+      description: this.props.job.description,
+      destination: this.props.job.destination,
+      jobDifficulty: this.props.job.jobDifficulty,
+      jobEndDate: this.props.job.jobEndDate,
+      jobStartDate: this.props.job.jobStartDate,
+      jobType: this.props.job.jobType,
+      pickup: this.props.job.pickup,
     }
     this.props.updateJob(takenJob).then(
       this.setState({
@@ -205,32 +247,32 @@ class JobShow extends React.Component {
     }
   }
 
-  // reviewJobButtons() {
-  //   const job = this.props.job
-  //   // debugger
-  //   if (!this.props.reviews.includes(this.props.jobId)) {
-  //     if (
-  //       ((job.jobPoster._id === this.props.currentUserId) || (job.jobTaker === this.props.currentUserId)) &&
-  //       job.isClosed
-  //     )
-  //       return (
-  //         <div className="review-job-buttons">
-  //           <div className="review-buttons-title">
-  //             Would you like to review this transaction?
-  //           </div>
-  //           <div className="review-job-buttons-inner-wrap">
-  //             <button className="test-reopen-job" onClick={this.openJob}>Re-Open Job</button>
-  //             <Link to={`/jobs/${job._id}/review`} job={job}>
-  //               <button className="close-job-button">YES</button>
-  //             </Link>
-  //             <button className="close-job-button" onClick={this.closeReview}>
-  //               NO
-  //             </button>
-  //           </div>
-  //         </div>
-  //       )
-  //   }
-  // }
+  reviewJobButtons() {
+    const job = this.props.job
+    // debugger
+    if (!job.reviews.includes(this.props.currentUserId)) {
+      if (
+        ((job.jobPoster._id === this.props.currentUserId) || (job.jobTaker === this.props.currentUserId)) &&
+        job.isClosed
+      )
+        return (
+          <div className="review-job-buttons">
+            <div className="review-buttons-title">
+              Would you like to review this transaction?
+            </div>
+            <div className="review-job-buttons-inner-wrap">
+              <button className="test-reopen-job" onClick={this.openJob}>Re-Open Job</button>
+              <Link to={`/jobs/${job._id}/review`} job={job}>
+                <button className="close-job-button">YES</button>
+              </Link>
+              <button className="close-job-button" onClick={this.closeReview}>
+                NO
+              </button>
+            </div>
+          </div>
+        )
+    }
+  }
 
   // jobPictures() {
   //   const job = this.props.job
@@ -327,7 +369,7 @@ class JobShow extends React.Component {
                 <div className="close-job-button-wrap">
                   {this.closeJobButton()}
                 </div>
-                {/* <div className="review-job-buttons-wrap">{this.reviewJobButtons()}</div> */}
+                <div className="review-job-buttons-wrap">{this.reviewJobButtons()}</div>
               </div>
             </div>
 
