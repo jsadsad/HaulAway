@@ -149,39 +149,39 @@ class JobEdit extends React.Component {
     })
   }
 
-  // distanceRender() {
-  //   if (this.state.destination) {
-  //     if (
-  //       this.state.destination === '' ||
-  //       this.state.pickup === '' ||
-  //       !this.state.destination.includes('USA')
-  //     ) {
-  //       return 0
-  //     } else {
-  //       return convertDistance(
-  //         getDistance(
-  //           {
-  //             latitude: this.state.pickupCoords.lat,
-  //             longitude: this.state.pickupCoords.lng,
-  //           },
-  //           {
-  //             latitude: this.state.destinationCoords.lat,
-  //             longitude: this.state.destinationCoords.lng,
-  //           },
-  //           0.01
-  //         ),
-  //         'mi'
-  //       )
-  //     }
-  //   } else {
-  //     return 0
-  //   }
-  // }
+  distanceRender() {
+    if (this.state.destination) {
+      if (
+        this.state.destination === '' ||
+        this.state.pickup === '' ||
+        !this.state.destination.includes('USA')
+      ) {
+        return 0
+      } else {
+        return convertDistance(
+          getDistance(
+            {
+              latitude: this.state.pickupCoords.lat,
+              longitude: this.state.pickupCoords.lng,
+            },
+            {
+              latitude: this.state.destinationCoords.lat,
+              longitude: this.state.destinationCoords.lng,
+            },
+            0.01
+          ),
+          'mi'
+        )
+      }
+    } else {
+      return 0
+    }
+  }
 
-  // priceRender() {
-  //   let distancePrice = this.distanceRender()
-  //   return distancePrice * 2.55
-  // }
+  priceRender() {
+    let distancePrice = this.distanceRender()
+    return distancePrice * 2.55
+  }
 
   render() {
     if (!this.props.job) return null
@@ -260,22 +260,16 @@ class JobEdit extends React.Component {
                 </div>
                 <div className="form-distance-container">
                   <label className="form-distance-text">
-                    Distance:
-                    <span className="form-distance-num">
-                      Previous Distance: {this.state.distance}
-                      <br />
-                      {/* New Distance: {this.distanceRender().toFixed(2)} miles */}
-                    </span>
+                    Previous Distance: {this.state.distance}
+                    <br />
+                    New Distance: {this.distanceRender().toFixed(2)} miles
                   </label>
                 </div>
                 <div className="form-distance-container">
                   <label className="form-distance-text">
-                    Price:
-                    <span className="form-distance-num">
-                      Previous Price: {this.state.price}
-                      <br />
-                      New Price: {/* $ {this.priceRender().toFixed(2)} */}
-                    </span>
+                    Previous Price: {this.state.price}
+                    <br />
+                    New Price: $ {this.priceRender().toFixed(2)}
                   </label>
                 </div>
                 <br />
