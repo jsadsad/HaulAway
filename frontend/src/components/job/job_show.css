@@ -78,14 +78,19 @@
 .job-show-map-container {
   min-height: 50%;
   object-fit: contain;
-  overflow: auto;
+  display: block;
+  position: relative;
 }
 
 .job-show-map {
-  max-height: 18%;
-  max-width: 20%;
+  max-height: 85%;
   border-radius: 12px;
 }
+
+/* .job-show-pictures-outer-wrap {
+  display: block;
+  position: relative;
+} */
 
 .job-show-pictures-wrap {
   display: flex;

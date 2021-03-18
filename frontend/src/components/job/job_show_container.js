@@ -5,13 +5,11 @@ import JobShow from './job_show';
 
 const mSTP = (state, ownProps) => {
   
-  // debugger
   return {
     jobId: ownProps.match.params.jobId,
     jobs: state.entities.jobs,
     currentUserId: state.session.user.id,
     job: state.entities.jobs[ownProps.match.params.jobId],
-    reviews: state.session.user.reviews
 
   }
 }

@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import Autocomplete from 'react-google-autocomplete'
 import Navbar from '../navbar/navbar_container'
 import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
 import { getDistance, convertDistance } from 'geolib'
 import { uploadPhotos } from '../../util/photo_api_util'
+import Loader from '../Loader/loader'
 import './job_form.css'
 
 class JobPostForm extends React.Component {
@@ -174,6 +175,7 @@ class JobPostForm extends React.Component {
     const coords = this.state.mapPosition
 
     return (
+      <Suspense fallback={<Loader />}>
       <div className="job-post-outer">
         <Navbar />
         <div className="job-post-container">
@@ -328,6 +330,7 @@ class JobPostForm extends React.Component {
           </div>
         </div>
       </div>
+      </Suspense>
     )
   }
 }
