@@ -7,7 +7,7 @@
   color: white;
 }
 
-.job-show-body-wrapper{
+.job-show-body-wrapper {
   display: flex;
   min-width: 100vw;
   min-height: 640px;
@@ -19,36 +19,33 @@
   justify-content: center;
 }
 
-.job-show-body-inner-wrapper{
+.job-show-body-inner-wrapper {
   display: flex;
   max-width: 50%;
   min-width: 50%;
-
 }
 
-.color-one{
+.color-one {
   color: #1fce6d;
-  font-size:medium;
+  font-size: medium;
   font-weight: 800;
 }
 
-.color-two{
+.color-two {
   color: white;
   font-size: large;
   font-weight: 800;
   padding-bottom: 15px;
-
 }
 
-.job-show-info-left-side{
+.job-show-info-left-side {
   padding: 30px;
   min-width: 50%;
   width: 50%;
   display: block;
-
 }
 
-.job-show-info-right-side{
+.job-show-info-right-side {
   padding: 30px;
   min-width: 50%;
   width: 50%;
@@ -56,33 +53,40 @@
   flex-direction: column;
 }
 
-.job-show-poster{
+.job-show-poster {
   padding-bottom: 15px;
 }
 
-.job-show-poster:hover .job-poster-link{
+.job-show-poster:hover .job-poster-link {
   text-decoration: underline;
 }
 
-.job-poster-link{
+.job-poster-link {
   text-decoration: none;
   cursor: pointer;
 }
 
-.job-show-difficulty-title{
+.job-show-difficulty-title {
   display: flex;
 }
 
-.job-show-start-end-inner-wrap{
+.job-show-start-end-inner-wrap {
   display: flex;
   align-items: baseline;
 }
 
-.job-show-map{
+.job-show-map-container {
   min-height: 50%;
+  object-fit: contain;
+  overflow: auto;
 }
 
-.job-show-pictures-wrap{
+.job-show-map {
+  max-height: 50%;
+  max-width: 50%;
+}
+
+.job-show-pictures-wrap {
   display: flex;
   /* flex-direction: column; */
   object-fit: contain;
@@ -90,20 +94,19 @@
   transition: 0.6s ease-in;
 }
 
-.job-show-single-picture-wrap{
+.job-show-single-picture-wrap {
   padding: 5px;
 }
 
-.job-show-picture{
+.job-show-picture {
   height: 50px;
   width: 50px;
   border-radius: 12px;
   border: solid 3px #1fce6d;
   transition: 0.6s ease-in;
-
 }
 
-.job-show-single-picture-wrap:hover .job-show-picture{
+.job-show-single-picture-wrap:hover .job-show-picture {
   position: absolute;
   /* margin-left: -100px; */
   z-index: 1;
@@ -111,6 +114,4 @@
   width: 200px;
   /* border-radius: 12px; */
   /* display: flex; */
-
 }
-

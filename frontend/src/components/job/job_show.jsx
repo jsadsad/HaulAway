@@ -2,6 +2,10 @@ import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import './job_show.css'
 import { Link, withRouter } from 'react-router-dom'
+import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
+import Geocode from  'react-geocode'
+Geocode.setApiKey('AIzaSyBQf1ahKg7gbuVHd9daHMMvm0zfPEpnBd8')
+
 
 class JobShow extends React.Component {
   constructor(props) {
@@ -9,7 +13,16 @@ class JobShow extends React.Component {
 
     this.state = {
       isChanged: false,
-      shouldUpdate: true
+      shouldUpdate: true,
+
+      mapPosition: {
+        lat: 36.778259,
+        lng: -119.417931,
+      },
+      markerPosition: {
+        lat: undefined,
+        lng: undefined,
+      },
     }
 
     this.takeJob = this.takeJob.bind(this)
@@ -27,6 +40,9 @@ class JobShow extends React.Component {
     // debugger
     if (this.state.shouldUpdate) {
     this.props.fetchJob(this.props.jobId)
+      .then(() => {
+        this.getCoords();
+      })
     }
   }
 
@@ -41,9 +57,23 @@ class JobShow extends React.Component {
       })
       )
     }
+  }
 
-
-
+  getCoords() {
+    Geocode.fromAddress(this.props.job.destination)
+      .then((res) => {
+        const {lat, lng} = res.results[0].geometry.location
+        this.setState({
+          markerPosition: {
+            lat: lat,
+            lng: lng
+          },
+          mapPosition: {
+          lat: lat,
+          lng: lng
+          }
+        })
+      })
   }
 
   takeJob(e) {
@@ -220,12 +250,13 @@ class JobShow extends React.Component {
   render() {
     const job = this.props.job
     if (!job) return null
+    const coords = this.state.mapPosition
+
 
     return (
       <div className="job-show-outer">
 
         <Navbar />
-
         <div className="job-show-body-wrapper">
           <div className="job-show-body-inner-wrapper">
 
@@ -269,8 +300,37 @@ class JobShow extends React.Component {
 
             <div className="job-show-info-right-side">
 
-              <div className="job-show-map">
-                <div>Ill be a map</div>
+              <div className="job-show-map-container">              
+                  <Map
+                  className="job-show-map"
+                  zoom={12}
+                  google={this.props.google}
+                  initialCenter={{
+                    lat: 36.778259,
+                    lng: -119.417931,
+                  }}
+                  center={{
+                    lat: this.state.mapPosition.lat,
+                    lng: this.state.mapPosition.lng,
+                  }}
+                >
+                  <Marker
+                    draggable={true}
+                    position={{
+                      lat: this.state.markerPosition.lat,
+                      lng: this.state.markerPosition.lng,
+                    }}
+                  />
+                  <Circle
+                    radius={2400}
+                    center={coords}
+                    strokeColor="transparent"
+                    strokeOpacity={0}
+                    strokeWeight={5}
+                    fillColor="#FF0000"
+                    fillOpacity={0.3}
+                  />
+                </Map>
               </div>
               <div className="job-show-pictures-title color-one">Items to Haul:</div> 
               <div className="job-show-pictures-wrap">
@@ -298,4 +358,6 @@ class JobShow extends React.Component {
   }
 }
 
-export default JobShow
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyBQf1ahKg7gbuVHd9daHMMvm0zfPEpnBd8',
+})(JobShow)
