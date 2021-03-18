@@ -300,7 +300,7 @@ class JobShow extends React.Component {
 
             <div className="job-show-info-right-side">
 
-              <div className="job-show-map-container">              
+              <div className="job-show-map-container color-one">Destination:     
                   <Map
                   className="job-show-map"
                   zoom={12}

@@ -82,8 +82,9 @@
 }
 
 .job-show-map {
-  max-height: 50%;
-  max-width: 50%;
+  max-height: 18%;
+  max-width: 20%;
+  border-radius: 12px;
 }
 
 .job-show-pictures-wrap {
