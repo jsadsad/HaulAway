@@ -81,7 +81,6 @@ router.patch('/:id', (req, res) => {
         jobPoster: {
           _id: job.jobPoster._id,
           firstName: job.jobPoster.firstName
-
         },
         description: job.description,
         pickup: job.pickup,
