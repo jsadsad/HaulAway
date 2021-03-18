@@ -8,6 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     reviewId: ownProps.match.params.reviewId,
     review: state.entities.reviews[ownProps.match.params.reviewId]
+    
   }
 }
 

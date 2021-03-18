@@ -13,8 +13,9 @@ class UserShow extends React.Component {
 
   componentDidMount() {
     // debugger
-    // this.props.fetchUsers()
-    this.props.fetchUser(this.props.userId)
+    this.props.fetchUsers().then(
+      this.props.fetchUser(this.props.userId)
+    )
     this.props.fetchJobs()
     // this.props.fetchUserJobs(this.props.userId)
     this.props.fetchReviews()
