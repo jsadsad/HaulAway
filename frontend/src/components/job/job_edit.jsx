@@ -1,12 +1,11 @@
 import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import Autocomplete from 'react-google-autocomplete'
-import { uploadPhotos } from '../../util/photo_api_util'
-import { getDistance, convertDistance } from 'geolib'
 import Geocode from 'react-geocode'
-import './job_edit.css'
-
+import { uploadPhotos } from '../../util/photo_api_util'
 import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
+import { getDistance, convertDistance } from 'geolib'
+import './job_edit.css'
 
 class JobEdit extends React.Component {
   constructor(props) {
@@ -215,10 +214,9 @@ class JobEdit extends React.Component {
   }
 
   render() {
-    if (!this.props.job) return null
-
-    const { job } = this.props
     const coords = this.state.mapPosition
+    const { job, errors } = this.props
+    if (!job) return null
 
     let previewPictures
     if (job.pictures) {
@@ -249,7 +247,7 @@ class JobEdit extends React.Component {
                     value={this.state.description}
                     onChange={this.handleField('description')}
                   />
-                  {this.props.errors.description}
+                  {errors.description}
                 </div>
                 <div>
                   <select
@@ -270,10 +268,9 @@ class JobEdit extends React.Component {
                     style={{ width: '25%' }}
                     types={['address']}
                     onChange={this.handleField('pickup')}
-                    // defaultValue={job.pickup}
                     placeholder={job.pickup}
                   />
-                  {this.props.errors.pickup}
+                  {errors.pickup}
                 </div>
                 <div className="job-edit-input-box">
                   <Autocomplete
@@ -283,10 +280,9 @@ class JobEdit extends React.Component {
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('destination')}
-                    // defaultValue={job.destination}
                     placeholder={job.destination}
                   />
-                  {this.props.errors.destination}
+                  {errors.destination}
                 </div>
                 <div className="form-distance-container">
                   <label className="form-distance-text">
@@ -312,7 +308,7 @@ class JobEdit extends React.Component {
                     defaultValue={job.jobStartDate}
                     onChange={this.handleField('jobStartDate')}
                   />
-                  {this.props.errors.jobStartDate}
+                  {errors.jobStartDate}
                 </div>
                 <br />
                 <div className="job-edit-input-box">
@@ -325,7 +321,7 @@ class JobEdit extends React.Component {
                     onChange={this.handleField('jobEndDate')}
                     min={job.jobStartDate}
                   />
-                  {this.props.errors.jobEndDate}
+                  {errors.jobEndDate}
                 </div>
                 <br />
                 <div className="job-edit-input-box">
