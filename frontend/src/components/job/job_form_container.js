@@ -10,7 +10,7 @@ const mapStateToProps = ({ errors }) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    clearErrors: () => dispatch(clearErrors),
+    clearErrors: () => dispatch(clearErrors()),
     processJobForm: (job) => dispatch(createJob(job)),
   }
 }

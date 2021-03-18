@@ -20,7 +20,7 @@ const mDTP = (dispatch) => {
   return {
     updateJob: (job) => dispatch(updateJob(job)),
     fetchJob: (jobId) => dispatch(fetchJob(jobId)),
-    clearErrors: () => dispatch(clearErrors),
+    clearErrors: () => dispatch(clearErrors()),
     deleteJob: (jobId) => dispatch(destroyJob(jobId)),
   }
 }

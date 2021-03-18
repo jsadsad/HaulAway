@@ -36,7 +36,6 @@ class JobPostForm extends React.Component {
       pictures: [],
       selectedFile: null,
     }
-
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handlePhotoFile = this.handlePhotoFile.bind(this)
     this.onPickupSelected = this.onPickupSelected.bind(this)
@@ -44,7 +43,7 @@ class JobPostForm extends React.Component {
     this.distanceRender = this.distanceRender.bind(this)
   }
 
-  componentWilUnmount() {
+  componentWillUnmount() {
     this.props.clearErrors()
   }
 
@@ -184,6 +183,7 @@ class JobPostForm extends React.Component {
                 <h2 className="job-post-text">Job Request</h2>
                 <div className="job-post-input-box">
                   <textarea
+                    required
                     className="job-post-input-desc"
                     placeholder="Description"
                     value={this.state.description}
@@ -208,17 +208,20 @@ class JobPostForm extends React.Component {
                 <br />
                 <div className="job-post-input-box">
                   <Autocomplete
+                    required
                     onPlaceSelected={this.onPickupSelected}
                     className="job-post-input-pickup"
                     style={{ width: '40%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
+                    onChange={this.handleField('pickup')}
                     placeholder="Pickup"
                   />
                 </div>
                 <br />
                 <div className="job-post-input-box">
                   <Autocomplete
+                    required
                     onPlaceSelected={this.onDestinationSelected}
                     className="job-post-input-dest"
                     style={{ width: '40%' }}
@@ -247,9 +250,9 @@ class JobPostForm extends React.Component {
                 <div className="job-post-input-box">
                   <label className="form-start-end-date">Start</label>
                   <input
+                    required
                     onChange={this.handleField('jobStartDate')}
                     type="date"
-                    required
                     className="job-post-input-date"
                     value={this.state.jobStartDate}
                   />
@@ -259,9 +262,9 @@ class JobPostForm extends React.Component {
                 <div className="job-post-input-box">
                   <label className="form-start-end-date">End</label>
                   <input
+                    required
                     onChange={this.handleField('jobEndDate')}
                     type="date"
-                    required
                     min={this.state.jobStartDate}
                     className="job-post-input-date2"
                     value={this.state.jobEndDate}
@@ -272,7 +275,12 @@ class JobPostForm extends React.Component {
                 <div className="job-post-input-box">
                   <label className="upload-photos-text">Upload Photos!</label>
                   <br />
-                  <input type="file" onChange={this.handlePhotoFile} multiple />
+                  <input
+                    required
+                    type="file"
+                    onChange={this.handlePhotoFile}
+                    multiple
+                  />
                 </div>
                 <button className="job-form-btn">Submit</button>
               </div>

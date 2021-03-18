@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import Autocomplete from 'react-google-autocomplete'
 import { uploadPhotos } from '../../util/photo_api_util'
+import { getDistance, convertDistance } from 'geolib'
 import './job_edit.css'
 
 import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
@@ -19,6 +20,14 @@ class JobEdit extends React.Component {
         lat: undefined,
         lng: undefined,
       },
+      pickupCoords: {
+        lat: '',
+        lng: '',
+      },
+      destinationCoords: {
+        lat: '',
+        lng: '',
+      },
       pictures: this.props.job,
       selectedFile: null,
     }
@@ -30,12 +39,18 @@ class JobEdit extends React.Component {
     this.handleDelete = this.handleDelete.bind(this)
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors()
+  }
+
   componentDidMount() {
     this.props.fetchJob(this.props.match.params.jobId).then(() => {
       this.setState({
         description: this.props.job ? this.props.job.description : '',
         pickup: this.props.job ? this.props.job.pickup : '',
         destination: this.props.job ? this.props.job.destination : '',
+        distance: this.props.job ? this.props.job.distance : '',
+        price: this.props.job ? this.props.job.price : '',
         jobDifficulty: this.props.job ? this.props.job.jobDifficulty : '',
         jobStartDate: this.props.job ? this.props.job.jobStartDate : '',
         jobEndDate: this.props.job ? this.props.job.jobEndDate : '',
@@ -134,6 +149,40 @@ class JobEdit extends React.Component {
     })
   }
 
+  // distanceRender() {
+  //   if (this.state.destination) {
+  //     if (
+  //       this.state.destination === '' ||
+  //       this.state.pickup === '' ||
+  //       !this.state.destination.includes('USA')
+  //     ) {
+  //       return 0
+  //     } else {
+  //       return convertDistance(
+  //         getDistance(
+  //           {
+  //             latitude: this.state.pickupCoords.lat,
+  //             longitude: this.state.pickupCoords.lng,
+  //           },
+  //           {
+  //             latitude: this.state.destinationCoords.lat,
+  //             longitude: this.state.destinationCoords.lng,
+  //           },
+  //           0.01
+  //         ),
+  //         'mi'
+  //       )
+  //     }
+  //   } else {
+  //     return 0
+  //   }
+  // }
+
+  // priceRender() {
+  //   let distancePrice = this.distanceRender()
+  //   return distancePrice * 2.55
+  // }
+
   render() {
     if (!this.props.job) return null
 
@@ -163,6 +212,7 @@ class JobEdit extends React.Component {
                 <h2 className="job-edit-text">Job Edit</h2>
                 <div className="job-edit-input-box">
                   <textarea
+                    required
                     className="job-edit-input-desc"
                     placeholder="Description"
                     value={this.state.description}
@@ -174,45 +224,69 @@ class JobEdit extends React.Component {
                   <select
                     className="job-post-lvl-btn"
                     onChange={this.handleField('jobDifficulty')}
-                    value={this.state.jobDifficulty}
+                    defaultValue={job.jobDifficulty}
                   >
                     <option value="easy">&#60;-----Easy-----&#62;</option>
-                    <option value="medium">&#60;-----Medium-----</option>
+                    <option value="medium">&#60;-----Medium-----&#62;</option>
                     <option value="hard">&#60;-----Hard-----&#62;</option>
                   </select>
                 </div>
                 <br />
                 <div className="job-edit-input-box">
                   <Autocomplete
+                    required
                     onPlaceSelected={this.onPickupSelected}
                     style={{ width: '25%' }}
                     types={['address']}
+                    onChange={this.handleField('pickup')}
                     componentRestrictions={{ country: 'us' }}
+                    defaultValue={job.pickup}
                     placeholder={job.pickup}
                   />
                   {this.props.errors.pickup}
                 </div>
-                <br />
                 <div className="job-edit-input-box">
                   <Autocomplete
+                    required
                     onPlaceSelected={this.onDestinationSelected}
                     style={{ width: '25%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('destination')}
+                    defaultValue={job.destination}
                     placeholder={job.destination}
                   />
                   {this.props.errors.destination}
+                </div>
+                <div className="form-distance-container">
+                  <label className="form-distance-text">
+                    Distance:
+                    <span className="form-distance-num">
+                      Previous Distance: {this.state.distance}
+                      <br />
+                      {/* New Distance: {this.distanceRender().toFixed(2)} miles */}
+                    </span>
+                  </label>
+                </div>
+                <div className="form-distance-container">
+                  <label className="form-distance-text">
+                    Price:
+                    <span className="form-distance-num">
+                      Previous Price: {this.state.price}
+                      <br />
+                      New Price: {/* $ {this.priceRender().toFixed(2)} */}
+                    </span>
+                  </label>
                 </div>
                 <br />
                 <div className="job-edit-input-box">
                   <label className="edit-start-end-date">Start</label>
                   <input
                     required
-                    onChange={this.handleField('jobStartDate')}
                     type="date"
                     className="job-edit-input-date"
-                    value={job.jobStartDate}
+                    defaultValue={job.jobStartDate}
+                    onChange={this.handleField('jobStartDate')}
                   />
                   {this.props.errors.jobStartDate}
                 </div>
@@ -221,10 +295,11 @@ class JobEdit extends React.Component {
                   <label className="edit-start-end-date">End</label>
                   <input
                     required
-                    onChange={this.handleField('jobEndDate')}
                     type="date"
                     className="job-edit-input-date2"
-                    value={job.jobEndDate}
+                    defaultValue={job.jobEndDate}
+                    onChange={this.handleField('jobEndDate')}
+                    min={job.jobStartDate}
                   />
                   {this.props.errors.jobEndDate}
                 </div>
@@ -237,8 +312,8 @@ class JobEdit extends React.Component {
                   <input
                     type="file"
                     className="job-edit-upload-btn"
-                    multiple
                     onChange={this.handlePhotoFile}
+                    multiple
                   />
                 </div>
                 <div className="preview-photos">{previewPictures}</div>
