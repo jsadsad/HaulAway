@@ -4,6 +4,7 @@ import './job_show.css'
 import { Link, withRouter } from 'react-router-dom'
 import { GoogleApiWrapper, Map, Marker, Circle } from 'google-maps-react'
 import Geocode from 'react-geocode'
+import Loader from '../Loader/loader'
 Geocode.setApiKey('AIzaSyBQf1ahKg7gbuVHd9daHMMvm0zfPEpnBd8')
 
 class JobShow extends React.Component {
@@ -251,7 +252,7 @@ class JobShow extends React.Component {
 
   render() {
     const job = this.props.job
-    if (!job) return null
+    if (!job) { return <Loader /> }
     const coords = this.state.mapPosition
 
     // console.log(this.state.session.user.lastName)

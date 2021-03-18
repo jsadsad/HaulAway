@@ -17,7 +17,6 @@ import ReviewFormContainer from '../components/review/review_form_container'
 import Modal from '../components/modal/modal'
 import JobEditContainer from '../components/job/job_edit_container'
 import AboutUs from './aboutUs/about_us'
-import Loader from './Loader/loader'
 
 const App = () => (
   <div>
@@ -35,7 +34,6 @@ const App = () => (
       <ProtectedRoute exact path='/jobs/edit/:jobId' component={JobEditContainer} />
       <ProtectedRoute exact path='/review' component={ReviewFormContainer} />
       <ProtectedRoute exact path='/about' component={AboutUs} />
-      <Route exact path='/loader' component={Loader} />
     </Switch>
   </div>
 )
