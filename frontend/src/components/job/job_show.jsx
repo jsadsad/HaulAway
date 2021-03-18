@@ -31,11 +31,12 @@ class JobShow extends React.Component {
 
   componentDidMount() {
     // debugger
-    if (this.state.shouldUpdate) {
-      this.props.fetchJob(this.props.jobId).then(() => {
+    // if (this.state.shouldUpdate) {
+      this.props.fetchJob(this.props.jobId)
+      .then(() => {
         this.getCoords()
       })
-    }
+    // }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -203,22 +204,23 @@ class JobShow extends React.Component {
 
   }
 
-  // jobPictures() {
-  //   const job = this.props.job
-  //   if (job.pictures.length !== 0) {
-  //     job.pictures.map((picture, idx) => {
-  //       return (
-  //         <div className="job-show-single-picture-wrap" key={idx}>
-  //           <img className="job-show-picture" src={picture} alt="job-picture"/>
-  //         </div>
-  //       )
-  //     })
-  //   } else {
-  //     return (
-  //       <div>No pictures for this job</div>
-  //     )
-  //   }
-  // }
+  jobPictures() {
+    const job = this.props.job
+    debugger
+    if (job.pictures.length === 0) {
+      return (
+        <div className="color-one">No pictures for this job</div>
+      )
+    } else {
+      job.pictures.map((picture, idx) => {
+        return (
+          <div className="job-show-single-picture-wrap" key={idx}>
+            <img className="job-show-picture" src={picture} alt="job-picture"/>
+          </div>
+        )
+      })
+    }
+  }
 
   render() {
     const job = this.props.job
@@ -338,6 +340,7 @@ class JobShow extends React.Component {
                   />
                 </Map>
               </div>
+
               <div className="job-show-pictures-title color-one">
                 Items to Haul:
               </div>
@@ -353,8 +356,8 @@ class JobShow extends React.Component {
                     </div>
                   )
                 })}
-                {/* {this.jobPictures()} */}
               </div>
+              
             </div>
           </div>
         </div>
