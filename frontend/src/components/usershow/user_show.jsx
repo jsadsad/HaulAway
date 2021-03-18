@@ -13,8 +13,8 @@ class UserShow extends React.Component {
 
   componentDidMount() {
     // debugger
-    this.props.fetchUser(this.props.userId)
     // this.props.fetchUsers()
+    this.props.fetchUser(this.props.userId)
     this.props.fetchJobs()
     // this.props.fetchUserJobs(this.props.userId)
     this.props.fetchReviews()
@@ -53,17 +53,19 @@ class UserShow extends React.Component {
           let formattedDate = new Date(review.date)
           let deleteButton = null;
           let editButton = null;
+          // let authorName= this.props.fetchUser(review.author).firstName
           if (this.props.currentUserId === review.author) {
             deleteButton = <div className='review-delete-button'>x</div>
             editButton = <div className='review-delete-button'>Edit</div>
           }
           return (
-            <div key={index} className='review-info-index'>
+            <div key={index} className='review-info-index'
+                 onClick={() => this.props.history.push(`/reviews/${review._id}`)}>
               {/* <p>{index + 1}</p> */}
               {/* <p>{review.rating}</p> */}
               <div>{this.getRatingStars(review.rating)}</div>
               {/* <div>{review.author}</div> */}
-              <div>{review.title}</div>
+              {/* <div>{review.title}</div> */}
               <div>{review.body}</div>
               <div>{formattedDate.toLocaleDateString()}</div>
               <div>{editButton}</div>

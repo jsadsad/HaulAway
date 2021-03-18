@@ -13,10 +13,11 @@ import UserShowContainer from './usershow/user_show_container'
 import HomepageContainer from './homepage/homepage_container'
 import JobIndexContainer from './job/job_index_container'
 import JobShowContainer from '../components/job/job_show_container'
-import ReviewFormContainer from '../components/review/review_form_container'
+import ReviewFormContainer from './review/review_form_container'
 import Modal from '../components/modal/modal'
 import JobEditContainer from '../components/job/job_edit_container'
 import AboutUs from './aboutUs/about_us'
+import ReviewShowContainer from './review/review_show_container'
 
 const App = () => (
   <div>
@@ -33,6 +34,7 @@ const App = () => (
       <ProtectedRoute exact path='/jobs' component={JobIndexContainer} />
       <ProtectedRoute exact path='/jobs/edit/:jobId' component={JobEditContainer} />
       <ProtectedRoute exact path='/jobs/:jobId/review' component={ReviewFormContainer} />
+      <ProtectedRoute exact path='/reviews/:reviewId' component={ReviewShowContainer} />
       <ProtectedRoute exact path='/about' component={AboutUs} />
     </Switch>
   </div>

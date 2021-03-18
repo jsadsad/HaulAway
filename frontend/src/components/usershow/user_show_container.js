@@ -19,6 +19,7 @@ const mapStateToProps = (state, ownProps) => {
     jobs: getUserJobs(state, ownProps.match.params.userId),
     postedJobs: getOnlyPostedJobs(state, ownProps.match.params.userId),
     reviews: Object.values(state.entities.reviews),
+    // allUsers: state.entities.users
   }
 }
 
