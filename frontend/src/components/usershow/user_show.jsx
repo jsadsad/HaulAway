@@ -14,8 +14,9 @@ class UserShow extends React.Component {
 
   componentDidMount() {
     // debugger
-    this.props.fetchUser(this.props.userId)
-    // this.props.fetchUsers()
+    this.props.fetchUsers().then(
+      this.props.fetchUser(this.props.userId)
+    )
     this.props.fetchJobs()
     // this.props.fetchUserJobs(this.props.userId)
     this.props.fetchReviews()
@@ -49,21 +50,27 @@ class UserShow extends React.Component {
     let totalReviewNum = 0
     let reviewIndexItems  = this.props.jobs.map((job) => {
       return this.props.reviews.map((review, index) => {
-        if (job._id === review.jobId) {
+        if (job._id === review.jobId && this.props.user._id !== review.author) {
           totalReviewNum += 1
           let formattedDate = new Date(review.date)
           let deleteButton = null;
+          let editButton = null;
+          // let authorName= this.props.fetchUser(review.author).firstName
           if (this.props.currentUserId === review.author) {
             deleteButton = <div className='review-delete-button'>x</div>
+            editButton = <div className='review-delete-button'>Edit</div>
           }
           return (
-            <div key={index} className='review-info-index'>
+            <div key={index} className='review-info-index'
+                 onClick={() => this.props.history.push(`/reviews/${review._id}`)}>
               {/* <p>{index + 1}</p> */}
               {/* <p>{review.rating}</p> */}
               <div>{this.getRatingStars(review.rating)}</div>
-              <div>{review.title}</div>
+              {/* <div>{review.author}</div> */}
+              {/* <div>{review.title}</div> */}
               <div>{review.body}</div>
               <div>{formattedDate.toLocaleDateString()}</div>
+              <div>{editButton}</div>
               <div onClick={() => this.props.destroyReview(review._id).then(() => window.location.reload())}>{deleteButton}</div>
             </div>
           )
@@ -85,7 +92,7 @@ class UserShow extends React.Component {
     let totalUserReviews = 0;
     this.props.jobs.forEach(job => {
       this.props.reviews.forEach(review => {
-        if(job._id === review.jobId) {
+        if(job._id === review.jobId && this.props.user._id !== review.author) {
           totalRating += review.rating
           totalUserReviews += 1
         }
@@ -170,7 +177,7 @@ class UserShow extends React.Component {
     if (!user) {return <Loader />}
 
     // debugger 
-    console.log(jobs)
+    // console.log(jobs)
     let editButton = ''
     if(this.props.userId === this.props.currentUserId) {
       editButton =  <button onClick={() => this.props.openModal('edit user', user._id )}>Edit</button>
