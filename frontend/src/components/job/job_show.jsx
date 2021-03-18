@@ -24,15 +24,9 @@ class JobShow extends React.Component {
       },
     }
 
-    this.takeJob = this.takeJob.bind(this)
-    this.leaveJob = this.leaveJob.bind(this)
-    this.closeJob = this.closeJob.bind(this)
-    this.closeReview = this.closeReview.bind(this)
 
-    // for testing
-    this.openJob = this.openJob.bind(this)
 
-    // this.editJobButton= this.editJobButton.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   componentDidMount() {
@@ -71,164 +65,80 @@ class JobShow extends React.Component {
     })
   }
 
-  takeJob(e) {
-    e.preventDefault()
+    handleClick(action, e) {
+      e.preventDefault()
 
-    const takenJob = {
-      _id: this.props.jobId,
-      jobTaker: this.props.currentUserId,
-      isAvailable: false,
+      let updatedJob = this.props.job
+      // debugger
+      if ( action === "takeJob" ) {
+          updatedJob.jobTaker= this.props.currentUserId
+          updatedJob.isAvailable= false
+      }
+      else if ( action === "leaveJob" ) {
+          updatedJob.jobTaker= ''
+          updatedJob.isAvailable= true
+      }
+      else if ( action === "closeJob" ) {
+        updatedJob.isClosed= true
+      }
+      else if ( action === "openJob" ) {
+        updatedJob.isClosed= false
+      }
+      else if ( action === "noReviewJob" ) {
+        updatedJob.reviews.push(this.props.currentUserId)
+      }
 
-      description: this.props.job.description,
-      destination: this.props.job.destination,
-      jobDifficulty: this.props.job.jobDifficulty,
-      jobEndDate: this.props.job.jobEndDate,
-      jobStartDate: this.props.job.jobStartDate,
-      jobType: this.props.job.jobType,
-      pickup: this.props.job.pickup,
-
-    }
-    // debugger
-    this.props.updateJob(takenJob).then(
-      this.setState({
-        isChanged: !this.state.isChanged,
-      })
-    )
-  }
-
-  leaveJob(e) {
-    e.preventDefault()
-
-    const takenJob = {
-      _id: this.props.jobId,
-      jobTaker: '',
-      isAvailable: true,
-
-      description: this.props.job.description,
-      destination: this.props.job.destination,
-      jobDifficulty: this.props.job.jobDifficulty,
-      jobEndDate: this.props.job.jobEndDate,
-      jobStartDate: this.props.job.jobStartDate,
-      jobType: this.props.job.jobType,
-      pickup: this.props.job.pickup,
+      this.props.updateJob(updatedJob)
+        .then(
+          this.setState({
+            isChanged: !this.state.isChanged,
+            shouldUpdate: false,
+          })
+        )
     }
 
-    this.props.updateJob(takenJob)
-  }
-
-  openJob(e) {
-    e.preventDefault()
-
-    const takenJob = {
-      _id: this.props.jobId,
-      isClosed: false,
-      jobPoster: this.props.job.jobPoster,
-
-      description: this.props.job.description,
-      destination: this.props.job.destination,
-      jobDifficulty: this.props.job.jobDifficulty,
-      jobEndDate: this.props.job.jobEndDate,
-      jobStartDate: this.props.job.jobStartDate,
-      jobType: this.props.job.jobType,
-      pickup: this.props.job.pickup,
+    editJobButton() {
+      const job = this.props.job
+  
+      if (
+        job.jobPoster._id === this.props.currentUserId &&
+        !job.isClosed &&
+        job.isAvailable
+      ) {
+        return (
+          <button
+            onClick={() => this.props.history.push(`/jobs/edit/${job._id}`)}
+            className="edit-job-button"
+          >
+            Edit Job
+          </button>
+        )
+      }
     }
-    this.props.updateJob(takenJob).then(
-      this.setState({
-        isChanged: !this.state.isChanged,
-        shouldUpdate: false,
-      })
-    )
-  }
-
-  closeReview(e) {
-    e.preventDefault()
-    // const newArray = this.props.reviews
-    // debugger
-    this.props.job.reviews.push(this.props.currentUserId)
-
-    const reviewedJob = {
-      _id: this.props.jobId,
-      // isReviewed: true,
-      reviews: this.props.job.reviews,
-
-      description: this.props.job.description,
-      destination: this.props.job.destination,
-      jobDifficulty: this.props.job.jobDifficulty,
-      jobEndDate: this.props.job.jobEndDate,
-      jobStartDate: this.props.job.jobStartDate,
-      jobType: this.props.job.jobType,
-      pickup: this.props.job.pickup,
+  
+    takeJobButton() {
+      const job = this.props.job
+  
+      if (job.jobPoster._id !== this.props.currentUserId && job.isAvailable) {
+        return (
+          <button className="take-job-button" onClick={(e) => this.handleClick("takeJob", e)}>
+            Take Job
+          </button>
+        )
+      }
     }
 
-    this.props.updateJob(reviewedJob)
-  }
-
-  editJobButton() {
-    const job = this.props.job
-
-    if (
-      job.jobPoster._id === this.props.currentUserId &&
-      !job.isClosed &&
-      job.isAvailable
-    ) {
-      return (
-        <button
-          onClick={() => this.props.history.push(`/jobs/edit/${job._id}`)}
-          className="edit-job-button"
-        >
-          Edit Job
-        </button>
-      )
+    leaveJobButton() {
+      const job = this.props.job
+  
+      if (job.jobTaker === this.props.currentUserId && !job.isClosed) {
+        return (
+          <button className="leave-job-button" onClick={(e) => this.handleClick("leaveJob", e)}>
+            Leave Job
+          </button>
+        )
+      }
     }
-  }
-
-  takeJobButton() {
-    const job = this.props.job
-
-    if (job.jobPoster._id !== this.props.currentUserId && job.isAvailable) {
-      return (
-        <button className="take-job-button" onClick={this.takeJob}>
-          Take Job
-        </button>
-      )
-    }
-  }
-
-  leaveJobButton() {
-    const job = this.props.job
-
-    if (job.jobTaker === this.props.currentUserId && !job.isClosed) {
-      return (
-        <button className="leave-job-button" onClick={this.leaveJob}>
-          Leave Job
-        </button>
-      )
-    }
-  }
-
-  closeJob(e) {
-    e.preventDefault()
-
-    const takenJob = {
-      _id: this.props.jobId,
-      isClosed: true,
-      jobPoster: this.props.job.jobPoster,
-
-      description: this.props.job.description,
-      destination: this.props.job.destination,
-      jobDifficulty: this.props.job.jobDifficulty,
-      jobEndDate: this.props.job.jobEndDate,
-      jobStartDate: this.props.job.jobStartDate,
-      jobType: this.props.job.jobType,
-      pickup: this.props.job.pickup,
-    }
-    this.props.updateJob(takenJob).then(
-      this.setState({
-        isChanged: !this.state.isChanged,
-        shouldUpdate: false,
-      })
-    )
-  }
 
   closeJobButton() {
     const job = this.props.job
@@ -240,7 +150,7 @@ class JobShow extends React.Component {
       !job.isClosed
     ) {
       return (
-        <button className="close-job-button" onClick={this.closeJob}>
+        <button className="close-job-button" onClick={(e) => this.handleClick("closeJob", e)}>
           Close Job
         </button>
       )
@@ -254,24 +164,43 @@ class JobShow extends React.Component {
       if (
         ((job.jobPoster._id === this.props.currentUserId) || (job.jobTaker === this.props.currentUserId)) &&
         job.isClosed
-      )
+      ) {
         return (
           <div className="review-job-buttons">
             <div className="review-buttons-title">
               Would you like to review this transaction?
             </div>
             <div className="review-job-buttons-inner-wrap">
-              <button className="test-reopen-job" onClick={this.openJob}>Re-Open Job</button>
+              <button className="test-reopen-job" onClick={(e) => this.handleClick("openJob", e)}>Re-Open Job</button>
               <Link to={`/jobs/${job._id}/review`} job={job}>
-                <button className="close-job-button">YES</button>
+                <button className="yes-review-button">YES</button>
               </Link>
-              <button className="close-job-button" onClick={this.closeReview}>
+              <button className="no-review-button" onClick={(e) => this.handleClick("noReviewJob", e)}>
                 NO
               </button>
             </div>
           </div>
         )
+      }
     }
+  }
+
+  openJobButtontestPurposes() {
+    const job = this.props.job
+    // debugger
+
+      if (
+        (job.jobPoster._id === this.props.currentUserId) &&
+        job.isClosed
+      ) {
+        return (
+
+              <button className="test-reopen-job" onClick={(e) => this.handleClick("openJob", e)}>Re-Open Job</button>
+   
+        )
+      }
+    
+
   }
 
   // jobPictures() {
@@ -296,8 +225,6 @@ class JobShow extends React.Component {
     if (!job) return null
     const coords = this.state.mapPosition
 
-    // console.log(this.state.session.user.lastName)
-
     return (
       <div className="job-show-outer">
         <Navbar />
@@ -314,7 +241,6 @@ class JobShow extends React.Component {
                     {job.jobPoster.firstName}
                   </Link>
                 </div>
-                {/* {haulRequester} */}
                 <div className="job-show-description-title color-one">
                   Job Description:
                 </div>
@@ -369,7 +295,12 @@ class JobShow extends React.Component {
                 <div className="close-job-button-wrap">
                   {this.closeJobButton()}
                 </div>
-                <div className="review-job-buttons-wrap">{this.reviewJobButtons()}</div>
+                <div className="review-job-buttons-wrap">{
+                  this.reviewJobButtons()}
+                </div>
+                <div className="re-open-job-button-wrap">{
+                  this.openJobButtontestPurposes()}
+                </div>
               </div>
             </div>
 
