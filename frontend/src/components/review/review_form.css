@@ -4,4 +4,45 @@
   font-family: 'Montserrat', sans-serif;
   background: #2e3740;
   color: white;
+  cursor: default;
+}
+
+.review-form-wrap {
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-form-container {
+  border: 1px solid white;
+  border-radius: 7px;
+  height: 500px;
+  width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.review-form-header {
+  font-weight: bold;
+  font-size: 2.5em;
+}
+
+.review-body-input {
+  resize: none;
+  height: 200px;
+  width: 500px;
+  background: transparent;
+  border: 1px solid white;
+}
+
+.review-form-input-little-box {
+  
+}
+
+.review-form-select {
+  /* font-family: 'FontAwesome', 'Second Font name'; */
 }

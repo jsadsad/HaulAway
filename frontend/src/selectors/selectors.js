@@ -6,3 +6,7 @@ export const getUserJobs = (state, userId) => {
   // debugger
   return Object.values(state.entities.jobs).filter(job => job.jobTaker === userId || job.jobPoster._id === userId)
 }
+
+export const getOnlyPostedJobs = (state, userId) => {
+  return Object.values(state.entities.jobs).filter(job => job.jobPoster._id === userId)
+}
