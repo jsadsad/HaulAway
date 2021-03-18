@@ -74,11 +74,14 @@ router.patch('/:id', (req, res) => {
   const update = req.body
 
   Job.findOneAndUpdate(filter, update, { new: true })
+  .populate('jobPoster')
     .then((job) => {
       const updatedJob = {
         _id: job.id,
         jobPoster: {
-          _id: job.jobPoster
+          _id: job.jobPoster._id,
+          firstName: job.jobPoster.firstName
+
         },
         description: job.description,
         pickup: job.pickup,
