@@ -139,7 +139,6 @@ class JobShow extends React.Component {
   }
 
   closeJob(e) {
-    // debugger
     e.preventDefault()
 
 
@@ -169,7 +168,7 @@ class JobShow extends React.Component {
       !job.isClosed
     ) {
       return (
-        <button className="close-job-button" onClick={this.closeJob} action="closeJob">
+        <button className="close-job-button" onClick={this.closeJob}>
           Close Job
         </button>
       )
@@ -178,9 +177,6 @@ class JobShow extends React.Component {
 
   reviewJobButtons() {
     const job = this.props.job
-    // if (!job.jobPoster) return null
-
-    //this is checking if the jobclosed is true and jobreview should be false
     if (
       job.jobPoster._id === this.props.currentUserId &&
       !job.isReviewed &&
@@ -203,6 +199,23 @@ class JobShow extends React.Component {
         </div>
       )
   }
+
+  // jobPictures() {
+  //   const job = this.props.job
+  //   if (job.pictures.length !== 0) {
+  //     job.pictures.map((picture, idx) => {
+  //       return (
+  //         <div className="job-show-single-picture-wrap" key={idx}>
+  //           <img className="job-show-picture" src={picture} alt="job-picture"/>
+  //         </div>
+  //       )
+  //     })
+  //   } else {
+  //     return (
+  //       <div>No pictures for this job</div>
+  //     )
+  //   }
+  // }
 
   render() {
     const job = this.props.job
@@ -261,13 +274,14 @@ class JobShow extends React.Component {
               </div>
               <div className="job-show-pictures-title color-one">Items to Haul:</div> 
               <div className="job-show-pictures-wrap">
-                {job.pictures.map((picture, idx) => {
+                { job.pictures.map((picture, idx) => {
                   return (
                     <div className="job-show-single-picture-wrap" key={idx}>
                       <img className="job-show-picture" src={picture} alt="job-picture"/>
                     </div>
                   )
                 })}
+                {/* {this.jobPictures()} */}
               </div>
 
             </div>
