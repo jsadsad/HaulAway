@@ -177,7 +177,7 @@ class JobEdit extends React.Component {
                     value={this.state.jobDifficulty}
                   >
                     <option value="easy">&#60;-----Easy-----&#62;</option>
-                    <option value="medium">&#60;-----Medium-----</option>
+                    <option value="medium">&#60;-----Medium-----&#62;</option>
                     <option value="hard">&#60;-----Hard-----&#62;</option>
                   </select>
                 </div>
