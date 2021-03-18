@@ -2,11 +2,15 @@
 .loader-outter{
   background-color: #2e3740;
   height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .loader-text {
+  position: absolute;
+  top: 5%;
   color: #1fce6d;
-  font-size: 2em;
+  font-size: 1.5em;
   text-align: center;
 }
 
