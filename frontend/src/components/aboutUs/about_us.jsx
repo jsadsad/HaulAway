@@ -16,8 +16,8 @@ class AboutUs extends React.Component {
             <div className="about-us-person-desc">
               <h2 className="about-us-names">HyeYoung (Lena) Shin</h2>
               <p className="about-us-p">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto, hic quo quaerat ab officia iure, iste accusantium, voluptate recusandae quae beatae incidunt natus maiores soluta sit iusto porro! Aliquid, maxime?</p>
-              <div className="info-us">
-                <div className="info-us-contacts">
+              <div className="info-about-us">
+                <div className="info-about-us-contacts">
                   <a className="contact" href="https://github.com/shinara03" target="_blank"><i className='fa fa-github'></i></a>
                   <a className="contact" href="https://www.linkedin.com/in/hyeyoung-shin-442228209/" target="_blank"><i className='fa fa-linkedin'></i></a>
                   <a className="contact" href="https://angel.co/u/hyeyoung-lena-shin" target="_blank"><i className='fa fa-angellist'></i></a>

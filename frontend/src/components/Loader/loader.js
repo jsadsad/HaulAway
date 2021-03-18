@@ -8,7 +8,6 @@ class Loader extends React.Component {
       <div className="loader-outter">
         <span className="loader-text">Gimme a sec</span>
         <div className="loader">
-
         </div>
       </div>
     )

@@ -165,9 +165,8 @@ class UserShow extends React.Component {
   }
 
   render() {
-
+    
     const {user, jobs}= this.props
-    // if (!user) {return <div>Loading</div>}
     if (!user) {return <Loader />}
 
     // debugger 
@@ -224,6 +223,7 @@ class UserShow extends React.Component {
         </div>
       
       </div>
+
     ) 
   }
 }
