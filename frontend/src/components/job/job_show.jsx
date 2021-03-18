@@ -151,7 +151,6 @@ class JobShow extends React.Component {
     takeJobButton() {
       const job = this.props.job
 
-      // debugger
       if ((job.jobPoster._id !== this.props.currentUserId) && (job.isAvailable)) {
         return (
           <button className="take-job-button" onClick={this.takeJob}>Take Job</button>
