@@ -10,8 +10,9 @@ class ReviewShow extends Component {
   }
 
   render() {
-    console.log(this.props.review)
-    if(!this.props.review) return 'loading'
+    console.log(this.props.reviewedUser)
+    const {review} = this.props
+    if(!review) return 'loading'
 
    return (
     <div className='review-show-wrapper'>
@@ -22,10 +23,10 @@ class ReviewShow extends Component {
           <p></p>
         </div>
         <p>Author</p>
-        <p>Title</p>
-        <p>rating</p>
-        <p>rating</p>
-        <p>jobPoster name</p>
+        <p>Title: {review.title}</p>
+        <p>Rating: {review.rating}</p>
+        <p>Body: {review.body}</p>
+        <p>person being reviewed</p>
       </div>
     </div>
    )

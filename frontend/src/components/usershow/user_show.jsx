@@ -61,7 +61,7 @@ class UserShow extends React.Component {
           }
           return (
             <div key={index} className='review-info-index'
-                 onClick={() => this.props.history.push(`/reviews/${review._id}`)}>
+                 onClick={() => this.props.history.push(`/users/${this.props.userId}/reviews/${review._id}`)}>
               {/* <p>{index + 1}</p> */}
               {/* <p>{review.rating}</p> */}
               <div>{this.getRatingStars(review.rating)}</div>
