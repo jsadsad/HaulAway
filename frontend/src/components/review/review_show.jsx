@@ -6,6 +6,7 @@ class ReviewShow extends Component {
 
   componentDidMount() {
     this.props.fetchReview(this.props.reviewId)
+    this.props.fetchUsers()
   }
 
   render() {
