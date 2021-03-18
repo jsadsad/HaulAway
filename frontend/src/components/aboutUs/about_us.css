@@ -72,3 +72,19 @@
   font-size: 16px;
   color: #1fe36d;
 }
+
+
+.info-about-us {
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  flex-direction: column;
+  justify-items: center;
+  color: #1fec1f;
+}
+
+.info-about-us-contacts {
+  display: flex;
+  justify-content: space-around;
+  width: 150px;
+}
