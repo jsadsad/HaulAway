@@ -50,7 +50,8 @@ export const fetchReviews = () => (dispatch) => {
 export const fetchReview = reviewId => dispatch => {
   return ReviewApiUtil.fetchReview(reviewId)
     .then(review => dispatch(receiveReview(review)))
-    .catch(err => dispatch(receiveReviewErrors(err.response.data)))
+    .catch(err => console.log(err))
+    // .catch(err => dispatch(receiveReviewErrors(err.response.data)))
 }
 
 export const createReview = review => dispatch => {

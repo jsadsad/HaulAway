@@ -6,3 +6,121 @@
   color: white;
   cursor: default;
 }
+
+.review-show-wrap {
+  /* border: 1px solid salmon;
+  align-self: center; */
+  max-height: 640px;
+  /* border: 1px solid blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-show-container {
+  /* border: 1px solid salmon; */
+  height: 640px;
+  width: 500px;
+  max-height: 640px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* flex: 1; */
+  /* align-items: center; */
+  /* text-align: center; */
+}
+
+.review-author-image-container {
+  height: 100px;
+  width: 100px;
+  border-radius: 10%;
+  cursor: pointer;
+}
+
+.review-author-image {
+  width: 100%;
+  height: 100%;
+  border: 1px solid;
+  border-radius: 10%;
+}
+
+.review-author-info {
+  display: flex;
+  padding: 20px 0;
+  /* border: 1px solid white; */
+}
+
+.review-author-container {
+  /* border: 1px solid royalblue; */
+  margin-left: 20px;
+  margin-top: 20px;
+  font-size: 30px;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+  /* text-align: center; */
+  
+}
+
+.review-author-names-wrap {
+  display: flex;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.review-author-names-container {
+  display: flex;
+  cursor: pointer;
+}
+
+.review-author-names-container:hover {
+  background-color: #1fce6d;
+}
+
+.review-show-star-info {
+  display: flex;
+  font-size: 20px;
+}
+
+.review-show-body-info {
+  font-size: 18px;
+  padding-top: 20px;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.review-show-author-firstname {
+  padding: 0 10px;
+}
+
+.review-show-author-lastname {
+  padding-right: 10px;
+}
+.review-show-star {
+  padding-right: 10px;
+  
+}
+
+.review-show-reviewedUser-container {
+  display: flex;
+  width: 380px;
+  margin-top: 40px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.review-show-reviewedUser-container:hover {
+  background-color: #1fce6d;
+}
+
+.review-show-reviewedUser {
+  padding-left: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.review-show-edit-button-container {
+  padding-top: 20px;
+  text-align: left;
+}

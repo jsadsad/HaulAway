@@ -62,13 +62,13 @@ class UserShow extends React.Component {
           }
           return (
             <div key={index} className='review-info-index'
-                 onClick={() => this.props.history.push(`/reviews/${review._id}`)}>
+                 onClick={() => this.props.history.push(`/users/${this.props.userId}/reviews/${review._id}`)}>
               {/* <p>{index + 1}</p> */}
               {/* <p>{review.rating}</p> */}
               <div>{this.getRatingStars(review.rating)}</div>
               {/* <div>{review.author}</div> */}
               {/* <div>{review.title}</div> */}
-              <div>{review.body}</div>
+              <div className='review-info-body'>{review.body}</div>
               <div>{formattedDate.toLocaleDateString()}</div>
               <div>{editButton}</div>
               <div onClick={() => this.props.destroyReview(review._id).then(() => window.location.reload())}>{deleteButton}</div>
@@ -227,6 +227,12 @@ class UserShow extends React.Component {
                 </div>
             </div>
           </div>
+          {/* <div className='review-info-wrapper'>
+                <h2 className='review-header'>Reviews</h2>
+                <div className='review-info-index-wrapper'>
+                  {this.getReviewIndexItems()}
+                </div>
+            </div> */}
         </div>
       
       </div>
