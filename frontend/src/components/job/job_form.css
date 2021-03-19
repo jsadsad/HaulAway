@@ -52,7 +52,7 @@ input[type='file'] {
   width: 21rem;
 }
 
-.job-post-container {
+.job-post-body-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
