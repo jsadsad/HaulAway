@@ -40,9 +40,31 @@
 }
 
 .review-form-input-little-box {
-  
 }
 
 .review-form-select {
   /* font-family: 'FontAwesome', 'Second Font name'; */
+}
+
+.fas fa-star {
+  color: #1fce6d;
+}
+
+.review-form-select {
+  color: #1fce6d;
+  background: rgba(17, 17, 17, 0.87);
+  border: 1px solid #1fce6d;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: large;
+}
+
+.review-form-select-dropdown {
+  color: #1fce6d;
+  background: rgba(17, 17, 17, 0.87);
+  border: 1px solid #1fce6d;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: large;
 }
