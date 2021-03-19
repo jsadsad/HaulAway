@@ -71,8 +71,8 @@ class UserShow extends React.Component {
                 {/* <div>{review.title}</div> */}
                 <div className='review-info-body'>{review.body}</div>
                 <div>{formattedDate.toLocaleDateString()}</div>
-                <div>{editButton}</div>
               </div>
+              <div>{editButton}</div>
               <div onClick={() => this.props.destroyReview(review._id).then(() => window.location.reload())}>{deleteButton}</div>
             </div>
           )
