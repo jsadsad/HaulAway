@@ -57,6 +57,10 @@ router.patch('/:id', (req, res) => {
   const filter = { _id: req.params.id }
   const update = req.body
 
+  if (!isValid) {
+      return res.status(400).json(errors)
+  }
+  
   Reviews.findOneAndUpdate(filter, update, { new: true })
     .then((review) => {
       const updatedReview = {
