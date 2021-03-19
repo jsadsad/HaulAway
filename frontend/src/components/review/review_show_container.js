@@ -12,7 +12,8 @@ const mapStateToProps = (state, ownProps) => {
     review: state.entities.reviews[ownProps.match.params.reviewId],
     reviewedUserId: ownProps.match.params.userId,
     reviewedUser: getUserInfo(state, ownProps.match.params.userId),
-    users: state.entities.users
+    users: state.entities.users,
+    currentUserId: state.session.user.id,
   }
 }
 
