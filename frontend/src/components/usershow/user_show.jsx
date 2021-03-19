@@ -227,6 +227,12 @@ class UserShow extends React.Component {
                 </div>
             </div>
           </div>
+          {/* <div className='review-info-wrapper'>
+                <h2 className='review-header'>Reviews</h2>
+                <div className='review-info-index-wrapper'>
+                  {this.getReviewIndexItems()}
+                </div>
+            </div> */}
         </div>
       
       </div>
