@@ -21,7 +21,7 @@ class Homepage extends React.Component {
             <div className="homepage-job-buttons">
               <div className="homepage-job-left-elements-wrapper">
                 <div className="homepage-job-buttons-left-header">
-                  Take a look at ongoing jobs!
+                  Take a look at hauling jobs!
                 </div>
                 <button
                   onClick={() => this.props.history.push('/jobs')}
@@ -32,7 +32,7 @@ class Homepage extends React.Component {
               </div>
               <div className="homepage-job-right-elements-wrapper">
                 <div className="homepage-job-buttons-right-header">
-                  Need help with your boxes?
+                  Need help with hauling boxes?
                 </div>
                 <button
                   onClick={() => this.props.history.push('/jobs/new')}

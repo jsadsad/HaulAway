@@ -41,7 +41,7 @@
 .homepage-job-buttons-right-header {
   color: #2e3740;
   font-size: 30px;
-  font-weight: 300;
+  font-weight: 700;
   padding-bottom: 10px;
 }
 .homepage-job-buttons-right-header:hover {
@@ -56,6 +56,7 @@
   height: 77px;
   font-size: 20px;
   outline: none;
+  transition: 0.5s;
 }
 .homepage-rj-button:hover {
   background-color: #1fce6d;
@@ -71,7 +72,7 @@
 .homepage-job-buttons-left-header {
   color: #2e3740;
   font-size: 30px;
-  font-weight: 300;
+  font-weight: 700;
   padding-bottom: 10px;
 }
 
@@ -87,6 +88,7 @@
   height: 70px;
   font-size: 20px;
   outline: none;
+  transition: 0.5s;
 }
 
 .homepage-lj-button:hover {
