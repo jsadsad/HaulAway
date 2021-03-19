@@ -247,8 +247,8 @@ class JobEdit extends React.Component {
                     value={this.state.description}
                     onChange={this.handleField('description')}
                   />
-                  {errors.description}
                 </div>
+                <div className="edit-error-text">{errors.description}</div>
                 <div>
                   <select
                     className="job-post-lvl-btn"
@@ -261,42 +261,55 @@ class JobEdit extends React.Component {
                   </select>
                 </div>
                 <br />
+                <p className="please-confirm-text">RECONFIRM Pickup</p>
                 <div className="job-edit-input-box">
                   <Autocomplete
                     required
                     onPlaceSelected={this.onPickupSelected}
-                    style={{ width: '25%' }}
+                    style={{ width: '45%' }}
                     types={['address']}
                     onChange={this.handleField('pickup')}
                     placeholder={job.pickup}
                   />
-                  {errors.pickup}
                 </div>
+                <p className="please-confirm-text">RECONFIRM Destination</p>
                 <div className="job-edit-input-box">
                   <Autocomplete
                     required
                     onPlaceSelected={this.onDestinationSelected}
-                    style={{ width: '25%' }}
+                    style={{ width: '45%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('destination')}
                     placeholder={job.destination}
                   />
-                  {errors.destination}
+                </div>
+                <br />
+                <div className="form-distance-container">
+                  <label className="edit-form-distance-text">
+                    Previous Distance:{' '}
+                  </label>
+                  <span className="edit-distance-text">
+                    {job.distance} miles
+                  </span>
+                  <br />
+                  <label className="edit-form-distance-text">
+                    New Distance:{' '}
+                  </label>
+                  <span className="edit-new-distance-text">
+                    {this.distanceRender().toFixed(2)} miles
+                  </span>
                 </div>
                 <div className="form-distance-container">
-                  <label className="form-distance-text">
-                    Previous Distance: {job.distance}
-                    <br />
-                    New Distance: {this.distanceRender().toFixed(2)} miles
+                  <label className="edit-form-distance-text">
+                    Previous Price:{' '}
                   </label>
-                </div>
-                <div className="form-distance-container">
-                  <label className="form-distance-text">
-                    Previous Price: ${job.price}
-                    <br />
-                    New Price: $ {this.priceRender().toFixed(2)}
-                  </label>
+                  <span className="edit-distance-text">$ {job.price}</span>
+                  <br />
+                  <label className="edit-form-distance-text">New Price:</label>
+                  <span className="edit-new-distance-text">
+                    $ {this.priceRender().toFixed(2)}
+                  </span>
                 </div>
                 <br />
                 <div className="job-edit-input-box">
