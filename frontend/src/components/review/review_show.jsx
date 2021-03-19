@@ -137,6 +137,9 @@ class ReviewShow extends Component {
            <div>{formattedDate.toLocaleDateString()}</div>
            <div>{this.props.review.body}</div>
          </div>
+         <div>
+           
+         </div>
       </div>
     </div> 
     )
