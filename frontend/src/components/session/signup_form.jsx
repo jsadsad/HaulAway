@@ -1,8 +1,7 @@
 import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import { uploadPhoto } from '../../util/photo_api_util'
-import { Link } from 'react-router-dom';
-import Footer from '../footer/footer';
+import { Link } from 'react-router-dom'
 import './signup.css'
 import '../splash/splash.css'
 
@@ -30,12 +29,11 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     const capitalize = (s) => {
       if (typeof s !== 'string') return ''
       return s.charAt(0).toUpperCase() + s.slice(1)
     }
-
-    e.preventDefault()
 
     if (this.state.selectedFile) {
       const data = new FormData(e.target)
@@ -79,88 +77,92 @@ class SignupForm extends React.Component {
 
   render() {
     return (
-     <div className='signup-page-wrapper'>
-       <Navbar />
-       <div className='signup-form-wrapper'>
-          <div className='signup-form-header'>Register</div>
-          <form onSubmit={this.handleSubmit} className='signup-form'>
-            <div className='signup-input'>
+      <div className="signup-page-wrapper">
+        <Navbar />
+        <div className="signup-form-wrapper">
+          <div className="signup-form-header">Register</div>
+          <form onSubmit={this.handleSubmit} className="signup-form">
+            <div className="signup-input">
               <input
-                  className='signup-input-field'
-                  onChange={this.handleField('firstName')}
-                  type="text"
-                  placeholder="First Name"
-                  value={this.state.firstName}
+                className="signup-input-field"
+                onChange={this.handleField('firstName')}
+                type="text"
+                placeholder="First Name"
+                value={this.state.firstName}
               />
-              <div className='signup-errors'>{this.props.errors.firstName}</div>
+              <div className="signup-errors">{this.props.errors.firstName}</div>
             </div>
-            <div className='signup-input'>
+            <div className="signup-input">
               <input
-                  className='signup-input-field'
-                  onChange={this.handleField('lastName')}
-                  type="text"
-                  placeholder="Last Name"
-                  value={this.state.lastName}
+                className="signup-input-field"
+                onChange={this.handleField('lastName')}
+                type="text"
+                placeholder="Last Name"
+                value={this.state.lastName}
               />
               <div className="signup-errors">{this.props.errors.lastName}</div>
             </div>
             <div className="signup-input">
               <input
-                  className='signup-input-field'
-                  onChange={this.handleField('email')}
-                  type="text"
-                  placeholder="Email"
-                  value={this.state.email}
+                className="signup-input-field"
+                onChange={this.handleField('email')}
+                type="text"
+                placeholder="Email"
+                value={this.state.email}
               />
               <div className="signup-errors">{this.props.errors.email}</div>
             </div>
             <div className="signup-input">
               <input
-                  className='signup-input-field'
-                  onChange={this.handleField('password')}
-                  type="password"
-                  placeholder="Password"
-                  value={this.state.password}
+                className="signup-input-field"
+                onChange={this.handleField('password')}
+                type="password"
+                placeholder="Password"
+                value={this.state.password}
               />
               <div className="signup-errors">{this.props.errors.password}</div>
             </div>
             <div className="signup-input">
               <input
-                  className='signup-input-field'
-                  onChange={this.handleField('password2')}
-                  type="password"
-                  placeholder="Confirm password"
-                  value={this.state.password2}
+                className="signup-input-field"
+                onChange={this.handleField('password2')}
+                type="password"
+                placeholder="Confirm password"
+                value={this.state.password2}
               />
               <div className="signup-errors">{this.props.errors.password2}</div>
             </div>
             <div className="signup-input">
-                  <input
-                    className='signup-input-field'
-                    onChange={this.handleField('phoneNumber')}
-                    type="tel"
-                    placeholder="Phone number"
-                  />
-              <div className="signup-errors">{this.props.errors.phoneNumber}</div>
+              <input
+                className="signup-input-field"
+                onChange={this.handleField('phoneNumber')}
+                type="tel"
+                placeholder="Phone number"
+              />
+              <div className="signup-errors">
+                {this.props.errors.phoneNumber}
+              </div>
             </div>
-            <div className='signup-input-file'>
-              <label className="signup-photo-label">
-                Upload avatar
-              </label>
-              <input type="file" onChange={this.handlePhotoFile} className="signup-photo-btn"/>
-            </div>
-            <div className="signup-login-link">
-              Already with us?   <Link className="login-link" to="/login">Sign In</Link>
+            <div className="signup-input-file">
+              <label className="signup-photo-label">Add Profile Photo</label>
+              <input
+                type="file"
+                onChange={this.handlePhotoFile}
+                className="signup-photo-btn"
+              />
             </div>
             <button className="signup-button">Confirm</button>
+            <div className="signup-login-link">
+              Already with us?{' '}
+              <Link className="login-link" to="/login">
+                Sign In
+              </Link>
+            </div>
           </form>
-       </div>
-       {/* <footer><Footer /></footer> */}
-     </div>
+        </div>
+      </div>
     )
   }
 }
 
 export default SignupForm
-
-
