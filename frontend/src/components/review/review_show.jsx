@@ -82,37 +82,6 @@ class ReviewShow extends Component {
   }
 
   render() {
-  //   const {review, reviewedUser, users} = this.props
-  //   if(!review || !users || !reviewedUser) {return 'loading'}
-
-  //   console.log(reviewedUser)
-  //   const reviewedUserInfo = reviewedUser[0]
-  //   const authorInfo = Object.values(this.props.users).filter(user => user._id === review.author)[0]
-  //   console.log(authorInfo)
-  //  return (
-  //   <div className='review-show-wrapper'>
-  //     <Navbar/>
-  //     <div className='review-show-container'>
-  //       <div className='review-author-info'>
-  //         <div className='review-author-image-conatiner'>
-  //           <img className='review-author-image' src={authorInfo.profilePic} alt={authorInfo.firstName}/>
-  //         </div>
-  //         <div className='review-author-names-container'>
-  //           <div>{authorInfo.firstName}</div>
-  //           <div>{authorInfo.lastName}</div>
-  //         </div>
-  //       </div>
-  //       <div>
-          
-  //       </div>
-  //       <p>Title: {review.title}</p>
-  //       <p>Rating: {review.rating}</p>
-  //       <p>Body: {review.body}</p>
-  //       <p>person being reviewed</p>
-  //     </div>
-  //   </div>
-  //  )
-
     if(Object.keys(this.state).length === 0) {
       return null;
     } 
