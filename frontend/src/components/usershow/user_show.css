@@ -226,10 +226,12 @@
 .review-info-title {
   /* border: 1px solid purple; */
   width: 60%;
+  text-overflow: hidden;
 }
 .review-info-date {
   /* border: 1px solid rosybrown; */
   /* width: 10%; */
+  padding-right: 20px;
 }
 
 .review-info-buttons {
