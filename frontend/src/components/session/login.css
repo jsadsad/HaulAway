@@ -4,12 +4,13 @@
   color: white;
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  cursor: default;
 }
 
 .login-form-wrap {
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .sign-in-letters {
@@ -43,7 +44,6 @@
   color: white;
   font-size: 16px;
 }
-
 
 .login-button-container {
   padding: 15px 0;
@@ -95,7 +95,7 @@
 }
 
 .sign-up-link:hover {
-  color: #afe1c537;
+  color: #4b5fd3;
 }
 
 .sign-up-new {
