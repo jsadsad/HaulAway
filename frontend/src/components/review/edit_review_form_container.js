@@ -3,14 +3,15 @@ import {
   fetchReview,
   updateReview,
   clearErrors,
-  deleteReview,
+  destroyReview,
 } from '../../actions/review_actions'
 import ReviewEditForm from './edit_review_form'
 
 const mapStateToProps = (state, ownProps) => {
   return {
     errors: state.errors.review,
-    author: state.session.user.id,
+    author: state.session.user,
+    review: state.entities.reviews[ownProps.match.params.reviewId],
     reviewId: ownProps.match.params.reviewId,
   }
 }
@@ -20,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
     processForm: (review) => dispatch(updateReview(review)),
     clearErrors: () => dispatch(clearErrors()),
     fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
-    deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
+    destroyReview: (reviewId) => dispatch(destroyReview(reviewId)),
   }
 }
 
