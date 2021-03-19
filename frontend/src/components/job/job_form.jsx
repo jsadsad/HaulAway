@@ -178,11 +178,11 @@ class JobPostForm extends React.Component {
       <Suspense fallback={<Loader />}>
       <div className="job-post-outer">
         <Navbar />
-        <div className="job-post-container">
-          <div className="job-post-form">
+        <div className="job-post-body-wrapper">
+          <div className="job-post-body-inner-wrapper">
             <form onSubmit={this.handleSubmit} className="job-post-form-box">
               <div className="job-post-fields">
-                <h2 className="job-post-text">Job Request</h2>
+                <h2 className="job-post-poster color-one">Job Request</h2>
                 <div className="job-post-input-box">
                   <textarea
                     required
@@ -286,46 +286,49 @@ class JobPostForm extends React.Component {
                 </div>
                 <button className="job-form-btn">Submit</button>
               </div>
-              <br />
-              <div className="job-form-google-map-container">
-                <Map
-                  className="job-form-map"
-                  zoom={12}
-                  google={this.props.google}
-                  initialCenter={{
-                    lat: 36.778259,
-                    lng: -119.417931,
-                  }}
-                  center={{
-                    lat: this.state.mapPosition.lat,
-                    lng: this.state.mapPosition.lng,
-                  }}
-                >
-                  <Marker
-                    draggable={true}
-                    position={{
-                      lat: this.state.markerPosition.lat,
-                      lng: this.state.markerPosition.lng,
+              </form>
+
+              <div className="job-post-info-right-side">
+
+                <div className="job-post-google-map-container">
+                  <Map
+                    className="job-post-map"
+                    zoom={12}
+                    google={this.props.google}
+                    initialCenter={{
+                      lat: 36.778259,
+                      lng: -119.417931,
                     }}
-                  />
-                  <Circle
-                    radius={2400}
-                    center={coords}
-                    strokeColor="transparent"
-                    strokeOpacity={0}
-                    strokeWeight={5}
-                    fillColor="#FF0000"
-                    fillOpacity={0.3}
-                  />
-                </Map>
-              </div>
-            </form>
-            <div className="jobs-new-img-container">
-              <img
-                className="jobs-new-img"
-                src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_help.jpeg"
-                alt="Happy To Help"
-              />
+                    center={{
+                      lat: this.state.mapPosition.lat,
+                      lng: this.state.mapPosition.lng,
+                    }}
+                  >
+                    <Marker
+                      draggable={true}
+                      position={{
+                        lat: this.state.markerPosition.lat,
+                        lng: this.state.markerPosition.lng,
+                      }}
+                    />
+                    <Circle
+                      radius={2400}
+                      center={coords}
+                      strokeColor="transparent"
+                      strokeOpacity={0}
+                      strokeWeight={5}
+                      fillColor="#FF0000"
+                      fillOpacity={0.3}
+                    />
+                  </Map>
+                </div>
+                <div className="job-post-pictures-wrap">
+                  <img
+                    className="job-post-picture"
+                    src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_help.jpeg"
+                    alt="Happy To Help"
+                    />
+                </div>
             </div>
           </div>
         </div>

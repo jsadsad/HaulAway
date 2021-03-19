@@ -70,7 +70,7 @@
   display: flex;
 }
 
-.job-show-start-end-inner-wrap {
+.job-show-two-objects-wrap {
   display: flex;
   align-items: baseline;
 }
@@ -80,10 +80,13 @@
   object-fit: contain;
   display: block;
   position: relative;
+  max-width: 80%;
 }
 
 .job-show-map {
+  margin: 10px;
   max-height: 85%;
+  /* max-width: 90%; */
   border-radius: 12px;
 }
 
@@ -91,6 +94,9 @@
   display: block;
   position: relative;
 } */
+.job-show-pictures-title {
+  padding-top: 10px;
+}
 
 .job-show-pictures-wrap {
   display: flex;

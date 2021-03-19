@@ -47,7 +47,7 @@ class ReviewForm extends Component {
         author: this.state.author, 
         jobId: this.state.jobId
       }
-      console.log(review)
+      debugger
       this.props.job.reviews.push(this.props.author)
 
       this.props.processForm(review)
@@ -56,7 +56,6 @@ class ReviewForm extends Component {
         
           const reviewedJob = {
             _id: this.props.jobId,
-            // isReviewed: true,
             reviews: this.props.job.reviews,
             
             description: this.props.job.description,
@@ -69,6 +68,7 @@ class ReviewForm extends Component {
           }
         
         this.props.updateJob(reviewedJob)
+          .then(() => {this.props.history.push(`/homepage`)})
       })
     }
     render() {
