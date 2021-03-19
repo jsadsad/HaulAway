@@ -66,15 +66,9 @@ class ReviewForm extends Component {
             jobType: this.props.job.jobType,
             pickup: this.props.job.pickup,
           }
-<<<<<<< HEAD
-        
-        this.props.updateJob(reviewedJob)
-          // .then(() => {this.props.history.push(`/homepage`)})
-=======
           
           this.props.updateJob(reviewedJob)
         }
->>>>>>> main
       })
           .then((reviewedJob) => {
             if (reviewedJob) {
