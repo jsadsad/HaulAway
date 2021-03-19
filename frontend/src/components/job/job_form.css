@@ -210,3 +210,10 @@ button:focus {
 .job-form-select {
   margin-left: 0;
 }
+
+.job-form-errors {
+  color: red;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  padding-bottom: 15px;
+}
