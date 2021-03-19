@@ -173,7 +173,6 @@ class JobShow extends React.Component {
               Would you like to review this transaction?
             </div>
             <div className="review-job-buttons-inner-wrap">
-              <button className="test-reopen-job" onClick={(e) => this.handleClick("openJob", e)}>Re-Open Job</button>
               <Link to={`/jobs/${job._id}/review`} job={job}>
                 <button className="yes-review-button">YES</button>
               </Link>
@@ -259,7 +258,7 @@ class JobShow extends React.Component {
                 <div className="job-show-start-end-title color-one">
                   This job will be available:
                 </div>
-                <div className="job-show-start-end-inner-wrap">
+                <div className="job-show-two-objects-wrap">
                   <div className="job-show-start-title color-one">
                     from&nbsp;
                   </div>
@@ -283,6 +282,23 @@ class JobShow extends React.Component {
                     {job.destination}
                   </div>
                 </div>
+                <div className="job-show-two-objects-wrap">
+                  <div className="job-show-distance-title color-one">
+                  Distance:&nbsp;&nbsp;
+                  </div>
+                  <div className="job-show-distance color-two">
+                    {job.distance} miles
+                  </div>
+                </div>
+                <div className="job-show-two-objects-wrap">
+                  <div className="job-show-price-title color-one">
+                  This job pays:&nbsp;&nbsp;
+                  </div>
+                  <div className="job-show-price color-two">
+                    $ {job.price}
+                  </div>
+                </div>
+                
               </div>
 
               <div className="job-show-buttons-wrapper">

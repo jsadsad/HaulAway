@@ -47,7 +47,7 @@ class ReviewForm extends Component {
         author: this.state.author, 
         jobId: this.state.jobId
       }
-      console.log(review)
+      debugger
       this.props.job.reviews.push(this.props.author)
 
       this.props.processForm(review)
@@ -56,7 +56,6 @@ class ReviewForm extends Component {
         
           const reviewedJob = {
             _id: this.props.jobId,
-            // isReviewed: true,
             reviews: this.props.job.reviews,
             
             description: this.props.job.description,
@@ -69,6 +68,7 @@ class ReviewForm extends Component {
           }
         
         this.props.updateJob(reviewedJob)
+          .then(() => {this.props.history.push(`/homepage`)})
       })
     }
     render() {
@@ -80,9 +80,9 @@ class ReviewForm extends Component {
             <h2 className="review-form-header">Write a Review</h2>
             <form className="review-form-box"
                 onSubmit={this.handleSubmit} >
-              <div className="review-form-input-above-little-box">
+              <div className="review-form-inner-box">
                 <input className="review-title-input" type="text" 
-                      placeholder='Title'
+                      placeholder='Please insert a title'
                       onChange={this.handleField('title')}/>
 
                 <select className='review-form-select'
@@ -100,11 +100,9 @@ class ReviewForm extends Component {
 
 
               </div>
-              <div className="review-form-input-below-little-box">
                 <textarea className="review-body-input" 
-                          placeholder='Body'
+                          placeholder='Describe your experience to help other users'
                           onChange={this.handleField('body')}/>
-              </div>
               <div>
                 <button className="job-form-btn">Post Review</button>
               </div>

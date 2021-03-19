@@ -1,3 +1,10 @@
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+
 .review-form-outer-wrap {
   min-height: 100vh;
   min-width: 100vw;
@@ -5,20 +12,22 @@
   background: #2e3740;
   color: white;
   cursor: default;
+  /* display: block; */
 }
 
 .review-form-wrap {
-  border: 1px solid green;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border: 1px solid green; */
+  /* width: 8vh; */
 }
 
 .review-form-container {
-  border: 1px solid white;
-  border-radius: 7px;
-  height: 500px;
-  width: 800px;
+  /* border: 1px solid white; */
+  /* border-radius: 7px; */
+  height: 80vh;
+  width: 60vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,6 +38,7 @@
 .review-form-header {
   font-weight: bold;
   font-size: 2.5em;
+  color: #1fce6d;
 }
 
 .review-body-input {
@@ -36,7 +46,7 @@
   height: 200px;
   width: 500px;
   background: transparent;
-  border: 1px solid white;
+  /* border: 1px solid white; */
 }
 
 .review-form-input-little-box {
@@ -46,25 +56,64 @@
   /* font-family: 'FontAwesome', 'Second Font name'; */
 }
 
-.fas fa-star {
-  color: #1fce6d;
+.review-form-inner-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.review-title-input {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+
+  margin: 5px;
+  padding: 5px;
+  background: rgba(17, 17, 17, 0.87);
+  box-shadow: none;
+  border-radius: 12px;
+  border: #1fce6d 1px solid;
+  color: white;
+  padding-left: 10px;
+  font-size: large;
 }
 
 .review-form-select {
+  font-family: 'Montserrat', sans-serif;
+
   color: #1fce6d;
   background: rgba(17, 17, 17, 0.87);
   border: 1px solid #1fce6d;
   border-radius: 12px;
   cursor: pointer;
-  font-weight: 800;
-  font-size: large;
+  font-weight: 600;
+  font-size: small;
+  margin: 5px;
+  padding: 5px;
+  /* width: 40%; */
 }
 
 .review-form-select-dropdown {
+  font-family: 'Montserrat', sans-serif;
+
   color: #1fce6d;
   background: rgba(17, 17, 17, 0.87);
   border: 1px solid #1fce6d;
   border-radius: 12px;
-  font-weight: 800;
+  font-weight: 600;
   font-size: large;
+}
+
+.review-body-input {
+  margin: 5px;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: medium;
+  font-weight: 600;
+
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  border: #1fce6d 1px solid;
+  border-radius: 12px;
 }
