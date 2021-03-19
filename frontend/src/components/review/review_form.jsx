@@ -17,9 +17,21 @@ class ReviewForm extends Component {
         jobId: this.props.jobId
       }
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleStars = this.handleStars.bind(this)
+
+    
     }
 
     handleField(field) {
+      return (e) =>
+        this.setState({
+          [field]: e.currentTarget.value,
+        })
+    }
+
+    handleStars(field, e) {
+      debugger
+      e.currentTarget.className += "green"
       return (e) =>
         this.setState({
           [field]: e.currentTarget.value,
@@ -68,24 +80,27 @@ class ReviewForm extends Component {
             <h2 className="review-form-header">Write a Review</h2>
             <form className="review-form-box"
                 onSubmit={this.handleSubmit} >
-              <div className="review-form-input-little-box">
+              <div className="review-form-input-above-little-box">
                 <input className="review-title-input" type="text" 
                       placeholder='Title'
                       onChange={this.handleField('title')}/>
+
                 <select className='review-form-select'
                 onChange={this.handleField('rating')}
                       value={this.state.rating}>
-                  <option value="" disabled defaultValue>
+                  <option className="review-form-select-dropdown" value="" disabled defaultValue>
                     Please Select Rating
                   </option>
-                  <option value='5'>5</option>
-                  <option value='4'>4</option>
-                  <option value='3'>3</option>
-                  <option value='2'>2</option>
-                  <option value='1'>1</option>
+                  <option className="review-form-select-dropdown" value='5'>&#x2605;&#x2605;&#x2605;&#x2605;&#x2605;</option>
+                  <option className="review-form-select-dropdown" value='4'>&#x2605;&#x2605;&#x2605;&#x2605;</option>
+                  <option className="review-form-select-dropdown" value='3'>&#x2605;&#x2605;&#x2605;</option>
+                  <option className="review-form-select-dropdown" value='2'>&#x2605;&#x2605;</option>
+                  <option className="review-form-select-dropdown" value='1'>&#x2605;</option>
                 </select>
+
+
               </div>
-              <div className="review-form-input-little-box">
+              <div className="review-form-input-below-little-box">
                 <textarea className="review-body-input" 
                           placeholder='Body'
                           onChange={this.handleField('body')}/>
