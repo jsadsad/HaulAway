@@ -15,6 +15,7 @@ class ReviewForm extends Component {
         rating: '', 
         author: this.props.author, 
         jobId: this.props.jobId,
+        reviewNotAllowed: ''
       }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleStars = this.handleStars.bind(this)
@@ -45,6 +46,11 @@ class ReviewForm extends Component {
 
     handleSubmit(e) {
       e.preventDefault()
+      if (this.props.job.reviews.includes(this.props.author)) {
+        return (this.setState({
+          reviewNotAllowed: 'You already reviewed this job*'
+        }))
+      }
       let review = {
         title: this.state.title, 
         body: this.state.body, 
@@ -90,6 +96,8 @@ class ReviewForm extends Component {
       })
               // this.props.history.push(`/homepage`)}
     }
+
+
     render() {
       return (
       <div className="review-form-outer-wrap">
@@ -124,6 +132,7 @@ class ReviewForm extends Component {
                           onChange={this.handleField('body')}/>
               <div>
                 <button className="job-form-btn">Post Review</button>
+                <div className="review-validator">{this.state.reviewNotAllowed}</div>
               </div>
             </form>
           </div>

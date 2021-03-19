@@ -117,3 +117,14 @@ button:focus {
   border: #1fce6d 1px solid;
   border-radius: 12px;
 }
+
+.review-validator {
+  color: red;
+  font-size: medium;
+  font-weight: 500;
+  font-family: 'Montserrat', sans-serif;
+  /* border: 1px solid red; */
+  background: transparent;
+  margin-bottom: 10px;
+  padding: 10px;
+}
