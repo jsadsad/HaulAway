@@ -48,11 +48,11 @@ class ReviewForm extends Component {
         jobId: this.state.jobId
       }
       debugger
-      this.props.job.reviews.push(this.props.author)
-
+      
       this.props.processForm(review)
-        .then(() => {
-
+      .then(() => {
+        
+          this.props.job.reviews.push(this.props.author)
         
           const reviewedJob = {
             _id: this.props.jobId,
