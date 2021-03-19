@@ -8,7 +8,9 @@ const mapStateToProps = (state, ownProps) => {
   return {
     author: state.session.user.id,
     jobId: ownProps.match.params.jobId,
-    job: state.entities.jobs[ownProps.match.params.jobId]
+    job: state.entities.jobs[ownProps.match.params.jobId],
+    currentUserId: state.session.user.id,
+    
   }
 }
 

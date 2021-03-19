@@ -47,14 +47,15 @@ class ReviewForm extends Component {
         author: this.state.author, 
         jobId: this.state.jobId
       }
-      this.props.job.reviews.push(this.props.author)
 
       this.props.processForm(review)
-        .then(() => {
+      .then((review) => {
+          if (review) {
 
-        
-          const reviewedJob = {
-            _id: this.props.jobId,
+            this.props.job.reviews.push(review.author)
+            
+            const reviewedJob = {
+              _id: this.props.jobId,
             reviews: this.props.job.reviews,
             
             description: this.props.job.description,
@@ -65,10 +66,28 @@ class ReviewForm extends Component {
             jobType: this.props.job.jobType,
             pickup: this.props.job.pickup,
           }
+<<<<<<< HEAD
         
         this.props.updateJob(reviewedJob)
           // .then(() => {this.props.history.push(`/homepage`)})
+=======
+          
+          this.props.updateJob(reviewedJob)
+        }
+>>>>>>> main
       })
+          .then((reviewedJob) => {
+            if (reviewedJob) {
+
+              const {job, currentUserId} = this.props
+              if(job.jobPoster._id === currentUserId) {
+                this.props.history.push(`/users/${job.jobTaker}`)
+              } else {
+                this.props.history.push(`/users/${job.jobPoster._id}`)
+              }
+            }
+            })
+              // this.props.history.push(`/homepage`)}
     }
     render() {
       return (
