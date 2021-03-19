@@ -14,12 +14,17 @@ class ReviewForm extends Component {
         body: '', 
         rating: '', 
         author: this.props.author, 
-        jobId: this.props.jobId
+        jobId: this.props.jobId,
       }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleStars = this.handleStars.bind(this)
 
     
+    }
+
+    componentDidMount() {
+      this.props.fetchJob(this.props.jobId)
+
     }
 
     handleField(field) {
@@ -49,10 +54,12 @@ class ReviewForm extends Component {
       }
 
       this.props.processForm(review)
-      .then((review) => {
-          if (review) {
+      
+      .then((payload) => {
+        debugger
+          if (payload.review) {
 
-            this.props.job.reviews.push(review.author)
+            this.props.job.reviews.push(this.props.author)
             
             const reviewedJob = {
               _id: this.props.jobId,
@@ -68,19 +75,19 @@ class ReviewForm extends Component {
           }
           
           this.props.updateJob(reviewedJob)
+          .then(() => {
+            
+            
+            const {job, currentUserId} = this.props
+            if(job.jobPoster._id === currentUserId) {
+              this.props.history.push(`/users/${job.jobTaker}`)
+            } else {
+              this.props.history.push(`/users/${job.jobPoster._id}`)
+            }
+            
+          })
         }
       })
-          .then((reviewedJob) => {
-            if (reviewedJob) {
-
-              const {job, currentUserId} = this.props
-              if(job.jobPoster._id === currentUserId) {
-                this.props.history.push(`/users/${job.jobTaker}`)
-              } else {
-                this.props.history.push(`/users/${job.jobPoster._id}`)
-              }
-            }
-            })
               // this.props.history.push(`/homepage`)}
     }
     render() {
@@ -124,73 +131,6 @@ class ReviewForm extends Component {
       </div>
     
       )}
-
-    // handleField(field) {
-    //     // this.props.clearErrors()
-    
-    //     return (e) =>
-    //       this.setState({
-    //         [field]: e.currentTarget.value,
-    //       })
-    //   }
-
-    //   handleSubmit(e) {
-    //     e.preventDefault()
-    //     const review = Object.assign({}, this.state)
-    //     this.props.processForm(review)
-    //   }
-
-    // render() {
-    //     // const job = this.props.job
-    //     // if (!job) return <h1>here</h1>
-
-    //     return (
-    //       <div className="review-form-outer-wrap">
-    //         <Navbar />
-            
-    //         <div className="review-form-body">
-    //             <div className="review-form-form-container">
-    //               <h2 className="review-form-letters">Write </h2>
-    //                 <form className="review-form-form-box">
-    //                   <br/>
-    //                   <div className="review-form-input-little-box">
-    //                     <input className="review-form-input-email" placeholder="Email" type="text"  onChange={this.handleField('email')} />
-    //                   </div>
-    //                   <br/>
-    //                   <div className="review-form-input-little-box">
-    //                     <input className="review-form-input-password" placeholder="Password" type="password" onChange={this.handleField('password')}/>
-    //                   </div>
-    //                   <br/>
-    //                   <button className="review-form-button" >Sign In</button>
-    //                 </form>
-    //                 <br/>
-    //                 <div className="sing-up-link-review-form-form">
-    //                   <p className="demo-user-wrap"><button onClick={this.loginDemo} className="demo-user-button">Demo User</button></p>
-    //                   <div className="sign-up-new">New to HaulAway? <Link className="sign-up-link" to="/signup">Sign up now</Link>.</div>
-    //                 </div>
-    //             </div>
-    //           <div className="center-pixel"></div>
-    //         </div>
-    
-    //             <div className="splash-footer">
-    //               <div className="splash-footer-wrapper">
-                   
-    //                         <div className="thank-you">Thank you for your visit</div>
-                   
-    //                   <div className="splash-footer-info">
-    //                     <div className="engineerd-by">Engineered with love by:</div>
-    //                       <div className="info-us">
-    //                         <a className="contact" href="https://github.com/shinara03" target="_blank">Lena</a>
-    //                         <a className="contact" href="https://github.com/andmitriy93" target="_blank">Dmitrii</a>
-    //                         <a className="contact" href="https://github.com/jsadsad" target="_blank">Josh</a>
-    //                         <a className="contact" href="https://github.com/kinda-dev" target="_blank">Fabio</a>
-    //                       </div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-    //       </div>
-    //     )
-    // }
 }
 
 export default ReviewForm;

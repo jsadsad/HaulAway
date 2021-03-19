@@ -171,6 +171,7 @@ class JobPostForm extends React.Component {
     return distancePrice * 2.55
   }
 
+
   render() {
     const coords = this.state.mapPosition
 
@@ -194,7 +195,9 @@ class JobPostForm extends React.Component {
                     onChange={this.handleField('description')}
                     />
                 {/* </div> */}
-                    {this.props.errors.description}
+                <div className="job-form-errors">
+                  {this.props.errors.description}
+                </div>
                 <div>
                   <select
                     className="job-form-select"
@@ -280,7 +283,7 @@ class JobPostForm extends React.Component {
                   {/* <label className="job-form-little-title color-one">Upload Photos!</label> */}
                 
                   <input
-                    required
+                    // required
                     type="file"
                     id="job-form-input-pics"
                     onChange={this.handlePhotoFile}
@@ -288,6 +291,9 @@ class JobPostForm extends React.Component {
                   hidden/>
                   <div className="job-form-upload-wrap">
                     <label htmlFor="job-form-input-pics" className="job-form-upload">Upload Pictures!</label>
+                  </div>
+                  <div className="job-form-errors">
+                    {this.props.errors.pictures}
                   </div>
                 </div>
                 <button className="job-form-btn">Submit</button>
