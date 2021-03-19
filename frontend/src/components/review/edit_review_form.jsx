@@ -6,7 +6,7 @@ class ReviewEditForm extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchReview()
+    this.props.fetchReview(this.props.match.params.reviewId)
   }
 
   render() {

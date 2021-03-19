@@ -3,6 +3,7 @@ import {
   fetchReview,
   updateReview,
   clearErrors,
+  deleteReview,
 } from '../../actions/review_actions'
 import ReviewEditForm from './edit_review_form'
 
@@ -19,6 +20,7 @@ const mapDispatchToProps = (dispatch) => {
     processForm: (review) => dispatch(updateReview(review)),
     clearErrors: () => dispatch(clearErrors()),
     fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
+    deleteReview: (reviewId) => dispatch(deleteReview(reviewId)),
   }
 }
 
