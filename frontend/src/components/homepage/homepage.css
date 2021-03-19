@@ -44,6 +44,9 @@
   font-weight: 300;
   padding-bottom: 10px;
 }
+.homepage-job-buttons-right-header:hover {
+  color: #1fce6d;
+}
 
 .homepage-rj-button {
   color: #1fce6d;
@@ -70,6 +73,10 @@
   font-size: 30px;
   font-weight: 300;
   padding-bottom: 10px;
+}
+
+.homepage-job-buttons-left-header:hover {
+  color: #1fce6d;
 }
 
 .homepage-lj-button {
