@@ -162,11 +162,13 @@
   justify-content: space-around;
   padding: 15px 0;
   cursor: pointer;
+  
 }
 
 .review-info-index:hover {
   background-color: #1fce6d;
 }
+
 
 #filled-star {
   color: #f7f709;

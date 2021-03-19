@@ -26,24 +26,21 @@ button {
   outline: none;
 }
 
-
 .splash-page {
   min-width: 100%;
   overflow: hidden;
   margin: 0;
-
   object-fit: contain;
   height: 100vh;
   color: white;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
+  cursor: default;
 }
 
 .splash-body {
   position: relative;
-
   margin-bottom: 0;
-  /* background: 0 0; */
   color: #fff;
   display: flex;
 }
@@ -51,9 +48,6 @@ button {
 .splash-background {
   top: -100px;
   width: 1920px;
-  /* height: 1080px; */
-  /* min-width: 100vh; */
-  /* min-width: 100%; */
   z-index: -1;
   position: absolute;
   left: 0;
@@ -69,7 +63,6 @@ button {
   padding: 60px 68px 40px;
   margin-bottom: 90px;
   border-radius: 4px;
-
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -77,17 +70,20 @@ button {
   min-width: 380px;
   justify-content: center;
   z-index: 1;
-
   position: relative;
   text-align: center;
   align-items: center;
-  /* font-weight: bolder; */
 }
 
 .splash-haulaway-text-logo {
   font-family: 'Pacifico', cursive;
   font-size: 9vh;
   margin: 0;
+  transition: 0.5s;
+}
+
+.splash-haulaway-text-logo:hover {
+  color: #1fce6d;
 }
 
 .splash-slogan {
@@ -96,11 +92,17 @@ button {
   margin-top: 0;
   margin-bottom: 0;
 }
+.splash-slogan:hover {
+  color: #1fce6d;
+}
 
 .splash-little-motivation {
   font-family: 'Montserrat', sans-serif;
   margin-top: 10px;
   margin-bottom: 0;
+}
+.splash-little-motivation:hover {
+  color: #1fce6d;
 }
 
 .splash-session-buttons {
@@ -116,13 +118,10 @@ button {
   /* min-height: 40px; */
 }
 
-
-
 .splash-signup-link {
   font-weight: bolder;
   text-decoration: none;
   color: #1fce6d;
-  /* color: white; */
 }
 
 .splash-signup-link:hover {
@@ -138,16 +137,6 @@ button {
 .splash-login-link:hover {
   color: white;
 }
-
-/* .splash-signup-wrap:hover .splash-signup-button .splash-signup-link {
-  background-color: white;
-  color: #1fce6d;
-}
-
-.splash-login-wrap :hover .splash-login-button .splash-login-link {
-  background-color: white;
-  color: #1fce6d;
-} */
 
 .splash-signup-button {
   color: #1fce6d;
