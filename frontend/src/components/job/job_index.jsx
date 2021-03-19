@@ -39,11 +39,46 @@ class JobIndex extends React.Component {
                     />
                   </div>
                   <div className="job-it-text-wrapper">
-                    <h3>Destination: {job.destination}</h3>
-                    <h3>Pick-up location: {job.pickup}</h3>
-                    <h3>Difficulty: {job.jobDifficulty}</h3>
-                    <h3>Start date: {job.jobStartDate}</h3>
-                    <h3>End date: {job.jobEndDate}</h3>
+                    <div>
+                      <label className="job-index-label">Difficulty: </label>
+                      <span className="job-index-value">
+                        {job.jobDifficulty.toUpperCase()}
+                      </span>
+                    </div>
+                    <div>
+                      <label className="job-index-label">Price: </label>
+                      <span className="job-index-value">{job.price}</span>
+                    </div>
+                    <div>
+                      <label className="job-index-label">Distance: </label>
+                      <span className="job-index-value">
+                        {job.distance} miles
+                      </span>
+                    </div>
+                    <div>
+                      <label className="job-index-label">Pickup: </label>
+                      <span className="job-index-value">{job.pickup}</span>
+                    </div>
+                    <div>
+                      <label className="job-index-label">Destination: </label>
+                      <span className="job-index-value">{job.destination}</span>
+                    </div>
+                    <div>
+                      <label className="job-index-label">Start Date: </label>
+                      <span className="job-index-value">
+                        {job.jobStartDate}
+                      </span>
+                    </div>
+                    <div>
+                      <label className="job-index-label">End Date: </label>
+                      <span className="job-index-value">{job.jobEndDate}</span>
+                    </div>
+
+                    {/* <div>{job.jobDifficulty.toUpperCase()}</div>
+                    <div>Destination: {job.destination}</div>
+                    <div>Pick-up location: {job.pickup}</div>
+                    <div>Start date: {job.jobStartDate}</div>
+                    <div>End date: {job.jobEndDate}</div> */}
                   </div>
                 </div>
               )

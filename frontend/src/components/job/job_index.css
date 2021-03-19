@@ -4,27 +4,25 @@
   min-width: 100vw;
 }
 
+.job-index-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .job-index-item-wrapper {
-  /* display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  justify-items: center;
-  grid-gap: 20px 0;
-  padding-bottom: 20px; */
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
 .job-index-item {
-  /* background-color: rgb(35, 175, 75); */
   position: sticky;
   background-color: #2e3740;
   border: 1px solid #1fce6d;
   border-radius: 10px;
-  height: 250px;
-  width: 450px;
+  height: 265px;
+  width: 460px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 18px;
   color: white;
   display: flex;
   cursor: pointer;
@@ -32,14 +30,14 @@
 }
 
 .job-index-item:hover {
-  background-color: whitesmoke;
+  background-color: #6b6b6b;
+  transform: scale(1.02);
 }
 
 .job-it-image-wrapper {
   border: 1px solid white;
   border-radius: 10px;
   width: 230px;
-  /* height: 250px; */
   text-align: center;
   display: flex;
   justify-items: stretch;
@@ -59,4 +57,18 @@
   font-family: 'Montserrat', sans-serif;
   color: white;
   text-align: center;
+}
+
+.job-index-label {
+  color: rgb(12, 247, 0);
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 700;
+}
+
+.job-index-value {
+  display: block;
+  color: rgb(210 154 25 / 81%);
+  font-size: 0.9rem;
+  font-weight: 900;
 }
