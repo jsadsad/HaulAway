@@ -14,12 +14,17 @@ class ReviewForm extends Component {
         body: '', 
         rating: '', 
         author: this.props.author, 
-        jobId: this.props.jobId
+        jobId: this.props.jobId,
       }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleStars = this.handleStars.bind(this)
 
     
+    }
+
+    componentDidMount() {
+      this.props.fetchJob(this.props.jobId)
+
     }
 
     handleField(field) {
@@ -49,10 +54,12 @@ class ReviewForm extends Component {
       }
 
       this.props.processForm(review)
-      .then((review) => {
-          if (review) {
+      
+      .then((payload) => {
+        debugger
+          if (payload.review) {
 
-            this.props.job.reviews.push(review.author)
+            this.props.job.reviews.push(this.props.author)
             
             const reviewedJob = {
               _id: this.props.jobId,
@@ -68,19 +75,19 @@ class ReviewForm extends Component {
           }
           
           this.props.updateJob(reviewedJob)
+          .then(() => {
+            
+            
+            const {job, currentUserId} = this.props
+            if(job.jobPoster._id === currentUserId) {
+              this.props.history.push(`/users/${job.jobTaker}`)
+            } else {
+              this.props.history.push(`/users/${job.jobPoster._id}`)
+            }
+            
+          })
         }
       })
-          .then((reviewedJob) => {
-            if (reviewedJob) {
-
-              const {job, currentUserId} = this.props
-              if(job.jobPoster._id === currentUserId) {
-                this.props.history.push(`/users/${job.jobTaker}`)
-              } else {
-                this.props.history.push(`/users/${job.jobPoster._id}`)
-              }
-            }
-            })
               // this.props.history.push(`/homepage`)}
     }
     render() {
