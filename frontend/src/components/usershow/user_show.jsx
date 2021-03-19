@@ -36,7 +36,7 @@ class UserShow extends React.Component {
       return (
         <div key={index} onClick={() => this.props.history.push(`/jobs/${job._id}`)} 
         className='job-info-index'>
-          <p>{index + 1}</p>
+          <p>{job.jobPoster.firstName}</p>
           <p>{job.jobStartDate}</p>
           <p>{job.jobEndDate}</p>
           <p>{job.pickup}</p>
@@ -45,6 +45,7 @@ class UserShow extends React.Component {
       )
     })
   }
+
 
   getReviewIndexItems() {
     let totalReviewNum = 0
@@ -61,19 +62,21 @@ class UserShow extends React.Component {
             editButton = <div className='review-delete-button'>Edit</div>
           }
           return (
-            <div>
-              <div key={index} className='review-info-index'
-                  onClick={() => this.props.history.push(`/users/${this.props.userId}/reviews/${review._id}`)}>
-                {/* <p>{index + 1}</p> */}
-                {/* <p>{review.rating}</p> */}
-                <div>{this.getRatingStars(review.rating)}</div>
-                {/* <div>{review.author}</div> */}
-                {/* <div>{review.title}</div> */}
-                <div className='review-info-body'>{review.body}</div>
-                <div>{formattedDate.toLocaleDateString()}</div>
-              </div>
-              <div>{editButton}</div>
-              <div onClick={() => this.props.destroyReview(review._id).then(() => window.location.reload())}>{deleteButton}</div>
+            <div key={index} className='review-info-container'>
+                <div className='review-info-index'
+                    onClick={() => this.props.history.push(`/users/${this.props.userId}/reviews/${review._id}`)}>
+                  {/* <p>{index + 1}</p> */}
+                  {/* <p>{review.rating}</p> */}
+                  <div className='review-info-stars'>{this.getRatingStars(review.rating)}</div>
+                  {/* <div>{review.author}</div> */}
+                  {/* <div>{review.title}</div> */}
+                  <div className='review-info-title'>{review.title}</div>
+                  <div className='review-info-date'>{formattedDate.toLocaleDateString()}</div>
+                </div>
+                <div className='review-info-buttons'>
+                  <div>{editButton}</div>
+                  <div onClick={() => this.props.destroyReview(review._id).then(() => window.location.reload())}>{deleteButton}</div>
+                </div>
             </div>
           )
         }
@@ -212,7 +215,7 @@ class UserShow extends React.Component {
             <div className='job-info-wrapper'>
                 <h2 className='job-header'>Jobs ({this.props.jobs.length})</h2>
                 <div className='job-info-header'>
-                  <h3>Job Index</h3>
+                  <h3>Job Poster</h3>
                   <h3>Start Date</h3>
                   <h3>End Date</h3>
                   <h3>Pickup Location</h3>
