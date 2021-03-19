@@ -67,7 +67,15 @@ class ReviewForm extends Component {
           }
         
         this.props.updateJob(reviewedJob)
-          .then(() => {this.props.history.push(`/homepage`)})
+          .then(() => {
+            const {job, currentUserId} = this.props
+            if(job.jobPoster._id === currentUserId) {
+              this.props.history.push(`/users/${job.jobTaker}`)
+            } else {
+              this.props.history.push(`/users/${job.jobPoster._id}`)
+            }
+              // this.props.history.push(`/homepage`)}
+        })
       })
     }
     render() {
