@@ -119,8 +119,8 @@ input::placeholder {
 }
 
 .jobs-edit-img {
-  width: 90%;
-  height: 90%;
+  width: 40%;
+  height: 40%;
 }
 
 .job-post-lvl-btn {
@@ -172,16 +172,24 @@ input::placeholder {
 .edit-form-distance-text {
   color: rgb(218, 188, 70);
   font-size: 1rem;
+  margin-left: 30px;
+  padding-top: 20px;
 }
 
 .edit-distance-text {
   color: #fff;
   padding-left: 1.5rem;
+  padding-top: 21px;
   font-size: 1rem;
 }
 
 .edit-new-distance-text {
   color: rgb(69, 255, 32);
   padding-left: 3rem;
+  padding-top: 1.3rem;
   font-size: 1rem;
+}
+
+.edit-form-distance-container {
+  display: flex;
 }
