@@ -2,6 +2,7 @@
   min-height: 100vh;
   background: #2e3740;
   font-family: 'Montserrat', sans-serif;
+  cursor: default;
 }
 
 .homepage-inner-wrapper {
