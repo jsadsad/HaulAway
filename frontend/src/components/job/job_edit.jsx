@@ -285,7 +285,7 @@ class JobEdit extends React.Component {
                   />
                 </div>
                 <br />
-                <div className="form-distance-container">
+                <div className="edit-form-distance-container">
                   <label className="edit-form-distance-text">
                     Previous Distance:{' '}
                   </label>
@@ -300,15 +300,15 @@ class JobEdit extends React.Component {
                     {this.distanceRender().toFixed(2)} miles
                   </span>
                 </div>
-                <div className="form-distance-container">
+                <div className="edit-form-distance-container">
                   <label className="edit-form-distance-text">
                     Previous Price:{' '}
                   </label>
-                  <span className="edit-distance-text">$ {job.price}</span>
+                  <span className="edit-distance-text">${job.price}</span>
                   <br />
                   <label className="edit-form-distance-text">New Price:</label>
                   <span className="edit-new-distance-text">
-                    $ {this.priceRender().toFixed(2)}
+                    ${this.priceRender().toFixed(2)}
                   </span>
                 </div>
                 <br />
@@ -389,13 +389,13 @@ class JobEdit extends React.Component {
                 </Map>
               </div>
             </form>
-            <div className="jobs-new-img-container">
-              <img
-                className="jobs-edit-img"
-                src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_boxes_2.jpeg"
-                alt="Happy to help!"
-              />
-            </div>
+            {/* <div className="jobs-new-img-container"> */}
+            <img
+              className="jobs-edit-img"
+              src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_boxes_2.jpeg"
+              alt="Happy to help!"
+            />
+            {/* </div> */}
           </div>
         </div>
       </div>

@@ -1,0 +1,37 @@
+
+.page404 {
+  width: 100%;
+  position: absolute;
+  top: 30%;
+  text-align: center;
+  color: #343434;
+  background-color: #f8f8ff;
+  font-family: 'Montserrat', sans-serif;
+  cursor: default;
+}
+
+.page404 h1{
+  font-size: 160px;
+  margin: 0;
+  font-weight: 900;
+  letter-spacing: 20px;
+  background: #2f3542;
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+.page404-link-back {
+  text-decoration: none;
+  background: #2f3542;
+  color: #fff;
+  padding: 12px 24px;
+  display: inline-block;
+  border-radius: 25px;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: 0.4s;
+}
+
+.page404-link-back:hover {
+  background: #1fec1d;
+}

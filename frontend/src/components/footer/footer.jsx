@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-inner-wrap">
-        <div className="thank-you">Thank you for your visit</div>
+        {/* <div className="thank-you">Thank you for your visit</div> */}
         <div className="footer-about-us">
           <div className="info-us">
             Lena
@@ -23,6 +23,7 @@ const Footer = () => {
               <a className="contact" href="https://angel.co/u/jsadsad" target="_blank"><i className='fa fa-angellist'></i></a>
             </div>
           </div>
+          <div className="thank-you">Thank you for your visit</div>
           <div className="info-us">
             Fabio
             <div className="info-us-contacts">
