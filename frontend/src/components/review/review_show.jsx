@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Navbar from '../navbar/navbar_container';
+import Loader from '../Loader/loader'
 import './review_show.css'
 
 class ReviewShow extends Component {

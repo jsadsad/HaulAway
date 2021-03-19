@@ -6,7 +6,7 @@ class Loader extends React.Component {
   render() {
     return (
       <div className="loader-outter">
-        <span className="loader-text">Gimme a sec</span>
+        <span className="loader-text">Loading...</span>
         <div className="loader">
         </div>
       </div>

@@ -74,6 +74,10 @@
   transition: 0.2s;
 }
 
+.fas.fa-bars:hover {
+  color: #1fce6d;
+}
+
 .navbar-right-wrap:hover .navbar-menu {
   display: block;
   /* position: absolute; */

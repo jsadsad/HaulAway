@@ -18,6 +18,7 @@ import Modal from '../components/modal/modal'
 import JobEditContainer from '../components/job/job_edit_container'
 import AboutUs from './aboutUs/about_us'
 import ReviewShowContainer from './review/review_show_container'
+import FourOFour from './404page/404page'
 
 const App = () => (
   <div>
@@ -36,6 +37,7 @@ const App = () => (
       <ProtectedRoute exact path='/jobs/:jobId/review' component={ReviewFormContainer} />
       <ProtectedRoute exact path='/users/:userId/reviews/:reviewId' component={ReviewShowContainer} />
       <ProtectedRoute exact path='/about' component={AboutUs} />
+      <Route path="*" component={FourOFour} />
     </Switch>
   </div>
 )

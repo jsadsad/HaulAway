@@ -61,15 +61,17 @@ class UserShow extends React.Component {
             editButton = <div className='review-delete-button'>Edit</div>
           }
           return (
-            <div key={index} className='review-info-index'
-                 onClick={() => this.props.history.push(`/users/${this.props.userId}/reviews/${review._id}`)}>
-              {/* <p>{index + 1}</p> */}
-              {/* <p>{review.rating}</p> */}
-              <div>{this.getRatingStars(review.rating)}</div>
-              {/* <div>{review.author}</div> */}
-              {/* <div>{review.title}</div> */}
-              <div className='review-info-body'>{review.body}</div>
-              <div>{formattedDate.toLocaleDateString()}</div>
+            <div>
+              <div key={index} className='review-info-index'
+                  onClick={() => this.props.history.push(`/users/${this.props.userId}/reviews/${review._id}`)}>
+                {/* <p>{index + 1}</p> */}
+                {/* <p>{review.rating}</p> */}
+                <div>{this.getRatingStars(review.rating)}</div>
+                {/* <div>{review.author}</div> */}
+                {/* <div>{review.title}</div> */}
+                <div className='review-info-body'>{review.body}</div>
+                <div>{formattedDate.toLocaleDateString()}</div>
+              </div>
               <div>{editButton}</div>
               <div onClick={() => this.props.destroyReview(review._id).then(() => window.location.reload())}>{deleteButton}</div>
             </div>
