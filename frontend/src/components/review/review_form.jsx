@@ -66,7 +66,8 @@ class ReviewForm extends Component {
             pickup: this.props.job.pickup,
           }
         
-        this.props.updateJob(reviewedJob)
+          this.props.updateJob(reviewedJob)
+        })
           .then(() => {
             const {job, currentUserId} = this.props
             if(job.jobPoster._id === currentUserId) {
@@ -74,9 +75,8 @@ class ReviewForm extends Component {
             } else {
               this.props.history.push(`/users/${job.jobPoster._id}`)
             }
+          })
               // this.props.history.push(`/homepage`)}
-        })
-      })
     }
     render() {
       return (
