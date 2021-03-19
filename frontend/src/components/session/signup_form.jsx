@@ -2,7 +2,6 @@ import React from 'react'
 import Navbar from '../navbar/navbar_container'
 import { uploadPhoto } from '../../util/photo_api_util'
 import { Link } from 'react-router-dom'
-import Footer from '../footer/footer'
 import './signup.css'
 import '../splash/splash.css'
 
@@ -30,12 +29,11 @@ class SignupForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault()
     const capitalize = (s) => {
       if (typeof s !== 'string') return ''
       return s.charAt(0).toUpperCase() + s.slice(1)
     }
-
-    e.preventDefault()
 
     if (this.state.selectedFile) {
       const data = new FormData(e.target)
@@ -146,20 +144,20 @@ class SignupForm extends React.Component {
               </div>
             </div>
             <div className="signup-input-file">
-              <label className="signup-photo-label">Upload avatar</label>
+              <label className="signup-photo-label">Add Profile Photo</label>
               <input
                 type="file"
                 onChange={this.handlePhotoFile}
                 className="signup-photo-btn"
               />
             </div>
+            <button className="signup-button">Confirm</button>
             <div className="signup-login-link">
               Already with us?{' '}
               <Link className="login-link" to="/login">
                 Sign In
               </Link>
             </div>
-            <button className="signup-button">Confirm</button>
           </form>
         </div>
       </div>
