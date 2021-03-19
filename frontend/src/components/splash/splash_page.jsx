@@ -1,7 +1,7 @@
 import React from 'react'
 import './splash.css'
 import { Link } from 'react-router-dom'
-import Footer from '../footer/footer'
+
 
 const SplashPage = () => {
   return (
@@ -37,7 +37,9 @@ const SplashPage = () => {
         </div>
         <div className="center-pixel"></div>
       </div>
-      <Footer />
+      <div className="splash-about-us-container">
+        <Link className="splash-about-us-link" to="/about">About Us</Link>
+      </div>
     </div>
   )
 }

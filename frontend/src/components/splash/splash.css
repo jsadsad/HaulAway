@@ -165,3 +165,19 @@ button {
   left: 50%;
   position: absolute;
 }
+
+.splash-about-us-container {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.splash-about-us-link {
+  text-decoration: none;
+  color: #1fce6d;
+}
+
+.splash-about-us-link:hover {
+  color: #f8f8ff;
+}
