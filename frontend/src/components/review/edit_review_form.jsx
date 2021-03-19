@@ -1,6 +1,14 @@
 import React, { Component } from 'react'
 
 class ReviewEditForm extends Component {
+  componentWillUnmount() {
+    this.props.clearErrors()
+  }
+
+  componentDidMount() {
+    this.props.fetchReview()
+  }
+
   render() {
     return <div>Edit Form</div>
     // if (Object.keys(this.state).length === 0) {
