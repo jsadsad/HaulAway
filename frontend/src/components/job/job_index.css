@@ -1,7 +1,15 @@
+* {
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
 .job-index-wrapper {
   background: #2e3740;
   min-height: 100vh;
   min-width: 100vw;
+  cursor: default;
 }
 
 .job-index-wrapper::-webkit-scrollbar {
@@ -55,7 +63,7 @@
 
 .job-index-header {
   font-family: 'Montserrat', sans-serif;
-  color: white;
+  color: #1fce6d;
   text-align: center;
 }
 
