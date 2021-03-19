@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../navbar/navbar_container'
-import './job_index.css'
+import Loader from '../Loader/loader'
 import { withRouter } from 'react-router'
+import './job_index.css'
 
 class JobIndex extends React.Component {
   componentDidMount() {
@@ -9,9 +10,10 @@ class JobIndex extends React.Component {
   }
 
   render() {
-    if (!this.props.jobs) {
-      return null
-    }
+    const { jobs } = this.props
+
+    if (!jobs) return <Loader />
+
     return (
       <div className="job-index-wrapper">
         <Navbar />
@@ -19,7 +21,7 @@ class JobIndex extends React.Component {
           <h1>Available Jobs</h1>
         </div>
         <div className="job-index-item-wrapper">
-          {this.props.jobs.map((job) => {
+          {jobs.map((job) => {
             if (job.jobType === 'request') {
               return (
                 <div
