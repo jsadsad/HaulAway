@@ -47,7 +47,6 @@ class ReviewForm extends Component {
         author: this.state.author, 
         jobId: this.state.jobId
       }
-      debugger
       this.props.job.reviews.push(this.props.author)
 
       this.props.processForm(review)
