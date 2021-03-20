@@ -46,7 +46,7 @@ router.post(
       rating: req.body.rating,
       date: req.body.date,
       author: req.user._id,
-      jobId: req.body.jobId
+      jobId: req.body.jobId,
     })
 
     newReview.save().then((review) => res.json(review))
@@ -57,20 +57,22 @@ router.patch('/:id', (req, res) => {
   const filter = { _id: req.params.id }
   const update = req.body
 
+  const { errors, isValid } = validateReviewsInput(req.body)
+
   if (!isValid) {
-      return res.status(400).json(errors)
+    return res.status(400).json(errors)
   }
-  
+
   Reviews.findOneAndUpdate(filter, update, { new: true })
     .then((review) => {
       const updatedReview = {
-        id: review.id,
+        _id: review.id,
         title: review.title,
         body: review.body,
         rating: review.rating,
-        date: Date.now,
         author: review.author,
-        job: review.job
+        jobId: review.jobId,
+        // job: review.job
       }
       res.json(updatedReview)
     })
@@ -85,7 +87,9 @@ router.delete(
   (req, res) => {
     Reviews.deleteOne({ _id: req.params.review_id })
       .then((deletedReview) => res.json(deletedReview))
-      .catch((error) => res.status(404).json({ noReviewFound: 'No Review Found.' }))
+      .catch((error) =>
+        res.status(404).json({ noReviewFound: 'No Review Found.' })
+      )
   }
 )
 

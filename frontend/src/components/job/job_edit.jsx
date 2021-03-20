@@ -218,57 +218,47 @@ class JobEdit extends React.Component {
     const { job, errors } = this.props
     if (!job) return null
 
-    // let previewPictures
-    // if (job.pictures) {
-    //   previewPictures = job.pictures.map((pic, idx) => {
-    //     return (
-    //       <div key={idx}>
-    //         <img className="preview-img" src={pic} alt="box-pictures" />
-    //       </div>
-    //     )
-    //   })
-    // } else {
-    //   previewPictures = ''
-    // }
-
     return (
-      // <Suspense fallback={<Loader />}>
       <div className="job-edit-outer">
         <Navbar />
         <div className="job-edit-body-wrapper">
           <div className="job-edit-title">Edit Job</div>
           <div className="job-edit-body-inner-wrapper">
-          <div className="job-edit-info-left-side">
-  
-            <form onSubmit={this.handleSubmit} className="job-edit-edit">
-              <div className="job-edit-fields">
-                {/* <div className="job-edit-input-box input-field"> */}
+            <div className="job-edit-info-left-side">
+              <form onSubmit={this.handleSubmit} className="job-edit-edit">
+                <div className="job-edit-fields">
                   <textarea
                     required
                     className="job-edit-input-desc input-field"
                     placeholder="Please add informations about pick-up location details"
                     value={this.state.description}
                     onChange={this.handleField('description')}
-                    />
-                {/* </div> */}
-                <div className="job-edit-errors">
-                  {errors.description}
-                </div>
-                <div>
-                  <select
-                    className="job-edit-select"
-                    onChange={this.handleField('jobDifficulty')}
-                    defaultValue={job.jobDifficulty}
-                  >
-                    <option className="job-edit-select-dropdown" value="easy">&#60;-----Easy-----&#62;</option>
-                    <option className="job-edit-select-dropdown" value="medium">&#60;-----Medium-----&#62;</option>
-                    <option className="job-edit-select-dropdown" value="hard">&#60;-----Hard-----&#62;</option>
-                  </select>
-                </div>
-              
-                {/* <div className="job-edit-input-box input-field"> */}
-                <div className="job-edit-please-confirm color-one">RECONFIRM Pickup</div>
-  
+                  />
+                  <div className="job-edit-errors">{errors.description}</div>
+                  <div>
+                    <select
+                      className="job-edit-select"
+                      onChange={this.handleField('jobDifficulty')}
+                      defaultValue={job.jobDifficulty}
+                    >
+                      <option className="job-edit-select-dropdown" value="easy">
+                        &#60;-----Easy-----&#62;
+                      </option>
+                      <option
+                        className="job-edit-select-dropdown"
+                        value="medium"
+                      >
+                        &#60;-----Medium-----&#62;
+                      </option>
+                      <option className="job-edit-select-dropdown" value="hard">
+                        &#60;-----Hard-----&#62;
+                      </option>
+                    </select>
+                  </div>
+                  <div className="job-edit-please-confirm color-one">
+                    RECONFIRM Pickup
+                  </div>
+
                   <Autocomplete
                     required
                     onPlaceSelected={this.onPickupSelected}
@@ -279,11 +269,10 @@ class JobEdit extends React.Component {
                     onChange={this.handleField('pickup')}
                     placeholder={job.pickup}
                   />
-                {/* </div> */}
-              
-                {/* <div className="job-edit-input-box"> */}
-                <div className="job-edit-please-confirm color-one">RECONFIRM Destination</div>
-  
+                  <div className="job-edit-please-confirm color-one">
+                    RECONFIRM Destination
+                  </div>
+
                   <Autocomplete
                     required
                     onPlaceSelected={this.onDestinationSelected}
@@ -293,133 +282,137 @@ class JobEdit extends React.Component {
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('destination')}
                     placeholder={job.destination}
-                    />
-                {/* </div> */}
-                <div className="edit-distance-container">
-                  <label className="job-edit-little-title color-one">
-                    Previous Distance:
-                    <span className="edit-distance-num">
-                      {job.distance} miles
-                    </span>
-                  </label>
-                  <label className="job-edit-little-title color-one">
-                    New Distance:
-                    <span className="edit-distance-num">
-                      {this.distanceRender().toFixed(2)} miles
-                    </span>
-                  </label>
-                </div>
-                <div className="edit-distance-container">
-                  <label className="job-edit-little-title color-one">
-                    Previous Price:
-                    <span className="edit-distance-num">
-                      $ {job.price}
-                    </span>
-                  </label>
-                  <label className="job-edit-little-title color-one">
-                    New Price:
-                    <span className="edit-distance-num">
-                      $ {this.priceRender().toFixed(2)}
-                    </span>
-                  </label>
-                </div>
-                <div className="job-edit-input-box">
-                  <label className="job-edit-little-title color-one">Start</label>
-                  <input
-                    required
-                    onChange={this.handleField('jobStartDate')}
-                    type="date"
-                    className="job-edit-input-date input-field"
-                    defaultValue={job.jobStartDate}
-                    />
-                  {errors.jobStartDate}
-                </div>
-              
-                <div className="job-edit-input-box">
-                  <label className="job-edit-little-title color-one">End</label>
-                  <input
-                    required
-                    onChange={this.handleField('jobEndDate')}
-                    type="date"
-                    min={job.jobStartDate}
-                    className="job-edit-input-date input-field"
-                    defaultValue={job.jobEndDate}
                   />
-                  {errors.jobEndDate}
-                </div>
-              
-                <div className="job-edit-input-box">
-                  {/* <label className="job-edit-little-title color-one">Upload Photos!</label> */}
-                
-                  <input
-                    // required
-                    type="file"
-                    id="job-edit-input-pics"
-                    onChange={this.handlePhotoFile}
-                    multiple
-                  hidden/>
-                  <div className="job-edit-upload-wrap">
-                    <label htmlFor="job-edit-input-pics" className="job-edit-upload">Upload More Pictures?</label>
+                  <div className="edit-distance-container">
+                    <label className="job-edit-little-title color-one">
+                      Previous Distance:
+                      <span className="edit-distance-num">
+                        {job.distance} miles
+                      </span>
+                    </label>
+                    <label className="job-edit-little-title color-one">
+                      New Distance:
+                      <span className="edit-distance-num">
+                        {this.distanceRender().toFixed(2)} miles
+                      </span>
+                    </label>
                   </div>
-                </div>
-                <button className="job-edit-btn">Submit</button>
-                <button className="job-edit-btn" onClick={this.handleDelete}>Delete</button>
-              </div>
-              </form>
+                  <div className="edit-distance-container">
+                    <label className="job-edit-little-title color-one">
+                      Previous Price:
+                      <span className="edit-distance-num">$ {job.price}</span>
+                    </label>
+                    <label className="job-edit-little-title color-one">
+                      New Price:
+                      <span className="edit-distance-num">
+                        $ {this.priceRender().toFixed(2)}
+                      </span>
+                    </label>
+                  </div>
+                  <div className="job-edit-input-box">
+                    <label className="job-edit-little-title color-one">
+                      Start
+                    </label>
+                    <input
+                      required
+                      onChange={this.handleField('jobStartDate')}
+                      type="date"
+                      className="job-edit-input-date input-field"
+                      defaultValue={job.jobStartDate}
+                    />
+                    {errors.jobStartDate}
+                  </div>
+
+                  <div className="job-edit-input-box">
+                    <label className="job-edit-little-title color-one">
+                      End
+                    </label>
+                    <input
+                      required
+                      onChange={this.handleField('jobEndDate')}
+                      type="date"
+                      min={job.jobStartDate}
+                      className="job-edit-input-date input-field"
+                      defaultValue={job.jobEndDate}
+                    />
+                    {errors.jobEndDate}
+                  </div>
+
+                  <div className="job-edit-input-box">
+                    <input
+                      type="file"
+                      id="job-edit-input-pics"
+                      onChange={this.handlePhotoFile}
+                      multiple
+                      hidden
+                    />
+                    <div className="job-edit-upload-wrap">
+                      <label
+                        htmlFor="job-edit-input-pics"
+                        className="job-edit-upload"
+                      >
+                        Upload More Pictures?
+                      </label>
                     </div>
-  
-              <div className="job-edit-info-right-side">
-                <div className="job-edit-map-title color-one">Destination</div>
-                <div className="job-edit-map-container">
-                  <Map
-                    className="job-edit-map"
-                    zoom={12}
-                    google={this.props.google}
-                    center={{
-                      lat: this.state.mapPosition.lat,
-                      lng: this.state.mapPosition.lng,
+                  </div>
+                  <button className="job-edit-btn">Submit</button>
+                  <button className="job-edit-btn" onClick={this.handleDelete}>
+                    Delete
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div className="job-edit-info-right-side">
+              <div className="job-edit-map-title color-one">Destination</div>
+              <div className="job-edit-map-container">
+                <Map
+                  className="job-edit-map"
+                  zoom={12}
+                  google={this.props.google}
+                  center={{
+                    lat: this.state.mapPosition.lat,
+                    lng: this.state.mapPosition.lng,
+                  }}
+                >
+                  <Marker
+                    draggable={true}
+                    position={{
+                      lat: this.state.markerPosition.lat,
+                      lng: this.state.markerPosition.lng,
                     }}
-                  >
-                    <Marker
-                      draggable={true}
-                      position={{
-                        lat: this.state.markerPosition.lat,
-                        lng: this.state.markerPosition.lng,
-                      }}
-                    />
-                    <Circle
-                      radius={2400}
-                      center={coords}
-                      strokeColor="transparent"
-                      strokeOpacity={0}
-                      strokeWeight={5}
-                      fillColor="#FF0000"
-                      fillOpacity={0.3}
-                    />
-                  </Map>
-                </div>
-                <div className="job-edit-pictures-title color-one">
-                  Items to Haul:
-                </div>
-                <div className="job-edit-pictures-wrap">
-                  {job.pictures.map((picture, idx) => {
-                    return (
-                      <div className="job-edit-single-picture-wrap" key={idx}>
-                        <img
-                          className="job-edit-picture"
-                          src={picture}
-                          alt="job-picture"
-                        />
-                      </div>
-                    )
-                  })}
-                </div>
-  
+                  />
+                  <Circle
+                    radius={2400}
+                    center={coords}
+                    strokeColor="transparent"
+                    strokeOpacity={0}
+                    strokeWeight={5}
+                    fillColor="#FF0000"
+                    fillOpacity={0.3}
+                  />
+                </Map>
+              </div>
+              <div className="job-edit-pictures-title color-one">
+                Items to Haul:
+              </div>
+              <div className="job-edit-pictures-wrap">
+                {job.pictures.map((picture, idx) => {
+                  return (
+                    <div className="job-edit-single-picture-wrap" key={idx}>
+                      <img
+                        className="job-edit-picture"
+                        src={picture}
+                        alt="job-picture"
+                      />
+                    </div>
+                  )
+                })}
+              </div>
             </div>
           </div>
         </div>
       </div>
-      // </Suspense>
     )
   }
 }

@@ -114,6 +114,7 @@ router.post('/login', (req, res) => {
           firstName: user.firstName,
           lastName: user.lastName,
           phoneNumber: user.phoneNumber,
+          profilePic: user.profilePic,
         }
 
         jwt.sign(
@@ -156,7 +157,6 @@ router.patch('/:id', (req, res) => {
       res.status(404).json(error)
     })
 })
-
 
 router.delete(
   '/:user_id',
