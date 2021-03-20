@@ -11,6 +11,7 @@ module.exports = function validateJob(data) {
   data.jobType = validText(data.jobType) ? data.jobType : ''
   data.jobStartDate = validText(data.jobStartDate) ? data.jobStartDate : ''
   data.jobEndDate = validText(data.jobEndDate) ? data.jobEndDate : ''
+  data.pictures = data.pictures ? data.pictures : []
 
   if (Validator.isEmpty(data.description)) {
     errors.description = 'Description is required'

@@ -80,6 +80,7 @@ class ReviewForm extends Component {
             jobStartDate: this.props.job.jobStartDate,
             jobType: this.props.job.jobType,
             pickup: this.props.job.pickup,
+            pictures: this.props.job.pictures
           }
           
           this.props.updateJob(reviewedJob)
