@@ -10,7 +10,7 @@ class ReviewEditForm extends Component {
       body: '',
       rating: '',
       author: this.props.author,
-      jobId: this.props.jobId,
+      jobId: this.props.review.jobId,
     }
     this.handleStars = this.handleStars.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -21,8 +21,9 @@ class ReviewEditForm extends Component {
   }
 
   componentDidMount() {
-    this.props.fetchReview(this.props.match.params.reviewId)
-    this.props.fetchJobs()
+    this.props.fetchReview(this.props.match.params.reviewId).then(() => {
+      this.props.fetchJob(this.props.review.jobId)
+    })
   }
 
   handleField(field) {
@@ -41,38 +42,25 @@ class ReviewEditForm extends Component {
   }
 
   handleSubmit(e) {
+    const { job, review } = this.props
+
     e.preventDefault()
-    let review = {
+    let updatedReview = {
+      _id: review._id,
       title: this.state.title,
       body: this.state.body,
       rating: this.state.rating,
-      author: this.state.author,
+      author: this.state.author.id,
       jobId: this.state.jobId,
     }
-
-    this.props.processForm(review).then(() => {
-      const reviewedJob = {
-        _id: this.props.jobId,
-        reviews: this.props.job.reviews,
-        description: this.props.job.description,
-        destination: this.props.job.destination,
-        jobDifficulty: this.props.job.jobDifficulty,
-        jobEndDate: this.props.job.jobEndDate,
-        jobStartDate: this.props.job.jobStartDate,
-        jobType: this.props.job.jobType,
-        pickup: this.props.job.pickup,
-      }
-      this.props.updateJob(reviewedJob).then(() => {
-        this.props.history.push(`/homepage`)
-      })
+    this.props.processReview(updatedReview).then(() => {
+      this.props.history.goBack()
     })
   }
 
   render() {
     const { review, errors } = this.props
     if (!review) return null
-    console.log(this.props)
-    console.log(this.state)
 
     return (
       <div className="review-form-outer-wrap">

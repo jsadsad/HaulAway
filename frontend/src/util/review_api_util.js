@@ -13,7 +13,7 @@ export const postReview = (review) => {
 }
 
 export const updateReview = (review) => {
-  return axios.patch(`/api/reviews/${review.id}`, review)
+  return axios.patch(`/api/reviews/${review._id}`, review)
 }
 
 export const deleteReview = (reviewId) => {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { fetchJobs } from '../../actions/job_actions'
+import { fetchJob, updateJob } from '../../actions/job_actions'
 import {
   fetchReview,
   updateReview,
@@ -14,8 +14,7 @@ const mapStateToProps = (state, ownProps) => {
     userId: state.session.id,
     currentUser: state.entities.users[state.session.id],
     author: state.session.user,
-    jobId: ownProps.match.params.jobId,
-    job: state.entities.jobs[ownProps.match.params.jobId],
+    job: state.entities.jobs,
     review: state.entities.reviews[ownProps.match.params.reviewId],
     reviewId: ownProps.match.params.reviewId,
     errors: state.errors.review,
@@ -24,11 +23,12 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    processForm: (review) => dispatch(updateReview(review)),
+    processReview: (review) => dispatch(updateReview(review)),
+    processJob: (job) => dispatch(updateJob(job)),
     clearErrors: () => dispatch(clearErrors()),
     fetchReview: (reviewId) => dispatch(fetchReview(reviewId)),
     destroyReview: (reviewId) => dispatch(destroyReview(reviewId)),
-    fetchJobs: () => dispatch(fetchJobs()),
+    fetchJob: (jobId) => dispatch(fetchJob(jobId)),
   }
 }
 
