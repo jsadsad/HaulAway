@@ -10,6 +10,7 @@ const mapStateToProps = (state, ownProps) => {
     jobId: ownProps.match.params.jobId,
     job: state.entities.jobs[ownProps.match.params.jobId],
     currentUserId: state.session.user.id,
+    errors: state.errors.review
   }
 }
 
@@ -18,8 +19,7 @@ const mapDispatchToProps = (dispatch) => {
     processForm: (review) => dispatch(createReview(review)),
     updateJob: job => dispatch(updateJob(job)),
     fetchJob: jobId => dispatch(fetchJob(jobId)),
-
-
+    clearErrors: () => dispatch(clearErrors())
   }
 }
 

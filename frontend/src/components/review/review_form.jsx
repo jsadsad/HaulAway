@@ -28,6 +28,10 @@ class ReviewForm extends Component {
 
     }
 
+    componentWillUnmount() {
+      this.props.clearErrors()
+    }
+
     handleField(field) {
       return (e) =>
         this.setState({
@@ -36,7 +40,6 @@ class ReviewForm extends Component {
     }
 
     handleStars(field, e) {
-      debugger
       e.currentTarget.className += "green"
       return (e) =>
         this.setState({
@@ -62,7 +65,6 @@ class ReviewForm extends Component {
       this.props.processForm(review)
       
       .then((payload) => {
-        debugger
           if (payload.review) {
 
             this.props.job.reviews.push(this.props.author)
@@ -111,6 +113,7 @@ class ReviewForm extends Component {
                 <input className="review-title-input" type="text" 
                       placeholder='Please insert a title'
                       onChange={this.handleField('title')}/>
+                <div className='review-form-error'>{this.props.errors.title}</div>
 
                 <select className='review-form-select'
                 onChange={this.handleField('rating')}
@@ -124,12 +127,13 @@ class ReviewForm extends Component {
                   <option className="review-form-select-dropdown" value='2'>&#x2605;&#x2605;</option>
                   <option className="review-form-select-dropdown" value='1'>&#x2605;</option>
                 </select>
-
-
+                <div className='review-form-error'>{this.props.errors.rating}</div>
               </div>
                 <textarea className="review-body-input" 
-                          placeholder='Describe your experience to help other users'
+                          placeholder='This field is not required, but a detailed description
+                           of your experience will be very helpful for other users.'
                           onChange={this.handleField('body')}/>
+                <div className='review-form-error'>{this.props.errors.body}</div>
               <div>
                 <button className="job-form-btn">Post Review</button>
                 <div className="review-validator">{this.state.reviewNotAllowed}</div>
