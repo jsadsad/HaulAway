@@ -73,7 +73,10 @@ class UserShow extends React.Component {
                 </div>
               </div>
               <div className="review-info-buttons">
-                <div>{editButton}</div>
+                <div onClick={() => this.props.history.push(`/users/${this.props.currentUserId}/reviews/edit/${review._id}`)
+                  }>
+                    {editButton}
+                </div>
                 <div
                   onClick={() =>
                     this.props

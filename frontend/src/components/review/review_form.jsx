@@ -19,6 +19,11 @@ class ReviewForm extends Component {
     componentDidMount() {
       this.props.fetchJob(this.props.jobId)
     }
+
+    componentWillUnmount() {
+      this.props.clearErrors()
+    }
+
     handleField(field) {
       return (e) =>
         this.setState({
@@ -42,7 +47,6 @@ class ReviewForm extends Component {
       }
       this.props.processForm(review)
       .then((payload) => {
-        debugger
           if (payload.review) {
             this.props.job.reviews.push(this.props.author)
             const reviewedJob = {
@@ -55,6 +59,7 @@ class ReviewForm extends Component {
             jobStartDate: this.props.job.jobStartDate,
             jobType: this.props.job.jobType,
             pickup: this.props.job.pickup,
+            pictures: this.props.job.pictures
           }
           this.props.updateJob(reviewedJob)
           .then(() => {
@@ -81,6 +86,7 @@ class ReviewForm extends Component {
                 <input className="review-title-input" type="text"
                       placeholder='Please insert a title'
                       onChange={this.handleField('title')}/>
+                <div className='review-form-error'>{this.props.errors.title}</div>
                 <select className='review-form-select'
                 onChange={this.handleField('rating')}
                       value={this.state.rating}>
@@ -93,9 +99,11 @@ class ReviewForm extends Component {
                   <option className="review-form-select-dropdown" value='2'>&#x2605;&#x2605;</option>
                   <option className="review-form-select-dropdown" value='1'>&#x2605;</option>
                 </select>
+                <div className='review-form-error'>{this.props.errors.rating}</div>
               </div>
                 <textarea className="review-body-input"
-                          placeholder='Describe your experience to help other users'
+                          placeholder='This field is not required, but a detailed description
+                           of your experience will be very helpful for other users.'
                           onChange={this.handleField('body')}/>
               <div>
                 <button className="job-form-btn">Post Review</button>
