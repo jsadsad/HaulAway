@@ -6,6 +6,7 @@ module.exports = function validateReviewsInput(data) {
 
   data.title = validText(data.title) ? data.title : ''
   data.body = validText(data.body) ? data.body : ''
+  data.rating = validText(data.rating) ? data.rating: ''
   
   if (Validator.isEmpty(data.rating)) {
     errors.rating = 'Rating is required'
@@ -15,9 +16,13 @@ module.exports = function validateReviewsInput(data) {
     errors.title = 'Title is required'
   }
 
-  if (Validator.isEmpty(data.body)) {
-    errors.body = 'Body is required'
+  if (!Validator.isLength(data.title, { min: 5 })) {
+    errors.title = 'Title must be at least 5 characters'
   }
+
+  // if (Validator.isEmpty(data.body)) {
+  //   errors.body = 'Body is required'
+  // }
 
   return {
     errors,
