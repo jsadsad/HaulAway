@@ -171,70 +171,75 @@ class JobPostForm extends React.Component {
     return distancePrice * 2.55
   }
 
+
   render() {
     const coords = this.state.mapPosition
 
     return (
       <Suspense fallback={<Loader />}>
-      <div className="job-post-outer">
+      <div className="job-form-outer">
         <Navbar />
-        <div className="job-post-body-wrapper">
-          <div className="job-post-body-inner-wrapper">
-            <form onSubmit={this.handleSubmit} className="job-post-form-box">
-              <div className="job-post-fields">
-                <h2 className="job-post-poster color-one">Job Request</h2>
-                <div className="job-post-input-box">
+        <div className="job-form-body-wrapper">
+          <div className="job-form-title">Job Request</div>
+          <div className="job-form-body-inner-wrapper">
+          <div className="job-form-info-left-side">
+
+            <form onSubmit={this.handleSubmit} className="job-form-form">
+              <div className="job-form-fields">
+                {/* <div className="job-form-input-box input-field"> */}
                   <textarea
                     required
-                    className="job-post-input-desc"
-                    placeholder="Description"
+                    className="job-form-input-desc input-field"
+                    placeholder="Please add informations about pick-up location details"
                     value={this.state.description}
                     onChange={this.handleField('description')}
-                  />
+                    />
+                {/* </div> */}
+                <div className="job-form-errors">
                   {this.props.errors.description}
                 </div>
                 <div>
                   <select
-                    className="job-post-lvl-btn"
+                    className="job-form-select"
                     onChange={this.handleField('jobDifficulty')}
                     value={this.state.jobDifficulty}
                   >
-                    <option value="" disabled defaultValue>
+                    <option className="job-form-select-dropdown" value="" disabled defaultValue>
                       --Please Select Difficulty--
                     </option>
-                    <option value="easy">&#60;-----Easy-----&#62;</option>
-                    <option value="medium">&#60;-----Medium-----</option>
-                    <option value="hard">&#60;-----Hard-----&#62;</option>
+                    <option className="job-form-select-dropdown" value="easy">&#60;-----Easy-----&#62;</option>
+                    <option className="job-form-select-dropdown" value="medium">&#60;-----Medium-----</option>
+                    <option className="job-form-select-dropdown" value="hard">&#60;-----Hard-----&#62;</option>
                   </select>
                 </div>
-                <br />
-                <div className="job-post-input-box">
+              
+                {/* <div className="job-form-input-box input-field"> */}
                   <Autocomplete
                     required
                     onPlaceSelected={this.onPickupSelected}
-                    className="job-post-input-pickup"
+                    className="job-form-input-pickup input-field"
                     style={{ width: '40%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('pickup')}
                     placeholder="Pickup"
                   />
-                </div>
-                <br />
-                <div className="job-post-input-box">
+                {/* </div> */}
+              
+                {/* <div className="job-form-input-box"> */}
                   <Autocomplete
                     required
                     onPlaceSelected={this.onDestinationSelected}
-                    className="job-post-input-dest"
+                    className="job-form-input-dest input-field"
                     style={{ width: '40%' }}
                     types={['address']}
                     componentRestrictions={{ country: 'us' }}
                     onChange={this.handleField('destination')}
                     placeholder="Destination"
-                  />
-                </div>
+                    />
+                {/* </div> */}
                 <div className="form-distance-container">
-                  <label className="form-distance-text">
+                  <label className="job-form-little-title color-one">
                     Distance:
                     <span className="form-distance-num">
                       {this.distanceRender().toFixed(2)} miles
@@ -242,57 +247,65 @@ class JobPostForm extends React.Component {
                   </label>
                 </div>
                 <div className="form-distance-container">
-                  <label className="form-distance-text">
+                  <label className="job-form-little-title color-one">
                     Price:
                     <span className="form-distance-num">
                       $ {this.priceRender().toFixed(2)}
                     </span>
                   </label>
                 </div>
-                <div className="job-post-input-box">
-                  <label className="form-start-end-date">Start</label>
+                <div className="job-form-input-box">
+                  <label className="job-form-little-title color-one">Start</label>
                   <input
                     required
                     onChange={this.handleField('jobStartDate')}
                     type="date"
-                    className="job-post-input-date"
+                    className="job-form-input-date input-field"
                     value={this.state.jobStartDate}
-                  />
+                    />
                   {this.props.errors.jobStartDate}
                 </div>
-                <br />
-                <div className="job-post-input-box">
-                  <label className="form-start-end-date">End</label>
+              
+                <div className="job-form-input-box">
+                  <label className="job-form-little-title color-one">End</label>
                   <input
                     required
                     onChange={this.handleField('jobEndDate')}
                     type="date"
                     min={this.state.jobStartDate}
-                    className="job-post-input-date2"
+                    className="job-form-input-date input-field"
                     value={this.state.jobEndDate}
                   />
                   {this.props.errors.jobEndDate}
                 </div>
-                <br />
-                <div className="job-post-input-box">
-                  <label className="upload-photos-text">Upload Photos!</label>
-                  <br />
+              
+                <div className="job-form-input-box">
+                  {/* <label className="job-form-little-title color-one">Upload Photos!</label> */}
+                
                   <input
-                    required
+                    // required
                     type="file"
+                    id="job-form-input-pics"
                     onChange={this.handlePhotoFile}
                     multiple
-                  />
+                  hidden/>
+                  <div className="job-form-upload-wrap">
+                    <label htmlFor="job-form-input-pics" className="job-form-upload">Upload Pictures!</label>
+                  </div>
+                  <div className="job-form-errors">
+                    {this.props.errors.pictures}
+                  </div>
                 </div>
                 <button className="job-form-btn">Submit</button>
               </div>
               </form>
+                    </div>
 
-              <div className="job-post-info-right-side">
-
-                <div className="job-post-google-map-container">
+              <div className="job-form-info-right-side">
+                <div className="job-form-map-title color-one">Destination</div>
+                <div className="job-form-map-container">
                   <Map
-                    className="job-post-map"
+                    className="job-form-map"
                     zoom={12}
                     google={this.props.google}
                     initialCenter={{
@@ -322,13 +335,14 @@ class JobPostForm extends React.Component {
                     />
                   </Map>
                 </div>
-                <div className="job-post-pictures-wrap">
+                <div className="job-form-pictures-wrap">
                   <img
-                    className="job-post-picture"
+                    className="job-form-picture"
                     src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_help.jpeg"
                     alt="Happy To Help"
                     />
                 </div>
+
             </div>
           </div>
         </div>

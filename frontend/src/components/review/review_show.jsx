@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Navbar from '../navbar/navbar_container'
+import Loader from '../Loader/loader'
 import './review_show.css'
 
 class ReviewShow extends Component {

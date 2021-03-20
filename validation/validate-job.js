@@ -44,5 +44,9 @@ module.exports = function validateJob(data) {
     errors.jobEndDate = 'End is required'
   }
 
+  if (data.pictures.length < 1) {
+    errors.pictures = 'Pictures are required'
+  }
+
   return { errors, isValid: Object.keys(errors).length === 0 }
 }

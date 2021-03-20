@@ -1,187 +1,228 @@
-@media (min-width: 700px) {
-  .job-post-outer {
-    display: flex;
-  }
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
 }
 
-::-webkit-input-placeholder {
-  text-align: center;
-  font-size: 1rem;
-  font-style: italic;
-}
-:-moz-placeholder {
-  /* Firefox 18- */
-  text-align: center;
-  font-size: 1rem;
-  font-style: italic;
-}
-::-moz-placeholder {
-  /* Firefox 19+ */
-  text-align: center;
-  font-size: 1rem;
-  font-style: italic;
-}
-:-ms-input-placeholder {
-  text-align: center;
-  font-size: 1rem;
-  font-style: italic;
+.input-field {
+  font-weight: 600;
+  font-size: small;
+
+  margin: 5px;
+  padding: 5px;
+  background: rgba(17, 17, 17, 0.87);
+  box-shadow: none;
+  border-radius: 12px;
+  border: #1fce6d 1px solid;
+  color: white;
+  padding-left: 10px;
 }
 
-input::placeholder {
-  color: rgb(148, 132, 115);
-  font-size: 0.7rem;
-  font-style: oblique;
+.job-edit-input-date {
+  cursor: text;
 }
 
 .job-edit-outer {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background: #2e3740;
   min-height: 100vh;
+  min-width: 100vw;
+  font-family: 'Montserrat', sans-serif;
+  background: #2e3740;
+  cursor: default;
+  color: white;
 }
 
-.job-edit-text {
-  font-size: 21px;
-  width: 10rem;
-  color: rgb(218, 188, 70);
+.job-edit-body-wrapper {
+  display: flex;
+  min-width: 100vw;
+  min-height: 640px;
+  flex-direction: column;
+  align-items: center;
+  /* test  */
+  height: 90vh;
+  /* border: solid red 3px; */
+  justify-content: center;
+}
+
+.job-edit-body-inner-wrapper {
+  display: flex;
+  max-width: 50%;
+  min-width: 50%;
+}
+
+.color-one {
+  color: #1fce6d;
+  font-size: medium;
+  font-weight: 800;
+}
+
+.color-two {
+  color: white;
+  font-size: large;
+  font-weight: 800;
+  padding-bottom: 15px;
+}
+
+.job-edit-info-left-side {
+  padding: 30px;
+  min-width: 50%;
+  width: 50%;
+  display: block;
+}
+
+.job-edit-info-right-side {
+  padding: 30px;
+  min-width: 50%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.job-edit-title {
+  /* padding-bottom: 15px; */
+  color: #1fce6d;
+  font-size: xx-large;
+  font-weight: 800;
 }
 
 .job-edit-input-desc {
-  height: 5rem;
-  width: 21rem;
+  margin-left: 0;
+  width: 85%;
+  min-height: 150px;
 }
 
-.job-edit-container {
+.job-edit-difficulty-title {
   display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.job-edit-form {
+.job-edit-two-objects-wrap {
   display: flex;
-  justify-content: space-between;
-  font-size: 1.7rem;
-  width: 50%;
+  align-items: baseline;
 }
 
-.job-edit-form-box {
-  display: flex;
-  justify-content: space-between;
-  width: 60%;
+.job-edit-select {
+  font-family: 'Montserrat', sans-serif;
+
+  color: #1fce6d;
+  background: rgba(17, 17, 17, 0.87);
+  border: 1px solid #1fce6d;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: small;
+  margin: 5px;
+  padding: 5px;
+  /* width: 40%; */
 }
 
-.job-edit-google-map-container {
-  display: flex;
+.job-edit-select-dropdown {
+  font-family: 'Montserrat', sans-serif;
+
+  color: #1fce6d;
+  background: rgba(17, 17, 17, 0.87);
+  border: 1px solid #1fce6d;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: small;
+}
+
+.job-edit-map-container {
+  min-height: 50%;
   object-fit: contain;
-  max-width: 20%;
-  max-height: 20%;
+  display: block;
+  position: relative;
+  max-width: 80%;
 }
 
 .job-edit-map {
-  max-width: 20%;
-  max-height: 50%;
-  top: 20rem;
-  border: 4px solid #000;
+  margin: 10px;
+  max-height: 85%;
+
+  border-radius: 12px;
 }
 
-.job-edit-fields {
-  flex-direction: column;
-  max-width: 2%;
-  max-height: 100%;
-}
-
-.job-edit-fields button {
-  width: 100px;
-}
-
-.job-edit-input-box {
-  width: 50vw;
-  margin-top: 5px;
-  max-width: 100vw;
-}
-
-.job-edit-btn {
-  transition: 0.5s;
-  overflow: hidden;
-  padding: 4px;
-  margin-top: 2rem;
-}
-
-.job-edit-btn:hover {
-  background: #029343;
-}
-
-.job-edit-btn-container {
-  width: 250px;
+.job-edit-pictures-wrap {
   display: flex;
-  justify-content: space-between;
+  object-fit: contain;
+  transition: 0.6s ease-in;
 }
 
-.jobs-edit-img {
-  width: 90%;
-  height: 90%;
-}
-
-.job-post-lvl-btn {
-  width: 345px;
-  margin-top: 18px;
-}
-
-.edit-upload-photos-text {
-  color: rgb(218, 188, 70);
-  font-size: 1rem;
-}
-
-.edit-start-end-date {
-  font-size: 1.1rem;
-  color: rgb(218, 188, 70);
-  margin-right: 15px;
+.job-edit-single-picture-wrap {
   padding: 5px;
 }
 
-.edit-form-btn:hover {
-  background: #029343;
+.job-edit-picture {
+  height: 50px;
+  width: 50px;
+  border-radius: 12px;
+  border: solid 3px #1fce6d;
+  transition: 0.6s ease-in;
 }
 
-.preview-photos {
-  display: flex;
-}
-
-.preview-img {
-  margin: 5px;
-  padding-top: 10px;
-  width: 45px;
-  height: 45px;
-}
-
-.edit-error-text {
-  color: #ef3535;
-  width: 15rem;
-  font-size: 0.8rem;
-  font-style: oblique;
-}
-
-.please-confirm-text {
-  font-size: 14px;
-  text-decoration: underline;
-  width: 15rem;
-  color: rgb(218, 70, 70);
-}
-
-.edit-form-distance-text {
-  color: rgb(218, 188, 70);
-  font-size: 1rem;
+.job-edit-single-picture-wrap:hover .job-edit-picture {
+  position: absolute;
+  z-index: 1;
+  height: 200px;
+  width: 200px;
 }
 
 .edit-distance-text {
-  color: #fff;
-  padding-left: 1.5rem;
+  color: rgb(218, 70, 70);
   font-size: 1rem;
 }
 
-.edit-new-distance-text {
-  color: rgb(69, 255, 32);
-  padding-left: 3rem;
-  font-size: 1rem;
+.edit-distance-num {
+  color: rgb(255, 255, 255);
+  font-size: 1.2rem;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.job-edit-upload {
+  font-weight: 600;
+  font-size: small;
+
+  margin: 5px;
+  padding: 5px;
+  background: rgba(17, 17, 17, 0.87);
+  box-shadow: none;
+  border-radius: 12px;
+  border: #1fce6d 1px solid;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 0;
+  margin-bottom: 10px;
+  width: 120px;
+
+  cursor: pointer;
+}
+
+.job-edit-upload-wrap {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.job-edit-input-pickup {
+  margin-left: 0;
+}
+
+.job-edit-input-dest {
+  margin-left: 0;
+}
+
+.job-edit-select {
+  margin-left: 0;
+}
+
+.job-edit-btn {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+.job-edit-errors {
+  color: red;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  padding-bottom: 15px;
 }
