@@ -192,7 +192,7 @@ class JobShow extends React.Component {
 
       if (
         (job.jobPoster._id === this.props.currentUserId) &&
-        job.isClosed
+        job.isClosed && !job.reviews === []
       ) {
         return (
 
