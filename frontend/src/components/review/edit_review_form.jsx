@@ -71,6 +71,8 @@ class ReviewEditForm extends Component {
   render() {
     const { review, errors } = this.props
     if (!review) return null
+    console.log(this.props)
+    console.log(this.state)
 
     return (
       <div className="review-form-outer-wrap">
@@ -123,7 +125,7 @@ class ReviewEditForm extends Component {
                 onChange={this.handleField('body')}
               />
               <div>
-                <button className="job-form-btn">Edit Review</button>
+                <button className="job-form-btn">{this.props.formType}</button>
               </div>
             </form>
           </div>
@@ -132,5 +134,4 @@ class ReviewEditForm extends Component {
     )
   }
 }
-
 export default ReviewEditForm
