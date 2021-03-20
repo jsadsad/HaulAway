@@ -10,7 +10,8 @@ class ReviewEditForm extends Component {
       body: '',
       rating: '',
       author: this.props.author,
-      jobId: this.props.review.jobId,
+      // jobId: this.props.review.jobId,
+      jobId: ''
     }
     this.handleStars = this.handleStars.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -22,6 +23,7 @@ class ReviewEditForm extends Component {
 
   componentDidMount() {
     this.props.fetchReview(this.props.match.params.reviewId).then(() => {
+      this.setState({jobId: this.props.review.jobId, rating: this.props.review.rating.toString()})
       this.props.fetchJob(this.props.review.jobId)
     })
   }
@@ -44,6 +46,7 @@ class ReviewEditForm extends Component {
   handleSubmit(e) {
     const { job, review } = this.props
 
+    debugger
     e.preventDefault()
     let updatedReview = {
       _id: review._id,
