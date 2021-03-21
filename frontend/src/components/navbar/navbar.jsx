@@ -41,6 +41,13 @@ class Navbar extends React.Component {
               </div>
             </div>
             <div className="navbar-right-wrap">
+              <a
+                className="navbar-github-link"
+                href="https://github.com/jsadsad/HaulAway"
+                target="_blank"
+              >
+                Github
+              </a>
               <Link className="navbar-about-us-link" to="/about">
                 About Us
               </Link>
