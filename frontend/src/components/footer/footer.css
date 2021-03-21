@@ -79,10 +79,9 @@
 }
 
 .fa.fa-angellist {
-  color: white;
-  background: #2e3740;
+  color: black;
 }
 
 .fa.fa-angellist:hover {
-  color: black;
+  color: rgb(243, 248, 254);
 }
