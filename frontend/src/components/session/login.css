@@ -108,3 +108,11 @@
 .login-footer {
   padding-top: 150px;
 }
+
+.login-input-email::placeholder {
+  text-align: center;
+}
+
+.login-input-password::placeholder {
+  text-align: center;
+}
