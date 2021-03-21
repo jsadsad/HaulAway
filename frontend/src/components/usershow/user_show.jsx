@@ -203,7 +203,10 @@ class UserShow extends React.Component {
     let editButton = ''
     if (this.props.userId === this.props.currentUserId) {
       editButton = (
-        <button onClick={() => this.props.openModal('edit user', user._id)}>
+        <button
+          className="user-edit-button"
+          onClick={() => this.props.openModal('edit user', user._id)}
+        >
           Edit
         </button>
       )

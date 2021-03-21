@@ -65,6 +65,10 @@
 .name-edit-button {
   padding: 10px 0;
 }
+.user-edit-button:hover {
+  color: #4747a9;
+  transition: 0.6s;
+}
 
 .job-info-wrapper {
   border: 1px solid white;
