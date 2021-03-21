@@ -13,7 +13,6 @@
   align-items: center;
   padding: 42px 60px;
   font-size: 20px;
-  
 }
 
 .show-page-wrapper {
@@ -39,9 +38,9 @@
 }
 
 .user-name {
- display: flex;
- justify-content: center;
- padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
 }
 
 .user-lastname {
@@ -90,8 +89,6 @@
   /* justify-items: center; */
   margin: 10px 10px;
   /* border: 1px solid white; */
-
-  
 }
 
 .job-info-header {
@@ -143,7 +140,6 @@
 }
 
 .review-info-index-wrapper {
- 
 }
 
 .review-info-wrapper {
@@ -154,7 +150,7 @@
   margin-right: 20px;
   border-radius: 10px;
   overflow: scroll;
-  background: white; 
+  background: white;
   color: black;
 }
 
@@ -171,7 +167,6 @@
   /* padding: 15px 0; */
   /* border: 1px solid salmon; */
   width: 90%;
-  
 }
 
 .review-info-container:hover {
@@ -184,7 +179,6 @@
   justify-content: center;
   /* padding: 15px 0; */
 }
-
 
 #filled-star {
   color: #f7f709;
@@ -224,13 +218,14 @@
 }
 
 .review-info-title {
-  /* border: 1px solid purple; */
   width: 60%;
+  font-weight: 800;
   text-overflow: hidden;
 }
 .review-info-date {
   /* border: 1px solid rosybrown; */
   /* width: 10%; */
+  font-weight: 800;
   padding-right: 20px;
 }
 

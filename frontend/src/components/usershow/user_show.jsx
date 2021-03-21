@@ -73,9 +73,14 @@ class UserShow extends React.Component {
                 </div>
               </div>
               <div className="review-info-buttons">
-                <div onClick={() => this.props.history.push(`/users/${this.props.currentUserId}/reviews/edit/${review._id}`)
-                  }>
-                    {editButton}
+                <div
+                  onClick={() =>
+                    this.props.history.push(
+                      `/users/${this.props.currentUserId}/reviews/edit/${review._id}`
+                    )
+                  }
+                >
+                  {editButton}
                 </div>
                 <div
                   onClick={() =>
@@ -231,7 +236,7 @@ class UserShow extends React.Component {
 
           <div className="rest-wrapper">
             <div className="job-info-wrapper">
-              <h2 className="job-header">Jobs ({this.props.jobs.length})</h2>
+              <h2 className="job-header">My Jobs</h2>
               <div className="job-info-header">
                 <h3>Job Poster</h3>
                 <h3>Start Date</h3>
@@ -244,7 +249,7 @@ class UserShow extends React.Component {
               </div>
             </div>
             <div className="review-info-wrapper">
-              <h2 className="review-header">Reviews</h2>
+              <h2 className="review-header">My Reviews</h2>
               <div className="review-info-index-wrapper">
                 {this.getReviewIndexItems()}
               </div>
