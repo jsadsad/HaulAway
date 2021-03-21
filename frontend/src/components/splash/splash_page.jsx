@@ -2,7 +2,6 @@ import React from 'react'
 import './splash.css'
 import { Link } from 'react-router-dom'
 
-
 const SplashPage = () => {
   return (
     <div className="splash-page">
@@ -38,7 +37,17 @@ const SplashPage = () => {
         <div className="center-pixel"></div>
       </div>
       <div className="splash-about-us-container">
-        <Link className="splash-about-us-link" to="/about">About Us</Link>
+        <Link className="splash-about-us-link" to="/about">
+          About Us
+        </Link>
+        &#x0007C;
+        <a
+          className="splash-about-us-link"
+          href="https://github.com/jsadsad/HaulAway"
+          target="_blank"
+        >
+          Github
+        </a>
       </div>
     </div>
   )

@@ -176,7 +176,9 @@ button {
 .splash-about-us-link {
   font-family: 'Montserrat', sans-serif;
   text-decoration: none;
-  color: #1fce6d;
+  color: #da8115;
+  font-size: 1rem;
+  padding: 0px 5px 0px 5px;
 }
 
 .splash-about-us-link:hover {
