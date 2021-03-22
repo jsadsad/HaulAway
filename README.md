@@ -8,7 +8,7 @@ _HaulAway_ is a user-to-user service that helps alleviate the difficulties of mo
 
 We all know the struggles of moving. It takes a considerable amount of time signing up for moving services and find out the right vehicle sizes and price plans. With _HaulAway_, we make that simpler.
 
-Every information is stored in our NoSQL document-oriented _Mongo_ database. _Express_ is used for our backend routing to simplify the task of writing server code. _React_ is the tool used for creating views rendered in HTML. Lastly with _Node_, JavaScript is able to be implemented in the backend mainly used to handle server-side requests.
+In this fullstack application, every information is stored in our `NoSQL` document-oriented `Mongo` database. `Express` is used for our backend routing to simplify the task of writing server code. `React` is the tool used for creating dynamic and scalable views rendered in `HTML`. Lastly with `Node`, `JavaScript` is able to be implemented in the backend used to handle server-side requests.
 
 ![Logo](production_img/logo.png)
 
@@ -38,7 +38,7 @@ Every information is stored in our NoSQL document-oriented _Mongo_ database. _Ex
 
 1. User Auth
 
-We implemented a User Authentication system to access the job form and display the respective job in an index. Users are required to upload a profile picture that stores into our AWS S3 bucket.
+The HaulAway team implemented a User Authentication system to access the job form and display the respective job in an index. Users are required to upload a profile picture that stores into our AWS S3 bucket.
 
 ![User Auth](production_img/HA_user_auth.png)
 
@@ -46,7 +46,9 @@ We implemented a User Authentication system to access the job form and display t
 
 2. Job Postings
 
-Users have to submit a form with required fields and pass validations to submit a job. In the Job Index, only available jobs are shown through a `selector`.
+Users have to submit a form with required fields such as _pickup_, _destination_, _start date_, and _end date_. These fields are required to pass validations in order to submit a job.
+
+In the Job Index, only available jobs are shown through a `selector`.
 
 ```
 export const getAvailableJobs = (state) => {
@@ -58,7 +60,9 @@ export const getAvailableJobs = (state) => {
 
 3. Google Maps
 
-Googles Maps is dynamically supported to show where a destination or pickup can be depending on the route. A _Circle_ prop is included in the map to help visualize the location. On the job form, there is a default location until the Destination is submitted. Using `geolib`, distance is calculated from Pickup to Destination.
+Googles Maps is dynamically supported to show where a destination or pickup can be depending on the route. A `Circle` prop is included in the map to help visualize the location.
+
+On the job form, there is a default location until the _Destination_ is submitted. Using `geolib`, distance is calculated from Pickup to Destination. Once distanced is obtained, a price is also able to be generated and stored within every new Job.
 
 ```
   onDestinationSelected(place) {
@@ -87,7 +91,7 @@ Googles Maps is dynamically supported to show where a destination or pickup can 
 
 4. AWS
 
-Users have the ability to upload multiple photos at once and images are uniquely stored in the User's document.
+Users have the ability to upload multiple photos at once and images are uniquely stored in the _MongoDB_ Collection.
 
 ```
 router.post('/uploads', upload.array('file', 12), (req, res) => {
@@ -129,7 +133,7 @@ router.post('/uploads', upload.array('file', 12), (req, res) => {
 
 5. Reviews
 
-Once 2 Users (1 Job Poster and 1 Job Taker) have interacted and closed a job, they now have the ability to review each other. Reviews are then able to be updated or deleted.
+Once 2 Users (1 Job Poster and 1 Job Taker) have interacted and closed a job, they now have the ability to review each other. Reviews are able to be updated or deleted.
 
 ```
   reviewJobButtons() {
@@ -167,8 +171,8 @@ Once 2 Users (1 Job Poster and 1 Job Taker) have interacted and closed a job, th
 
 # Future Incorporations
 
-- [ x ] User Average Ratings
-- [ x ] Calculate Fees Depending on Distance
+- [x] User Average Ratings
+- [x] Calculate Fees Depending on Distance
 - [ ] User Private Messaging
 
 ## References Used
