@@ -171,135 +171,151 @@ class JobPostForm extends React.Component {
     return distancePrice * 2.55
   }
 
-
   render() {
     const coords = this.state.mapPosition
 
     return (
       <Suspense fallback={<Loader />}>
-      <div className="job-form-outer">
-        <Navbar />
-        <div className="job-form-body-wrapper">
-          <div className="job-form-title">Job Request</div>
-          <div className="job-form-body-inner-wrapper">
-          <div className="job-form-info-left-side">
-
-            <form onSubmit={this.handleSubmit} className="job-form-form">
-              <div className="job-form-fields">
-                {/* <div className="job-form-input-box input-field"> */}
-                  <textarea
-                    required
-                    className="job-form-input-desc input-field"
-                    placeholder="Please add informations about pick-up location details"
-                    value={this.state.description}
-                    onChange={this.handleField('description')}
+        <div className="job-form-outer">
+          <Navbar />
+          <div className="job-form-body-wrapper">
+            <div className="job-form-title">Job Request</div>
+            <div className="job-form-body-inner-wrapper">
+              <div className="job-form-info-left-side">
+                <form onSubmit={this.handleSubmit} className="job-form-form">
+                  <div className="job-form-fields">
+                    <textarea
+                      required
+                      className="job-form-input-desc input-field"
+                      placeholder="Please provide more information about your job!"
+                      value={this.state.description}
+                      onChange={this.handleField('description')}
                     />
-                {/* </div> */}
-                <div className="job-form-errors">
-                  {this.props.errors.description}
-                </div>
-                <div>
-                  <select
-                    className="job-form-select"
-                    onChange={this.handleField('jobDifficulty')}
-                    value={this.state.jobDifficulty}
-                  >
-                    <option className="job-form-select-dropdown" value="" disabled defaultValue>
-                      --Please Select Difficulty--
-                    </option>
-                    <option className="job-form-select-dropdown" value="easy">&#60;-----Easy-----&#62;</option>
-                    <option className="job-form-select-dropdown" value="medium">&#60;-----Medium-----</option>
-                    <option className="job-form-select-dropdown" value="hard">&#60;-----Hard-----&#62;</option>
-                  </select>
-                </div>
-              
-                {/* <div className="job-form-input-box input-field"> */}
-                  <Autocomplete
-                    required
-                    onPlaceSelected={this.onPickupSelected}
-                    className="job-form-input-pickup input-field"
-                    style={{ width: '40%' }}
-                    types={['address']}
-                    componentRestrictions={{ country: 'us' }}
-                    onChange={this.handleField('pickup')}
-                    placeholder="Pickup"
-                  />
-                {/* </div> */}
-              
-                {/* <div className="job-form-input-box"> */}
-                  <Autocomplete
-                    required
-                    onPlaceSelected={this.onDestinationSelected}
-                    className="job-form-input-dest input-field"
-                    style={{ width: '40%' }}
-                    types={['address']}
-                    componentRestrictions={{ country: 'us' }}
-                    onChange={this.handleField('destination')}
-                    placeholder="Destination"
-                    />
-                {/* </div> */}
-                <div className="form-distance-container">
-                  <label className="job-form-little-title color-one">
-                    Distance:
-                    <span className="form-distance-num">
-                      {this.distanceRender().toFixed(2)} miles
-                    </span>
-                  </label>
-                </div>
-                <div className="form-distance-container">
-                  <label className="job-form-little-title color-one">
-                    Price:
-                    <span className="form-distance-num">
-                      $ {this.priceRender().toFixed(2)}
-                    </span>
-                  </label>
-                </div>
-                <div className="job-form-input-box">
-                  <label className="job-form-little-title color-one">Start</label>
-                  <input
-                    required
-                    onChange={this.handleField('jobStartDate')}
-                    type="date"
-                    className="job-form-input-date input-field"
-                    value={this.state.jobStartDate}
-                    />
-                  {this.props.errors.jobStartDate}
-                </div>
-              
-                <div className="job-form-input-box">
-                  <label className="job-form-little-title color-one">End</label>
-                  <input
-                    required
-                    onChange={this.handleField('jobEndDate')}
-                    type="date"
-                    min={this.state.jobStartDate}
-                    className="job-form-input-date input-field"
-                    value={this.state.jobEndDate}
-                  />
-                  {this.props.errors.jobEndDate}
-                </div>
-              
-                <div className="job-form-input-box">
-                  {/* <label className="job-form-little-title color-one">Upload Photos!</label> */}
-                
-                  <input
-                    // required
-                    type="file"
-                    id="job-form-input-pics"
-                    onChange={this.handlePhotoFile}
-                    multiple
-                  hidden/>
-                  <div className="job-form-upload-wrap">
-                    <label htmlFor="job-form-input-pics" className="job-form-upload">Upload Pictures!</label>
-                  </div>
-                  <div className="job-form-errors">
-                    {this.props.errors.pictures}
-                  </div>
-                </div>
-                <button className="job-form-btn">Submit</button>
-              </div>
-              </form>
+                    <div className="job-form-errors">
+                      {this.props.errors.description}
                     </div>
+                    <div>
+                      <select
+                        className="job-form-select"
+                        onChange={this.handleField('jobDifficulty')}
+                        value={this.state.jobDifficulty}
+                      >
+                        <option
+                          className="job-form-select-dropdown"
+                          value=""
+                          disabled
+                          defaultValue
+                        >
+                          --Please Select Difficulty--
+                        </option>
+                        <option
+                          className="job-form-select-dropdown"
+                          value="easy"
+                        >
+                          &#60;-----Easy-----&#62;
+                        </option>
+                        <option
+                          className="job-form-select-dropdown"
+                          value="medium"
+                        >
+                          &#60;-----Medium-----
+                        </option>
+                        <option
+                          className="job-form-select-dropdown"
+                          value="hard"
+                        >
+                          &#60;-----Hard-----&#62;
+                        </option>
+                      </select>
+                    </div>
+                    <Autocomplete
+                      required
+                      onPlaceSelected={this.onPickupSelected}
+                      className="job-form-input-pickup input-field"
+                      style={{ width: '40%' }}
+                      types={['address']}
+                      componentRestrictions={{ country: 'us' }}
+                      onChange={this.handleField('pickup')}
+                      placeholder="Pickup"
+                    />
+                    <Autocomplete
+                      required
+                      onPlaceSelected={this.onDestinationSelected}
+                      className="job-form-input-dest input-field"
+                      style={{ width: '40%' }}
+                      types={['address']}
+                      componentRestrictions={{ country: 'us' }}
+                      onChange={this.handleField('destination')}
+                      placeholder="Destination"
+                    />
+                    <div className="form-distance-container">
+                      <label className="job-form-little-title color-one">
+                        Distance:
+                        <span className="form-distance-num">
+                          {this.distanceRender().toFixed(2)} miles
+                        </span>
+                      </label>
+                    </div>
+                    <div className="form-distance-container">
+                      <label className="job-form-little-title color-one">
+                        Price:
+                        <span className="form-distance-num">
+                          $ {this.priceRender().toFixed(2)}
+                        </span>
+                      </label>
+                    </div>
+                    <div className="job-form-input-box">
+                      <label className="job-form-little-title color-one">
+                        Start
+                      </label>
+                      <input
+                        required
+                        onChange={this.handleField('jobStartDate')}
+                        type="date"
+                        min={new Date().toLocaleDateString('en-CA')}
+                        className="job-form-input-date input-field"
+                        value={this.state.jobStartDate}
+                      />
+                      {this.props.errors.jobStartDate}
+                    </div>
+                    <div className="job-form-input-box">
+                      <label className="job-form-little-title color-one">
+                        End
+                      </label>
+                      <input
+                        required
+                        onChange={this.handleField('jobEndDate')}
+                        type="date"
+                        min={this.state.jobStartDate}
+                        className="job-form-input-date input-field"
+                        value={this.state.jobEndDate}
+                      />
+                      {this.props.errors.jobEndDate}
+                    </div>
+                    <div className="job-form-input-box">
+                      <input
+                        type="file"
+                        id="job-form-input-pics"
+                        onChange={this.handlePhotoFile}
+                        multiple
+                        hidden
+                      />
+                      <div className="job-form-upload-wrap">
+                        <label
+                          htmlFor="job-form-input-pics"
+                          className="job-form-upload"
+                        >
+                          Upload Pictures!
+                        </label>
+                      </div>
+                      <div className="job-form-errors">
+                        {this.props.errors.pictures}
+                      </div>
+                    </div>
+                    <button className="job-form-btn">Submit</button>
+                  </div>
+                </form>
+              </div>
 
               <div className="job-form-info-right-side">
                 <div className="job-form-map-title color-one">Destination</div>
@@ -340,13 +356,12 @@ class JobPostForm extends React.Component {
                     className="job-form-picture"
                     src="https://haul-seeds.s3-us-west-1.amazonaws.com/happy_help.jpeg"
                     alt="Happy To Help"
-                    />
+                  />
                 </div>
-
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </Suspense>
     )
   }

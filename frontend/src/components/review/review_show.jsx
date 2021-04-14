@@ -96,14 +96,22 @@ class ReviewShow extends Component {
 
     let formattedDate = new Date(this.props.review.date)
     let editButton
+    let deleteButton
     if (this.props.currentUserId === this.state.author._id) {
       editButton = (
         <div className="review-show-edit-button-container">
           <Link
             to={`/users/${this.state.author._id}/reviews/edit/${this.props.review._id}`}
           >
-            <button>Edit My Review</button>
+            <button>Edit Review</button>
           </Link>
+        </div>
+      )
+      deleteButton = (
+        <div className="review-show-delete-button-container"
+          onClick = {() => {this.props.destroyReview(this.props.reviewId)
+                    .then(() => this.props.history.goBack())}}>
+          <button>Delete Review</button>
         </div>
       )
     }
@@ -157,7 +165,10 @@ class ReviewShow extends Component {
                 {this.props.review.body}
               </div>
             </div>
-            <div>{editButton}</div>
+            <div className='review-show-buttons'>
+              <div>{editButton}</div>
+              <div>{deleteButton}</div>
+            </div> 
             <div
               className="review-show-reviewedUser-container"
               onClick={() =>

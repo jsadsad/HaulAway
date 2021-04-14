@@ -18,27 +18,27 @@
 }
 
 .thank-you {
-  color: white;
-  font-size: 15px;
-  font-weight: 400;
+  color: #fff;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5rem;
   justify-content: center;
   display: flex;
   align-items: center;
+  font-weight: 400;
 }
 
 .footer-about-us {
   display: flex;
   justify-content: space-around;
-  /* background: #2e3740; */
 }
 
 .info-us {
   display: flex;
-  font-size: 20px;
+  font-size: 1.5rem;
   align-items: center;
   flex-direction: column;
-  justify-items: center;
-  color: #1fec1f;
+  padding-bottom: -2px;
+  color: #3caf60cf;
 }
 
 .info-us-contacts {
@@ -65,17 +65,16 @@
   color: #1fec1f;
 }
 
-.fa.fa-linkedin {
+.fa-linkedin {
   color: white;
 }
 
-.fa.fa-linkedin:hover {
+.fa-linkedin:hover {
   color: #1fec1f;
 }
 
 .fa.fa-angellist {
   color: white;
-  background: #2e3740;
 }
 
 .fa.fa-angellist:hover {

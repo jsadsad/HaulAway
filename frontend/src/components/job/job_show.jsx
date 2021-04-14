@@ -213,10 +213,8 @@ class JobShow extends React.Component {
 
   render() {
     const job = this.props.job
-    if (!job) {
-      return <Loader />
-    }
     const coords = this.state.mapPosition
+    if (!job) return <Loader />
 
     return (
       <div className="job-show-outer">
@@ -243,7 +241,7 @@ class JobShow extends React.Component {
                 <div className="job-show-difficulty-title color-one">
                   Difficulty:&nbsp;&nbsp;
                   <div className="job-show-difficulty color-two">
-                    {job.jobDifficulty}
+                    {job.jobDifficulty.toUpperCase()}
                   </div>
                 </div>
                 <div className="job-show-start-end-title color-one">

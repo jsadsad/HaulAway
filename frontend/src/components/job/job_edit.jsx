@@ -290,6 +290,7 @@ class JobEdit extends React.Component {
                         {job.distance} miles
                       </span>
                     </label>
+                    <br />
                     <label className="job-edit-little-title color-one">
                       New Distance:
                       <span className="edit-distance-num">
@@ -297,11 +298,13 @@ class JobEdit extends React.Component {
                       </span>
                     </label>
                   </div>
+                  <br />
                   <div className="edit-distance-container">
                     <label className="job-edit-little-title color-one">
                       Previous Price:
                       <span className="edit-distance-num">$ {job.price}</span>
                     </label>
+                    <br />
                     <label className="job-edit-little-title color-one">
                       New Price:
                       <span className="edit-distance-num">
@@ -315,8 +318,9 @@ class JobEdit extends React.Component {
                     </label>
                     <input
                       required
-                      onChange={this.handleField('jobStartDate')}
                       type="date"
+                      min={new Date().toLocaleDateString('en-CA')}
+                      onChange={this.handleField('jobStartDate')}
                       className="job-edit-input-date input-field"
                       defaultValue={job.jobStartDate}
                     />
@@ -355,7 +359,7 @@ class JobEdit extends React.Component {
                       </label>
                     </div>
                   </div>
-                  <button className="job-edit-btn">Submit</button>
+                  <button className="job-edit-btn">Edit</button>
                   <button className="job-edit-btn" onClick={this.handleDelete}>
                     Delete
                   </button>

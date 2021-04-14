@@ -146,6 +146,7 @@ class SignupForm extends React.Component {
             <div className="signup-input-file">
               <label className="signup-photo-label">Add Profile Photo</label>
               <input
+                required
                 type="file"
                 onChange={this.handlePhotoFile}
                 className="signup-photo-btn"
