@@ -53,7 +53,7 @@ const App = () => (
         path="/jobs/edit/:jobId"
         component={JobEditContainer}
       />
-      <ProtectedRoute exact path="/about" component={AboutUs} />
+      <Route exact path="/about" component={AboutUs} />
       <Route path="*" component={FourOFour} />
     </Switch>
   </div>

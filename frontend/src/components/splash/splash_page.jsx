@@ -13,7 +13,7 @@ const SplashPage = () => {
           alt="background"
         />
         <div className="splash-text-wrap">
-          <h1 className="splash-haulaway-text-logo">HaulAway</h1>
+          <a href="https://github.com/kinda-dev/haulaway#readme" target="_blank" className="text-dec-none"><h1 className="splash-haulaway-text-logo">HaulAway</h1></a>
           <h2 className="splash-slogan">Hauling Reinvented</h2>
           <h4 className="splash-little-motivation">
             [ Technology for Humans, by Humans ]
@@ -35,7 +35,7 @@ const SplashPage = () => {
             </div>
           </div>
         </div>
-        <div className="center-pixel"></div>
+        {/* <div className="center-pixel"></div> */}
       </div>
       <div className="splash-about-us-container">
         <Link className="splash-about-us-link" to="/about">About Us</Link>

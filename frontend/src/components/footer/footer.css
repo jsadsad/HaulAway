@@ -62,16 +62,15 @@
 }
 
 .fa.fa-github:hover {
-  color: #212121;
+  color: #1fec1f;
 }
 
 .fa.fa-linkedin {
   color: white;
-  background-color: #1c659d;
 }
 
 .fa.fa-linkedin:hover {
-  color: #212121;
+  color: #1fec1f;
 }
 
 .fa.fa-angellist {
@@ -80,5 +79,5 @@
 }
 
 .fa.fa-angellist:hover {
-  color: black;
+  color: #1fec1f;
 }

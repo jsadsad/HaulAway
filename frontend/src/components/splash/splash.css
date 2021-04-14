@@ -43,6 +43,7 @@ button {
   margin-bottom: 0;
   color: #fff;
   display: flex;
+  height: 100vh;
 }
 
 .splash-background {
@@ -75,11 +76,17 @@ button {
   align-items: center;
 }
 
+.text-dec-none {
+  text-decoration: none;
+}
+
 .splash-haulaway-text-logo {
   font-family: 'Pacifico', cursive;
   font-size: 9vh;
   margin: 0;
   transition: 0.5s;
+  text-decoration: none;
+  color: white;
 }
 
 .splash-haulaway-text-logo:hover {
@@ -92,17 +99,11 @@ button {
   margin-top: 0;
   margin-bottom: 0;
 }
-.splash-slogan:hover {
-  color: #1fce6d;
-}
 
 .splash-little-motivation {
   font-family: 'Montserrat', sans-serif;
   margin-top: 10px;
   margin-bottom: 0;
-}
-.splash-little-motivation:hover {
-  color: #1fce6d;
 }
 
 .splash-session-buttons {
@@ -124,17 +125,23 @@ button {
   color: #1fce6d;
 }
 
-.splash-signup-link:hover {
-  color: white;
-}
-
 .splash-login-link {
   font-weight: bolder;
   text-decoration: none;
   color: #1fce6d;
 }
 
-.splash-login-link:hover {
+.splash-signup-wrap:hover .splash-signup-link {
+  color: white;
+}
+
+.splash-login-wrap {
+  font-weight: bolder;
+  text-decoration: none;
+  color: #1fce6d;
+}
+
+.splash-login-wrap:hover .splash-login-link {
   color: white;
 }
 
@@ -167,10 +174,13 @@ button {
 }
 
 .splash-about-us-container {
-  display: flex;
+  display: block;
   padding: 10px;
-  justify-content: center;
-  margin-top: 60px;
+  position: fixed;
+  bottom: 20px;
+  min-width: 100vw;
+  text-align: center;
+  z-index: 100;
 }
 
 .splash-about-us-link {
