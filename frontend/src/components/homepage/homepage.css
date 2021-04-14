@@ -6,7 +6,6 @@
 }
 
 .homepage-inner-wrapper {
-  display: flex;
   max-width: 100%;
   max-height: 640px;
   align-items: center;

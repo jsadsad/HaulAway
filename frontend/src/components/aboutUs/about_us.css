@@ -69,6 +69,10 @@
   margin: 1.3rem;
 }
 
+.about-us-names:hover {
+  color: #1fce6d;
+}
+
 .about-us-p {
   font-weight: 500;
   font-size: 16px;

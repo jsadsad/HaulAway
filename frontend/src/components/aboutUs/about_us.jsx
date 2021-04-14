@@ -56,7 +56,7 @@ class AboutUs extends React.Component {
               />
             </div>
             <div className="about-us-person-desc">
-              <h2 className="about-us-names">Joshua Clarence Sadsad</h2>
+            <a href="https://jsadsad.io/" target="_blank" className="text-dec-none"><h2 className="about-us-names text-dec-none">Joshua Clarence Sadsad</h2></a>
               <div className="team-pos">Lead</div>
               <br />
               <div className="info-us">
@@ -95,7 +95,7 @@ class AboutUs extends React.Component {
               />
             </div>
             <div className="about-us-person-desc">
-              <h2 className="about-us-names">Fabio Raffaele Bortone</h2>
+              <a href="https://whoisfabio.com/" target="_blank" className="text-dec-none"><h2 className="about-us-names">Fabio Raffaele Bortone</h2></a>
               <div className="team-pos">Frontend</div>
               <br />
               <div className="info-us">
