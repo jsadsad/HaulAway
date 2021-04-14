@@ -5,12 +5,16 @@
   font-family: 'Montserrat', sans-serif;
   text-align: center;
   cursor: default;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form-wrap {
   display: flex;
   flex-direction: column;
+  height: 80vh;
   justify-content: center;
+  align-items: center;
 }
 
 .sign-in-letters {
@@ -95,7 +99,7 @@
 }
 
 .sign-up-link:hover {
-  color: #4b5fd3;
+  text-decoration: underline;
 }
 
 .sign-up-new {

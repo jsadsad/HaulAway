@@ -11,7 +11,11 @@ input:focus {
 }
 
 .signup-form-wrapper {
-  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: center;
+  align-items: center;
 }
 
 .signup-form-header {
@@ -84,10 +88,11 @@ input:focus {
   font-size: 14px;
   color: #1fce6d;
   font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .login-link:hover {
-  color: #4b5fd3;
+  text-decoration: underline;
 }
 
 .signup-login-link {
