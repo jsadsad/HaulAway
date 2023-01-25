@@ -1,7 +1,5 @@
 # HaulAway
 
-[Live!](https://haulaway.herokuapp.com/#/)
-
 # Summary
 
 _HaulAway_ is a user-to-user service that helps alleviate the difficulties of moving _haul_ from one destination to the next.
@@ -50,7 +48,7 @@ Users have to submit a form with required fields such as _pickup_, _destination_
 
 In the Job Index, only available jobs are shown through a `selector`.
 
-```
+```js
 export const getAvailableJobs = (state) => {
   return Object.values(state.entities.jobs).filter((job) => job.isAvailable)
 }
@@ -64,7 +62,7 @@ Googles Maps is dynamically supported to show where a destination or pickup can 
 
 On the job form, there is a default location until the _Destination_ is submitted. Using `geolib`, distance is calculated from Pickup to Destination. Once distanced is obtained, a price is also able to be generated and stored within every new Job.
 
-```
+```js
   onDestinationSelected(place) {
     const address = place.formatted_address,
       latValue = place.geometry.location.lat(),
@@ -93,7 +91,7 @@ On the job form, there is a default location until the _Destination_ is submitte
 
 Users have the ability to upload multiple photos at once and images are uniquely stored in the _MongoDB_ Collection.
 
-```
+```js
 router.post('/uploads', upload.array('file', 12), (req, res) => {
   const file = req.files
   let s3bucket = new AWS.S3({
@@ -135,7 +133,7 @@ router.post('/uploads', upload.array('file', 12), (req, res) => {
 
 Once 2 Users (1 Job Poster and 1 Job Taker) have interacted and closed a job, they now have the ability to review each other. Reviews are able to be updated or deleted.
 
-```
+```js
   reviewJobButtons() {
     const job = this.props.job
     if (!job.reviews.includes(this.props.currentUserId)) {
